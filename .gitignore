@@ -1,6 +1,7 @@
 .DS_Store
 /config.toml
 /config.toml.bak
+client_secret*.json
 /storage/
 /.idea/
 /app/services/__pycache__

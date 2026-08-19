@@ -486,6 +486,71 @@ Solution: [See how to download the model manually from Hugging Face](#subtitle-g
 
 </details>
 
+## Automated Video Generation (GitHub Actions) 🤖
+
+The included GitHub Actions workflow generates a new AI short video every 2 hours and uploads it directly to YouTube. It runs entirely on GitHub Actions runners — no local machine needed after setup.
+
+### 1. Get YouTube API Credentials (One-Time)
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a project (or select an existing one)
+3. Navigate to **APIs & Services → Library** and enable **YouTube Data API v3**
+4. Go to **APIs & Services → Credentials → Create Credentials → OAuth 2.0 Client ID**
+5. Application type: **Desktop app** — download the JSON file
+6. Run the helper script locally:
+
+```shell
+pip install google-auth-oauthlib
+python scripts/get_youtube_token.py --client-secrets client_secret_xxx.json
+```
+
+7. A browser window opens — sign in with the Google account that owns the YouTube channel
+8. The script prints 3 values: `YOUTUBE_CLIENT_ID`, `YOUTUBE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN`
+
+### 2. Add GitHub Secrets
+
+Go to your repo → **Settings → Secrets and variables → Actions → New repository secret** and add:
+
+| Secret Name | Required | Where to Get It |
+|---|---|---|
+| `GROQ_API_KEY` | ✅ | [console.groq.com/keys](https://console.groq.com/keys) |
+| `PEXELS_API_KEY` | ✅ | [pexels.com/api](https://www.pexels.com/api/) |
+| `YOUTUBE_CLIENT_ID` | ✅ | From step 1 above |
+| `YOUTUBE_CLIENT_SECRET` | ✅ | From step 1 above |
+| `YOUTUBE_REFRESH_TOKEN` | ✅ | From step 1 above |
+| `PIXABAY_API_KEY` | Optional | [pixabay.com/api/docs](https://pixabay.com/api/docs/) |
+| `COVERR_API_KEY` | Optional | [coverr.co/developers](https://coverr.co/developers) |
+
+> **Never** put API keys in `config.toml` or any committed file. The workflow builds `config.toml` at runtime from `config.example.toml` + secrets.
+
+### 3. Test Before Trusting the Schedule
+
+1. Push all changes to your repo (the workflow file, scripts, etc.)
+2. Go to **Actions → Auto Video Generator → Run workflow** (the `workflow_dispatch` button)
+3. Watch the logs in real time — you'll see: topic selection → config build → video generation → YouTube upload
+4. Check that the video appears on your YouTube channel
+5. Once confirmed, the `cron: '0 */2 * * *'` schedule handles everything automatically
+
+### 4. Change the Frequency
+
+Edit the cron expression in `.github/workflows/auto-video.yml`:
+
+```yaml
+schedule:
+  - cron: '0 */2 * * *'  # Every 2 hours (default)
+  # - cron: '0 */4 * * *'  # Every 4 hours
+  # - cron: '0 */6 * * *'  # Every 6 hours
+  # - cron: '0 9,21 * * *' # Twice a day at 9 AM and 9 PM UTC
+```
+
+### 5. How It Works
+
+1. **Topic picker** (`scripts/pick_topic.py`) selects from 60 curated topics across AI/tech, finance, self-improvement, and science — tracking history in `scripts/topic_history.json` to avoid repeats
+2. **Config builder** (`scripts/build_config.py`) constructs `config.toml` from `config.example.toml` with secrets injected
+3. **CLI generation** runs `cli.py --video-subject "..." --paragraph-number 2 --video-aspect 9:16` with Edge TTS (free, no GPU)
+4. **YouTube upload** (`scripts/upload_youtube.py`) uses the YouTube Data API v3 with OAuth2 refresh tokens
+5. **Topic history** is committed back to the repo so the next run picks a different topic
+
 ## Feedback & Suggestions 📢
 
 - You can submit an [issue](https://github.com/harry0703/MoneyPrinterTurbo/issues) or a [pull request](https://github.com/harry0703/MoneyPrinterTurbo/pulls).
