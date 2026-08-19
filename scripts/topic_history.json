@@ -9,8 +9,17 @@
       "timestamp": "2026-08-19T16:15:13.539916+00:00"
     },
     {
+<<<<<<< Updated upstream
       "topic": "How robots are transforming warehouse logistics",
       "timestamp": "2026-08-19T16:36:46.555073+00:00"
+=======
+      "topic": "The Pomodoro technique and why it works so well",
+      "timestamp": "2026-08-19T16:29:17.516850+00:00"
+    },
+    {
+      "topic": "AI predicts your next life decision in seconds",
+      "timestamp": "2026-08-19T16:33:13.474520+00:00"
+>>>>>>> Stashed changes
     }
   ]
 }
