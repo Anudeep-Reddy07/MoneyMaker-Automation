@@ -125,21 +125,10 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           TOPIC="${{ steps.topic.outputs.topic }}"
-          DESCRIPTION=$(cat <<EOF
-          ${TOPIC}
-
-          An AI-generated short video.
-          Created automatically with MoneyPrinterTurbo.
-
-          #shorts #ai #technology #science #education
-          EOF
-          )
 
           uv run python scripts/upload_youtube.py \
             --video-file "${{ steps.generate.outputs.video_file }}" \
             --title "$TOPIC" \
-            --description "$DESCRIPTION" \
-            --tags "AI,shorts,technology,science,education,self-improvement,finance" \
             --privacy public
 
           echo "### 📤 Uploaded to YouTube" >> "$GITHUB_STEP_SUMMARY"

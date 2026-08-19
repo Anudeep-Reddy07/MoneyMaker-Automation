@@ -157,19 +157,77 @@ def upload_video(
     return result
 
 
+def format_viral_metadata(
+    topic: str, custom_description: str = "", custom_tags: str = ""
+) -> tuple[str, str, list[str]]:
+    """Format high-converting, viral YouTube Shorts title, description, and tags."""
+    clean_topic = topic.strip()
+
+    # 1. Title formatting with viral tags
+    title_suffix = " 🔥 #shorts #viral"
+    if "#shorts" not in clean_topic.lower():
+        max_len = 100 - len(title_suffix)
+        trimmed = clean_topic[:max_len].rstrip() if len(clean_topic) > max_len else clean_topic
+        title = f"{trimmed}{title_suffix}"
+    else:
+        title = clean_topic[:100]
+
+    # 2. High-engagement Description without any tool/bot mentions
+    if custom_description.strip() and "moneyprinter" not in custom_description.lower():
+        description = custom_description.strip()
+    else:
+        description = (
+            f"✨ {clean_topic}\n\n"
+            "💡 Watch till the end for the full breakdown!\n\n"
+            "👍 Like if you learned something new today!\n"
+            "💬 Drop your thoughts or experience in the comments below!\n"
+            "🔔 Subscribe for daily life-changing insights, facts & tips!\n\n"
+            "#shorts #viral #trending #fyp #foryou #knowledge #insights "
+            "#education #mindset #facts #lifehacks #ytshorts #dailyinsights #productivity"
+        )
+
+    # 3. High-volume SEO Tags
+    if custom_tags.strip():
+        tags = [t.strip() for t in custom_tags.split(",") if t.strip()]
+    else:
+        tags = [
+            "shorts",
+            "youtube shorts",
+            "viral",
+            "trending",
+            "fyp",
+            "foryou",
+            "explore",
+            "facts",
+            "knowledge",
+            "insights",
+            "life tips",
+            "education",
+            "mindset",
+            "motivation",
+            "tech",
+            "science",
+            "finance",
+            "yt shorts",
+            "daily shorts",
+        ]
+
+    return title, description, tags
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Upload a video to YouTube")
     parser.add_argument(
         "--video-file", required=True, help="Path to the .mp4 file"
     )
-    parser.add_argument("--title", required=True, help="Video title")
+    parser.add_argument("--title", required=True, help="Video title or topic")
     parser.add_argument(
-        "--description", default="", help="Video description"
+        "--description", default="", help="Optional custom video description"
     )
     parser.add_argument(
         "--tags",
-        default="AI,shorts,technology,science,education",
-        help="Comma-separated tags",
+        default="",
+        help="Optional comma-separated tags",
     )
     parser.add_argument(
         "--privacy",
@@ -202,15 +260,21 @@ def main() -> None:
         print(f"ERROR: Video file not found: {args.video_file}", file=sys.stderr)
         sys.exit(1)
 
+    # ── Format Viral Metadata ──────────────────────────────────────────
+    title, description, tags = format_viral_metadata(
+        topic=args.title,
+        custom_description=args.description,
+        custom_tags=args.tags,
+    )
+
     # ── Execute ─────────────────────────────────────────────────────────
     access_token = get_access_token(client_id, client_secret, refresh_token)
-    tags = [t.strip() for t in args.tags.split(",") if t.strip()]
 
     result = upload_video(
         access_token=access_token,
         video_file=args.video_file,
-        title=args.title,
-        description=args.description,
+        title=title,
+        description=description,
         tags=tags,
         privacy_status=args.privacy,
     )
