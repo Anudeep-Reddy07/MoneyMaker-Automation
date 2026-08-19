@@ -47,8 +47,8 @@ jobs:
       - name: Install project dependencies
         run: uv sync --frozen
 
-      - name: Install FFmpeg
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Verify FFmpeg
+        run: ffmpeg -version | head -n 2
 
       # ── Build config.toml from secrets ────────────────────────────────
       - name: Build config.toml
