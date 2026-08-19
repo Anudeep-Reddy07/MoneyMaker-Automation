@@ -5,7 +5,7 @@ on:
     # Every 2 hours. Adjust the cron expression to change frequency.
     # Tip: '0 */4 * * *' = every 4 hours, '0 */6 * * *' = every 6 hours.
     - cron: '0 */2 * * *'
-  workflow_dispatch: {}  # Manual trigger — use this for testing first.
+  workflow_dispatch:
 
 # Prevent overlapping runs. If a previous run is still generating a video,
 # new triggers are skipped (NOT cancelled) so a mid-render job is never killed.
