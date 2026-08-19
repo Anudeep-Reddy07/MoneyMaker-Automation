@@ -6,6 +6,11 @@ on:
     # Tip: '0 */4 * * *' = every 4 hours, '0 */6 * * *' = every 6 hours.
     - cron: '0 */2 * * *'
   workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Manual topic override (leave empty to pick automatically)'
+        required: false
+        default: ''
 
 # Prevent overlapping runs. If a previous run is still generating a video,
 # new triggers are skipped (NOT cancelled) so a mid-render job is never killed.
@@ -58,7 +63,13 @@ jobs:
       - name: Pick video topic
         id: topic
         run: |
-          TOPIC=$(python scripts/pick_topic.py)
+          MANUAL_TOPIC="${{ inputs.topic }}"
+          if [ -n "$MANUAL_TOPIC" ]; then
+            TOPIC="$MANUAL_TOPIC"
+            echo "Using manual topic override: $TOPIC"
+          else
+            TOPIC=$(python scripts/pick_topic.py)
+          fi
           echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
           echo "### 🎬 Chosen Topic" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
