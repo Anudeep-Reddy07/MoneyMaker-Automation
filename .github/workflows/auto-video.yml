@@ -94,7 +94,9 @@ jobs:
             --voice-name "en-US-AndrewNeural-Male" \
             --video-aspect 9:16 \
             --paragraph-number 2 \
-            --video-count 1
+            --video-count 1 \
+            --bgm-type random \
+            --bgm-volume 0.15
 
           # Locate the generated .mp4 file inside the task directory.
           VIDEO_FILE=$(find "storage/tasks/$TASK_ID" -name "*.mp4" -type f | head -1)
