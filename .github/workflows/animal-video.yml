@@ -2,19 +2,22 @@ name: Animal Video Generator
 
 on:
   schedule:
-    # Every 3 hours, at 15 minutes past the hour.
-    - cron: '15 */3 * * *'
+    # Every 3 hours, at 15 minutes past the hour
+    - cron: "15 */3 * * *"
 
   workflow_dispatch:
     inputs:
       topic:
-        description: 'Manual animal topic override (leave empty for random animal topic)'
+        description: "Manual animal topic override (leave empty for AI-generated topic)"
         required: false
-        default: ''
+        default: ""
 
 concurrency:
   group: animal-video-generation
   cancel-in-progress: false
+
+permissions:
+  contents: write
 
 jobs:
   generate-and-upload:
@@ -32,7 +35,7 @@ jobs:
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
@@ -54,54 +57,182 @@ jobs:
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
         run: python scripts/build_config.py
 
-      # ── Pick animal topic ──────────────────────────────────────────
+      # ── Generate animal topic ──────────────────────────────────────
       - name: Pick animal video topic
         id: topic
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MANUAL_TOPIC: ${{ inputs.topic }}
         run: |
-          MANUAL_TOPIC="${{ inputs.topic }}"
+          TOPIC=$(python - <<'PY'
+          import os
+          import json
+          import random
+          import requests
+          from pathlib import Path
+          from datetime import datetime, timezone
 
-          if [ -n "$MANUAL_TOPIC" ]; then
-            TOPIC="$MANUAL_TOPIC"
-            echo "Using manual topic override: $TOPIC"
-          else
-            TOPICS=(
-              "Why octopuses are the smartest animals in the ocean"
-              "How dogs understand human emotions"
-              "The incredible hunting strategies of wild cats"
-              "Why elephants never forget their family members"
-              "How dolphins communicate with unique sounds"
-              "The hidden intelligence of crows"
-              "Why axolotls can regenerate their body parts"
-              "How penguins survive extreme cold"
-              "The surprising teamwork of wolves"
-              "Why cats purr and what it really means"
-              "How ants build complex underground cities"
-              "The amazing migration journey of monarch butterflies"
-              "Why sharks are essential for ocean ecosystems"
-              "How bees communicate the location of flowers"
-              "The incredible survival skills of desert animals"
-              "Why owls can hunt almost silently"
-              "How chameleons change their colors"
-              "The secret abilities of hummingbirds"
-              "Why giraffes have such long necks"
-              "How sea turtles navigate across oceans"
-              "The unusual defense mechanisms of animals"
-              "Why flamingos stand on one leg"
-              "How spiders create perfectly designed webs"
-              "The intelligence of orangutans"
-              "How polar bears survive in freezing temperatures"
-              "Why kangaroos carry their babies in pouches"
-              "The fascinating social life of meerkats"
-              "How bats use echolocation to hunt"
-              "Why crocodiles have survived for millions of years"
-              "The incredible speed of cheetahs"
-            )
+          history_file = Path("scripts/animal_topic_history.json")
 
-            TOPIC="${TOPICS[$RANDOM % ${#TOPICS[@]}]}"
-            echo "Selected animal topic: $TOPIC"
+          fallback_topics = [
+              "Why octopuses are smarter than you think",
+              "How elephants communicate across huge distances",
+              "The hidden intelligence of crows",
+              "Why owls can fly almost silently",
+              "How dolphins communicate with unique sounds",
+              "The incredible survival skills of desert animals",
+              "Why axolotls can regenerate body parts",
+              "How ants build complex underground cities",
+              "The surprising teamwork of wolves",
+              "How bats use echolocation to navigate",
+          ]
+
+          def load_history():
+              if not history_file.exists():
+                  return []
+
+              try:
+                  data = json.loads(history_file.read_text())
+                  return data.get("topics", [])[-20:]
+              except Exception:
+                  return []
+
+          def save_topic(topic):
+              try:
+                  if history_file.exists():
+                      data = json.loads(history_file.read_text())
+                  else:
+                      data = {"topics": []}
+
+                  if "topics" not in data:
+                      data["topics"] = []
+
+                  data["topics"].append(topic)
+                  data["topics"] = data["topics"][-100:]
+
+                  history_file.write_text(
+                      json.dumps(data, indent=2) + "\n"
+                  )
+              except Exception as error:
+                  print(
+                      f"Warning: Could not save topic history: {error}",
+                      file=__import__("sys").stderr
+                  )
+
+          manual_topic = os.environ.get("MANUAL_TOPIC", "").strip()
+
+          if manual_topic:
+              topic = manual_topic
+          else:
+              recent_topics = load_history()
+              recent_text = "\n".join(
+                  f"- {item}" for item in recent_topics
+              ) or "None"
+
+              prompt = f"""
+          Generate exactly ONE fresh and engaging YouTube Shorts topic
+          about animals or wildlife.
+
+          Possible themes:
+          - Animal intelligence
+          - Strange animal behavior
+          - Wildlife survival
+          - Animal communication
+          - Hunting strategies
+          - Evolutionary adaptations
+          - Unbelievable animal facts
+          - Animal relationships
+
+          Recently used topics:
+          {recent_text}
+
+          Requirements:
+          1. Generate a fresh topic.
+          2. Do not repeat or closely rephrase recent topics.
+          3. Use 7 to 12 words.
+          4. Make it curiosity-driven and interesting.
+          5. Ensure stock footage can be used.
+          6. Discuss animals or wildlife only.
+          7. Return ONLY the topic title.
+          """
+
+              try:
+                  response = requests.post(
+                      "https://api.groq.com/openai/v1/chat/completions",
+                      headers={
+                          "Authorization": (
+                              f"Bearer {os.environ['GROQ_API_KEY']}"
+                          ),
+                          "Content-Type": "application/json",
+                      },
+                      json={
+                          "model": "openai/gpt-oss-120b",
+                          "messages": [
+                              {
+                                  "role": "system",
+                                  "content": (
+                                      "Generate creative animal-focused "
+                                      "YouTube Shorts topics."
+                                  ),
+                              },
+                              {
+                                  "role": "user",
+                                  "content": prompt,
+                              },
+                          ],
+                          "temperature": 0.9,
+                          "max_tokens": 100,
+                      },
+                      timeout=30,
+                  )
+
+                  response.raise_for_status()
+
+                  topic = (
+                      response.json()["choices"][0]["message"]["content"]
+                      .strip()
+                      .strip('"')
+                      .strip("'")
+                      .strip()
+                  )
+
+                  if not topic:
+                      raise ValueError("Empty topic returned by Groq")
+
+              except Exception as error:
+                  print(
+                      f"Groq generation failed: {error}",
+                      file=__import__("sys").stderr
+                  )
+
+                  available = [
+                      item for item in fallback_topics
+                      if item not in recent_topics
+                  ]
+
+                  topic = random.choice(
+                      available or fallback_topics
+                  )
+
+          save_topic(topic)
+
+          # Print only the topic to stdout.
+          print(topic)
+          PY
+          )
+
+          if [ -z "$TOPIC" ]; then
+            echo "::error::Topic generation failed"
+            exit 1
           fi
 
-          echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
+          echo "Selected animal topic: $TOPIC"
+
+          {
+            echo "topic<<EOF"
+            echo "$TOPIC"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
           echo "### 🐾 Animal Video Topic" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
@@ -112,10 +243,12 @@ jobs:
         id: generate
         run: |
           TASK_ID=$(python -c "import uuid; print(uuid.uuid4())")
+
           echo "task_id=$TASK_ID" >> "$GITHUB_OUTPUT"
 
           echo "Starting animal video generation..."
           echo "Task ID: $TASK_ID"
+          echo "Topic: ${{ steps.topic.outputs.topic }}"
 
           uv run python cli.py \
             --task-id "$TASK_ID" \
@@ -136,6 +269,7 @@ jobs:
 
           if [ -z "$VIDEO_FILE" ]; then
             echo "::error::No MP4 file found"
+
             ls -lR "storage/tasks/$TASK_ID" || true
             exit 1
           fi
@@ -168,6 +302,25 @@ jobs:
             --privacy public
 
           echo "### 📤 Animal Video Uploaded" >> "$GITHUB_STEP_SUMMARY"
+
+      # ── Save topic history ─────────────────────────────────────────
+      - name: Save animal topic history
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add scripts/animal_topic_history.json
+
+          if git diff --cached --quiet; then
+            echo "No topic history changes to commit"
+          else
+            git commit -m "[skip ci] Update animal topic history"
+
+            git pull --rebase origin "$(git branch --show-current)"
+
+            git push
+          fi
 
       # ── Final summary ──────────────────────────────────────────────
       - name: Summary
