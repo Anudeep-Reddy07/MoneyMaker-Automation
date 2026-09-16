@@ -65,12 +65,12 @@ jobs:
           MANUAL_TOPIC: ${{ inputs.topic }}
         run: |
           TOPIC=$(python - <<'PY'
-          import os
           import json
+          import os
           import random
-          import requests
+          import sys
+          import urllib.request
           from pathlib import Path
-          from datetime import datetime, timezone
 
           history_file = Path("scripts/animal_topic_history.json")
 
@@ -113,18 +113,14 @@ jobs:
                   history_file.write_text(
                       json.dumps(data, indent=2) + "\n"
                   )
+
               except Exception as error:
                   print(
                       f"Warning: Could not save topic history: {error}",
-                      file=__import__("sys").stderr
+                      file=sys.stderr
                   )
 
-          manual_topic = os.environ.get("MANUAL_TOPIC", "").strip()
-
-          if manual_topic:
-              topic = manual_topic
-          else:
-              recent_topics = load_history()
+          def generate_topic(recent_topics):
               recent_text = "\n".join(
                   f"- {item}" for item in recent_topics
               ) or "None"
@@ -142,6 +138,8 @@ jobs:
           - Evolutionary adaptations
           - Unbelievable animal facts
           - Animal relationships
+          - Rare animal abilities
+          - Animal mysteries
 
           Recently used topics:
           {recent_text}
@@ -151,72 +149,89 @@ jobs:
           2. Do not repeat or closely rephrase recent topics.
           3. Use 7 to 12 words.
           4. Make it curiosity-driven and interesting.
-          5. Ensure stock footage can be used.
+          5. Ensure suitable stock footage can be found.
           6. Discuss animals or wildlife only.
-          7. Return ONLY the topic title.
+          7. Avoid generic topics.
+          8. Return ONLY the topic title.
           """
 
-              try:
-                  response = requests.post(
-                      "https://api.groq.com/openai/v1/chat/completions",
-                      headers={
-                          "Authorization": (
-                              f"Bearer {os.environ['GROQ_API_KEY']}"
+              payload = {
+                  "model": "openai/gpt-oss-120b",
+                  "messages": [
+                      {
+                          "role": "system",
+                          "content": (
+                              "Generate creative, curiosity-driven "
+                              "animal-focused YouTube Shorts topics."
                           ),
-                          "Content-Type": "application/json",
                       },
-                      json={
-                          "model": "openai/gpt-oss-120b",
-                          "messages": [
-                              {
-                                  "role": "system",
-                                  "content": (
-                                      "Generate creative animal-focused "
-                                      "YouTube Shorts topics."
-                                  ),
-                              },
-                              {
-                                  "role": "user",
-                                  "content": prompt,
-                              },
-                          ],
-                          "temperature": 0.9,
-                          "max_tokens": 100,
+                      {
+                          "role": "user",
+                          "content": prompt,
                       },
-                      timeout=30,
+                  ],
+                  "temperature": 0.9,
+                  "max_tokens": 100,
+              }
+
+              request = urllib.request.Request(
+                  "https://api.groq.com/openai/v1/chat/completions",
+                  data=json.dumps(payload).encode("utf-8"),
+                  headers={
+                      "Authorization": (
+                          f"Bearer {os.environ['GROQ_API_KEY']}"
+                      ),
+                      "Content-Type": "application/json",
+                  },
+                  method="POST",
+              )
+
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  result = json.loads(
+                      response.read().decode("utf-8")
                   )
 
-                  response.raise_for_status()
+              topic = (
+                  result["choices"][0]["message"]["content"]
+                  .strip()
+                  .strip('"')
+                  .strip("'")
+                  .strip()
+              )
 
-                  topic = (
-                      response.json()["choices"][0]["message"]["content"]
-                      .strip()
-                      .strip('"')
-                      .strip("'")
-                      .strip()
-                  )
+              if not topic:
+                  raise ValueError("Empty topic returned by Groq")
 
-                  if not topic:
-                      raise ValueError("Empty topic returned by Groq")
+              return topic
+
+          manual_topic = os.environ.get("MANUAL_TOPIC", "").strip()
+          recent_topics = load_history()
+
+          if manual_topic:
+              topic = manual_topic
+          else:
+              try:
+                  topic = generate_topic(recent_topics)
 
               except Exception as error:
                   print(
                       f"Groq generation failed: {error}",
-                      file=__import__("sys").stderr
+                      file=sys.stderr
                   )
 
-                  available = [
-                      item for item in fallback_topics
+                  available_topics = [
+                      item
+                      for item in fallback_topics
                       if item not in recent_topics
                   ]
 
                   topic = random.choice(
-                      available or fallback_topics
+                      available_topics or fallback_topics
                   )
 
           save_topic(topic)
 
-          # Print only the topic to stdout.
+          # Print only the final topic to stdout.
           print(topic)
           PY
           )
@@ -307,6 +322,11 @@ jobs:
       - name: Save animal topic history
         if: always()
         run: |
+          if [ ! -f "scripts/animal_topic_history.json" ]; then
+            echo "No animal topic history file found. Skipping."
+            exit 0
+          fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
