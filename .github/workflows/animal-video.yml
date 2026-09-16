@@ -1,0 +1,184 @@
+name: Animal Video Generator
+
+on:
+  schedule:
+    # Every 3 hours, at 15 minutes past the hour.
+    - cron: '15 */3 * * *'
+
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Manual animal topic override (leave empty for random animal topic)'
+        required: false
+        default: ''
+
+concurrency:
+  group: animal-video-generation
+  cancel-in-progress: false
+
+jobs:
+  generate-and-upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      # ── Setup ──────────────────────────────────────────────────────
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install project dependencies
+        run: uv sync --frozen
+
+      - name: Verify FFmpeg
+        run: ffmpeg -version | head -n 2
+
+      # ── Build configuration ───────────────────────────────────────
+      - name: Build config.toml
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+        run: python scripts/build_config.py
+
+      # ── Pick animal topic ──────────────────────────────────────────
+      - name: Pick animal video topic
+        id: topic
+        run: |
+          MANUAL_TOPIC="${{ inputs.topic }}"
+
+          if [ -n "$MANUAL_TOPIC" ]; then
+            TOPIC="$MANUAL_TOPIC"
+            echo "Using manual topic override: $TOPIC"
+          else
+            TOPICS=(
+              "Why octopuses are the smartest animals in the ocean"
+              "How dogs understand human emotions"
+              "The incredible hunting strategies of wild cats"
+              "Why elephants never forget their family members"
+              "How dolphins communicate with unique sounds"
+              "The hidden intelligence of crows"
+              "Why axolotls can regenerate their body parts"
+              "How penguins survive extreme cold"
+              "The surprising teamwork of wolves"
+              "Why cats purr and what it really means"
+              "How ants build complex underground cities"
+              "The amazing migration journey of monarch butterflies"
+              "Why sharks are essential for ocean ecosystems"
+              "How bees communicate the location of flowers"
+              "The incredible survival skills of desert animals"
+              "Why owls can hunt almost silently"
+              "How chameleons change their colors"
+              "The secret abilities of hummingbirds"
+              "Why giraffes have such long necks"
+              "How sea turtles navigate across oceans"
+              "The unusual defense mechanisms of animals"
+              "Why flamingos stand on one leg"
+              "How spiders create perfectly designed webs"
+              "The intelligence of orangutans"
+              "How polar bears survive in freezing temperatures"
+              "Why kangaroos carry their babies in pouches"
+              "The fascinating social life of meerkats"
+              "How bats use echolocation to hunt"
+              "Why crocodiles have survived for millions of years"
+              "The incredible speed of cheetahs"
+            )
+
+            TOPIC="${TOPICS[$RANDOM % ${#TOPICS[@]}]}"
+            echo "Selected animal topic: $TOPIC"
+          fi
+
+          echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
+
+          echo "### 🐾 Animal Video Topic" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "> $TOPIC" >> "$GITHUB_STEP_SUMMARY"
+
+      # ── Generate video ─────────────────────────────────────────────
+      - name: Generate video
+        id: generate
+        run: |
+          TASK_ID=$(python -c "import uuid; print(uuid.uuid4())")
+          echo "task_id=$TASK_ID" >> "$GITHUB_OUTPUT"
+
+          echo "Starting animal video generation..."
+          echo "Task ID: $TASK_ID"
+
+          uv run python cli.py \
+            --task-id "$TASK_ID" \
+            --video-subject "${{ steps.topic.outputs.topic }}" \
+            --video-language en-US \
+            --voice-name "en-US-AndrewNeural-Male" \
+            --video-aspect 9:16 \
+            --paragraph-number 2 \
+            --video-count 1 \
+            --bgm-type random \
+            --bgm-volume 0.15
+
+          VIDEO_FILE=$(find "storage/tasks/$TASK_ID" \
+            -name "*.mp4" \
+            -type f | head -1)
+
+          echo "video_file=$VIDEO_FILE" >> "$GITHUB_OUTPUT"
+
+          if [ -z "$VIDEO_FILE" ]; then
+            echo "::error::No MP4 file found"
+            ls -lR "storage/tasks/$TASK_ID" || true
+            exit 1
+          fi
+
+          FILE_SIZE=$(stat --printf='%s' "$VIDEO_FILE" 2>/dev/null || stat -f '%z' "$VIDEO_FILE")
+          FILE_SIZE_MB=$(echo "scale=1; $FILE_SIZE / 1048576" | bc)
+
+          echo "### ✅ Animal Video Generated" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Field | Value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Task ID | \`$TASK_ID\` |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Video | \`$VIDEO_FILE\` |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Size | ${FILE_SIZE_MB} MB |" >> "$GITHUB_STEP_SUMMARY"
+
+      # ── Upload to YouTube ──────────────────────────────────────────
+      - name: Upload to YouTube
+        id: upload
+        if: steps.generate.outputs.video_file != ''
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          TOPIC="${{ steps.topic.outputs.topic }}"
+
+          uv run python scripts/upload_youtube.py \
+            --video-file "${{ steps.generate.outputs.video_file }}" \
+            --title "$TOPIC" \
+            --privacy public
+
+          echo "### 📤 Animal Video Uploaded" >> "$GITHUB_STEP_SUMMARY"
+
+      # ── Final summary ──────────────────────────────────────────────
+      - name: Summary
+        if: always()
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "  ANIMAL VIDEO EXPERIMENT"
+          echo "  TOPIC:     ${{ steps.topic.outputs.topic }}"
+          echo "  TASK ID:   ${{ steps.generate.outputs.task_id }}"
+          echo "  VIDEO:     ${{ steps.generate.outputs.video_file }}"
+          echo "  GENERATE:  ${{ steps.generate.outcome }}"
+          echo "  UPLOAD:    ${{ steps.upload.outcome }}"
+          echo "=========================================="
