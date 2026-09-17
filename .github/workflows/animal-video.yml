@@ -103,11 +103,7 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           TOPIC="${{ steps.topic.outputs.topic }}"
-          DESCRIPTION="🐾 $TOPIC
-
-Discover fascinating animal behavior, wildlife facts, and incredible facts from nature.
-
-#shorts #viral #trending #animals #wildlife #nature #animalfacts #interestingfacts #animalbehavior #wildlifefacts #naturelovers #facts"
+          DESCRIPTION="🐾 $TOPIC Discover fascinating animal behavior, wildlife facts, and incredible facts from nature.#shorts #viral #trending #animals #wildlife #nature #animalfacts #interestingfacts #animalbehavior #wildlifefacts #naturelovers #facts"
           TAGS="shorts,youtube shorts,viral,trending,animals,wildlife,nature,animal facts,wildlife facts,interesting facts,animal behavior,nature facts,animal documentary,facts"
           uv run python scripts/upload_youtube.py \
             --video-file "${{ steps.generate.outputs.video_file }}" \
