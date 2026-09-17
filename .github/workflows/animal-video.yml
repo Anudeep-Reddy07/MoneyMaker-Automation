@@ -72,6 +72,8 @@ jobs:
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           TOPIC_CATEGORY: ${{ inputs.category }}
+          TOPIC_NICHE: animal                              
+          TOPIC_HISTORY_FILE: scripts/topic_history_animal.json   
         run: |
           MANUAL_TOPIC="${{ inputs.topic }}"
           if [ -n "$MANUAL_TOPIC" ]; then
