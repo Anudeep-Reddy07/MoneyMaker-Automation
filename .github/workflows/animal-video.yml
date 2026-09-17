@@ -99,10 +99,7 @@ jobs:
           request = urllib.request.Request(
               "https://api.groq.com/openai/v1/chat/completions",
               data=json.dumps(payload).encode("utf-8"),
-              headers={
-                  "Authorization": f"Bearer {api_key}",
-                  "Content-Type": "application/json"
-              },
+              headers={"Authorization": f"Bearer {api_key}","Content-Type": "application/json","User-Agent": "Mozilla/5.0 (compatible; GitHubActions/1.0)"},
               method="POST"
           )
 
