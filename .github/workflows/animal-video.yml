@@ -22,7 +22,7 @@ on:
 # Prevent overlapping runs. If a previous run is still generating a video,
 # new triggers are skipped (NOT cancelled) so a mid-render job is never killed.
 concurrency:
-  group: auto-video-generation
+  group: auto-video-generation-animal
   cancel-in-progress: false
 
 jobs:
