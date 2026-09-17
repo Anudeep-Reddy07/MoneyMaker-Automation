@@ -14,6 +14,12 @@ Required environment variables:
     YOUTUBE_CLIENT_ID       OAuth2 client ID from Google Cloud Console
     YOUTUBE_CLIENT_SECRET   OAuth2 client secret
     YOUTUBE_REFRESH_TOKEN   Long-lived refresh token from one-time OAuth flow
+
+Optional environment variables:
+    TOPIC_NICHE             "animal" switches tags/description/category to the
+                             animal-content set. Defaults to "general" (original
+                             behaviour) when unset — matches the same variable
+                             already set by pick_topic.py / animal-video.yml.
 """
 
 from __future__ import annotations
@@ -32,6 +38,12 @@ YOUTUBE_UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos"
 # Retry configuration for transient upload failures.
 MAX_RETRIES = 3
 RETRY_BACKOFF_SECONDS = 5
+
+NICHE = os.environ.get("TOPIC_NICHE", "general").strip().lower()
+
+# YouTube video category IDs.
+CATEGORY_SCIENCE_TECH = "28"
+CATEGORY_PETS_ANIMALS = "15"
 
 
 def get_access_token(
@@ -68,7 +80,7 @@ def upload_video(
     title: str,
     description: str,
     tags: list[str],
-    category_id: str = "28",  # Science & Technology
+    category_id: str = CATEGORY_SCIENCE_TECH,
     privacy_status: str = "public",
 ) -> dict:
     """Upload a video using the YouTube resumable-upload protocol."""
@@ -157,14 +169,89 @@ def upload_video(
     return result
 
 
+def _format_general_metadata(clean_topic: str) -> tuple[str, list[str]]:
+    """Original description + tags, used when TOPIC_NICHE is not 'animal'."""
+    description = (
+        f"✨ {clean_topic}\n\n"
+        "💡 Watch till the end for the full breakdown!\n\n"
+        "👍 Like if you learned something new today!\n"
+        "💬 Drop your thoughts or experience in the comments below!\n"
+        "🔔 Subscribe for daily life-changing insights, facts & tips!\n\n"
+        "#shorts #viral #trending #fyp #foryou #knowledge #insights "
+        "#education #mindset #facts #lifehacks #ytshorts #dailyinsights #productivity"
+    )
+    tags = [
+        "shorts",
+        "youtube shorts",
+        "viral",
+        "trending",
+        "fyp",
+        "foryou",
+        "explore",
+        "facts",
+        "knowledge",
+        "insights",
+        "life tips",
+        "education",
+        "mindset",
+        "motivation",
+        "tech",
+        "science",
+        "finance",
+        "yt shorts",
+        "daily shorts",
+    ]
+    return description, tags
+
+
+def _format_animal_metadata(clean_topic: str) -> tuple[str, list[str]]:
+    """Animal-niche description + tags."""
+    description = (
+        f"🐾 {clean_topic}\n\n"
+        "💡 Watch till the end for the full story!\n\n"
+        "👍 Like if you love wildlife and nature!\n"
+        "💬 Tell us your favorite animal fact in the comments!\n"
+        "🔔 Subscribe for daily animal facts, wildlife stories & nature videos!\n\n"
+        "#shorts #animal #animals #wildlife #nature #wildlifephotography "
+        "#animalfacts #naturelovers #animallovers #wildlifeplanet #ytshorts "
+        "#fyp #viral #trending #earth"
+    )
+    tags = [
+        "shorts",
+        "youtube shorts",
+        "animal",
+        "animals",
+        "wildlife",
+        "nature",
+        "wildlife photography",
+        "animal facts",
+        "nature lovers",
+        "animal lovers",
+        "wild animals",
+        "wildlife planet",
+        "animal kingdom",
+        "fyp",
+        "viral",
+        "trending",
+        "yt shorts",
+        "earth",
+        "planet earth",
+    ]
+    return description, tags
+
+
 def format_viral_metadata(
-    topic: str, custom_description: str = "", custom_tags: str = ""
+    topic: str,
+    custom_description: str = "",
+    custom_tags: str = "",
+    niche: str = "general",
 ) -> tuple[str, str, list[str]]:
     """Format high-converting, viral YouTube Shorts title, description, and tags."""
     clean_topic = topic.strip()
 
     # 1. Title formatting with viral tags
-    title_suffix = " 🔥 #shorts #viral"
+    title_tag = "#shorts #animal" if niche == "animal" else "#shorts #viral"
+    title_suffix = f" 🔥 {title_tag}"
     if "#shorts" not in clean_topic.lower():
         max_len = 100 - len(title_suffix)
         trimmed = clean_topic[:max_len].rstrip() if len(clean_topic) > max_len else clean_topic
@@ -175,42 +262,21 @@ def format_viral_metadata(
     # 2. High-engagement Description without any tool/bot mentions
     if custom_description.strip() and "moneyprinter" not in custom_description.lower():
         description = custom_description.strip()
-    else:
-        description = (
-            f"✨ {clean_topic}\n\n"
-            "💡 Watch till the end for the full breakdown!\n\n"
-            "👍 Like if you learned something new today!\n"
-            "💬 Drop your thoughts or experience in the comments below!\n"
-            "🔔 Subscribe for daily life-changing insights, facts & tips!\n\n"
-            "#shorts #viral #trending #fyp #foryou #knowledge #insights "
-            "#education #mindset #facts #lifehacks #ytshorts #dailyinsights #productivity"
+        _, default_tags = (
+            _format_animal_metadata(clean_topic)
+            if niche == "animal"
+            else _format_general_metadata(clean_topic)
         )
+    elif niche == "animal":
+        description, default_tags = _format_animal_metadata(clean_topic)
+    else:
+        description, default_tags = _format_general_metadata(clean_topic)
 
     # 3. High-volume SEO Tags
     if custom_tags.strip():
         tags = [t.strip() for t in custom_tags.split(",") if t.strip()]
     else:
-        tags = [
-            "shorts",
-            "youtube shorts",
-            "viral",
-            "trending",
-            "fyp",
-            "foryou",
-            "explore",
-            "facts",
-            "knowledge",
-            "insights",
-            "life tips",
-            "education",
-            "mindset",
-            "motivation",
-            "tech",
-            "science",
-            "finance",
-            "yt shorts",
-            "daily shorts",
-        ]
+        tags = default_tags
 
     return title, description, tags
 
@@ -260,12 +326,15 @@ def main() -> None:
         print(f"ERROR: Video file not found: {args.video_file}", file=sys.stderr)
         sys.exit(1)
 
-    # ── Format Viral Metadata ──────────────────────────────────────────
+    # ── Format Viral Metadata (niche-aware) ───────────────────────────
     title, description, tags = format_viral_metadata(
         topic=args.title,
         custom_description=args.description,
         custom_tags=args.tags,
+        niche=NICHE,
     )
+
+    category_id = CATEGORY_PETS_ANIMALS if NICHE == "animal" else CATEGORY_SCIENCE_TECH
 
     # ── Execute ─────────────────────────────────────────────────────────
     access_token = get_access_token(client_id, client_secret, refresh_token)
@@ -276,6 +345,7 @@ def main() -> None:
         title=title,
         description=description,
         tags=tags,
+        category_id=category_id,
         privacy_status=args.privacy,
     )
 
