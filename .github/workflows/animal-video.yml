@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       topic:
-        description: "Manual animal topic override (leave empty for AI-generated topic)"
+        description: "Manual animal topic override"
         required: false
         default: ""
 
@@ -28,7 +28,7 @@ jobs:
           persist-credentials: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -38,7 +38,7 @@ jobs:
         with:
           enable-cache: true
 
-      - name: Install project dependencies
+      - name: Install dependencies
         run: uv sync --frozen
 
       - name: Verify FFmpeg
@@ -58,75 +58,22 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MANUAL_TOPIC: ${{ inputs.topic }}
         run: |
-          TOPIC=$(python - <<'PY'
-          import json, os, random, sys, urllib.request
-          from pathlib import Path
-
-          history_file = Path("scripts/animal_topic_history.json")
-          fallback_topics = [
-              "Why octopuses are smarter than you think",
-              "How elephants communicate across huge distances",
-              "The hidden intelligence of crows",
-              "Why owls can fly almost silently",
-              "How dolphins communicate with unique sounds",
-              "The incredible survival skills of desert animals",
-              "Why axolotls can regenerate body parts",
-              "How ants build complex underground cities",
-              "The surprising teamwork of wolves",
-              "How bats use echolocation to navigate",
-          ]
-
-          def load_history():
-              try:
-                  return json.loads(history_file.read_text()).get("topics", [])[-20:] if history_file.exists() else []
-              except Exception:
-                  return []
-
-          def save_topic(topic):
-              try:
-                  data = json.loads(history_file.read_text()) if history_file.exists() else {"topics": []}
-                  data.setdefault("topics", []).append(topic)
-                  data["topics"] = data["topics"][-100:]
-                  history_file.write_text(json.dumps(data, indent=2) + "\n")
-              except Exception as error:
-                  print(f"Warning: Could not save topic history: {error}", file=sys.stderr)
-
-          def generate_topic(recent_topics):
-              prompt = f'''Generate exactly ONE fresh and engaging YouTube Shorts topic about animals or wildlife.
-          Requirements: 7 to 12 words, curiosity-driven, suitable stock footage, animals or wildlife only, not generic, return only the topic title.
-          Recently used topics:\n{chr(10).join(f'- {item}' for item in recent_topics) or 'None'}'''
-              payload = {"model": "openai/gpt-oss-120b", "messages": [{"role": "system", "content": "Generate creative, curiosity-driven animal-focused YouTube Shorts topics."}, {"role": "user", "content": prompt}], "temperature": 0.9, "max_tokens": 100}
-              request = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", data=json.dumps(payload).encode(), headers={"Authorization": f"Bearer {os.environ['GROQ_API_KEY']}", "Content-Type": "application/json"}, method="POST")
-              with urllib.request.urlopen(request, timeout=30) as response:
-                  result = json.loads(response.read().decode())
-              return result["choices"][0]["message"]["content"].strip().strip('"').strip("'").strip()
-
-          manual_topic = os.environ.get("MANUAL_TOPIC", "").strip()
-          recent_topics = load_history()
-          if manual_topic:
-              topic = manual_topic
-          else:
-              try:
-                  topic = generate_topic(recent_topics)
-              except Exception as error:
-                  print(f"Groq generation failed: {error}", file=sys.stderr)
-                  available = [item for item in fallback_topics if item not in recent_topics]
-                  topic = random.choice(available or fallback_topics)
-          if not topic:
-              raise ValueError("Topic generation failed")
-          save_topic(topic)
-          print(topic)
+          TOPIC="$MANUAL_TOPIC"
+          if [ -z "$TOPIC" ]; then
+            TOPIC=$(python - <<'PY'
+          import json, os, urllib.request
+          prompt = "Generate exactly one curiosity-driven YouTube Shorts topic about animals or wildlife in 7 to 12 words. Return only the title."
+          payload = {"model":"openai/gpt-oss-120b","messages":[{"role":"user","content":prompt}],"temperature":0.9,"max_tokens":60}
+          request = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", data=json.dumps(payload).encode(), headers={"Authorization":f"Bearer {os.environ['GROQ_API_KEY']}","Content-Type":"application/json"}, method="POST")
+          with urllib.request.urlopen(request, timeout=30) as response:
+              result = json.loads(response.read().decode())
+          print(result["choices"][0]["message"]["content"].strip().strip('"').strip("'"))
           PY
-          )
-          echo "Selected animal topic: $TOPIC"
-          {
-            echo "topic<<EOF"
-            echo "$TOPIC"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-          echo "### 🐾 Animal Video Topic" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "> $TOPIC" >> "$GITHUB_STEP_SUMMARY
+            )
+          fi
+          [ -n "$TOPIC" ] || { echo "::error::Topic generation failed"; exit 1; }
+          echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
+          echo "> $TOPIC" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Generate video
         id: generate
@@ -144,8 +91,8 @@ jobs:
             --bgm-type random \
             --bgm-volume 0.15
           VIDEO_FILE=$(find "storage/tasks/$TASK_ID" -name "*.mp4" -type f | head -1)
+          [ -n "$VIDEO_FILE" ] || { echo "::error::No MP4 file found"; exit 1; }
           echo "video_file=$VIDEO_FILE" >> "$GITHUB_OUTPUT"
-          test -n "$VIDEO_FILE" || { echo "::error::No MP4 file found"; exit 1; }
 
       - name: Upload to YouTube
         id: upload
@@ -158,9 +105,9 @@ jobs:
           TOPIC="${{ steps.topic.outputs.topic }}"
           DESCRIPTION="🐾 $TOPIC
 
-          Discover fascinating animal behavior, wildlife facts, and incredible facts from nature.
+Discover fascinating animal behavior, wildlife facts, and incredible facts from nature.
 
-          #shorts #viral #trending #animals #wildlife #nature #animalfacts #interestingfacts #animalbehavior #wildlifefacts #naturelovers #facts"
+#shorts #viral #trending #animals #wildlife #nature #animalfacts #interestingfacts #animalbehavior #wildlifefacts #naturelovers #facts"
           TAGS="shorts,youtube shorts,viral,trending,animals,wildlife,nature,animal facts,wildlife facts,interesting facts,animal behavior,nature facts,animal documentary,facts"
           uv run python scripts/upload_youtube.py \
             --video-file "${{ steps.generate.outputs.video_file }}" \
@@ -168,27 +115,23 @@ jobs:
             --description "$DESCRIPTION" \
             --tags "$TAGS" \
             --privacy public
-          echo "### 📤 Animal Video Uploaded" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Save animal topic history
         if: always()
         run: |
-          if [ ! -f "scripts/animal_topic_history.json" ]; then exit 0; fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add scripts/animal_topic_history.json
-          if ! git diff --cached --quiet; then
-            git commit -m "[skip ci] Update animal topic history"
-            git pull --rebase origin "$(git branch --show-current)"
-            git push
+          if [ -f scripts/animal_topic_history.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add scripts/animal_topic_history.json
+            if ! git diff --cached --quiet; then
+              git commit -m "[skip ci] Update animal topic history"
+              git push
+            fi
           fi
 
       - name: Summary
         if: always()
         run: |
-          echo "ANIMAL VIDEO EXPERIMENT"
           echo "TOPIC: ${{ steps.topic.outputs.topic }}"
-          echo "TASK ID: ${{ steps.generate.outputs.task_id }}"
-          echo "VIDEO: ${{ steps.generate.outputs.video_file }}"
           echo "GENERATE: ${{ steps.generate.outcome }}"
           echo "UPLOAD: ${{ steps.upload.outcome }}"
