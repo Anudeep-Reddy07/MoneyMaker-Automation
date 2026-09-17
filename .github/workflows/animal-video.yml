@@ -3,6 +3,7 @@ name: Animal Video Generator
 on:
   schedule:
     - cron: "15 */3 * * *"
+
   workflow_dispatch:
     inputs:
       topic:
@@ -21,6 +22,7 @@ jobs:
   generate-and-upload:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -58,28 +60,118 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MANUAL_TOPIC: ${{ inputs.topic }}
         run: |
+          set -euo pipefail
+
           TOPIC="$MANUAL_TOPIC"
+
           if [ -z "$TOPIC" ]; then
             TOPIC=$(python - <<'PY'
-          import json, os, urllib.request
-          prompt = "Generate exactly one curiosity-driven YouTube Shorts topic about animals or wildlife in 7 to 12 words. Return only the title."
-          payload = {"model":"openai/gpt-oss-120b","messages":[{"role":"user","content":prompt}],"temperature":0.9,"max_tokens":60}
-          request = urllib.request.Request("https://api.groq.com/openai/v1/chat/completions", data=json.dumps(payload).encode(), headers={"Authorization":f"Bearer {os.environ['GROQ_API_KEY']}","Content-Type":"application/json"}, method="POST")
-          with urllib.request.urlopen(request, timeout=30) as response:
-              result = json.loads(response.read().decode())
-          print(result["choices"][0]["message"]["content"].strip().strip('"').strip("'"))
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.request
+
+          api_key = os.environ.get("GROQ_API_KEY")
+
+          if not api_key:
+              print("ERROR: GROQ_API_KEY is missing", file=sys.stderr)
+              sys.exit(1)
+
+          prompt = (
+              "Generate exactly one curiosity-driven YouTube Shorts topic "
+              "about animals or wildlife in 7 to 12 words. "
+              "Return only the title, without quotation marks."
+          )
+
+          payload = {
+              "model": "llama-3.3-70b-versatile",
+              "messages": [
+                  {
+                      "role": "user",
+                      "content": prompt
+                  }
+              ],
+              "temperature": 0.9,
+              "max_tokens": 60
+          }
+
+          request = urllib.request.Request(
+              "https://api.groq.com/openai/v1/chat/completions",
+              data=json.dumps(payload).encode("utf-8"),
+              headers={
+                  "Authorization": f"Bearer {api_key}",
+                  "Content-Type": "application/json"
+              },
+              method="POST"
+          )
+
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  response_body = response.read().decode("utf-8")
+                  result = json.loads(response_body)
+
+          except urllib.error.HTTPError as error:
+              error_body = error.read().decode(
+                  "utf-8",
+                  errors="replace"
+              )
+
+              print(
+                  f"Groq API HTTP error: {error.code}",
+                  file=sys.stderr
+              )
+              print(error_body, file=sys.stderr)
+              sys.exit(1)
+
+          except Exception as error:
+              print(
+                  f"Groq API request failed: {error}",
+                  file=sys.stderr
+              )
+              sys.exit(1)
+
+          try:
+              topic = result["choices"][0]["message"]["content"].strip()
+              topic = topic.strip('"').strip("'")
+
+          except (KeyError, IndexError, TypeError) as error:
+              print(
+                  f"Unexpected Groq API response: {result}",
+                  file=sys.stderr
+              )
+              print(f"Parsing error: {error}", file=sys.stderr)
+              sys.exit(1)
+
+          if not topic:
+              print(
+                  "ERROR: Groq returned an empty topic",
+                  file=sys.stderr
+              )
+              sys.exit(1)
+
+          print(topic)
           PY
             )
           fi
-          [ -n "$TOPIC" ] || { echo "::error::Topic generation failed"; exit 1; }
+
+          if [ -z "$TOPIC" ]; then
+            echo "::error::No topic was generated"
+            exit 1
+          fi
+
           echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
           echo "> $TOPIC" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Generate video
         id: generate
         run: |
+          set -euo pipefail
+
           TASK_ID=$(python -c "import uuid; print(uuid.uuid4())")
+
           echo "task_id=$TASK_ID" >> "$GITHUB_OUTPUT"
+
           uv run python cli.py \
             --task-id "$TASK_ID" \
             --video-subject "${{ steps.topic.outputs.topic }}" \
@@ -90,8 +182,16 @@ jobs:
             --video-count 1 \
             --bgm-type random \
             --bgm-volume 0.15
-          VIDEO_FILE=$(find "storage/tasks/$TASK_ID" -name "*.mp4" -type f | head -1)
-          [ -n "$VIDEO_FILE" ] || { echo "::error::No MP4 file found"; exit 1; }
+
+          VIDEO_FILE=$(find "storage/tasks/$TASK_ID" \
+            -name "*.mp4" \
+            -type f | head -1)
+
+          if [ -z "$VIDEO_FILE" ]; then
+            echo "::error::No MP4 file found"
+            exit 1
+          fi
+
           echo "video_file=$VIDEO_FILE" >> "$GITHUB_OUTPUT"
 
       - name: Upload to YouTube
@@ -102,9 +202,18 @@ jobs:
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
+          set -euo pipefail
+
           TOPIC="${{ steps.topic.outputs.topic }}"
-          DESCRIPTION="🐾 $TOPIC Discover fascinating animal behavior, wildlife facts, and incredible facts from nature.#shorts #viral #trending #animals #wildlife #nature #animalfacts #interestingfacts #animalbehavior #wildlifefacts #naturelovers #facts"
+
+          DESCRIPTION="🐾 $TOPIC
+
+          Discover fascinating animal behavior, wildlife facts, and incredible facts from nature.
+
+          #shorts #viral #trending #animals #wildlife #nature #animalfacts #interestingfacts #animalbehavior #wildlifefacts #naturelovers #facts"
+
           TAGS="shorts,youtube shorts,viral,trending,animals,wildlife,nature,animal facts,wildlife facts,interesting facts,animal behavior,nature facts,animal documentary,facts"
+
           uv run python scripts/upload_youtube.py \
             --video-file "${{ steps.generate.outputs.video_file }}" \
             --title "$TOPIC" \
@@ -117,8 +226,10 @@ jobs:
         run: |
           if [ -f scripts/animal_topic_history.json ]; then
             git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git config user.email "41898282+github-actions[bot].com"
+
             git add scripts/animal_topic_history.json
+
             if ! git diff --cached --quiet; then
               git commit -m "[skip ci] Update animal topic history"
               git push
