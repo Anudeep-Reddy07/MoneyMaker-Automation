@@ -152,6 +152,13 @@ jobs:
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
           TOPIC_NICHE: animal  
         run: |
+          # Skip uploads between 12:00 AM and 4:00 AM IST
+          CURRENT_HOUR=$(TZ=Asia/Kolkata date +%H)
+          
+          if [ "$CURRENT_HOUR" -ge 0 ] && [ "$CURRENT_HOUR" -lt 4 ]; then
+            echo "⏸️ Upload skipped: Restricted hours (12 AM–4 AM IST)"
+            exit 0
+          fi
           TOPIC="${{ steps.topic.outputs.topic }}"
 
           uv run python scripts/upload_youtube.py \
