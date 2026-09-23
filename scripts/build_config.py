@@ -9,7 +9,7 @@ Usage (in GitHub Actions):
     GROQ_API_KEY=xxx PEXELS_API_KEY=yyy python scripts/build_config.py
 
 Required env vars:  GROQ_API_KEY, PEXELS_API_KEY
-Optional env vars:  PIXABAY_API_KEY, COVERR_API_KEY
+Optional env vars:  PIXABAY_API_KEY, COVERR_API_KEY, UNSPLASH_ACCESS_KEY, GIPHY_API_KEY
 """
 
 from __future__ import annotations
@@ -74,6 +74,15 @@ def main() -> None:
     coverr_key = os.environ.get("COVERR_API_KEY", "").strip()
     if coverr_key:
         content = _replace_toml_value(content, "coverr_api_keys", f'["{coverr_key}"]')
+
+    # ── Optional multi-source visual providers ───────────────────────────────
+    unsplash_key = os.environ.get("UNSPLASH_ACCESS_KEY", "").strip()
+    if unsplash_key:
+        content = _replace_toml_value(content, "unsplash_access_key", f'"{unsplash_key}"')
+
+    giphy_key = os.environ.get("GIPHY_API_KEY", "").strip()
+    if giphy_key:
+        content = _replace_toml_value(content, "giphy_api_key", f'"{giphy_key}"')
 
     # ── Subtitles (Edge TTS — free, no GPU) ─────────────────────────────
     content = _replace_toml_value(content, "subtitle_provider", '"edge"')

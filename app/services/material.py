@@ -14,6 +14,14 @@ from app.models.schema import MaterialInfo, VideoAspect, VideoConcatMode
 from app.services import material_cache, task_artifacts
 from app.utils import utils
 
+# ---------------------------------------------------------------------------
+# Per-video provider-variety tracking for the multi-source router.
+# Reset at the start of every download_videos() call so variety is measured
+# within a single video's worth of search terms, not across the process lifetime.
+# ---------------------------------------------------------------------------
+_provider_usage_this_video: dict[str, int] = {}
+_provider_usage_lock = threading.Lock()
+
 # Thread-safe counter for API key rotation
 _api_key_counter = 0
 _api_key_lock = threading.Lock()
@@ -603,6 +611,630 @@ def search_videos_coverr(
     return []
 
 
+# =============================================================================
+# Step 4 — Image-to-portrait-video converter (cover-crop, no black bars)
+# =============================================================================
+
+def _convert_image_to_portrait_video(
+    image_url: str,
+    target_width: int,
+    target_height: int,
+    clip_duration: int,
+    save_dir: str = "",
+) -> str:
+    """
+    Download an image, scale-to-fill (cover) and center-crop it to
+    ``target_width × target_height``, then write a silent MP4.
+
+    "Cover" means we scale so that BOTH dimensions are >= target — whichever
+    axis requires the larger scale factor drives the resize.  This guarantees
+    zero black-bar pixels in the output even when the source image is landscape
+    and the target canvas is portrait (1080×1920).
+
+    Returns the local .mp4 path on success, or "" on any failure.
+    """
+    # Import lazily to avoid heavy deps at module load time.
+    try:
+        from PIL import Image as _PILImage
+        from moviepy.video.VideoClip import ImageClip as _ImageClip
+    except ImportError as exc:
+        logger.error(f"image-to-video conversion unavailable: {exc}")
+        return ""
+
+    if not save_dir:
+        save_dir = utils.storage_dir("cache_videos")
+    os.makedirs(save_dir, exist_ok=True)
+
+    url_hash = utils.md5(image_url.split("?")[0])
+    video_path = os.path.join(save_dir, f"img-{url_hash}.mp4")
+    if os.path.exists(video_path) and os.path.getsize(video_path) > 0:
+        logger.info(f"image video already exists: {video_path}")
+        return video_path
+
+    # ── 1. Download ──────────────────────────────────────────────────────────
+    try:
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/115.0.0.0 Safari/537.36"
+            )
+        }
+        resp = requests.get(
+            image_url,
+            headers=headers,
+            proxies=config.proxy,
+            verify=_get_tls_verify(),
+            timeout=(30, 60),
+        )
+        resp.raise_for_status()
+    except Exception as exc:
+        logger.error(
+            f"failed to download image for conversion: "
+            f"error={type(exc).__name__}, detail={_redact_request_error(exc)}"
+        )
+        return ""
+
+    # ── 2. Decode + cover-crop ───────────────────────────────────────────────
+    try:
+        import io
+        img = _PILImage.open(io.BytesIO(resp.content)).convert("RGB")
+        src_w, src_h = img.size
+
+        # Scale so both axes meet or exceed target.
+        scale = max(target_width / src_w, target_height / src_h)
+        new_w = int(src_w * scale)
+        new_h = int(src_h * scale)
+        img = img.resize((new_w, new_h), _PILImage.LANCZOS)
+
+        # Center-crop to exact target.
+        left = (new_w - target_width) // 2
+        top = (new_h - target_height) // 2
+        img = img.crop((left, top, left + target_width, top + target_height))
+
+        # Save a clean PNG as intermediate (strips EXIF / bad metadata).
+        png_path = os.path.join(save_dir, f"img-{url_hash}.png")
+        img.save(png_path, format="PNG")
+    except Exception as exc:
+        logger.error(
+            f"failed to process image for video conversion: "
+            f"error={type(exc).__name__}, detail={exc}"
+        )
+        return ""
+
+    # ── 3. Write MP4 via MoviePy ─────────────────────────────────────────────
+    try:
+        import numpy as np
+        clip = _ImageClip(png_path).with_duration(clip_duration)
+        clip.write_videofile(
+            video_path,
+            fps=30,
+            logger=None,
+            codec="libx264",
+            audio=False,
+        )
+        clip.close()
+        # Clean up intermediate PNG.
+        try:
+            os.remove(png_path)
+        except OSError:
+            pass
+        logger.success(
+            f"image converted to portrait video: {video_path} "
+            f"({target_width}x{target_height})"
+        )
+        return video_path
+    except Exception as exc:
+        logger.error(
+            f"failed to write image video: "
+            f"error={type(exc).__name__}, detail={exc}"
+        )
+        # Remove partial file so a future retry starts fresh.
+        try:
+            if os.path.exists(video_path):
+                os.remove(video_path)
+        except OSError:
+            pass
+        return ""
+
+
+# =============================================================================
+# Step 2 — New provider search functions
+# =============================================================================
+
+def search_images_unsplash(
+    search_term: str,
+    minimum_duration: int,
+    video_aspect: VideoAspect = VideoAspect.portrait,
+) -> List[MaterialInfo]:
+    """
+    Unsplash Search Photos API (https://unsplash.com/developers).
+
+    Images have no natural duration; ``duration`` is set to ``minimum_duration``
+    so downstream duration filtering passes.  The URL points to the raw image;
+    the multi-source download path converts it to a portrait MP4 via
+    _convert_image_to_portrait_video() before saving.
+    """
+    aspect = VideoAspect(video_aspect)
+    access_key = config.app.get("unsplash_access_key", "").strip()
+    if not access_key:
+        return []
+
+    orientation_map = {
+        VideoAspect.portrait: "portrait",
+        VideoAspect.landscape: "landscape",
+        VideoAspect.square: "squarish",
+    }
+    params = {
+        "query": search_term,
+        "per_page": 20,
+        "orientation": orientation_map.get(aspect, "portrait"),
+    }
+    query_url = f"https://api.unsplash.com/search/photos?{urlencode(params)}"
+    headers = {
+        "Authorization": f"Client-ID {access_key}",
+        "Accept-Version": "v1",
+    }
+    logger.info(f"searching images on unsplash: term={search_term!r}")
+
+    try:
+        r = requests.get(
+            query_url,
+            headers=headers,
+            proxies=config.proxy,
+            verify=_get_tls_verify(),
+            timeout=(30, 60),
+        )
+        r.raise_for_status()
+        response = r.json()
+        results = response.get("results", [])
+        items: List[MaterialInfo] = []
+        for photo in results:
+            # Use the "raw" URL with a size hint for consistent dimensions.
+            urls = photo.get("urls") or {}
+            # full is typically 2000+px wide; raw is the original unmodified file.
+            # We prefer "full" for reasonable download size.
+            image_url = urls.get("full") or urls.get("raw") or ""
+            if not image_url:
+                continue
+            photo_id = photo.get("id") or ""
+            source_page = _safe_public_url(photo.get("links", {}).get("html"))
+            user = photo.get("user") or {}
+            width = photo.get("width") or 0
+            height = photo.get("height") or 0
+            item = MaterialInfo()
+            item.provider = "unsplash"
+            item.url = image_url
+            item.duration = minimum_duration
+            item.source_info = {
+                "provider": "unsplash",
+                "search_term": search_term,
+                "asset_id": photo_id,
+                "source_page": source_page,
+                "creator": _creator_info(
+                    {
+                        "id": user.get("id"),
+                        "name": user.get("name"),
+                        "url": (user.get("links") or {}).get("html"),
+                    }
+                ),
+                "rendition": {"width": width, "height": height},
+            }
+            items.append(item)
+        logger.info(
+            f"unsplash returned {len(items)} images for {search_term!r}"
+        )
+        return items
+    except Exception as exc:
+        logger.error(
+            "unsplash image search failed: "
+            f"error={type(exc).__name__}, "
+            f"detail={_redact_request_error(exc, access_key)}"
+        )
+    return []
+
+
+def search_videos_giphy(
+    search_term: str,
+    minimum_duration: int,
+    video_aspect: VideoAspect = VideoAspect.portrait,
+) -> List[MaterialInfo]:
+    """
+    Giphy Search API (https://developers.giphy.com/).
+
+    Uses each result's MP4 rendition so downstream treats it as an ordinary
+    video file — no image conversion needed.  ``rating=g`` keeps content safe.
+    Only clips whose MP4 rendition has height > width are kept for portrait output.
+    """
+    aspect = VideoAspect(video_aspect)
+    api_key = config.app.get("giphy_api_key", "").strip()
+    if not api_key:
+        return []
+
+    params = {
+        "api_key": api_key,
+        "q": search_term,
+        "limit": 20,
+        "rating": "g",
+        "lang": "en",
+    }
+    query_url = f"https://api.giphy.com/v1/gifs/search?{urlencode(params)}"
+    logger.info(f"searching videos on giphy: term={search_term!r}")
+
+    try:
+        r = requests.get(
+            query_url,
+            proxies=config.proxy,
+            verify=_get_tls_verify(),
+            timeout=(30, 60),
+        )
+        r.raise_for_status()
+        response = r.json()
+        data = response.get("data", [])
+        items: List[MaterialInfo] = []
+        for gif in data:
+            images = gif.get("images") or {}
+            # Prefer original mp4 for best quality.
+            rendition = images.get("original") or images.get("downsized_medium") or {}
+            mp4_url = rendition.get("mp4") or ""
+            if not mp4_url:
+                continue
+            try:
+                width = int(rendition.get("width") or 0)
+                height = int(rendition.get("height") or 0)
+            except (TypeError, ValueError):
+                width, height = 0, 0
+
+            # For portrait output, only keep portrait-oriented clips.
+            if aspect == VideoAspect.portrait and not (height > width > 0):
+                continue
+            if aspect == VideoAspect.landscape and not (width > height > 0):
+                continue
+
+            gif_id = gif.get("id") or ""
+            # Giphy GIFs have no meaningful duration in the search response;
+            # use minimum_duration as placeholder (same as Unsplash images).
+            try:
+                duration_secs = int(float(rendition.get("duration") or minimum_duration))
+            except (TypeError, ValueError):
+                duration_secs = minimum_duration
+            if duration_secs < 1:
+                duration_secs = minimum_duration
+
+            item = MaterialInfo()
+            item.provider = "giphy"
+            item.url = mp4_url
+            item.duration = max(duration_secs, minimum_duration)
+            item.source_info = {
+                "provider": "giphy",
+                "search_term": search_term,
+                "asset_id": gif_id,
+                "source_page": _safe_public_url(
+                    f"https://giphy.com/gifs/{gif_id}"
+                ),
+                "creator": _creator_info(
+                    {
+                        "name": (gif.get("user") or {}).get("display_name"),
+                        "url": (gif.get("user") or {}).get("profile_url"),
+                    }
+                ),
+                "rendition": {"width": width, "height": height},
+            }
+            items.append(item)
+        logger.info(
+            f"giphy returned {len(items)} usable clips for {search_term!r}"
+        )
+        return items
+    except Exception as exc:
+        logger.error(
+            "giphy video search failed: "
+            f"error={type(exc).__name__}, "
+            f"detail={_redact_request_error(exc, api_key)}"
+        )
+    return []
+
+
+def search_images_openverse(
+    search_term: str,
+    minimum_duration: int,
+    video_aspect: VideoAspect = VideoAspect.portrait,
+) -> List[MaterialInfo]:
+    """
+    Openverse Images API (https://api.openverse.org/v1/images/).
+
+    No API key required for anonymous use.  Rate limits are low for anonymous
+    callers, so per_page is capped at 10 and the timeout is short.
+    Only CC images with commercial-use licenses are included.
+    """
+    params = {
+        "q": search_term,
+        "per_page": 10,
+        "license_type": "commercial",
+        "format": "jpg",  # prefer JPEG for smaller download size
+    }
+    query_url = f"https://api.openverse.org/v1/images/?{urlencode(params)}"
+    headers = {
+        "User-Agent": "MoneyMaker-Automation/1.0 (open-source, non-commercial)"
+    }
+    logger.info(f"searching images on openverse: term={search_term!r}")
+
+    try:
+        r = requests.get(
+            query_url,
+            headers=headers,
+            proxies=config.proxy,
+            verify=_get_tls_verify(),
+            timeout=(10, 30),
+        )
+        if r.status_code == 429:
+            logger.warning(
+                "openverse rate limit hit (anonymous quota); skipping this source"
+            )
+            return []
+        r.raise_for_status()
+        response = r.json()
+        results = response.get("results", [])
+        items: List[MaterialInfo] = []
+        for photo in results:
+            image_url = photo.get("url") or ""
+            if not image_url:
+                continue
+            photo_id = photo.get("id") or ""
+            source_page = _safe_public_url(photo.get("foreign_landing_url"))
+            width = photo.get("width") or 0
+            height = photo.get("height") or 0
+            creator = photo.get("creator") or ""
+            creator_url = photo.get("creator_url") or ""
+            item = MaterialInfo()
+            item.provider = "openverse"
+            item.url = image_url
+            item.duration = minimum_duration
+            item.source_info = {
+                "provider": "openverse",
+                "search_term": search_term,
+                "asset_id": photo_id,
+                "source_page": source_page,
+                "creator": _creator_info(
+                    {"name": creator, "url": creator_url}
+                ) if creator else None,
+                "rendition": {"width": width, "height": height},
+                "license": photo.get("license"),
+            }
+            items.append(item)
+        logger.info(
+            f"openverse returned {len(items)} images for {search_term!r}"
+        )
+        return items
+    except Exception as exc:
+        logger.error(
+            "openverse image search failed: "
+            f"error={type(exc).__name__}, detail={_redact_request_error(exc)}"
+        )
+    return []
+
+
+# =============================================================================
+# Step 3 — Content-safety blocklist and multi-source router
+# =============================================================================
+
+# Blocked terms: real people, brand names, fictional characters, franchise titles.
+# Keys are lowercased substrings to detect; values are safe generic replacements.
+_CONTENT_SAFETY_BLOCKLIST: dict[str, str] = {
+    # Real people — common names that often appear in animal-fact scripts
+    "attenborough": "wildlife documentary narrator",
+    "steve irwin": "wildlife expert",
+    "crocodile hunter": "wildlife expert",
+    "jane goodall": "primatologist",
+    # Franchise / brand / character names
+    "spider-man": "superhero figure",
+    "spiderman": "superhero figure",
+    "batman": "superhero figure",
+    "superman": "superhero figure",
+    "iron man": "superhero figure",
+    "ironman": "superhero figure",
+    "black panther": "wild panther",
+    "marvel": "superhero action",
+    "disney": "animated character",
+    "pixar": "animated character",
+    "nemo": "clownfish",
+    "simba": "lion cub",
+    "dumbo": "young elephant",
+    "bambi": "young deer",
+    "national geographic": "wildlife documentary",
+    "nat geo": "wildlife documentary",
+    "bbc": "nature documentary",
+    "discovery channel": "nature documentary",
+    "netflix": "streaming nature documentary",
+    "amazon": "amazon rainforest",
+    "google": "technology concept",
+    "apple": "apple fruit",
+    "microsoft": "technology concept",
+    "coca-cola": "beverage",
+    "pepsi": "beverage",
+    "nike": "athletic gear",
+}
+
+
+def _sanitize_search_term(term: str) -> str:
+    """
+    Content-safety blocklist gate.
+
+    Runs ONCE at the top of the multi-source router before any source is queried.
+    Checks the search term against known real-people names, brand names, and
+    fictional character names that could cause copyright or content-policy issues.
+
+    Blocked sub-terms are replaced with a safe generic equivalent.  The term is
+    rephrased, not dropped — a dropped term would cause the scene to have no
+    material at all.
+    """
+    lower = term.lower()
+    sanitized = term
+    for blocked, replacement in _CONTENT_SAFETY_BLOCKLIST.items():
+        if blocked in lower:
+            old = sanitized
+            # Case-insensitive replacement preserving surrounding text.
+            import re as _re
+            sanitized = _re.sub(
+                _re.escape(blocked), replacement, sanitized, flags=_re.IGNORECASE
+            )
+            if sanitized != old:
+                logger.info(
+                    f"search term sanitized: {old!r} -> {sanitized!r} "
+                    f"(blocked pattern: {blocked!r})"
+                )
+    return sanitized
+
+
+def _score_candidate(
+    item: MaterialInfo,
+    target_width: int,
+    target_height: int,
+    video_aspect: VideoAspect,
+) -> float:
+    """
+    Score a material candidate for best-match selection.
+
+    Higher is better.  Scoring factors:
+    - Aspect ratio match:     +10 exact match, +3 close match (within 15%)
+    - Resolution adequacy:    +5 if width >= target, +2 if >= 50% of target
+    - Provider variety bonus: +0..+4 based on how rarely this provider has
+                              been used for the current video's other terms
+                              (tracked in _provider_usage_this_video).  Prevents
+                              one provider from dominating all search terms.
+    """
+    score = 0.0
+    source = item.source_info or {}
+    rendition = source.get("rendition") or {}
+
+    try:
+        w = int(rendition.get("width") or 0)
+        h = int(rendition.get("height") or 0)
+    except (TypeError, ValueError):
+        w, h = 0, 0
+
+    # ── Aspect-ratio scoring ─────────────────────────────────────────────────
+    if w > 0 and h > 0:
+        if _matches_video_aspect(w, h, video_aspect):
+            score += 10.0
+        else:
+            # Partial credit for near-miss (e.g. square images usable for portrait).
+            aspect_ratio = w / h
+            target_ratio = target_width / target_height
+            if abs(aspect_ratio - target_ratio) / target_ratio < 0.15:
+                score += 3.0
+    else:
+        # No dimension info — small neutral score, don't drop it entirely.
+        score += 1.0
+
+    # ── Resolution scoring ───────────────────────────────────────────────────
+    if w >= target_width:
+        score += 5.0
+    elif w >= target_width * 0.5:
+        score += 2.0
+
+    # ── Provider variety bonus ───────────────────────────────────────────────
+    provider = item.provider or "unknown"
+    with _provider_usage_lock:
+        usage_count = _provider_usage_this_video.get(provider, 0)
+    # Bonus decays as a provider is used more: 4, 3, 2, 1, 0 (floored at 0)
+    variety_bonus = max(0, 4 - usage_count)
+    score += variety_bonus
+
+    return score
+
+
+def search_materials_multi_source(
+    search_term: str,
+    minimum_duration: int,
+    video_aspect: VideoAspect = VideoAspect.portrait,
+) -> List[MaterialInfo]:
+    """
+    Query ALL configured sources and return the best-scored combined candidate list.
+
+    Compared to the legacy approach (query sources in order, stop at first
+    non-empty result), this always collects from every source that has API
+    credentials configured, then ranks by concrete heuristics.  Pexels almost
+    always returns *something*, so a first-match-wins approach would use Pexels
+    ~100% of the time — this router avoids that.
+
+    Search term is sanitized through the content-safety blocklist exactly once
+    before any source is queried.
+    """
+    aspect = VideoAspect(video_aspect)
+    target_width, target_height = aspect.to_resolution()
+
+    # ── Content-safety gate (runs once, before any source query) ────────────
+    safe_term = _sanitize_search_term(search_term)
+
+    # ── Collect from all sources concurrently ────────────────────────────────
+    all_candidates: List[MaterialInfo] = []
+    lock = threading.Lock()
+
+    def _collect(fn, *args):
+        try:
+            results = fn(*args)
+            with lock:
+                all_candidates.extend(results)
+        except Exception as exc:
+            logger.warning(
+                f"source {fn.__name__} raised unexpectedly: "
+                f"error={type(exc).__name__}, detail={exc}"
+            )
+
+    # Always include Pexels.
+    sources = [
+        (search_videos_pexels, safe_term, minimum_duration, aspect),
+    ]
+    # Unsplash: only if key is configured.
+    if config.app.get("unsplash_access_key", "").strip():
+        sources.append((search_images_unsplash, safe_term, minimum_duration, aspect))
+    # Giphy: only if key is configured.
+    if config.app.get("giphy_api_key", "").strip():
+        sources.append((search_videos_giphy, safe_term, minimum_duration, aspect))
+    # Openverse: always available (no key needed).
+    sources.append((search_images_openverse, safe_term, minimum_duration, aspect))
+
+    threads = [
+        threading.Thread(
+            target=_collect,
+            args=(fn, *fn_args),
+            daemon=True,
+        )
+        for fn, *fn_args in sources
+    ]
+    for t in threads:
+        t.start()
+    for t in threads:
+        # 75-second wall-clock cap: any single slow source won't stall the whole
+        # pipeline.  The _collect wrapper already returns [] on exceptions.
+        t.join(timeout=75)
+
+    if not all_candidates:
+        logger.warning(
+            f"all sources returned no candidates for {search_term!r}"
+        )
+        return []
+
+    # ── Rank by score, best first ────────────────────────────────────────────
+    scored = [
+        (
+            _score_candidate(item, target_width, target_height, aspect),
+            idx,
+            item,
+        )
+        for idx, item in enumerate(all_candidates)
+    ]
+    scored.sort(key=lambda x: (-x[0], x[1]))  # descending score, stable index tiebreak
+    ranked = [item for _, _, item in scored]
+
+    top_providers = [item.provider for item in ranked[:5]]
+    logger.info(
+        f"multi-source found {len(ranked)} candidates for {search_term!r}; "
+        f"top-5 providers: {top_providers}"
+    )
+    return ranked
+
+
 def save_video(video_url: str, save_dir: str = "") -> str:
     if not save_dir:
         save_dir = utils.storage_dir("cache_videos")
@@ -766,6 +1398,13 @@ def download_videos(
     max_clip_duration: int = 5,
     match_script_order: bool = False,
 ) -> List[str]:
+    # Reset per-video provider-variety counter so variety scoring is
+    # measured within this video's material set only.
+    with _provider_usage_lock:
+        _provider_usage_this_video.clear()
+
+    # Determine which search backend to use.
+    is_multi = source == "multi"
     provider = "pexels"
     remote_search_videos = search_videos_pexels
     if source == "pixabay":
@@ -774,6 +1413,9 @@ def download_videos(
     elif source == "coverr":
         provider = "coverr"
         remote_search_videos = search_videos_coverr
+    elif is_multi:
+        provider = "multi"
+        remote_search_videos = search_materials_multi_source
 
     def search_videos(
         search_term: str,
@@ -808,6 +1450,10 @@ def download_videos(
     valid_video_items = []
     valid_video_urls = []
     found_duration = 0.0
+    _image_providers = {"unsplash", "openverse"}
+    aspect = VideoAspect(video_aspect)
+    target_width, target_height = aspect.to_resolution()
+
     for search_term in search_terms:
         video_items = search_videos(
             search_term=search_term,
@@ -840,12 +1486,33 @@ def download_videos(
                 f"downloading {item.provider} video: "
                 f"asset_id={source_info.get('asset_id') or 'unknown'}"
             )
-            saved_video_path = save_video(
-                video_url=item.url, save_dir=material_directory
-            )
+
+            # ── Image providers: convert to portrait MP4 before saving ────────
+            # Unsplash and Openverse return raw image URLs.  We must convert
+            # them to portrait MP4s (cover-crop, no black bars) before the
+            # normal save_video() path, which expects a video URL.
+            if is_multi and item.provider in _image_providers:
+                saved_video_path = _convert_image_to_portrait_video(
+                    image_url=item.url,
+                    target_width=target_width,
+                    target_height=target_height,
+                    clip_duration=max_clip_duration,
+                    save_dir=material_directory or "",
+                )
+            else:
+                saved_video_path = save_video(
+                    video_url=item.url, save_dir=material_directory
+                )
+
             if saved_video_path:
                 logger.info(f"video saved: {saved_video_path}")
                 video_paths.append(saved_video_path)
+                # Update variety counter for the provider that was successfully used.
+                if is_multi:
+                    with _provider_usage_lock:
+                        _provider_usage_this_video[item.provider] = (
+                            _provider_usage_this_video.get(item.provider, 0) + 1
+                        )
                 try:
                     material_sources.append(
                         _material_source_record(item, saved_video_path)

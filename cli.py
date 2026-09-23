@@ -212,8 +212,12 @@ Output and exit status:
     material_group.add_argument(
         "--video-source",
         default="pexels",
-        choices=["pexels", "pixabay", "coverr", "local"],
-        help="video material provider; online providers require matching API keys in config.toml",
+        choices=["pexels", "pixabay", "coverr", "local", "multi"],
+        help=(
+            "video material provider; online providers require matching API keys "
+            "in config.toml. 'multi' queries Pexels, Unsplash, Giphy, and "
+            "Openverse concurrently and picks the best candidate"
+        ),
     )
     material_group.add_argument(
         "--video-materials",

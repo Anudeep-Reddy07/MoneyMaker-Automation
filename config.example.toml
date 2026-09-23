@@ -50,7 +50,9 @@ tls_verify = true
 # Video Materials / 视频素材
 # -----------------------------------------------------------------------------
 
-# Available values: "pexels", "pixabay", "coverr", "loomloom", "local".
+# Available values: "pexels", "pixabay", "coverr", "loomloom", "local", "multi".
+# "multi" queries Pexels, Unsplash, Giphy, and Openverse concurrently and
+# selects the best candidate across all sources rather than first-match-wins.
 # "loomloom" is a paid Shengsuan Cloud source and requires explicit
 # confirmation in the WebUI before each generation request.
 video_source = "pexels"
@@ -67,6 +69,17 @@ pixabay_api_keys = []
 
 # Register at https://coverr.co/developers?ctx=header_navigation
 coverr_api_keys = []
+
+# Register at https://unsplash.com/developers (free, 50 req/hour on demo plan).
+# Required when video_source = "multi" and you want Unsplash images.
+unsplash_access_key = ""
+
+# Register at https://developers.giphy.com/ (free tier, instant approval).
+# Required when video_source = "multi" and you want Giphy GIF clips.
+giphy_api_key = ""
+
+# Openverse (https://api.openverse.org/v1/) requires no API key.
+# Anonymous calls are rate-limited; per_page is capped at 10 automatically.
 
 # Optional TwelveLabs integration for semantic material ranking and video QA.
 # Install the optional dependency with: uv sync --extra twelvelabs

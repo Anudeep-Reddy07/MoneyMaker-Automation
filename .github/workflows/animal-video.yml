@@ -18,6 +18,10 @@ on:
         description: 'Force a topic category (animal_intelligence, animal_survival_extreme, animal_emotions_social, weird_animal_facts, ocean_deep_sea). Leave empty for weighted auto-pick.'
         required: false
         default: ''
+      video_source:
+        description: 'Visual material source: "pexels" (default, scheduled runs always use this) or "multi" (Pexels + Unsplash + Giphy + Openverse). Change the default only after a successful manual test run.'
+        required: false
+        default: 'pexels'
 
 # Prevent overlapping runs. If a previous run is still generating a video,
 # new triggers are skipped (NOT cancelled) so a mid-render job is never killed.
@@ -64,6 +68,8 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
         run: python scripts/build_config.py
 
       # ── Pick a topic ──────────────────────────────────────────────────
@@ -110,7 +116,8 @@ jobs:
             --paragraph-number 3 \
             --video-count 1 \
             --bgm-type random \
-            --bgm-volume 0.15
+            --bgm-volume 0.15 \
+            --video-source "${{ inputs.video_source || 'pexels' }}"
           do
             if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
               echo "::error::Generation failed after $MAX_ATTEMPTS attempts"
