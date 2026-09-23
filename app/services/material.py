@@ -623,20 +623,31 @@ def _convert_image_to_portrait_video(
     save_dir: str = "",
 ) -> str:
     """
-    Download an image, scale-to-fill (cover) and center-crop it to
-    ``target_width × target_height``, then write a silent MP4.
+    Download an image, apply cover-crop with Ken-Burns margin, add a slow
+    zoom-in (Ken-Burns effect), and write a silent MP4.
 
-    "Cover" means we scale so that BOTH dimensions are >= target — whichever
-    axis requires the larger scale factor drives the resize.  This guarantees
-    zero black-bar pixels in the output even when the source image is landscape
-    and the target canvas is portrait (1080×1920).
+    Steps:
+    1. Download the image.
+    2. Cover-scale + center-crop to a canvas slightly larger than the target
+       (``_KB_END_SCALE`` margin) so the zoom never reveals canvas edges.
+    3. Apply a slow continuous zoom from 1.0 to ``_KB_END_SCALE`` using
+       MoviePy's time-varying resize, then crop the centre of every frame
+       back to the exact target resolution -- zero black pixels at any frame.
+    4. Write a 30-fps silent libx264 MP4.
 
     Returns the local .mp4 path on success, or "" on any failure.
     """
+    # Ken-Burns parameters.  End scale 1.05 = 5% zoom-in over the full clip
+    # duration -- slow enough to feel cinematic, not disorienting.
+    _KB_END_SCALE = 1.05
+
     # Import lazily to avoid heavy deps at module load time.
     try:
         from PIL import Image as _PILImage
         from moviepy.video.VideoClip import ImageClip as _ImageClip
+        from moviepy.video.compositing.CompositeVideoClip import (
+            CompositeVideoClip as _CompositeVideoClip,
+        )
     except ImportError as exc:
         logger.error(f"image-to-video conversion unavailable: {exc}")
         return ""
@@ -675,22 +686,28 @@ def _convert_image_to_portrait_video(
         )
         return ""
 
-    # ── 2. Decode + cover-crop ───────────────────────────────────────────────
+    # ── 2. Decode + cover-crop with Ken-Burns margin ─────────────────────────
+    # We crop to a canvas that is _KB_END_SCALE times the target so that when
+    # the zoom reaches its maximum the edges are exactly at the target boundary.
     try:
         import io
         img = _PILImage.open(io.BytesIO(resp.content)).convert("RGB")
         src_w, src_h = img.size
 
-        # Scale so both axes meet or exceed target.
-        scale = max(target_width / src_w, target_height / src_h)
+        # Canvas = target * end_scale (must be >= target in both axes).
+        canvas_w = max(target_width, int(target_width * _KB_END_SCALE) + 1)
+        canvas_h = max(target_height, int(target_height * _KB_END_SCALE) + 1)
+
+        # Cover-scale so both axes fill the larger canvas.
+        scale = max(canvas_w / src_w, canvas_h / src_h)
         new_w = int(src_w * scale)
         new_h = int(src_h * scale)
         img = img.resize((new_w, new_h), _PILImage.LANCZOS)
 
-        # Center-crop to exact target.
-        left = (new_w - target_width) // 2
-        top = (new_h - target_height) // 2
-        img = img.crop((left, top, left + target_width, top + target_height))
+        # Center-crop to the canvas size.
+        left = (new_w - canvas_w) // 2
+        top = (new_h - canvas_h) // 2
+        img = img.crop((left, top, left + canvas_w, top + canvas_h))
 
         # Save a clean PNG as intermediate (strips EXIF / bad metadata).
         png_path = os.path.join(save_dir, f"img-{url_hash}.png")
@@ -702,11 +719,29 @@ def _convert_image_to_portrait_video(
         )
         return ""
 
-    # ── 3. Write MP4 via MoviePy ─────────────────────────────────────────────
+    # ── 3. Ken-Burns zoom + write MP4 ────────────────────────────────────────
+    # The ImageClip starts at canvas_w x canvas_h.  The lambda scales it from
+    # 1.0 to _KB_END_SCALE over the clip duration, then cropped() trims the
+    # centre back to the exact target resolution -- no frame ever shows a
+    # black edge because the canvas already has the required margin.
     try:
-        import numpy as np
         clip = _ImageClip(png_path).with_duration(clip_duration)
-        clip.write_videofile(
+
+        # Time-varying resize: 1.0 at t=0, _KB_END_SCALE at t=clip_duration.
+        zoomed = clip.resized(
+            lambda t: 1.0 + (_KB_END_SCALE - 1.0) * (t / clip_duration)
+        )
+
+        # Crop the centre of every zoomed frame to the exact target resolution.
+        cropped = zoomed.cropped(
+            x_center=zoomed.w / 2,
+            y_center=zoomed.h / 2,
+            width=target_width,
+            height=target_height,
+        )
+
+        final = _CompositeVideoClip([cropped], size=(target_width, target_height))
+        final.write_videofile(
             video_path,
             fps=30,
             logger=None,
@@ -714,14 +749,16 @@ def _convert_image_to_portrait_video(
             audio=False,
         )
         clip.close()
+        final.close()
         # Clean up intermediate PNG.
         try:
             os.remove(png_path)
         except OSError:
             pass
         logger.success(
-            f"image converted to portrait video: {video_path} "
-            f"({target_width}x{target_height})"
+            f"image converted to portrait video with Ken-Burns zoom: {video_path} "
+            f"({target_width}x{target_height}, {clip_duration}s, "
+            f"zoom 1.0\u2192{_KB_END_SCALE})"
         )
         return video_path
     except Exception as exc:
@@ -1478,7 +1515,36 @@ def download_videos(
     if concat_mode_value == VideoConcatMode.random.value:
         random.shuffle(valid_video_items)
 
+    # ── First-clip video preference (multi-source only) ───────────────────────
+    # Images from Unsplash/Openverse — even with Ken-Burns motion — don't grab
+    # attention as well as real video footage in the opening second of a Short.
+    # If the list starts with an image candidate but contains at least one true
+    # video candidate, swap the first video to position 0.  All other positions
+    # keep their shuffled/scored order unchanged.
+    if is_multi and valid_video_items:
+        first_is_image = valid_video_items[0].provider in _image_providers
+        if first_is_image:
+            video_idx = next(
+                (
+                    i
+                    for i, it in enumerate(valid_video_items)
+                    if it.provider not in _image_providers
+                ),
+                None,
+            )
+            if video_idx is not None:
+                logger.info(
+                    f"first-clip preference: swapping position 0 (image: "
+                    f"{valid_video_items[0].provider}) with position {video_idx} "
+                    f"(video: {valid_video_items[video_idx].provider})"
+                )
+                valid_video_items[0], valid_video_items[video_idx] = (
+                    valid_video_items[video_idx],
+                    valid_video_items[0],
+                )
+
     total_duration = 0.0
+
     for item in valid_video_items:
         try:
             source_info = item.source_info if isinstance(item.source_info, dict) else {}

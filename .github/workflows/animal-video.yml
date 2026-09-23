@@ -19,9 +19,9 @@ on:
         required: false
         default: ''
       video_source:
-        description: 'Visual material source: "pexels" (default, scheduled runs always use this) or "multi" (Pexels + Unsplash + Giphy + Openverse). Change the default only after a successful manual test run.'
+        description: 'Visual material source: "multi" (default for all runs — Pexels + Unsplash + Giphy + Openverse, best-candidate router) or "pexels"/"pixabay"/"coverr" for single-source debugging.'
         required: false
-        default: 'pexels'
+        default: 'multi'
 
 # Prevent overlapping runs. If a previous run is still generating a video,
 # new triggers are skipped (NOT cancelled) so a mid-render job is never killed.
@@ -117,7 +117,7 @@ jobs:
             --video-count 1 \
             --bgm-type random \
             --bgm-volume 0.15 \
-            --video-source "${{ inputs.video_source || 'pexels' }}"
+            --video-source "${{ inputs.video_source || 'multi' }}"
           do
             if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
               echo "::error::Generation failed after $MAX_ATTEMPTS attempts"
