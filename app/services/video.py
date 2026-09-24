@@ -64,6 +64,76 @@ class SubClippedVideoClip:
         return f"SubClippedVideoClip(file_path={self.file_path}, start_time={self.start_time}, end_time={self.end_time}, duration={self.duration}, width={self.width}, height={self.height})"
 
 
+
+
+def _probe_audio_codec() -> str:
+    """
+    Return the best audio codec available in the resolved FFmpeg binary.
+
+    Root cause of the silent-video bug (task f1d62f43):
+    - ubuntu-latest runners no longer ship system ffmpeg by default (mid-2025).
+    - get_ffmpeg_binary() falls through to the imageio-ffmpeg bundled binary.
+    - That bundled binary is compiled WITHOUT AAC support (licensing restriction).
+    - MoviePy's write_videofile() calls write_audiofile(codec='aac') in a
+      subprocess; the subprocess fails, MoviePy swallows the exception and writes
+      a video-only MP4 with no audio stream.
+    - The pipeline reports success because generate_video() returns True.
+
+    Fix strategy: probe ffmpeg -codecs output at startup. If 'aac' (encode) is
+    available, use it (best quality/compatibility). If not, fall back to
+    'libmp3lame' (always present in imageio-ffmpeg) and log a loud ERROR so the
+    operator knows the environment is degraded and needs system ffmpeg.
+    """
+    try:
+        result = subprocess.run(
+            [utils.get_ffmpeg_binary(), "-codecs"],
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=10,
+        )
+        output = result.stdout + result.stderr
+        # 'aac' encode capability appears as 'E' flag in the codec line.
+        # Example line: " DEA.L. aac                 AAC (Advanced Audio Coding)"
+        # We look for a line where the flags field (chars 1-6) contains 'E'
+        # and the codec name field starts with 'aac'.
+        for line in output.splitlines():
+            stripped = line.strip()
+            # ffmpeg -codecs format: " DEAILD codec_name description..."
+            if not stripped or stripped.startswith("=") or stripped.startswith("D"):
+                continue
+            parts = stripped.split()
+            if len(parts) >= 2 and parts[1] == "aac" and "E" in parts[0]:
+                return "aac"
+    except Exception as exc:
+        logger.warning(f"audio codec probe failed: {exc}")
+    # AAC not available — use libmp3lame which ships in all imageio-ffmpeg builds.
+    logger.error(
+        "AAC encoder not available in the resolved FFmpeg binary. "
+        "This usually means system ffmpeg is not installed and the bundled "
+        "imageio-ffmpeg binary is being used (it omits AAC due to licensing). "
+        "Falling back to libmp3lame (MP3) for audio encoding. "
+        "Install system ffmpeg (e.g. apt-get install ffmpeg) to restore AAC quality."
+    )
+    return "libmp3lame"
+
+
+# Resolve once at module import time. Cached for the lifetime of the process.
+# Using a lambda so it only executes after utils and subprocess are available.
+_resolved_audio_codec: str | None = None
+
+
+def _get_audio_codec() -> str:
+    """Return the resolved audio codec, probing once per process on first call."""
+    global _resolved_audio_codec
+    if _resolved_audio_codec is None:
+        _resolved_audio_codec = _probe_audio_codec()
+        logger.info(f"audio codec resolved: {_resolved_audio_codec}")
+    return _resolved_audio_codec
+
+
+# Legacy module-level name kept for any callers that may reference it directly.
+# New code should call _get_audio_codec() instead.
 audio_codec = "aac"
 # Docker 里的 ffmpeg/AAC 组合在默认配置下更容易出现音频质量波动，
 # 这里显式抬高音频码率，避免成片阶段因为默认值过低而引入明显失真。
@@ -1252,11 +1322,15 @@ def generate_video(
         # 显式沿用输入音频的采样率；如果取不到，再回退 MoviePy 默认的 44100Hz。
         # 这样可以减少不同环境，尤其 Docker 中再次重采样带来的音质波动。
         output_audio_fps = int(getattr(audio_clip, "fps", 0) or 44100)
+        # Use the probed audio codec (AAC if system ffmpeg is present, libmp3lame
+        # otherwise) so audio is never silently dropped when the bundled
+        # imageio-ffmpeg binary without AAC support is used as the fallback binary.
+        resolved_audio_codec = _get_audio_codec()
         _write_videofile_with_codec_fallback(
             final_video_clip,
             output_file=output_file,
             codec=_get_configured_video_codec(),
-            audio_codec=audio_codec,
+            audio_codec=resolved_audio_codec,
             audio_fps=output_audio_fps,
             audio_bitrate=audio_bitrate,
             temp_audiofile_path=_get_temp_audio_dir(output_dir),

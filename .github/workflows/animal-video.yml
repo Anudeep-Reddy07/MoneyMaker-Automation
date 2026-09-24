@@ -58,8 +58,17 @@ jobs:
       - name: Install project dependencies
         run: uv sync --frozen
 
-      - name: Verify FFmpeg
-        run: ffmpeg -version | head -n 2
+      - name: Install FFmpeg
+        # ubuntu-latest no longer ships ffmpeg by default since mid-2025 runner image
+        # updates. The bundled imageio-ffmpeg binary (used as fallback) is compiled
+        # WITHOUT AAC encoder support due to licensing, so write_videofile() silently
+        # produces a video-only MP4 with no audio stream. Installing system ffmpeg
+        # ensures get_ffmpeg_binary() resolves a full-featured binary via shutil.which().
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          ffmpeg -version
+          ffprobe -version
 
       # ── Build config.toml from secrets ────────────────────────────────
       - name: Build config.toml
