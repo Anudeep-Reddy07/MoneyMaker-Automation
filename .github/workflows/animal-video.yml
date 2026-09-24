@@ -129,7 +129,9 @@ jobs:
           done
 
           # Locate the generated .mp4 file inside the task directory.
-          VIDEO_FILE=$(find "storage/tasks/$TASK_ID" -name "*.mp4" -type f | head -1)
+          # Scope to final-*.mp4 only — temp-clip-N.mp4 intermediates written by
+          # combine_videos() are silent and must never be uploaded.
+          VIDEO_FILE=$(find "storage/tasks/$TASK_ID" -name "final-*.mp4" -type f | head -1)
           echo "video_file=$VIDEO_FILE" >> "$GITHUB_OUTPUT"
 
           if [ -z "$VIDEO_FILE" ]; then
@@ -166,6 +168,22 @@ jobs:
             echo "⏸️ Upload skipped: Restricted hours (12 AM–4 AM IST)"
             exit 0
           fi
+
+          # ── QA gate: verify audio stream is present ───────────────────
+          # ffprobe is installed as part of FFmpeg (confirmed by 'Verify FFmpeg' step).
+          # Catches silent temp-clip uploads and any generate_video() audio-drop.
+          VIDEO_PATH="${{ steps.generate.outputs.video_file }}"
+          AUDIO_STREAMS=$(ffprobe -v error \
+            -select_streams a:0 \
+            -show_entries stream=codec_type \
+            -of default=noprint_wrappers=1:nokey=1 \
+            "$VIDEO_PATH" 2>/dev/null | wc -l)
+          if [ "$AUDIO_STREAMS" -eq 0 ]; then
+            echo "::error::QA FAILED: No audio stream detected in '$VIDEO_PATH' — aborting upload to prevent a silent/mute video reaching the channel"
+            exit 1
+          fi
+          echo "✓ QA passed: audio stream present in '$VIDEO_PATH'"
+
           TOPIC="${{ steps.topic.outputs.topic }}"
 
           uv run python scripts/upload_youtube.py \

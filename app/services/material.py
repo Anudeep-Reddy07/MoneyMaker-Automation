@@ -1134,6 +1134,12 @@ def _score_candidate(
     Higher is better.  Scoring factors:
     - Aspect ratio match:     +10 exact match, +3 close match (within 15%)
     - Resolution adequacy:    +5 if width >= target, +2 if >= 50% of target
+    - Video-type bonus:       +3 for real video providers (Pexels, Pixabay,
+                              Giphy MP4s, Coverr) vs image providers (Unsplash,
+                              Openverse). Prevents the 2:1 image-pool imbalance
+                              from systematically beating video in tiebreaks.
+    - Openverse penalty:      -1 (anonymous, rate-limited, lower resolution than
+                              Unsplash; should only win when better sources fail)
     - Provider variety bonus: +0..+4 based on how rarely this provider has
                               been used for the current video's other terms
                               (tracked in _provider_usage_this_video).  Prevents
@@ -1169,8 +1175,24 @@ def _score_candidate(
     elif w >= target_width * 0.5:
         score += 2.0
 
-    # ── Provider variety bonus ───────────────────────────────────────────────
+    # ── Video-type bonus ─────────────────────────────────────────────────────
+    # Real video footage (Pexels, Pixabay, Giphy MP4s, Coverr) has more visual
+    # interest than an animated still. When base scores are otherwise equal,
+    # prefer video over image sources. This breaks the 2:1 image-to-video pool
+    # imbalance that arises because Unsplash + Openverse together contribute
+    # 25-30 candidates per term while Pexels contributes only 10-15.
     provider = item.provider or "unknown"
+    _image_providers_local = {"unsplash", "openverse"}
+    if provider not in _image_providers_local:
+        score += 3.0
+
+    # ── Openverse de-priority ────────────────────────────────────────────────
+    # Openverse is anonymous, rate-limited, and typically lower-resolution than
+    # Unsplash. Use it only when other sources come up short.
+    if provider == "openverse":
+        score -= 1.0
+
+    # ── Provider variety bonus ───────────────────────────────────────────────
     with _provider_usage_lock:
         usage_count = _provider_usage_this_video.get(provider, 0)
     # Bonus decays as a provider is used more: 4, 3, 2, 1, 0 (floored at 0)
