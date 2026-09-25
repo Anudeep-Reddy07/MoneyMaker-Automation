@@ -7,7 +7,7 @@ on:
     # videos (~30%) run 10-15s. Posting slightly less often but keeping
     # quality/length up tends to protect average retention per video.
     # Revert to '0 */2 * * *' any time if you'd rather post more often.
-    - cron: '0 */3 * * *'
+    - cron: '17 */3 * * *'
   workflow_dispatch:
     inputs:
       topic:
