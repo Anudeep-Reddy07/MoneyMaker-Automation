@@ -204,6 +204,12 @@
       "topic": "Why a group of flamingos is called a flamboyance",
       "timestamp": "2026-09-25T10:26:20.230147+00:00",
       "niche": "animal"
+    },
+    {
+      "topic": "Do elephants really mourn their dead",
+      "timestamp": "2026-09-25T13:21:37.561561+00:00",
+      "niche": "animal",
+      "category": "animal_emotions_social"
     }
   ]
 }
