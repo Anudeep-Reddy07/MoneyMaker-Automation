@@ -513,7 +513,7 @@ def pick_general_topic(history: list[dict], recent_topics: list[str]) -> str:
     return chosen
 
 
-def pick_animal_topic(history: list[dict], recent_topics: list[str]) -> str:
+def pick_animal_topic(history: list[dict], recent_topics: list[str]) -> tuple[str, str]:
     if FORCED_CATEGORY and FORCED_CATEGORY in ANIMAL_CATEGORIES:
         category = FORCED_CATEGORY
     else:
@@ -546,7 +546,7 @@ def pick_animal_topic(history: list[dict], recent_topics: list[str]) -> str:
 
     ai_topic = generate_animal_topic_with_ai(recent_topics, category)
     if ai_topic:
-        return ai_topic
+        return ai_topic, category
 
     category_topics = ANIMAL_CATEGORIES[category]["topics"]
     available = [t for t in category_topics if not _is_too_similar(t, recent_topics)]
@@ -562,7 +562,7 @@ def pick_animal_topic(history: list[dict], recent_topics: list[str]) -> str:
 
     chosen = random.choice(available)
     print(f"[pick_topic] Picked from backup animal list ({category}): {chosen}", file=sys.stderr)
-    return chosen
+    return chosen, category
 
 
 def pick_topic() -> str:
@@ -571,10 +571,11 @@ def pick_topic() -> str:
     recent_topics = [entry["topic"] for entry in history[-LOOKBACK:] if "topic" in entry]
 
     manual_override = os.environ.get("MANUAL_TOPIC_OVERRIDE", "").strip()
+    category: str | None = None
     if manual_override:
         chosen = manual_override
     elif NICHE == "animal":
-        chosen = pick_animal_topic(history, recent_topics)
+        chosen, category = pick_animal_topic(history, recent_topics)
     else:
         chosen = pick_general_topic(history, recent_topics)
 
@@ -583,7 +584,7 @@ def pick_topic() -> str:
             "topic": chosen,
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "niche": NICHE,
-            "category": category if NICHE == "animal" else None,
+            "category": category,
         }
     )
     save_history(history)
