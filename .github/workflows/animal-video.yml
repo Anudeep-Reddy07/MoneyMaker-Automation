@@ -7,7 +7,7 @@ on:
     # videos (~30%) run 10-15s. Posting slightly less often but keeping
     # quality/length up tends to protect average retention per video.
     # Revert to '0 */2 * * *' any time if you'd rather post more often.
-    - cron: '17 */3 * * *'
+    - cron: '10 */3 * * *'
   workflow_dispatch:
     inputs:
       topic:
@@ -45,6 +45,27 @@ jobs:
           persist-credentials: true
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      # ── Time-window gate ──────────────────────────────────────────────
+      # Skip the entire pipeline (no topic picked, no generation, no history
+      # written) when the run lands in the 12 AM–4 AM IST restricted window.
+      # Applies only to scheduled triggers; workflow_dispatch always proceeds.
+      - name: Check IST time window
+        id: time_check
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "skip_run=false" >> "$GITHUB_OUTPUT"
+            echo "Manual dispatch — time gate bypassed."
+            exit 0
+          fi
+          CURRENT_HOUR=$(TZ=Asia/Kolkata date +%H)
+          if [ "$CURRENT_HOUR" -ge 0 ] && [ "$CURRENT_HOUR" -lt 4 ]; then
+            echo "skip_run=true" >> "$GITHUB_OUTPUT"
+            echo "⏸️ Skipping run: restricted hours (12 AM–4 AM IST, current IST hour: $CURRENT_HOUR)"
+          else
+            echo "skip_run=false" >> "$GITHUB_OUTPUT"
+            echo "✓ Time gate passed (IST hour: $CURRENT_HOUR)"
+          fi
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
@@ -72,6 +93,7 @@ jobs:
 
       # ── Build config.toml from secrets ────────────────────────────────
       - name: Build config.toml
+        if: steps.time_check.outputs.skip_run != 'true'
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
@@ -84,6 +106,7 @@ jobs:
       # ── Pick a topic ──────────────────────────────────────────────────
       - name: Pick video topic
         id: topic
+        if: steps.time_check.outputs.skip_run != 'true'
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           TOPIC_CATEGORY: ${{ inputs.category }}
@@ -95,7 +118,7 @@ jobs:
             TOPIC="$MANUAL_TOPIC"
             echo "Using manual topic override: $TOPIC"
           else
-            TOPIC=$(python scripts/pick_topic.py)
+            TOPIC=$(uv run python scripts/pick_topic.py)
           fi
           echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
           echo "### 🎬 Chosen Topic" >> "$GITHUB_STEP_SUMMARY"
@@ -105,6 +128,7 @@ jobs:
       # ── Generate the video ────────────────────────────────────────────
       - name: Generate video
         id: generate
+        if: steps.time_check.outputs.skip_run != 'true'
         run: |
           # Create a known task ID so we can find the output files reliably
           # without parsing CLI stdout (which also streams log output).
@@ -163,21 +187,13 @@ jobs:
       # ── Upload to YouTube ─────────────────────────────────────────────
       - name: Upload to YouTube
         id: upload
-        if: steps.generate.outputs.video_file != ''
+        if: steps.time_check.outputs.skip_run != 'true' && steps.generate.outputs.video_file != ''
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
           TOPIC_NICHE: animal  
         run: |
-          # Skip uploads between 12:00 AM and 4:00 AM IST
-          CURRENT_HOUR=$(TZ=Asia/Kolkata date +%H)
-          
-          if [ "$CURRENT_HOUR" -ge 0 ] && [ "$CURRENT_HOUR" -lt 4 ]; then
-            echo "⏸️ Upload skipped: Restricted hours (12 AM–4 AM IST)"
-            exit 0
-          fi
-
           # ── QA gate: verify audio stream is present ───────────────────
           # ffprobe is installed as part of FFmpeg (confirmed by 'Verify FFmpeg' step).
           # Catches silent temp-clip uploads and any generate_video() audio-drop.
@@ -204,18 +220,18 @@ jobs:
 
       # ── Upload video as a workflow artifact for debugging on failure ───
       - name: Upload video artifact (on failure)
-        if: failure() && steps.generate.outputs.video_file != ''
+        if: steps.time_check.outputs.skip_run != 'true' && failure() && steps.generate.outputs.video_file != ''
         uses: actions/upload-artifact@v4
         with:
           name: failed-video-${{ steps.generate.outputs.task_id }}
           path: ${{ steps.generate.outputs.video_file }}
           retention-days: 3
 
-            # ── Persist topic history ─────────────────────────────────────────
+      # ── Persist topic history ─────────────────────────────────────────
       - name: Commit topic history
         # Run even if upload fails — we still want to record the topic
         # to avoid repeating it on the next run.
-        if: always()
+        if: steps.time_check.outputs.skip_run != 'true' && always()
         env:
           TOPIC_HISTORY_FILE: scripts/topic_history_animal.json
         run: |
