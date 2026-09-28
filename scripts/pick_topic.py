@@ -392,7 +392,7 @@ def _call_groq(prompt: str) -> str | None:
         return None
 
     payload = {
-        "model": "llama-3.3-70b-versatile",
+        "model": "openai/gpt-oss-120b",
         "messages": [
             {
                 "role": "system",
@@ -401,7 +401,8 @@ def _call_groq(prompt: str) -> str | None:
             {"role": "user", "content": prompt},
         ],
         "temperature": 0.85,
-        "max_tokens": 200,
+        "max_tokens": 1024,
+        "reasoning_effort": "low",
     }
 
     try:
@@ -414,7 +415,10 @@ def _call_groq(prompt: str) -> str | None:
         if resp.status_code == 200:
             try:
                 data = resp.json()
-                raw_content = data["choices"][0]["message"]["content"]
+                choice = data["choices"][0]
+                raw_content = choice["message"]["content"]
+                finish_reason = choice.get("finish_reason")
+                usage = data.get("usage")
             except (KeyError, IndexError, ValueError) as parse_err:
                 print(
                     f"[pick_topic] _call_groq: Failed to parse Groq response ({parse_err}). "
@@ -427,7 +431,7 @@ def _call_groq(prompt: str) -> str | None:
                 return topic
             print(
                 f"[pick_topic] _call_groq: Groq returned empty/too-short content after stripping "
-                f"(raw: {repr(raw_content[:100])})",
+                f"(raw: {repr(raw_content[:100])}, finish_reason: {finish_reason}, usage: {usage})",
                 file=sys.stderr,
             )
         else:
