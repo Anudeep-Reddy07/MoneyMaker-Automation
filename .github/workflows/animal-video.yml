@@ -2,12 +2,12 @@ name: Animal Generator Claude
 
 on:
   schedule:
-    # Every 3 hours (8 videos/day). Changed from every 2 hours: your top
-    # retention videos (55-73%) run 37-60s, while your fastest-drop-off
-    # videos (~30%) run 10-15s. Posting slightly less often but keeping
-    # quality/length up tends to protect average retention per video.
-    # Revert to '0 */2 * * *' any time if you'd rather post more often.
-    - cron: '23 */3 * * *'
+    # 4 videos/day at fixed active-hours slots (UTC 00:40, 05:40, 10:40, 15:40
+    # = IST 06:10, 11:10, 16:10, 21:10). Fewer, better-timed uploads during
+    # peak viewing hours outperform 8 evenly-spread triggers that hit dead-zones
+    # (midnight, 3 AM IST). The 12 AM–4 AM IST gate below also blocks the
+    # near-midnight UTC slot if the runner starts late.
+    - cron: '40 0,5,10,15 * * *'
   workflow_dispatch:
     inputs:
       topic:
