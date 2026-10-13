@@ -146,7 +146,7 @@ jobs:
             --task-id "$TASK_ID" \
             --video-subject "${{ steps.topic.outputs.topic }}" \
             --video-language en-US \
-            --voice-name "en-US-AndrewNeural-Male" \
+            --voice-name "en-US-AndrewMultilingualNeural-V2-Male" \
             --video-aspect 9:16 \
             --paragraph-number 3 \
             --video-count 1 \
