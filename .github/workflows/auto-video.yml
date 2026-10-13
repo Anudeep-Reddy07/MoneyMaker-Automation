@@ -57,6 +57,8 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
         run: python scripts/build_config.py
 
       # ── Pick a topic ──────────────────────────────────────────────────
@@ -91,7 +93,7 @@ jobs:
             --task-id "$TASK_ID" \
             --video-subject "${{ steps.topic.outputs.topic }}" \
             --video-language en-US \
-            --voice-name "en-US-AndrewNeural-Male" \
+            --voice-name "en-US-AndrewMultilingualNeural-V2-Male" \
             --video-aspect 9:16 \
             --paragraph-number 2 \
             --video-count 1 \
