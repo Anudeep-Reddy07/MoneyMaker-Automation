@@ -8,7 +8,7 @@ stdlib modules are used so this script runs before ``uv sync``.
 Usage (in GitHub Actions):
     GROQ_API_KEY=xxx PEXELS_API_KEY=yyy python scripts/build_config.py
 
-Required env vars:  GROQ_API_KEY, PEXELS_API_KEY
+Required env vars:  GROQ_API_KEY, PEXELS_API_KEY, AZURE_SPEECH_KEY, AZURE_SPEECH_REGION
 Optional env vars:  PIXABAY_API_KEY, COVERR_API_KEY, UNSPLASH_ACCESS_KEY, GIPHY_API_KEY
 """
 
@@ -86,6 +86,12 @@ def main() -> None:
 
     # ── Subtitles (Edge TTS — free, no GPU) ─────────────────────────────
     content = _replace_toml_value(content, "subtitle_provider", '"edge"')
+
+    # ── Azure Speech TTS credentials ────────────────────────────────────
+    azure_speech_key = _require_env("AZURE_SPEECH_KEY")
+    azure_speech_region = _require_env("AZURE_SPEECH_REGION")
+    content = _replace_toml_value(content, "speech_key", f'"{azure_speech_key}"')
+    content = _replace_toml_value(content, "speech_region", f'"{azure_speech_region}"')
 
     # ── Disable Upload-Post (we use direct YouTube upload) ──────────────
     content = _replace_toml_value(content, "upload_post_enabled", "false")
