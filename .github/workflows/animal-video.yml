@@ -15,7 +15,7 @@ on:
         required: false
         default: ''
       category:
-        description: 'Force a topic category (animal_intelligence, animal_survival_extreme, animal_emotions_social, weird_animal_facts, ocean_deep_sea). Leave empty for weighted auto-pick.'
+        description: 'Optional group filter: a class/habitat name (Mammal, Bird, Reptile, Amphibian, Fish, Insect, Arachnid, Crustacean, Mollusc, Cephalopod, Cnidarian, Dinosaur, Aquatic, Terrestrial, Aerial) or Living / Extinct. Leave empty for automatic.'
         required: false
         default: ''
       video_source:
@@ -105,6 +105,10 @@ jobs:
           GIPHY_API_KEY: ${{ secrets.GIPHY_API_KEY }}
         run: python scripts/build_config.py
 
+      - name: Restore animal DB
+        if: steps.time_check.outputs.skip_run != 'true'
+        run: PYTHONPATH=scripts uv run python -m animal_topics.cli restore
+
       # ── Pick a topic ──────────────────────────────────────────────────
       - name: Pick video topic
         id: topic
@@ -114,18 +118,29 @@ jobs:
           TOPIC_CATEGORY: ${{ inputs.category }}
           TOPIC_NICHE: animal                              
           TOPIC_HISTORY_FILE: scripts/topic_history_animal.json   
+          MANUAL_TOPIC_OVERRIDE: ${{ inputs.topic }}
+          ANIMAL_TOPIC_ID_FILE: ${{ runner.temp }}/animal_topic_id.txt
         run: |
-          MANUAL_TOPIC="${{ inputs.topic }}"
-          if [ -n "$MANUAL_TOPIC" ]; then
-            TOPIC="$MANUAL_TOPIC"
-            echo "Using manual topic override: $TOPIC"
-          else
-            TOPIC=$(uv run python scripts/pick_topic.py)
-          fi
+          TOPIC=$(uv run python scripts/pick_topic.py)
           echo "topic=$TOPIC" >> "$GITHUB_OUTPUT"
           echo "### 🎬 Chosen Topic" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "> $TOPIC" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Persist reservation
+        if: steps.time_check.outputs.skip_run != 'true'
+        run: |
+          if [ -f "$RUNNER_TEMP/animal_topic_id.txt" ]; then
+            PYTHONPATH=scripts uv run python -m animal_topics.cli export
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add scripts/animal_topics.sql
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: reserve animal topic [skip ci]"
+              git pull --rebase origin "$(git branch --show-current)"
+              git push
+            fi
+          fi
 
       # ── Generate the video ────────────────────────────────────────────
       - name: Generate video
@@ -186,6 +201,10 @@ jobs:
           echo "| Video | \`$VIDEO_FILE\` |" >> "$GITHUB_STEP_SUMMARY"
           echo "| Size | ${FILE_SIZE_MB} MB |" >> "$GITHUB_STEP_SUMMARY"
 
+      - name: Mark generated
+        if: steps.time_check.outputs.skip_run != 'true' && steps.generate.outputs.video_file != '' && hashFiles(format('{0}/animal_topic_id.txt', runner.temp)) != ''
+        run: PYTHONPATH=scripts uv run python -m animal_topics.cli mark-generated --topic-id "$(cat $RUNNER_TEMP/animal_topic_id.txt)" --task-id "${{ steps.generate.outputs.task_id }}" --video-file "${{ steps.generate.outputs.video_file }}"
+
       # ── Upload to YouTube ─────────────────────────────────────────────
       - name: Upload to YouTube
         id: upload
@@ -213,12 +232,19 @@ jobs:
 
           TOPIC="${{ steps.topic.outputs.topic }}"
 
-          uv run python scripts/upload_youtube.py \
+          UPLOAD_RESULT=$(uv run python scripts/upload_youtube.py \
             --video-file "${{ steps.generate.outputs.video_file }}" \
             --title "$TOPIC" \
-            --privacy public
+            --privacy public)
+          echo "$UPLOAD_RESULT"
+          YOUTUBE_VIDEO_ID=$(printf '%s' "$UPLOAD_RESULT" | python -c 'import json,sys; print(json.load(sys.stdin).get("id", ""))')
+          echo "youtube_video_id=$YOUTUBE_VIDEO_ID" >> "$GITHUB_OUTPUT"
 
           echo "### 📤 Uploaded to YouTube" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Mark published
+        if: steps.time_check.outputs.skip_run != 'true' && steps.generate.outputs.video_file != '' && hashFiles(format('{0}/animal_topic_id.txt', runner.temp)) != '' && steps.upload.outcome == 'success'
+        run: PYTHONPATH=scripts uv run python -m animal_topics.cli mark-published --topic-id "$(cat $RUNNER_TEMP/animal_topic_id.txt)" --youtube-id "${{ steps.upload.outputs.youtube_video_id }}"
 
       # ── Upload video as a workflow artifact for debugging on failure ───
       - name: Upload video artifact (on failure)
@@ -230,6 +256,13 @@ jobs:
           retention-days: 3
 
       # ── Persist topic history ─────────────────────────────────────────
+      - name: Mark failed
+        if: steps.time_check.outputs.skip_run != 'true' && always() && steps.generate.outputs.video_file == ''
+        run: |
+          if [ -f "$RUNNER_TEMP/animal_topic_id.txt" ]; then
+            PYTHONPATH=scripts uv run python -m animal_topics.cli mark-failed --topic-id "$(cat $RUNNER_TEMP/animal_topic_id.txt)"
+          fi
+
       - name: Commit topic history
         # Run even if upload fails — we still want to record the topic
         # to avoid repeating it on the next run.
@@ -239,7 +272,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -f scripts/animal_topics.db ]; then PYTHONPATH=scripts uv run python -m animal_topics.cli export; fi
           git add "$TOPIC_HISTORY_FILE"
+          git add scripts/animal_topics.sql
           # --quiet exits 0 when there's nothing to commit (idempotent).
           if ! git diff --cached --quiet; then
             git commit -m "chore: update topic history [skip ci]"

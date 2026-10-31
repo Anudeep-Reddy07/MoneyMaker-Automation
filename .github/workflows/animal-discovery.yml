@@ -1,0 +1,53 @@
+name: Animal Species Discovery
+on:
+  schedule:
+    - cron: '10 20 * * *'
+  workflow_dispatch:
+    inputs:
+      max_new:
+        default: '60'
+      enrich_batch:
+        default: '100'
+concurrency:
+  group: auto-video-generation-animal
+  cancel-in-progress: false
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - uses: astral-sh/setup-uv@v6
+        with: {enable-cache: true}
+      - run: uv sync --frozen
+      - run: PYTHONPATH=scripts uv run python -m animal_topics.cli restore
+      - run: PYTHONPATH=scripts uv run python -m animal_topics.cli discover --max-new ${{ inputs.max_new || 60 }}
+      - name: Enrich
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: PYTHONPATH=scripts uv run python -m animal_topics.cli enrich --batch ${{ inputs.enrich_batch || 100 }}
+      - run: PYTHONPATH=scripts uv run python -m animal_topics.cli migrate
+      - name: Stats
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_CHANNEL_ID: ${{ secrets.YOUTUBE_CHANNEL_ID }}
+        run: PYTHONPATH=scripts uv run python -m animal_topics.cli stats
+      - run: PYTHONPATH=scripts uv run python -m animal_topics.cli export
+      - run: |
+          git add scripts/animal_topics.sql
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: update animal species pool [skip ci]"
+            git pull --rebase origin "$(git branch --show-current)"
+            git push
+          fi

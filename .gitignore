@@ -43,3 +43,4 @@ htmlcov/
 .codegraph
 /docs/superpowers
 .understand-anything
+scripts/animal_topics.db

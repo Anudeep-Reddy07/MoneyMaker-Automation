@@ -1,0 +1,5 @@
+# Animals you want in the video pool. One per line: name   or   name | boost
+# Boost multiplies the animal’s chance of being picked (default 3.0, 1.0 = normal).
+# Examples (remove the # to use):
+# pangolin
+# indian rhinoceros | 5

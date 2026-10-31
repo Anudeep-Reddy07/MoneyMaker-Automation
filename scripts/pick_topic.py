@@ -571,6 +571,16 @@ def pick_animal_topic(history: list[dict], recent_topics: list[str]) -> tuple[st
 
 def pick_topic() -> str:
     """Select or generate a non-repeating topic for the active niche."""
+    if NICHE == "animal":
+        try:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            from animal_topics.pipeline import pick_for_workflow
+            return pick_for_workflow(os.environ)
+        except Exception:
+            import traceback
+            print("[pick_topic] NEW ANIMAL SYSTEM FAILED, using legacy picker:", file=sys.stderr)
+            traceback.print_exc(file=sys.stderr)
+
     history = load_history()
     recent_topics = [entry["topic"] for entry in history[-LOOKBACK:] if "topic" in entry]
 
