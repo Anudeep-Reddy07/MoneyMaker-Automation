@@ -1652,7 +1652,7 @@ Of 1,375 livestock kills examined in Bhutan, Asian black bears accounted for 8% 
 Livestock killed by Asian black bears in Himachal Pradesh, India increased from 29 in 1988–1989 to 45 in 1992–1993.
 In more remote areas of Japan, Asian black bears can be serious crop predators. The bears feed on
 
-=== Hunting and exploitation ===','["Asian black bear", "black bear", "moon bear"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-06T19:45:50.050455+00:00','wikidata_living');
+=== Hunting and exploitation ===','["Asian black bear", "black bear", "moon bear"]',NULL,'done',1,'active',NULL,1,'2026-11-10T18:12:24.851127+00:00','2026-11-06T19:45:50.050455+00:00','wikidata_living');
 INSERT INTO "species" VALUES(182,'Q25709','Botaurus stellaris','Eurasian bittern','Eurasian bittern',0,91,8989,3.95375969173322872e+00,1.0,'The Eurasian bittern or great bittern (Botaurus stellaris) is a wading bird in the bittern subfamily (Botaurinae) of the heron family Ardeidae. There are two subspecies, the northern race (B. s. stellaris) breeding in parts of Europe and across the Palearctic, as well as on the northern coast of Africa, while the southern race (B. s. capensis) is endemic to parts of southern Africa. It is a secretive bird, seldom seen in the open as it prefers to skulk in reed beds and thick vegetation near water bodies. Its presence is apparent in the spring, when the booming call of the male during the breeding season can be heard. It feeds on fish, small mammals, fledgling birds, amphibians, crustaceans and insects.
 The nest is usually built among reeds at the edge of bodies of water. The female incubates the clutch of eggs and feeds the young chicks, which leave the nest when about two weeks old. She
 
@@ -6461,6 +6461,7 @@ INSERT INTO "species_groups" VALUES(99,17);
 INSERT INTO "species_groups" VALUES(99,3);
 INSERT INTO "facts" VALUES(1,248,'Andean condors spend about 99% of their flight time soaring on thermals and flap their wings only about 1% of the time.','minimal wing flapping','2026-11-06T21:44:40.142694+00:00');
 INSERT INTO "facts" VALUES(2,266,'When foraging near Bewick''s and whooper swans, common pochards can double their food intake rate by collecting items disturbed by the swans'' trampling.','swans increase feeding','2026-11-10T14:29:26.445225+00:00');
+INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "topics" VALUES(1,NULL,NULL,'What actually lives at the bottom of the Mariana Trench','what actually lives at the bottom of the mariana trench','published',0,1,NULL,'2026-09-19T07:22:04.178581+00:00','2026-09-19T07:22:04.178581+00:00');
 INSERT INTO "topics" VALUES(10,NULL,NULL,'Why most of the ocean floor remains unmapped','why most of the ocean floor remains unmapped','published',0,1,NULL,'2026-09-20T23:04:15.891208+00:00','2026-09-20T23:04:15.891208+00:00');
 INSERT INTO "topics" VALUES(100,NULL,NULL,'Survival Hack: How the Horned Lizard Fires Blood','survival hack how the horned lizard fires blood','published',0,1,NULL,'2026-10-19T05:13:31.202747+00:00','2026-10-19T05:13:31.202747+00:00');
@@ -6500,6 +6501,7 @@ INSERT INTO "topics" VALUES(130,NULL,NULL,'How border collies learn over 1000 wo
 INSERT INTO "topics" VALUES(131,NULL,NULL,'Aye‑aye''s Midnight Finger Drumming Lures Insects in Madagascar','aye aye s midnight finger drumming lures insects in madagascar','published',0,1,NULL,'2026-10-31T06:12:45.965570+00:00','2026-10-31T06:12:45.965570+00:00');
 INSERT INTO "topics" VALUES(132,248,1,'Why the Andean Condor Flaps Its Wings So Rarely','why the andean condor flaps its wings so rarely','reserved',0,0,'42299141948','2026-11-06T21:44:40.142694+00:00','2026-11-06T21:44:40.142694+00:00');
 INSERT INTO "topics" VALUES(133,266,2,'How Swans Help the Common Pochard Eat Twice As Much','how swans help the common pochard eat twice as much','reserved',0,0,'42833991794','2026-11-10T14:29:26.445225+00:00','2026-11-10T14:29:26.445225+00:00');
+INSERT INTO "topics" VALUES(134,181,3,'The Surprising Hunt: Asian Black Bears Preying On Hanuman Langurs','the surprising hunt asian black bears preying on hanuman langurs','reserved',0,0,'42872692609','2026-11-10T18:12:24.851127+00:00','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "topics" VALUES(14,NULL,NULL,'The rats that free trapped friends before eating','the rats that free trapped friends before eating','published',0,1,NULL,'2026-09-21T23:55:07.971839+00:00','2026-09-21T23:55:07.971839+00:00');
 INSERT INTO "topics" VALUES(15,NULL,NULL,'Why a group of flamingos is called a flamboyance','why a group of flamingos is called a flamboyance','published',0,1,NULL,'2026-09-22T04:00:16.620295+00:00','2026-09-22T04:00:16.620295+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
@@ -6594,7 +6596,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',2);
+INSERT INTO "sqlite_sequence" VALUES('facts',3);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',300);
-INSERT INTO "sqlite_sequence" VALUES('topics',133);
+INSERT INTO "sqlite_sequence" VALUES('topics',134);
