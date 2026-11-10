@@ -28,7 +28,9 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with: {enable-cache: true}
       - run: uv sync --frozen
-      - run: PYTHONPATH=scripts uv run python -m animal_topics.cli restore
+      - name: Restore animal DB
+        id: restore_db
+        run: PYTHONPATH=scripts uv run python -m animal_topics.cli restore
       - run: PYTHONPATH=scripts uv run python -m animal_topics.cli discover --max-new ${{ inputs.max_new || 60 }}
         timeout-minutes: 15
       - name: Enrich
@@ -43,8 +45,10 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           YOUTUBE_CHANNEL_ID: ${{ secrets.YOUTUBE_CHANNEL_ID }}
         run: PYTHONPATH=scripts uv run python -m animal_topics.cli stats
-      - run: PYTHONPATH=scripts uv run python -m animal_topics.cli export
-      - if: always()
+      - name: Export animal DB
+        if: steps.restore_db.outcome == 'success'
+        run: PYTHONPATH=scripts uv run python -m animal_topics.cli export
+      - if: always() && steps.restore_db.outcome == 'success'
         run: |
           git add scripts/animal_topics.sql
           if ! git diff --cached --quiet; then

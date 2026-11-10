@@ -106,6 +106,7 @@ jobs:
         run: python scripts/build_config.py
 
       - name: Restore animal DB
+        id: restore_db
         if: steps.time_check.outputs.skip_run != 'true'
         run: PYTHONPATH=scripts uv run python -m animal_topics.cli restore
 
@@ -128,7 +129,7 @@ jobs:
           echo "> $TOPIC" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Persist reservation
-        if: steps.time_check.outputs.skip_run != 'true'
+        if: steps.time_check.outputs.skip_run != 'true' && steps.restore_db.outcome == 'success'
         run: |
           if [ -f "$RUNNER_TEMP/animal_topic_id.txt" ]; then
             PYTHONPATH=scripts uv run python -m animal_topics.cli export
@@ -266,7 +267,7 @@ jobs:
       - name: Commit topic history
         # Run even if upload fails — we still want to record the topic
         # to avoid repeating it on the next run.
-        if: steps.time_check.outputs.skip_run != 'true' && always()
+        if: steps.time_check.outputs.skip_run != 'true' && always() && steps.restore_db.outcome == 'success'
         env:
           TOPIC_HISTORY_FILE: scripts/topic_history_animal.json
         run: |
