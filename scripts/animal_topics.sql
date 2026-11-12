@@ -4301,7 +4301,7 @@ Stones weighing about 4.5 kg (10 lb) were found in a gharial''s stomach that was
 === Reproduction ===
 Females mature at a body length of around 2.6 m (8.5 ft). Captive females breed at a body length of 3 m (9.8 ft). Male gharials mature at 15–18 years of age, when they reach a body length of around 4 m (13 ft) and once the ghara is developed. The ghara is apparently used to indicate sexual maturity, as a sound resonator when bubbling underwater or for other sexual behaviours.
 During the breeding season from February to March, adult male gharials emit sudden, high amplitude, pulsatile sounds that are audible on land at distances of 200–500 m (660–1,640 ft) and last 11–55 milliseconds.
-Courting and mating start by mid-February at the end of the cold season. In the dry season, reproductive females observed in the Chambal River routinely move 80–120 km (50–75 mi) and join female breeding groups to dig nests together. They select sites in riverside sand or silt banks located between  2.5 and','["gharial", "crocodile"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-11T00:39:10.582707+00:00','wikidata_living');
+Courting and mating start by mid-February at the end of the cold season. In the dry season, reproductive females observed in the Chambal River routinely move 80–120 km (50–75 mi) and join female breeding groups to dig nests together. They select sites in riverside sand or silt banks located between  2.5 and','["gharial", "crocodile"]',NULL,'done',1,'active',NULL,1,'2026-11-12T07:40:48.263826+00:00','2026-11-11T00:39:10.582707+00:00','wikidata_living');
 INSERT INTO "species" VALUES(315,'Q18851','Charadrius dubius','Little ringed plover','Little ringed plover',0,79,2685,3.42910600833269674e+00,1.0,'The little ringed plover (Thinornis dubius) is a small plover native to the Old World. It has mostly brown upperparts, a black neckband and a black mask around the eye with a noticeable yellow eyering. Its forehead, belly and the rest of the breast are white. A migratory species, it breeds in open gravel areas near freshwater, including gravel pits, islands and river edges. Its diet consists mainly of insects and worms, which it forages for in muddy areas.
 
 
@@ -9000,6 +9000,7 @@ INSERT INTO "facts" VALUES(2,266,'When foraging near Bewick''s and whooper swans
 INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "facts" VALUES(4,173,'During heavy rains from March to June, golden toads bred explosively, with males clasping any nearby individual before identifying its sex.','explosive rain breeding','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "facts" VALUES(5,104,'A male nightingale’s song can include an average of 190 distinct song types, with a maximum of about 250.','average song types count','2026-11-11T18:02:02.418491+00:00');
+INSERT INTO "facts" VALUES(6,314,'Gharials swallow stones weighing up to 4.5 kg, likely to aid digestion or regulate buoyancy.','gastroliths for digestion buoyancy','2026-11-12T07:40:48.263826+00:00');
 INSERT INTO "topics" VALUES(1,NULL,NULL,'What actually lives at the bottom of the Mariana Trench','what actually lives at the bottom of the mariana trench','published',0,1,NULL,'2026-09-19T07:22:04.178581+00:00','2026-09-19T07:22:04.178581+00:00');
 INSERT INTO "topics" VALUES(10,NULL,NULL,'Why most of the ocean floor remains unmapped','why most of the ocean floor remains unmapped','published',0,1,NULL,'2026-09-20T23:04:15.891208+00:00','2026-09-20T23:04:15.891208+00:00');
 INSERT INTO "topics" VALUES(100,NULL,NULL,'Survival Hack: How the Horned Lizard Fires Blood','survival hack how the horned lizard fires blood','published',0,1,NULL,'2026-10-19T05:13:31.202747+00:00','2026-10-19T05:13:31.202747+00:00');
@@ -9042,6 +9043,7 @@ INSERT INTO "topics" VALUES(133,266,2,'How Swans Help the Common Pochard Eat Twi
 INSERT INTO "topics" VALUES(134,181,3,'The Surprising Hunt: Asian Black Bears Preying On Hanuman Langurs','the surprising hunt asian black bears preying on hanuman langurs','reserved',0,0,'42872692609','2026-11-10T18:12:24.851127+00:00','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "topics" VALUES(135,173,4,'How the Lost Golden Toad Triggered Explosive Rain Breeding','how the lost golden toad triggered explosive rain breeding','reserved',0,0,'42976568022','2026-11-11T07:02:51.754409+00:00','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "topics" VALUES(136,104,5,'How the Common Nightingale Packs Hundreds Of Songs','how the common nightingale packs hundreds of songs','reserved',0,0,'43073754326','2026-11-11T18:02:02.418491+00:00','2026-11-11T18:02:02.418491+00:00');
+INSERT INTO "topics" VALUES(137,314,6,'How Gharials Use Giant Stones Inside Their Stomachs','how gharials use giant stones inside their stomachs','reserved',0,0,'43176957538','2026-11-12T07:40:48.263826+00:00','2026-11-12T07:40:48.263826+00:00');
 INSERT INTO "topics" VALUES(14,NULL,NULL,'The rats that free trapped friends before eating','the rats that free trapped friends before eating','published',0,1,NULL,'2026-09-21T23:55:07.971839+00:00','2026-09-21T23:55:07.971839+00:00');
 INSERT INTO "topics" VALUES(15,NULL,NULL,'Why a group of flamingos is called a flamboyance','why a group of flamingos is called a flamboyance','published',0,1,NULL,'2026-09-22T04:00:16.620295+00:00','2026-09-22T04:00:16.620295+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
@@ -9136,7 +9138,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',5);
+INSERT INTO "sqlite_sequence" VALUES('facts',6);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',420);
-INSERT INTO "sqlite_sequence" VALUES('topics',136);
+INSERT INTO "sqlite_sequence" VALUES('topics',137);
