@@ -74,6 +74,16 @@ GEMINI_TTS_VOICES = (
 )
 _MINIMAX_TTS_MAX_AUDIO_HEX_CHARS = 100 * 1024 * 1024
 NO_VOICE_NAME = "no-voice"
+KOKORO_MODEL_URL = (
+    "https://github.com/thewh1teagle/kokoro-onnx/releases/download/"
+    "model-files-v1.0/kokoro-v1.0.int8.onnx"
+)
+KOKORO_VOICES_URL = (
+    "https://github.com/thewh1teagle/kokoro-onnx/releases/download/"
+    "model-files-v1.0/voices-v1.0.bin"
+)
+KOKORO_MODEL_MIN_BYTES = 90_000_000
+KOKORO_VOICES_MIN_BYTES = 27_000_000
 # `none` 是 PR #981 里曾使用过的无配音标识。这里短期兼容这个值，避免
 # 已经手动调用过该分支的 API 用户升级后立即失效；WebUI 和新代码统一使用
 # 更明确的 `no-voice`。
@@ -314,6 +324,192 @@ def is_chatterbox_voice(voice_name: str) -> bool:
     return (voice_name or "").startswith("chatterbox:")
 
 
+def is_kokoro_voice(voice_name: str) -> bool:
+    return (voice_name or "").startswith("kokoro:")
+
+
+def split_kokoro_sentences(text: str, max_chars: int = 350) -> list[str]:
+    normalized = normalize_script_for_tts_and_subtitles(text)
+    sentences = utils.split_string_by_punctuations(normalized) or [normalized]
+    chunks = []
+    for sentence in sentences:
+        remaining = sentence.strip()
+        while len(remaining) > max_chars:
+            split_at = remaining.rfind(" ", 0, max_chars + 1)
+            if split_at <= 0:
+                split_at = max_chars
+            chunks.append(remaining[:split_at].strip())
+            remaining = remaining[split_at:].strip()
+        if remaining:
+            chunks.append(remaining)
+    return chunks
+
+
+def _kokoro_cache_paths() -> tuple[str, str]:
+    model_override = os.environ.get("KOKORO_MODEL_PATH", "").strip()
+    voices_override = os.environ.get("KOKORO_VOICES_PATH", "").strip()
+    if model_override or voices_override:
+        return (
+            model_override or os.path.join(
+                os.path.expanduser(
+                    os.environ.get("KOKORO_CACHE_DIR", "~/.cache/kokoro")
+                ),
+                "kokoro-v1.0.int8.onnx",
+            ),
+            voices_override or os.path.join(
+                os.path.expanduser(
+                    os.environ.get("KOKORO_CACHE_DIR", "~/.cache/kokoro")
+                ),
+                "voices-v1.0.bin",
+            ),
+        )
+
+    cache_dir = os.path.expanduser(
+        os.environ.get("KOKORO_CACHE_DIR", "~/.cache/kokoro")
+    )
+    return (
+        os.path.join(cache_dir, "kokoro-v1.0.int8.onnx"),
+        os.path.join(cache_dir, "voices-v1.0.bin"),
+    )
+
+
+def _ensure_kokoro_file(
+    path: str, url: str, minimum_bytes: int, allow_download: bool = True
+) -> None:
+    if os.path.exists(path) and os.path.getsize(path) >= minimum_bytes:
+        return
+    if not allow_download:
+        raise RuntimeError(f"Kokoro model file is missing or too small: {path}")
+
+    directory = os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
+    temporary_path = f"{path}.part"
+    try:
+        response = requests.get(url, stream=True, timeout=60)
+        response.raise_for_status()
+        with open(temporary_path, "wb") as file:
+            for chunk in response.iter_content(chunk_size=1024 * 1024):
+                if chunk:
+                    file.write(chunk)
+        if os.path.getsize(temporary_path) < minimum_bytes:
+            raise RuntimeError(f"downloaded Kokoro file is too small: {path}")
+        os.replace(temporary_path, path)
+    finally:
+        if os.path.exists(temporary_path):
+            os.remove(temporary_path)
+
+
+def kokoro_tts(
+    text: str,
+    voice_name: str,
+    voice_rate: float,
+    voice_file: str,
+    voice_volume: float = 1.0,
+) -> Union[SubMaker, None]:
+    del voice_volume
+    started_at = time.monotonic()
+    kokoro_voice = voice_name.split(":", 1)[1].strip() or "am_michael"
+    last_error = "unknown error"
+
+    for attempt in range(2):
+        try:
+            from kokoro_onnx import Kokoro
+            import numpy as np
+            import soundfile as sf
+
+            model_path, voices_path = _kokoro_cache_paths()
+            use_overrides = bool(
+                os.environ.get("KOKORO_MODEL_PATH", "").strip()
+                or os.environ.get("KOKORO_VOICES_PATH", "").strip()
+            )
+            _ensure_kokoro_file(
+                model_path,
+                KOKORO_MODEL_URL,
+                KOKORO_MODEL_MIN_BYTES,
+                allow_download=not use_overrides,
+            )
+            _ensure_kokoro_file(
+                voices_path,
+                KOKORO_VOICES_URL,
+                KOKORO_VOICES_MIN_BYTES,
+                allow_download=not use_overrides,
+            )
+
+            kokoro = Kokoro(model_path, voices_path)
+            sentence_samples = []
+            sample_rate = None
+            normalized_text = normalize_script_for_tts_and_subtitles(text)
+            for sentence in split_kokoro_sentences(normalized_text):
+                samples, current_sample_rate = kokoro.create(
+                    sentence,
+                    voice=kokoro_voice,
+                    speed=float(voice_rate or 1.0),
+                    lang="en-us",
+                )
+                samples = np.asarray(samples, dtype=np.float32).reshape(-1)
+                if samples.size:
+                    sentence_samples.append(samples)
+                    sample_rate = current_sample_rate
+
+            if not sentence_samples or not sample_rate:
+                raise RuntimeError("Kokoro returned no audio")
+
+            silence = np.zeros(
+                max(int(sample_rate * 0.15), 1), dtype=sentence_samples[0].dtype
+            )
+            joined = []
+            for index, samples in enumerate(sentence_samples):
+                if index:
+                    joined.append(silence)
+                joined.append(samples)
+            audio_samples = np.concatenate(joined)
+
+            ensure_file_path_exists(voice_file)
+            wav_file = f"{voice_file}.kokoro.wav"
+            try:
+                sf.write(wav_file, audio_samples, sample_rate, subtype="PCM_16")
+                ffmpeg_binary = utils.get_ffmpeg_binary()
+                subprocess.run(
+                    [
+                        ffmpeg_binary,
+                        "-y",
+                        "-i",
+                        wav_file,
+                        "-codec:a",
+                        "libmp3lame",
+                        "-q:a",
+                        "2",
+                        voice_file,
+                    ],
+                    capture_output=True,
+                    text=True,
+                    check=True,
+                )
+            finally:
+                if os.path.exists(wav_file):
+                    os.remove(wav_file)
+
+            duration = len(audio_samples) / sample_rate
+            sub_maker = ensure_legacy_submaker_fields(SubMaker())
+            sub_maker = populate_legacy_submaker_with_full_text(
+                sub_maker, normalized_text, duration
+            )
+            sub_maker.kokoro = True
+            elapsed = time.monotonic() - started_at
+            print("tts provider used: kokoro", file=sys.stderr)
+            print(f"kokoro synthesis time: {elapsed:.2f}s", file=sys.stderr)
+            return sub_maker
+        except Exception as exc:
+            last_error = str(exc)
+            if attempt == 0:
+                continue
+
+    print(f"kokoro tts failed: {last_error}", file=sys.stderr)
+    logger.error(f"kokoro tts failed: {last_error}")
+    return None
+
+
 def is_no_voice(voice_name: str | None) -> bool:
     """
     判断用户是否明确选择了“无配音”模式。
@@ -430,6 +626,9 @@ def tts(
             text=text,
             audio_duration_seconds=duration_seconds,
         )
+
+    if is_kokoro_voice(voice_name):
+        return kokoro_tts(text, voice_name, voice_rate, voice_file, voice_volume)
 
     if is_azure_v2_voice(voice_name):
         return azure_tts_v2(
@@ -1780,6 +1979,76 @@ def _format_text(text: str) -> str:
     text = text.replace("{", " ")
     text = text.replace("}", " ")
     return utils.normalize_script_for_subtitle_matching(text)
+
+
+def normalize_script_for_tts_and_subtitles(text: str) -> str:
+    """Normalize script punctuation and whitespace before TTS and subtitle timing."""
+    normalized = (text or "").replace("’", "'").replace("‘", "'")
+    normalized = normalized.replace("“", '"').replace("”", '"')
+    chars = []
+    for index, char in enumerate(normalized):
+        chars.append(char)
+        if char not in ".,!?;:" or index + 1 >= len(normalized):
+            continue
+        next_char = normalized[index + 1]
+        previous_char = normalized[index - 1] if index else ""
+        before_previous_char = normalized[index - 2] if index > 1 else ""
+        if not next_char.isalpha():
+            continue
+        if char == "." and (
+            previous_char.isdigit()
+            or (previous_char.isupper() and before_previous_char == ".")
+            or (
+                previous_char.isupper()
+                and index + 2 < len(normalized)
+                and normalized[index + 2] == "."
+            )
+        ):
+            continue
+        if normalized[index + 1] != " ":
+            chars.append(" ")
+    return re.sub(r"\s+", " ", "".join(chars)).strip()
+
+
+def create_subtitle_fallback(
+    text: str, audio_file: str, subtitle_file: str
+) -> bool:
+    """Create proportional subtitles directly from normalized script text."""
+    normalized = normalize_script_for_tts_and_subtitles(text)
+    words = normalized.split()
+    if not words:
+        return False
+
+    lines = [" ".join(words[index : index + 8]) for index in range(0, len(words), 8)]
+    duration = _get_audio_duration_from_file(audio_file)
+    if duration <= 0:
+        return False
+
+    total_characters = sum(len(line) for line in lines)
+    elapsed = 0.0
+    subtitle_items = []
+    formatter = _build_subtitle_formatter()
+    for index, line in enumerate(lines, start=1):
+        if index == len(lines):
+            end_time = duration
+        else:
+            end_time = elapsed + duration * len(line) / total_characters
+        if end_time <= elapsed:
+            end_time = min(duration, elapsed + 0.001)
+        subtitle_items.append(
+            formatter(
+                index,
+                elapsed * 10_000_000,
+                end_time * 10_000_000,
+                line,
+            )
+        )
+        elapsed = end_time
+
+    success = _write_subtitle_items(subtitle_items, subtitle_file)
+    if success:
+        print("subtitle fallback: proportional timing used", file=sys.stderr)
+    return success
 
 
 def _build_subtitle_formatter():

@@ -79,6 +79,15 @@ jobs:
       - name: Install project dependencies
         run: uv sync --frozen
 
+      - name: Install Kokoro TTS
+        run: uv pip install --python .venv/bin/python "kokoro-onnx==0.6.1" "soundfile>=0.13.1"
+
+      - name: Cache Kokoro models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/kokoro
+          key: kokoro-int8-v1.0
+
       - name: Install FFmpeg
         # ubuntu-latest no longer ships ffmpeg by default since mid-2025 runner image
         # updates. The bundled imageio-ffmpeg binary (used as fallback) is compiled
@@ -162,7 +171,7 @@ jobs:
             --task-id "$TASK_ID" \
             --video-subject "${{ steps.topic.outputs.topic }}" \
             --video-language en-US \
-            --voice-name "en-US-AndrewNeural" \
+            --voice-name "kokoro:am_michael" \
             --video-aspect 9:16 \
             --paragraph-number 3 \
             --video-count 1 \

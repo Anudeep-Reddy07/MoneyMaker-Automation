@@ -1,5 +1,7 @@
 import asyncio
 import base64
+import contextlib
+import io
 import os
 import shutil
 import threading
@@ -9,7 +11,7 @@ import tempfile
 import time
 from datetime import timedelta
 from pathlib import Path
-from types import SimpleNamespace
+from types import ModuleType, SimpleNamespace
 from unittest.mock import patch
 
 # add project root to python path
@@ -17,6 +19,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from app.utils import utils
 from app.services import voice as vs
+from app.services import subtitle
 from app.services import task as task_service
 from pydub import AudioSegment
 
@@ -52,6 +55,93 @@ class TestVoiceService(unittest.TestCase):
     
     def tearDown(self):
         self.loop.close()
+
+    def test_kokoro_voice_routes_without_calling_legacy_providers(self):
+        with patch.object(vs, "kokoro_tts", return_value="kokoro-result") as kokoro, \
+                patch.object(vs, "azure_tts_v1") as edge, \
+                patch.object(vs, "azure_tts_v2") as azure:
+            result = vs.tts("A fox.", "kokoro:am_michael", 1.0, "ignored.mp3")
+
+        self.assertEqual(result, "kokoro-result")
+        kokoro.assert_called_once()
+        edge.assert_not_called()
+        azure.assert_not_called()
+
+    def test_kokoro_normalization_and_sentence_limits(self):
+        normalized = vs.normalize_script_for_tts_and_subtitles(
+            "rituals.In one case, herd’s value was 3.5 U.S."
+        )
+        self.assertEqual(
+            normalized, "rituals. In one case, herd's value was 3.5 U.S."
+        )
+        chunks = vs.split_kokoro_sentences(" ".join(["word"] * 900))
+        self.assertTrue(chunks)
+        self.assertLessEqual(max(map(len, chunks)), 350)
+
+    def test_kokoro_failure_retries_without_legacy_fallback_or_secret_logging(self):
+        fake_module = ModuleType("kokoro_onnx")
+        calls = []
+
+        class FailingKokoro:
+            def __init__(self, *args):
+                calls.append(args)
+                raise RuntimeError("model unavailable")
+
+        fake_module.Kokoro = FailingKokoro
+        with tempfile.TemporaryDirectory() as tmp_dir, \
+                patch.dict(sys.modules, {"kokoro_onnx": fake_module}), \
+                patch.object(vs, "_ensure_kokoro_file"), \
+                patch.object(vs, "azure_tts_v1") as edge, \
+                patch.object(vs, "azure_tts_v2") as azure:
+            stderr = io.StringIO()
+            with contextlib.redirect_stderr(stderr):
+                result = vs.tts(
+                    "A fox.",
+                    "kokoro:am_michael",
+                    1.0,
+                    str(Path(tmp_dir) / "audio.mp3"),
+                )
+
+        self.assertIsNone(result)
+        self.assertEqual(len(calls), 2)
+        edge.assert_not_called()
+        azure.assert_not_called()
+        self.assertIn("kokoro tts failed: model unavailable", stderr.getvalue())
+        self.assertNotIn("AZURE_SPEECH_KEY", stderr.getvalue())
+
+    def test_kokoro_subtitle_fallback_covers_duration_without_overlap(self):
+        with tempfile.TemporaryDirectory() as tmp_dir, \
+                patch.object(vs, "_get_audio_duration_from_file", return_value=10.0):
+            subtitle_file = str(Path(tmp_dir) / "subtitle.srt")
+            self.assertTrue(
+                vs.create_subtitle_fallback(
+                    "One two three. Four five six seven eight nine ten.",
+                    "audio.mp3",
+                    subtitle_file,
+                )
+            )
+            parsed = subtitle.file_to_subtitles(subtitle_file)
+
+        self.assertGreater(len(parsed), 1)
+        previous_end = 0.0
+        for _text, timing, _content in parsed:
+            start, end = timing.replace(",", ".").split(" --> ")
+            start_seconds = sum(
+                float(value) * multiplier
+                for value, multiplier in zip(
+                    start.split(":"), (3600, 60, 1)
+                )
+            )
+            end_seconds = sum(
+                float(value) * multiplier
+                for value, multiplier in zip(
+                    end.split(":"), (3600, 60, 1)
+                )
+            )
+            self.assertGreaterEqual(start_seconds, previous_end)
+            self.assertGreater(end_seconds, start_seconds)
+            previous_end = end_seconds
+        self.assertAlmostEqual(previous_end, 10.0, places=2)
 
     def test_get_all_azure_voices(self):
         voices = vs.get_all_azure_voices()

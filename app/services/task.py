@@ -549,6 +549,18 @@ def generate_subtitle(task_id, params, video_script, sub_maker, audio_file):
         )
         return ""
 
+    if getattr(sub_maker, "kokoro", False):
+        if not voice.create_subtitle_fallback(
+            text=video_script,
+            audio_file=audio_file,
+            subtitle_file=subtitle_path,
+        ):
+            return ""
+        if not subtitle.file_to_subtitles(subtitle_path):
+            logger.warning(f"subtitle file is invalid: {subtitle_path}")
+            return ""
+        return subtitle_path
+
     if subtitle_provider == "edge":
         voice.create_subtitle(
             text=video_script, sub_maker=sub_maker, subtitle_file=subtitle_path
