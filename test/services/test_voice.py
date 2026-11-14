@@ -2,6 +2,7 @@ import asyncio
 import base64
 import os
 import shutil
+import threading
 import unittest
 import sys
 import tempfile
@@ -334,7 +335,7 @@ class TestVoiceService(unittest.TestCase):
                 self.boundary = boundary
 
             def stream_sync(self):
-                time.sleep(10)
+                threading.Event().wait(10)
                 yield {"type": "audio", "data": b"unreachable"}
 
         class _FakeSubMaker:
@@ -350,7 +351,7 @@ class TestVoiceService(unittest.TestCase):
             vs.config,
             "app",
             dict(vs.config.app, edge_tts_timeout=0.05),
-        ):
+        ), patch.object(vs.time, "sleep"):
             voice_file = Path(tmp_dir) / "hanging-edge-tts.mp3"
             started_at = time.monotonic()
             sub_maker = vs.azure_tts_v1(
@@ -364,6 +365,80 @@ class TestVoiceService(unittest.TestCase):
 
         self.assertIsNone(sub_maker)
         self.assertLess(elapsed, 2)
+
+    def test_tts_uses_edge_then_azure_only_when_key_exists(self):
+            edge_result = object()
+            azure_result = object()
+            with patch.object(vs, "azure_tts_v1", return_value=edge_result) as edge:
+                self.assertIs(vs.tts("animal", "en-US-AndrewNeural", 1.0, "x.mp3"), edge_result)
+                edge.assert_called_once()
+
+            with patch.object(vs, "azure_tts_v1", return_value=None), patch.object(
+                vs, "azure_tts_v2", return_value=azure_result
+            ) as azure, patch.object(
+                vs.config, "azure", {"speech_key": "secret", "speech_region": "westus"}
+            ):
+                self.assertIs(
+                    vs.tts("animal", "en-US-AndrewNeural", 1.0, "x.mp3"), azure_result
+                )
+                azure.assert_called_once_with(
+                    "animal", "en-US-AndrewNeural-V2", "x.mp3", 1.0
+                )
+
+            with patch.object(vs, "azure_tts_v1", return_value=None), patch.object(
+                vs, "azure_tts_v2"
+            ) as azure, patch.object(vs.config, "azure", {"speech_key": ""}):
+                self.assertIsNone(vs.tts("animal", "en-US-AndrewNeural", 1.0, "x.mp3"))
+                azure.assert_not_called()
+
+    def test_edge_requests_word_boundaries(self):
+            captured = {}
+
+            class _Communicate:
+                def __init__(self, text, voice, boundary=None, **kwargs):
+                    captured.update(kwargs)
+                    captured["boundary"] = boundary
+
+            with patch.object(vs.edge_tts, "Communicate", _Communicate):
+                vs.create_edge_tts_communicate("animal", "en-US-AndrewNeural", "+0%")
+
+            self.assertEqual(captured["boundary"], "WordBoundary")
+
+    def test_provider_log_never_contains_the_azure_key(self):
+            class _SubMaker:
+                def feed(self, chunk):
+                    pass
+
+                def get_srt(self):
+                    return "1\n00:00:00,000 --> 00:00:01,000\nanimal\n"
+
+            class _Communicate:
+                def __init__(self, text, voice, **kwargs):
+                    pass
+
+                def stream_sync(self):
+                    yield {"type": "audio", "data": b"audio"}
+                    yield {
+                        "type": "WordBoundary",
+                        "offset": 0,
+                        "duration": 10000000,
+                        "text": "animal",
+                    }
+
+            with tempfile.TemporaryDirectory() as tmp_dir, patch.object(
+                vs.edge_tts, "Communicate", _Communicate
+            ), patch.object(vs.edge_tts, "SubMaker", _SubMaker), patch.object(
+                vs.config, "azure", {"speech_key": "secret-value", "speech_region": "westus"}
+            ), patch("sys.stderr") as stderr:
+                vs.azure_tts_v1(
+                    "animal",
+                    "en-US-AndrewNeural",
+                    1.0,
+                    str(Path(tmp_dir) / "animal.mp3"),
+                )
+
+            logged = "".join(call.args[0] for call in stderr.write.call_args_list)
+            self.assertNotIn("secret-value", logged)
 
     @unittest.skipUnless(
         RUN_INTEGRATION_TESTS,

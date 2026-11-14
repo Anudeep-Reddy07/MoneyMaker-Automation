@@ -8,6 +8,7 @@ import os
 import queue
 import re
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -503,7 +504,19 @@ def tts(
         else:
             logger.error(f"Invalid chatterbox voice name format: {voice_name}")
             return None
-    return azure_tts_v1(text, voice_name, voice_rate, voice_file)
+    edge_result = azure_tts_v1(text, voice_name, voice_rate, voice_file)
+    if edge_result is not None:
+        return edge_result
+
+    speech_key = str(config.azure.get("speech_key", "") or "").strip()
+    if not speech_key:
+        return None
+
+    azure_voice = f"{parse_voice_name(voice_name)}-V2"
+    azure_result = azure_tts_v2(text, azure_voice, voice_file, voice_rate)
+    if azure_result is not None:
+        print("tts provider used: azure", file=sys.stderr)
+    return azure_result
 
 
 def convert_rate_to_percent(rate: float) -> str:
@@ -789,6 +802,7 @@ def azure_tts_v1(
     voice_name = parse_voice_name(voice_name)
     text = text.strip()
     rate_str = convert_rate_to_percent(voice_rate)
+    retry_delays = (0, 2, 5)
     for i in range(3):
         try:
             logger.info(f"start, voice name: {voice_name}, try: {i + 1}")
@@ -818,9 +832,14 @@ def azure_tts_v1(
 
             if not sub_maker.get_srt():
                 logger.warning("failed, sub_maker.get_srt() is empty")
+                if os.path.exists(voice_file) and os.path.getsize(voice_file) == 0:
+                    os.remove(voice_file)
+                if i < 2:
+                    time.sleep(retry_delays[i + 1])
                 continue
 
             logger.info(f"completed, output file: {voice_file}")
+            print("tts provider used: edge", file=sys.stderr)
             return sub_maker
         except Exception as e:
             logger.error(f"failed, error: {str(e)}")
@@ -835,6 +854,8 @@ def azure_tts_v1(
                         "failed to remove empty tts file: "
                         f"{voice_file}, error: {str(remove_error)}"
                     )
+            if i < 2:
+                time.sleep(retry_delays[i + 1])
     return None
 
 
