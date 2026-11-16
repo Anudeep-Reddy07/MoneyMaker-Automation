@@ -9,10 +9,10 @@ DELETE FROM "sqlite_sequence";
 INSERT INTO "meta" VALUES('enrich_reset_v2','1');
 INSERT INTO "meta" VALUES('enrich_reset_v3','1');
 INSERT INTO "meta" VALUES('extinct_min_sitelinks','15');
-INSERT INTO "meta" VALUES('extinct_offset','390');
+INSERT INTO "meta" VALUES('extinct_offset','440');
 INSERT INTO "meta" VALUES('legacy_migrated','1');
 INSERT INTO "meta" VALUES('living_min_sitelinks','20');
-INSERT INTO "meta" VALUES('living_offset','698');
+INSERT INTO "meta" VALUES('living_offset','761');
 INSERT INTO "meta" VALUES('name_fix_v1','1');
 INSERT INTO "meta" VALUES('text_refresh_v1','1');
 INSERT INTO "meta" VALUES('wishlist_unresolved','[]');
@@ -8988,6 +8988,160 @@ Dinofelis'' position amongst the Metailurini per a 2018 phylogenetic analysis:
 == Paleobiology ==
  
 Morphometric ana','["fossil sabertooth cat skeleton", "museum Dinofelis skull"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-14T23:53:58.412753+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(541,'Q152144','Monticola solitarius','Blue rock thrush','Blue rock thrush',0,68,5765,3.76087463805218913e+00,1.0,'The blue rock thrush (Monticola solitarius) is a species of chat. This thrush-like Old World flycatcher was formerly placed in the family Turdidae. It breeds in southern Europe, northwest Africa, and from Central Asia to northern China and Malaysia. The blue rock thrush is the official national bird of Malta.
+
+== Description ==
+The blue rock thrush is a starling-sized bird, 21–23 cm (8.3–9.1 in) in length with a long slim bill. The breeding male of the nominate subspecies is unmistakable, with all blue-grey plumage apart from its darker wings. Females and immatures are much less striking, with dark brown upperparts, and paler brown scaly underparts. The male of the subspecies M. s. philippensis has rufous-chestnut plumage from the mid-breast down to the undertail. Both sexes lack the reddish outer tail feathers of rock thrush.
+
+== Distribution and habitat ==
+The European, north African and southeast Asian birds are mainly resident, apart from altitudinal movements. Other Asian populations are more migratory, wintering in sub-Saharan Africa, India and southeast Asia. This bird is a very uncommon visitor to northern and western Europe. There is some overlap in breeding and wintering ranges with the common rock thrush (Monticola saxatilis); Palearctic and southwestern Asia for breeding and northern Africa for wintering. It is known to have been spotted in North America three times: once in British Columbia in 1997, once in Oregon and the Farallon Islands in 2024, and most recently in Portland in September of 2026. It is unclear whether the Oregon and Farallon Islands spottings were the same bird. It is highly unlikely that the British Columbia sighting was the same individual bird as the Oregon/Farallon Islands sighting as the blue rock thrush
+
+== Behaviour ==
+The blue rock thrush breeds in open mountainous areas. It nests in rock cavities and walls, and usually lays 3–5 eggs. An omnivore, the blue rock thrush eats a wide variety of insects and small reptiles in addition to berries and seeds.','["blue rock thrush", "Malta national bird", "Old World flycatcher"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:37.800470+00:00','wikidata_living');
+INSERT INTO "species" VALUES(542,'Q174466','Aegolius funereus','Boreal owl','Boreal owl',0,68,6583,3.81848982220421362e+00,1.0,'The boreal owl or Tengmalm''s owl (Aegolius funereus) is a small owl in the "true owl" family Strigidae. It is known as the boreal owl or, more rarely, Richardson''s owl after Sir John Richardson, in North America, and as Tengmalm''s owl in Europe and Asia, after the Swedish naturalist Peter Gustaf Tengmalm.
+Due to its nocturnal habits and preferred inaccessible taiga forest habitat, it is rarely seen by humans; when met with, it is often extremely confiding, showing little or no fear of people, only flying off if approached to within 3–5 metres.
+
+== Description ==
+The boreal owl is small with a large head and long wings. Both sexes are similar in appearance, though females are larger. Males typically measure 21–25 cm (8–10 in) in length, with a wingspan of 55–58 cm (22–23 in), while females are larger, 25–28 cm (10–11 in), with a wingspan of 59–62 cm (23–24 in). Females, weighing 132–215 g (4.7–7.6 oz), are heavier than males, which weigh 93–139 g (3.3–4.9 oz).
+
+== Vocal behaviour ==
+Calls and related functions can be challenging to interpret because of their nocturnal and hard to locate lifestyle. Starting at one week old, young owls produce a harsh "peep" or "chirp" that softens after fledging. Comprehensive studies in North America have found 8 different types of calls that play an important role in communication, mating, and territorial behaviour:
+
+The Primary Song – loud trill sung by males to attract females and establish territory
+The Prolonged Song – softer courtship melody sung by males from beginning of courtship to incubation to strengthen bonds
+The Delivery Call – soft call by male to signal the transfer of prey to a female or young
+The Screech – a load contact call made while flying or from a perch
+The Peeping Call – soft calls by females throughout breeding to respond to males'' calls
+The Weak Call – single note repeated rapidly from females in nest afte
+
+== Distribution and habitat ==
+The boreal owl breeds in dense boreal, subalpine forest as well as mixed woodland. The preferred habitats are old-growth forests as they provide shelter from avian predators and an abundance of prey. Breeding habitats include boreal forests of black spruce, white spruce, birch, and aspen across northern North America and the Palearctic, and in mountain ranges such as the Alps and the Rockies. Nests can be found in aspen and mixed forests, while individuals roost in conifers of about 6 metres high. This species can travel long distances but are known to breed within 500 metres of their natal sites. Males have a higher site fidelity than females and occupy stable year-long home ranges. However, northern populations may migrate south in response to snow depth and poor prey availability, but eventually return to their breeding grounds.
+
+== Behaviour ==
+
+=== Breeding ===
+Boreal owls are monogamous and raise a single brood once they reach one year of age. The breeding begins with a lengthy courtship process where males sing for up to 102 days, starting from mid-February to mid-April, depending on environmental factors like prey availability and weather. The nest is usually a hole in a tree often made by a woodpecker, but the birds also readily use nest-boxes. Nesting period last for 28–36 days. The clutch is usually 3-7 eggs which are laid at 2-day intervals. They are glossy white and measure 33 mm × 26 mm (1.3 in × 1.0 in) and weigh around 11.7 g (0.41 oz). The eggs are incubated only by the female beginning with the second egg, and incubation lasts on average 29 days for the first egg and 2.6 days less for the last one. They hatch asynchronously after 25–32 days. Females take care of the young  and brood the nestlings for an average of 21 days. Food is
+
+=== Food and feeding behaviour ===
+This small owl eats mainly voles and other mammals (such as mice, chipmunks, other squirrels, gophers, moles, shrews, and bats), but also birds as well as small amphibians, insects (such as beetles), and other invertebrates. In North America, they have been observed preying on southern red-backed voles, western heather voles, jumping mice, northern pocket gophers, and northern flying squirrels. Birds preyed upon include dark-eyed juncos, American robins, and redpolls. It is largely nocturnal, though in the northernmost parts of its range, it has to hunt during daylight because of the very short nights in summer. This species is an Ambush predator, meaning it does not pursue animals until they are within 10 metres of its hunting perch. Their extreme asymmetrical skulls leads to pinpoint sound in both horizontal and vertical directions, and allows them to capture prey under snow and dense
+
+==== Predation ====
+Marten species (Martes spp.) and tawny owls (Strix aluco) are the predominant predators of boreal owl owlets and adult females at nest locations, with martens preying on 48% of Norwegian clutches. Other predators include American red squirrels (Tamiasciurus hudsonicus), Cooper''s hawk (Astur cooperii), American goshawk (Astur atricapillus), Eurasian goshawk (Astur gentilis), great horned owl (Bubo virginianus), and ural owl (Strix uralensis). Moreover, Eurasian nuthatches (Sitta europaea) have been observed blocking the entrance of nests with mud, occasionally trapping females inside and starving them to death.','["boreal owl", "taiga forest owl"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:38.200047+00:00','wikidata_living');
+INSERT INTO "species" VALUES(543,'Q174652','Balaena mysticetus','Bowhead whale','Bowhead whale',0,68,61688,4.79020773023746393e+00,1.0,'The bowhead whale (Balaena mysticetus), sometimes known as the Greenland right whale, Arctic whale, and polar whale, is a species of baleen whale belonging to the family Balaenidae and is the only living representative of the genus Balaena. It is the only baleen whale endemic to the Arctic and subarctic waters, and is named after its characteristic massive triangular skull, which it uses to break through Arctic ice.
+Bowheads have the largest mouth of any animal, representing almost one-third of the length of the body. They also have the longest baleen plates among whales, with a maximum length of 2.97 to 5.2 metres (9.7 to 17.1 ft). They may be the longest-lived of all mammals, with the ability to reach an age of more than 200 years.
+The bowhead was an early whaling target. Their population was severely reduced before a 1966 moratorium was passed to protect the species. Of the five stock
+
+== Description ==
+The bowhead whale is among the largest baleen whale species and is distinguished by its round body with an exceptionally curved rostrum, a large head, and long, dark baleen plates. Relative to its size, the bowhead whale has the largest head of any cetacean, measuring nearly 40% of the total body length. Two blowholes are situated atop its head, and help propel a stream of water up to 6.1 m (20 ft) in the air. The lower lips encompasses the baleen racks and resembles a curved circular shape when viewed from the side. It also has wide, trigonal flukes and fairly large, oar-shaped flippers. The skin is mostly black with white patches around the flukes, tail, eyes, and chin. These patches develop throughout life, with the exception of the patch surrounding the chin, which is usually visible in newborn calves, and increases in size at the same rate with the whale''s overall growth.
+An adult w
+
+== Behaviour ==
+
+=== Feeding ===
+The head of the bowhead whale comprises a large portion of its body length, creating an enormous feeding apparatus. The bowhead whale is a filter feeder, and feeds by swimming forward with its mouth wide open. It has hundreds of overlapping baleen plates consisting of keratin hanging from each side of the upper jaw. The mouth has a large, upturning lip on the lower jaw that helps to reinforce and hold the baleen plates within the mouth. This also prevents buckling or breakage of the plates from the pressure of the water passing through them as the whale advances. To feed, water is filtered through the fine hairs of keratin of the baleen plates, trapping the prey inside near the tongue where it is then swallowed. The diet consists of mostly zooplankton, which includes krill, copepods, mysids, amphipods, and many other crustaceans. About 1.8 t (2 short tons) of food are consumed each day.
+
+=== Reproduction ===
+Sexual activity occurs between pairs and in boisterous groups of several males and one or two females. Breeding season is observed from March through August; conception is believed to occur primarily in March when song activity is at its highest. Sexual maturity is estimated to be reached at 15–25 years, and physical maturity at 50–60 years. The gestation period is 13–14 months with females producing a calf once every three to four years. There is no evidence of reproductive aging in males, and a case of penile sperm discharge from a male bowhead whale estimated to be 159 years old has been reported. However, there is evidence of possible reproductive aging in female bowhead whales, with females aged 133, 139, and 149 years, respectively, suggesting reproductive cessation or senescence. The oldest female captured with a fetus was estimated to be 121 years old. Lactation typically lasts a
+
+=== Lifespan ===
+Bowhead whales are considered to be the longest-living mammals, living for over 200 years. In May 2007, a 15 m (49 ft) specimen caught off the Alaskan coast was discovered with the 89 mm (3.5 in) head of an explosive bomb lance of a model manufactured between 1879 and 1885 lodged in its body, so the whale was probably bomb lanced sometime between those years, and its age at the time of death was estimated at between 115 and 130 years. Spurred by this discovery,  scientists measured the ages of other bowhead whales captured between 1978 and 1996; one male specimen was estimated to be 211 years old. Other bowhead whales were estimated to be between 135 and 172 years old. This discovery showed the longevity of the bowhead whale is much greater than originally thought. Researchers at CSIRO, Australia''s national science agency, estimated that bowhead whales'' maximum natural lifespan is 268 ye
+
+== Ecology ==','["bowhead whale", "baleen whale"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:38.579411+00:00','wikidata_living');
+INSERT INTO "species" VALUES(544,'Q178702','Lagopus lagopus','Willow ptarmigan','Willow ptarmigan',0,68,26093,4.41654065804897921e+00,1.0,'The willow ptarmigan ( TAR-mi-gən; Lagopus lagopus) is a bird in the grouse tribe Tetraonini of the pheasant family Phasianidae. It is also known as the willow grouse. The willow ptarmigan breeds in birch and other forests and moorlands in northern Europe, the tundra of Scandinavia, Siberia, Alaska, and Canada, in particular in the provinces of Newfoundland and Labrador and Quebec. It is the state bird of Alaska.
+In the summer, the birds are largely brown, with dappled plumage, while in the winter, they are white with some black feathers in their tails. The species has remained little changed from the bird that roamed the tundra during the Pleistocene. Nesting takes place in the spring when clutches of four to 10 eggs are laid in a scrape on the ground. The chicks are precocial, so soon leave the nest. While they are young, both parents play a part in caring for them. The chicks eat inse
+
+== Description ==
+The willow ptarmigan is a medium to large, ground-dwelling bird and is the most numerous of the three species of ptarmigan. Males and females are about the same size, with the adult length varying between 35 and 44 cm (14 and 17 in) with a wingspan ranging from 60 to 65 cm (24 to 26 in). Its weight is 430 to 810 g (15 to 29 oz). It is deep-chested and has a fairly long neck, a broad bill, short, feathered legs, and a moderately short, rounded tail. In the summer, the male''s plumage is marbled brown, with a reddish hue to the neck and breast, a black tail, and white wings and underparts. It has red, semicircular combs above the eyes, which become red and prominent in the breeding season. The female is similar in appearance, but with much smaller eye combs and has brown feathers scattered among the white feathers on her belly. During winter, the body plumage and two central tail feathers o
+
+== Distribution and habitat ==
+The willow ptarmigan has a circumboreal distribution. It is native to Canada and the United States, China, Mongolia, the Russian Federation, Kazakhstan, the Czech Republic, Finland, Norway, Sweden, Estonia, Latvia, and Lithuania. It primarily occupies subalpine and subarctic habitats such as sparse pine and birch forests, thickets with willow and alder trees, heather moors, tundra, and mountain slopes. In the winter, females and subadults may move to lower altitudes and seek shelter in valleys or in more densely vegetated areas, but adult males usually remain in subalpine regions. The red grouse is common on heather-clad moorland across the north and west of Great Britain and in localised areas of Ireland.
+
+== Diet ==
+The willow ptarmigan has a varied and seasonal diet. The bird is herbivorous for most of its life and subsists on various plant materials. As juveniles, they may feed on insects due to an inability to digest plant material caused by underdeveloped ceca. In the summer, their diet is highly varied and may consist of berries, flowers, leaves, twigs, and seeds.
+In Alaska, the main dietary item of the adults at all times of year is willows such as the Alaska willow Salix alaxensis, with leaves being eaten in summer and buds, twigs and catkins supplying the birds'' main nutritional needs in winter and early spring. In the early 21st century, an increase in shrub expansion in arctic Alaska is thought to be greatly affecting the willow ptarmigan''s winter diet. Because of the way they browse, ptarmigan help shape the landscape of the area. After heavy snowfalls, the birds cannot access the shorter
+
+== Behavior ==
+Male willow ptarmigans are territorial; they arrive in the breeding areas and set up territories in April and May, aggressively defending them against male interlopers. When the females arrive a few weeks later, the male performs courtship displays such as aerial manoeuvres, strutting and tail-fanning. When she has chosen a mate and a nesting site, the female lays a clutch of six to 10 eggs in a shallow depression on the ground. The nest site is usually in a hidden location at the edge of a clearing.
+A small minority of male willow ptarmigan is polygynous, but most are monogamous. They are assiduous at guarding both nest and mate, particularly early in the incubation period and when the eggs are nearly ready to hatch. During this time, the greatest danger may be from conspecifics. Although adult willow ptarmigan are herbivores, the newly hatched young also feed on insects. In most other
+
+== Cold adaptations ==
+The willow ptarmigan has several behavioral and physiological adaptations that help it survive the long Arctic winter, such as large pectoral muscles that aid in  shivering. These pectoral muscles grow quickly during the first few days of the ptarmigan''s life, meaning that the ptarmigan chicks progress from having no thermoregulatory ability at hatch to being able to maintain their normal body temperature for hours at 10 °C (50 °F) when they are 2 weeks old. The rapid increase in m. pectoralis size is caused by increases in muscle fiber diameter (hypertrophy), and cold exposure is not necessary for this muscle development to occur. Ptarmigan also have thick plumage with feather barbules that contain air-filled cavities, contributing to a low heat loss, which aids in thermoregulation while the bird is roosting in burrows in the snow. Ptarmigan can withstand the severe cold because the amb','["willow ptarmigan", "tundra bird"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:38.977141+00:00','wikidata_living');
+INSERT INTO "species" VALUES(545,'Q178973','Mustela furo','Ferret','Ferret',0,68,96910,4.98637307496787052e+00,1.0,'The ferret (Mustela furo) is a small, domesticated species belonging to the family Mustelidae. The ferret is most likely a domesticated form of the wild European polecat (Mustela putorius), as evidenced by the ferret''s ability to interbreed with European polecats and produce hybrid offspring. Physically, ferrets resemble other mustelids because of their long, slender bodies. Including their tail, the average length of a ferret is about 50 cm (20 in); they weigh between 0.7 and 2.0 kg (1.5 and 4.4 lb); and their fur can be black, brown, white, or a mixture of those colours. The species is sexually dimorphic, with males being considerably larger than females.
+Ferrets may have been domesticated since ancient times, but there is widespread disagreement because of the sparseness of written accounts and the inconsistency of those which survive. Contemporary scholarship agrees that ferrets were
+
+=== Behavior ===
+Ferrets spend 14–18 hours a day asleep and are most active around the hours of dawn and dusk, meaning they are crepuscular. If they are caged, they should be taken out daily to exercise and satisfy their curiosity; they need at least an hour and a place to play. Unlike their polecat ancestors, which are solitary animals, most ferrets will live happily in social groups. They are territorial, like to burrow, and prefer to sleep in an enclosed area.
+Like many other mustelids, ferrets have scent glands near their anus, the secretions from which are used in scent marking. Ferrets can recognize individuals from these anal gland secretions, as well as the sex of unfamiliar individuals. Ferrets may also use urine marking for mating and individual recognition.
+As with skunks, ferrets can release their anal gland secretions when startled or scared, but the smell is much less potent and dissipates
+
+=== Diet ===
+Ferrets are obligate carnivores. The natural diet of their wild ancestors consisted of whole small prey, including meat, organs, bones, skin, feathers and fur. Ferrets have short digestive systems and a quick metabolism, so they need to eat frequently. Prepared dry foods consisting almost entirely of meat (including high-grade cat food, although specialized ferret food is increasingly available and preferable) provide the most nutritional value. Some ferret owners feed pre-killed or live prey (such as mice and rabbits) to their ferrets to more closely mimic their natural diet. Ferret digestive tracts lack a cecum and the animal is largely unable to digest plant matter. Before much was known about ferret physiology, many breeders and pet stores recommended food like fruit in the ferret diet, but it is now known that such foods are inappropriate, and may in fact have negative consequences','["ferret", "European polecat", "mustelid"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:39.336656+00:00','wikidata_living');
+INSERT INTO "species" VALUES(546,'Q183255','Phacochoerus africanus','Common warthog','Common warthog',0,68,17420,4.24107308075298661e+00,1.0,'The common warthog (Phacochoerus africanus) is a wild member of the pig family (Suidae) found in grassland, savanna, and woodland in sub-Saharan Africa. In the past, it was commonly treated as a subspecies of P. aethiopicus, but today that scientific name is restricted to the desert warthog of northern Kenya, Somalia, and eastern Ethiopia.
+
+== Description ==
+The common warthog is a medium-sized species, with a head-and-body length ranging from 0.9 to 1.5 m (2 ft 11 in to 4 ft 11 in), and shoulder height from 63.5 to 85 cm (25.0 to 33.5 in). Females, at 45 to 75 kg (99 to 165 lb), are smaller and lighter than males, at 60 to 150 kg (130 to 330 lb). A warthog is identifiable by the two pairs of tusks protruding from the mouth and curving upwards. The lower pair, which is far shorter than the upper pair, becomes razor-sharp by rubbing against the upper pair every time the mouth is opened and closed. The upper canine teeth can grow to 25.5 cm (10.0 in) long and have a wide elliptical cross section, being about 4.5 cm (1.8 in) deep and 2.5 cm (0.98 in) wide. A tusk will curve 90° or more from the root, and will not lie flat on a table, as it curves somewhat backwards as it grows. The tusks are not used for digging, but are used for combat with ot
+
+== Ecology ==
+The common warthog is the only pig species that has adapted to grazing and savanna habitats. Its diet is omnivorous, composed of grasses, roots, berries and other fruits, bark, fungi, dung, insects, eggs and carrion. The diet is seasonably variable, depending on availability of different food items. During the wet seasons, warthogs graze on short perennial grasses. During the dry seasons, they subsist on bulbs, rhizomes, and nutritious roots. 
+Warthogs are powerful diggers, using both their snouts and feet. When feeding, they often bend their front feet backwards and move around on the wrists. Calloused pads that protect the wrists during such movement form early in the development of the fetus. Although they can dig their own burrows, they often occupy abandoned burrows of aardvarks and other animals. The common warthog commonly reverses into burrows, with its head facing the opening an
+
+== Social behavior and reproduction ==
+Common warthogs are not territorial, but instead occupy a home range. Common warthogs live in groups called sounders.  Females live in sounders with their young and with other females. Females tend to stay in their natal groups, while males leave, but stay within the home range. Subadult males associate in bachelor groups, but males live alone when they become adults. Adult males only join sounders with estrous females. Warthogs have two facial glands: the tusk gland and the sebaceous gland. Common warthogs of both sexes begin to mark around six to seven months old. Males tend to mark more than females. They mark sleeping and feeding areas and waterholes. Common warthogs use tusk marking for courtship, for antagonistic behaviors, and to establish status.
+
+Common warthogs are seasonal breeders. Rutting begins in the late rainy or early dry season and birthing begins near the start of the','["common warthog", "savanna", "grassland"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:39.694273+00:00','wikidata_living');
+INSERT INTO "species" VALUES(547,'Q18764','Paradoxurus hermaphroditus','Asian palm civet','Asian palm civet',0,68,60045,4.77848408191731088e+00,1.0,'The Asian palm civet (Paradoxurus hermaphroditus), also called common palm civet, toddy cat and musang, is a viverrid native to South and Southeast Asia. Since 2008, it is IUCN Red Listed as least concern as it accommodates to a broad range of habitats. It is widely distributed with large populations that in 2008 were thought unlikely to be declining. It is threatened by poaching for the illegal wildlife trade.
+
+== Distribution and habitat ==
+The Asian palm civet is widely distributed in South and Southeast Asia, ranging from India, Nepal, Bangladesh, Bhutan, Sri Lanka to Myanmar, Thailand, Peninsular Malaysia, Singapore, Laos, Cambodia, Vietnam, China, the Philippines, Borneo and the Indonesian islands of Sumatra, Java, Bawean and Siberut. It usually inhabits primary forests, but also occurs at lower densities in secondary and selectively logged forest.
+The Asian palm civet was introduced to Irian Jaya, the Lesser Sunda Islands, Maluku, and Sulawesi. Its presence in Papua New Guinea is uncertain.
+
+== Behaviour and ecology ==
+The Asian palm civet is thought to lead a solitary lifestyle, except for brief periods during mating. It is both terrestrial and arboreal, showing a nocturnal activity pattern with peaks between late evening until after midnight. It is usually active between dawn and 4:00 in the morning, but less active during nights when the moon is brightest.
+Scent marking behaviour and olfactory response to various excretions such as urine, feces, and secretion of the perineal gland differs in males and females. Scent marking by dragging the perineal gland and leaving the secretion on the substrate was most commonly observed in animals of both sexes. The duration of the olfactory response varied and depended both on the sex and excretion type. The palm civet can distinguish animal species, sex, familiar and unfamiliar individuals by the odor of the perineal gland secretion.
+
+=== Feeding and diet ===
+The Asian palm civet is an omnivore feeding foremost on fruits such as berries and pulpy fruits. It thus helps to maintain tropical forest ecosystems via seed dispersal. It eats chiku, mango and rambutan, but also small mammals and insects. It plays an important role in the natural regeneration of Pinanga kuhlii and P. zavana palms at Gunung Gede Pangrango National Park.
+
+=== Reproduction ===
+Due to its solitary and nocturnal habits, little is known about its reproductive processes and behaviour. In March 2010, a pair of palm civets was observed when attempting to mate. The pair copulated on the tree branch for about five minutes. During that period, the male mounted the female 4–5 times. After each mounting, the pair separated for a few moments and repeated the same procedure. After completion of mating, the pair frolicked around for some time, moving from branch to branch on the tree. The animals separated after about six minutes and moved off to different branches and rested there.','["asian palm civet", "viverrid", "wildcat"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:40.101352+00:00','wikidata_living');
+INSERT INTO "species" VALUES(548,'Q187927','Capra falconeri','Markhor','Markhor',0,68,32377,4.51025001872897402e+00,1.0,'The markhor (Capra falconeri)  is a large wild Capra species native to the mountain regions at the crossroads of Central and South Asia, including the Karakoram and Himalayas. It occurs in parts of Turkmenistan, Uzbekistan, Tajikistan, Afghanistan, Pakistan, and India. It has been listed on the IUCN Red List as Near Threatened since 2015.
+The markhor is the national animal of Pakistan, where it is also known as the screw-horn or screw-horned goat. The word "markhor" is derived from the Persian word markhar, meaning "curly" because of its curly horns. The word, which comes from both Pashto and mainly classical Persian languages, is combined from "mar" and "khor" and more literally means "snake eater", referencing the ancient belief that the markhor would actively kill and consume snakes.
+
+== Description ==
+Markhor adults stand 65 to 115 cm (26 to 45 in) at the shoulder, are 132 to 186 cm (52 to 73 in) long and weigh from 32 to 110 kg (71 to 243 lb). They have the highest maximum shoulder height among the species in the genus Capra, but is surpassed in length and weight by the Siberian ibex. The coat is of a grizzled, light brown to black colour, and is smooth and short in summer, while growing longer and thicker in winter. The fur of the lower legs is black and white. Markhor are sexually dimorphic, with males having longer hair on the chin, throat, chest, and shanks. Females are redder in colour, with shorter hair and a short, black beard, and are maneless. Both sexes have tightly curled, corkscrew-like horns, which close together at the head, but spread upwards toward the tips. The horns of males can grow up to 160 cm (63 in) long, and up to 25 cm (9.8 in) in females.
+
+== Distribution and habitat ==
+The markhor is adapted to mountainous terrain and lives at elevations of 600 to 3,600 m (2,000 to 11,800 ft). It inhabits shrub forests made up primarily of oaks (Quercus ilex), pines (Pinus gerardiana), and junipers (Juniperus macropoda).
+In Central Asia, the Bukharan markhor formerly lived in most of the mountains stretching along the north banks of the Upper Amu Darya and the Panj Rivers from Turkmenistan to Tajikistan; two to three scattered populations now occur in a greatly reduced distribution. It is limited to the region between lower Pyanj and the Vakhsh Rivers near Kulyab in Tajikistan, and in the Kugitangtau Range in Uzbekistan and Turkmenistan.
+In Afghanistan, the markhor is limited to the east in the high and mountainous monsoon forests of Laghman and Nuristan. Until 1978, it survived in the country only in the Kabul Gorge and the Kohe Safi area of Kapissa, and in some isola
+
+== Behaviour and ecology ==
+The markhor is diurnal and mainly active in the early morning and late afternoon. Its diets shift seasonally; in the spring and summer, it grazes, but turns to browsing in winter, sometimes standing on its hind legs to reach high branches. The mating season is during winter, when males fight each other by lunging, locking of horns, and attempting to push each other off balance. The gestation period lasts 135–170 days, and usually results in the birth of one or two kids, and occasionally three. Markhor live in herds, usually numbering nine animals, composed of adult females and their young. Adult males are largely solitary. Adult females and kids comprise most of the markhor population, with adult females making up 32% and kids making up 31%. Adult males comprise 19% of the population, while subadults (males aged 2–3 years) make up 12%, and yearlings (females aged 12–24 months) 9%. Their
+
+=== Hunting ===
+In British India, the markhor was considered to be among the most challenging game species, because of the danger involved in stalking and pursuing it in mountainous terrain. According to Arthur Brinckman in his The Rifle in Cashmere, "a man who is a good walker will never wish for any finer sport than ibex or markhoor shooting". Elliott Roosevelt I wrote of how he shot two markhor in 1881, his first on 8 July, his second on 1 August.
+Although hunting markhor in Afghanistan is illegal, it has been traditionally hunted in Nuristan and Laghman Provinces, and this may have intensified during the War in Afghanistan. In Pakistan, hunting markhor is legal as part of a conservation process; expensive hunting licenses are available from the Pakistani government that allow the hunting of old markhors, which are no longer good for breeding purposes. In India, hunting markhor is illegal, but it is','["markhor", "screw-horn goat", "mountain goat"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:40.502616+00:00','wikidata_living');
+INSERT INTO "species" VALUES(549,'Q18855','Charadrius alexandrinus','Kentish plover','Kentish plover',0,68,2985,3.47508980338900652e+00,1.0,'The Kentish plover (Anarhynchus alexandrinus) is a small wader (40–44 g (1.4–1.6 oz)) of the family Charadriidae that breeds on the shores of saline lakes, lagoons, and coasts, populating sand dunes, marshes, semi-arid desert, and tundra. Both male and female birds have pale plumages with a white underside, grey/brown back, dark legs and a dark bill; however, additionally the male birds also exhibit very dark incomplete breast bands, and dark markings either side of their head, therefore the Kentish plover is regarded as sexually dimorphic.
+The Kentish plover has a large geographical distribution, ranging from latitudes of 10º to 55º, occupying North Africa, both mainland, such as Senegal, and island, such as the Cape Verde archipelago, Central Asia, for example alkaline lakes in China, and Europe, including small populations in Spain and Austria. Some populations are migratory and often
+
+== Description ==
+The Kentish plover is a small shorebird weighing around 40 g as an adult. Both male and female birds have black bills and dark legs, however adults have dimorphic plumage. During the breeding season, males have a black horizontal head bar, two incomplete dark breast-bands on each side of their breast, black ear coverts and a rufous nape and crown (although there is some variation between breeding populations), whereas the females are paler in these areas, without the dark markings. In the early breeding season, it is easy to distinguish between males and females since the ornaments are very pronounced, but as the breeding season progresses, the differences between the two sexes decrease. Moreover, males have longer tarsi and longer flank feathers than females. Longer flank feathers are thought to be an advantage for incubation and brood care, as the quality of feathers is associated with
+
+== Distribution, movement, and habitats ==
+
+=== Habitats and movement ===
+The breeding habitats are most commonly alkali lake shores, wetlands, salt marshes, and coastland, which is fitting with the results of a study that investigated what makes an environment suitable for a breeding habitat for the Kentish plover. By analysing four variables of all known nests, the study found that plovers prefer to nest in areas of low elevation, low vegetation, high moisture and places faraway from human activity and settlements.
+
+There have been observations of parents moving their chicks from poor food areas to better food areas, with chicks subsequently growing stronger in the high food areas. This suggests that parents strategically move their chicks and change habitats. Moving young has benefits: protection from predators, obtaining more food, avoiding competition for food and space, avoiding potential infanticide due to competition, and avoiding territory defences fr
+
+== Behaviour and ecology ==
+
+=== Breeding ===
+The Kentish plover has an especially flexible breeding system, including both monogamous and polygamous behaviours within populations. It is known that breeding pairs return to breed with each other the following year, however mate changes have also been observed both between and within breeding seasons.
+Along with mate changes, EPF''s (extra pair fertilisations) are also witnessed in some populations, by females copulating with extra-pair males (EPP- extra pair paternity), or males copulating with extra pair females, who then lay their eggs in the male''s nest (QP- quasi-parasitism). A theory as to why such EPC''s occur is that this mechanism evolved to avoid the deleterious effects of inbreeding. This is supported by a study by Blomqvist et al., showing that EPC''s are more common when a breeding pair are more closely related to each other. Another theory is that females may seek out EPC''s
+
+== Feeding ==
+Kentish plovers either forage individually or in loose flocks of 20-30 individuals (outside the breeding season), and occasionally can incorporate into larger flocks of up to 260 individuals of multiple species. Their main source of food consists of miniature aquatic and terrestrial invertebrates such as insects and their larvae (e.g. beetles, grasshoppers or flies), molluscs, crustaceans, spiders and marine worms. They are obligate visual foragers and often feed at the shoreline of lakes, lagoons or ponds in invertebrate-rich moist-soil areas. They forage by looking, stopping or running and then pecking to catch the prey, but also probe the sand to search for prey, or catch flies by holding their mouths open. The Kentish plover''s capability of identifying cues for prey is influenced by light, wind and rain. At night, their ability of finding prey might be restricted, but plovers have be','["Kentish plover", "shorebird", "wader"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:40.861445+00:00','wikidata_living');
 INSERT INTO "species" VALUES(55,'Q163873','Otodus megalodon','Megalodon','Megalodon',1,72,169867,5.23011157349913435e+00,1.0,'Otodus megalodon ( MEG-əl-ə-don; meaning "big tooth"), commonly known as megalodon, is an extinct species of giant mackerel shark that lived approximately 23 to 3.58 million years ago (Mya), from the Early Miocene to the Early Pliocene epochs. It was once considered a member of the family Lamnidae and a close relative of the great white shark (Carcharodon carcharias), but is now classified in the extinct family Otodontidae, which diverged from the lineage leading to modern great white sharks during the Early Cretaceous.
 Megalodon is regarded as one of the largest and most powerful predators to have ever lived, although its fragmentary fossil record leaves its appearance and maximum size uncertain. Scientists have debated whether its body was more robust or elongated than that of modern lamniform sharks. Proposed maximum length estimates range from 14.2 to 24.3 m (47 to 80 ft), while the 
 
@@ -9007,6 +9161,228 @@ In 2010, Ehret estimated that megalodon had a fast growth rate nearly two times 
 === Range and habitat ===
 Megalodon had a cosmopolitan distribution. Fossils have been excavated from many parts of the world, including Europe, Africa, the Americas, and Australia. It most commonly occurred in subtropical to temperate latitudes. It has been found at latitudes up to 78° N;, though this is based on a likely dubious record. its inferred tolerated temperature range was 1–24 °C (34–75 °F). It arguably had the capacity to endure such low temperatures due to mesothermy, the physiological capability of large sharks to maintain a higher body temperature than the surrounding water by conserving metabolic heat.
 Megalodon inhabited a wide range of marine environments (i.e., shallow coastal waters, areas of coastal upwelling, swampy coastal lagoons, sandy littorals, and offshore deep water environments) with a transient lifestyle. Adult megalodon were not abundant in shallow water environments, mostly inhabi','["great white shark", "shark feeding", "marine predator"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-01T08:35:21.714968+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(550,'Q191386','Pyrrhocorax graculus','Alpine chough','Alpine chough',0,68,13677,4.13602259939701077e+00,1.0,'The Alpine chough (; chuf) or yellow-billed chough (Pyrrhocorax graculus) is a bird in the crow family, one of only two species in the genus Pyrrhocorax. Its two subspecies breed in high mountains from Spain eastwards through southern Europe and North Africa to Central Asia and Nepal, and it may nest at a higher altitude than any other bird. Its eggs have adaptations to the thin atmosphere that improve oxygen take-up and reduce water loss.
+This bird has glossy black plumage, a yellow beak, red legs, and distinctive calls. It has a buoyant acrobatic flight with widely spread flight feathers. The Alpine chough pairs for life and displays fidelity to its breeding site, which is usually a cave or crevice in a cliff face. It builds a lined stick nest and lays three to five brown-blotched whitish eggs. It feeds, usually in flocks, on short grazed grassland, taking mainly invertebrate prey in s
+
+== Description ==
+The adult of the nominate subspecies of the Alpine chough has glossy black plumage, a short yellow bill, dark brown irises, and red legs. It is slightly smaller than the red-billed chough, at 37–39 centimetres (15–15 inches) length with a 12–14 cm (4.7–5.5 in) tail and a 75–85 cm (30–33 in) wingspan, but has a proportionally longer tail and shorter wings. It has a similar buoyant and easy flight. The sexes are identical in appearance, although the male averages slightly larger than the female. The juvenile is duller than the adult, with a dull yellow bill and brownish legs. The Alpine chough is unlikely to be confused with any other species; although the jackdaw and red-billed chough share its range, the jackdaw is smaller and has unglossed grey plumage, and the red-billed chough has a long red bill.
+The subspecies P. g. digitatus averages slightly larger than the nominate form, weighing
+
+== Distribution and habitat ==
+The Alpine chough breeds in mountains from Spain eastwards through southern Europe and the Alps across Central Asia and the Himalayas to western China. There are also populations in Morocco, Corsica and Crete. It is a non-migratory resident throughout its range, although Moroccan birds have established a small colony near Málaga in southern Spain, and wanderers have reached Czechoslovakia, Gibraltar, Hungary and Cyprus.
+This is a high-altitude species normally breeding between 1,260–2,880 metres (4,130–9,450 ft) in Europe, 2,880–3,900 m (9,450–12,800 ft) in Morocco, and 3,500–5,000 m (11,500–16,400 ft) in the Himalayas. It has nested at 6,500 m (21,300 ft), higher than any other bird species, surpassing even the red-billed chough, which has a diet less well adapted to the highest altitudes. It has been observed following mountaineers ascending Mount Everest at an altitude of 8,200 m (26,
+
+== Behaviour and ecology ==
+
+=== Breeding ===
+The Alpine chough is socially monogamous, showing high partner fidelity in summer and winter and from year to year. Nesting typically starts in early May, and is non-colonial, although in suitable habitat several pairs may nest in close proximity. The bulky nests are composed of roots, sticks and plant stems lined with grass, fine twiglets or hair, and may be constructed on ledges, in a cave or similar fissure in a cliff face, or in an abandoned building. The clutch is 3–5 glossy whitish eggs, averaging 33.9 by 24.9 millimetres (1.33 in × 0.98 in) in size, which are tinged with buff, cream or light-green and marked with small brown blotches; they are incubated by the female for 14–21 days before hatching. The chicks hatch with a dense covering of natal down—in contrast to those of the red-billed chough, which are almost naked—and fledge 29–31 days from hatching. The young birds are fed b
+
+=== Feeding ===
+In the summer, the Alpine chough feeds mainly on invertebrates collected from pasture, such as beetles (Selatosomus aeneus and Otiorhynchus morio have been recorded from pellets), snails, grasshoppers, caterpillars and fly larvae. The diet in autumn, winter and early spring becomes mainly fruit, including berries such as the European Hackberry (Celtis australis) and Sea-buckthorn (Hippophae rhamnoides), rose hips, and domesticated crops such as apples, grapes and pears where available. It has been observed eating flowers of Crocus vernus albiflorus, including the pistils, perhaps as a source of carotenoids. The chough will readily supplement its winter diet with food provided by tourist activities in mountain regions, including ski resorts, refuse dumps and picnic areas. Where additional food is available, winter flocks are larger and contain a high proportion of immature birds. The youn','["Alpine chough", "mountain cliff nesting"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:41.271669+00:00','wikidata_living');
+INSERT INTO "species" VALUES(551,'Q192233','Pardofelis temminckii','Asian golden cat','Asian golden cat',0,68,20893,4.32002159036959287e+00,1.0,'The Asian golden cat (Catopuma temminckii) also known as Asiatic golden cat and Temminck''s cat, is a medium-sized wild cat. It has a head-to-body length of 66–105 cm (26–41 in), a 40–57 cm (16–22 in) long tail, and is 56 cm (22 in) tall at the shoulder. Its weight ranges from 9 to 16 kg (20 to 35 lb), with males generally being larger than females. It is highly polymorphic, occurring in reddish, golden, cinnamon, gray, brown, ocelot and melanistic morphs. 
+The Asian golden is native to the northeastern Indian subcontinent, Southeast Asia and southern China. It is highly adaptable to a variety of forested environments such as tropical and subtropical moist evergreen forests, mixed deciduous forests, and occasionally more open habitats like bamboo thickets and shrublands. Primarily a solitary and terrestrial animal, it is a  climber capable of hunting in trees when necessary. It is an oppo
+
+== Description ==
+The Asian golden cat is a medium-sized cat with a head-to-body length of 66–105 cm (26–41 in), with a 40–57 cm (16–22 in) long tail, and is 56 cm (22 in) tall at the shoulder. Its weight ranges from 9 to 16 kg (20 to 35 lb), which is about two or three times that of a domestic cat (Felis catus). The size of the tail is around one third and half of the body size. It exhibits sexual dimorphism, with females being smaller than males. It has 28 teeth.
+
+The Asian golden cat has facial markings featuring white stripes edged in dark brown or black that stretch from the nose across the cheeks, highlight the inner corners of the eyes, and cross the top of its head. It has rounded ears with black backs and a distinct gray spot. Its chest, abdomen, and inner upper legs are pale white with light speckling, while the lower limbs and tail tip darken to gray or black. Its tail is white underneath with
+
+== Distribution and habitat ==
+The Asian golden cat ranges from eastern Nepal, northeastern India and Bhutan to northeastern Bangladesh, to Myanmar, Thailand, Cambodia, Laos, Vietnam, southern China, Malaysia and Sumatra. It prefers forest habitats interspersed with rocky areas and inhabits dry deciduous, subtropical moist evergreen and tropical rainforests. It has also been recorded in grasslands, shrublands, plantations, secondary forests and montane ecosystems. It has been rarely encountered in forest fragments smaller than 100 km2 (39 sq mi) or near forest edges and currently around 80% of Southeast Asia’s fragmented forests are within 1 km of an edge.
+The lowest elevation at which the Asian golden cat was recorded was 11 m (36 ft) in a coastal forest in Myanmar''s Ayeyarwady Region, and the highest was 4,600 m (15,100 ft) in Bhutan.
+Since a live individual was captured in 1831 in Nepal, the country has been recogn
+
+== Behaviour and ecology ==
+The Asian golden cat is territorial and solitary. At first, it was identified as primarily nocturnal, but a field study on two radio-collared individuals revealed arrhythmic activity patterns dominated by crepuscular and diurnal activity peaks, with much less activity late at night. However, based on a 2026 camera trapping study, it has a flexible daily schedule, with crepuscular and nocturnal peaks, with average independent detection timestamp at shortly before midnight. This cathemeral activity is possibly influenced by its diverse choice of prey where this species preys on animals which are active in both day and night. During daytime, Asian golden cats were recorded with activity peaks around noon.
+The male''s territory was 47.7 km2 (18.4 sq mi) in size, and the female''s territory was 32.6 km2 (12.6 sq mi). Both cats traveled between only 55 m (180 ft) to more than 9 km (5.6 mi) in a
+
+=== Reproduction ===
+Captive Asian golden cats are sexually mature between 18 and 24 months, while males mature at 24 months, and females come into estrus every 39 days, at which time they leave markings and seek contact with the male by adopting receptive postures. Oestrus lasts for approximately six days. During copulation, the male seizes the skin of the neck of the female with his teeth, though he does not sustain the bite. 
+The female gives birth after a gestation period of 78 to 80 days to a litter of one to three kittens in a sheltered place. The kittens weigh 220–250 g (7.8–8.8 oz) at birth, but triple in size over the first eight weeks of life. They are born with the adult coat pattern and open their eyes after six to 12 days. Usually, the male kills the litter, but some males help rearing and licking the young. In the wild, the Asian golden cat gives birth in a hollow ground or under the trees or r','["asian golden cat", "tiger"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:41.670039+00:00','wikidata_living');
+INSERT INTO "species" VALUES(552,'Q192524','Serinus canaria','Atlantic canary','Atlantic canary',0,68,11503,4.06084887303880748e+00,1.0,'The Atlantic canary (Serinus canaria), known worldwide simply as the wild canary and also called the island canary, common canary, or canary, is a small passerine bird belonging to the genus Serinus in the true finch family, Fringillidae. It is native to the Canary Islands, the Azores, and Madeira. Wild birds are mostly yellow-green, with brownish streaking on the back. The species is common in captivity and a number of colour varieties have been bred.
+This bird is the natural symbol of the Canary Islands, together with the Canary Island date palm.
+
+== Description ==
+The Atlantic canary can range from 10 to 12 cm (3.9 to 4.7 in) in length, with a wingspan of 21 to 23.7 cm (8.3 to 9.3 in) and a weight of 8.4 to 24.3 g (0.30 to 0.86 oz), with an average of around 15 g (0.53 oz). The male has a largely yellow-green head and underparts with a yellower forehead, face and supercilium. The lower belly and undertail-coverts are whitish and there are some dark streaks on the sides. The upperparts are grey-green with dark streaks and the rump is dull yellow. The female is similar to the male but duller with a greyer head and breast and less yellow underparts. Juvenile birds are largely brown with dark streaks.
+It is about 10% larger, longer and less contrasted than its relative the European serin, and has more grey and brown in its plumage and relatively shorter wings.
+The song is a silvery twittering similar to the songs of the European serin and citril finch
+
+== Distribution and habitat ==
+It is endemic to the Canary Islands, Azores and Madeira in the region known as Macaronesia in the eastern Atlantic Ocean. In the Canary Islands, it is common on Tenerife, La Gomera, La Palma and El Hierro, but more local on Gran Canaria, and rare on Lanzarote and Fuerteventura, where it has only recently begun breeding. It is common in Madeira including Porto Santo and the Desertas Islands, and has been recorded on the Savage Islands. In the Azores, it is common on all islands. The population has been estimated at 80,000-90,000 pairs in the Canary Islands, 30,000-60,000 pairs in the Azores and 4,000-5,000 pairs in Madeira.
+It occurs in a wide variety of habitats from pine and laurel forests to sand dunes. It is most common in semiopen areas with small trees such as orchards and copses. It frequently occurs in man-made habitats such as parks and gardens. It is found from sea-level up to a
+
+== Behaviour ==
+
+=== Reproduction ===
+It is a gregarious bird which often nests in groups with each pair defending a small territory. The cup-shaped nest is built 1–6 m above the ground in a tree or bush, most commonly at 3–4 m. It is well-hidden amongst leaves, often at the end of a branch or in a fork. It is made of twigs, grass, moss and other plant material and lined with soft material including hair and feathers.
+The eggs are laid between January and July in the Canary Islands, from March to June with a peak of April and May in Madeira and from March to July with a peak of May and June in the Azores. They are pale blue or blue-green with violet or reddish markings concentrated at the broad end. A clutch contains 3 to 4 or occasionally 5 eggs and 2–3 broods are raised each year. The eggs are incubated for 13–14 days and the young birds leave the nest after 14–21 days, most commonly after 15–17 days.
+Inbreeding depression
+
+=== Feeding ===
+It typically feeds in flocks, foraging on the ground or amongst low vegetation. It mainly feeds on seeds such as those of weeds, grasses and figs. It also feeds on other plant material and small insects.','["Atlantic canary", "wild canary"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:42.070885+00:00','wikidata_living');
+INSERT INTO "species" VALUES(553,'Q207347','Eunectes murinus','Green anaconda','Green anaconda',0,68,71327,4.85326004680014389e+00,1.0,'The green anaconda (Eunectes murinus) is a species of snake in the family Boidae (boas). The species is native to northern South America. It is one of the longest and heaviest known extant snake species. Like all boas, it is a non-venomous constrictor. The green anaconda generally has a life expectancy of ten years in the wild, although some specimens live longer when taken care of in captivity. The green anaconda lives in tropical rainforests and tends to prefer shallow, slow-moving waters, such as streams, rivers, and flooded grasslands. It spends most of its time in the water but is also found on land in thick vegetation.
+
+== Description ==
+The green anaconda is the world''s heaviest and one of the world''s longest snakes, reaching a total length (tail included) of up to 6.32 m (20 ft 9 in) long. More typical mature female specimens reportedly can range up to 5 m (16 ft 5 in), with a mean length of about 4.6 m (15 ft 1 in), being generally much larger than males, which average around 3 m (9 ft 10 in). Weights are less well studied, though reportedly range from 30 to 80 kg (66 to 176 lb) in a typical adult. 
+
+Eunectes murinus is the largest snake native to the Americas. Although it is slightly shorter than the reticulated python, it is far bulkier. The bulk of a 5.2-metre (17 ft 1 in) green anaconda is comparable to that of a 7.4-metre (24 ft 3 in) reticulated python. Reports of anacondas 11–12 m (35–40 ft) or even longer also exist, but such claims must be regarded with caution, as no specimens of such lengths have ever been
+
+== Geographic distribution and habitat ==
+Eunectes murinus is found in South America east of the Andes, in countries including Bolivia, Brazil, Colombia, Ecuador, the Guianas, Peru, and Venezuela, from as far north as the island of Trinidad, and as far south as northern Paraguay. The type locality given is "America".
+In April 2021, the  green anaconda was added to Florida''s list of prohibited nonnative species. As of August 2023, eleven specimens of the green anaconda have been verifiably observed in the wild in Florida, including one juvenile found in the Florida Everglades. The range of these specimens, some of which were able to evade capture, spans from Gainesville to Homestead, Florida – a distance of over 350 miles (560 km). Florida is the only state in the continental United States with suitable habitat for the species. 
+While individual specimens have been observed or captured in Florida dating back to 2010, as of 2023,
+
+== Behavior ==
+The green anaconda is mostly nocturnal and aquatic. It floats underwater and is known to swim quickly. Its eyes and nostrils are located on the top of the head, allowing the snake to breathe and watch for prey while the rest of the body is hidden underwater. When prey passes by or stops to drink, the green anaconda strikes, coils around the prey, constricts and suffocates it to death, and then swallows it whole.
+
+=== Feeding ===
+The green anaconda is an apex predator with a wide variety of prey, almost anything it can overpower, including fishes, amphibians, birds, various mammals, and other reptiles. Particularly large specimens of the green anaconda may consume tapirs, deer, peccaries, capybaras, jaguars, and caimans, but such large meals are rare. Juvenile green anacondas feed on small birds and young caimans typically 40–70 grams (1.4–2.5 oz) in weight. As they develop, their diet becomes increasingly complex. Prey availability varies more in grasslands than in river basins. 
+In both habitats the green anaconda has been found to feed on large prey, usually 14–50% of its own mass. Examples of prey include broad-snouted caimans, spectacled caimans, yacare caimans, black caimans, smooth-fronted caimans, wattled jacanas, capybaras, red-rumped agoutis, collared peccaries, South American tapirs, boa constrictors,
+
+== Reproduction ==
+Individuals of the green anaconda are solitary until the mating season, which occurs during the rainy season, and can last several months, usually from April to May. Typically, females leave pheromone trails for males to follow, but how males track it is unclear. It may be that the pheromone is airborne. This theory is supported by the observation of females that remain motionless, while many males move towards them from all directions. Male anacondas also often flick their tongues to sense chemicals that signal the presence of a female.
+Often many males find the same female and wrap around her to copulate with her. Such a "breeding ball" of up to 12 males can stay in this position for two to four weeks as males wrestle in slow-motion to mate with the female. 
+During mating, males use their spurs to arouse the female. They aggressively press their cloacal regions hard against the female','["green anaconda", "river boa", "tropical rainforest"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:42.425637+00:00','wikidata_living');
+INSERT INTO "species" VALUES(554,'Q207831','Lophophanes cristatus','Crested tit','Crested tit',0,68,3516,3.5461723683169426e+00,1.0,'The crested tit or European crested tit (Lophophanes cristatus) is a passerine bird in the tit family Paridae. It is a widespread and common resident breeder in coniferous forests throughout central and northern Europe and in deciduous woodland in France and the Iberian Peninsula. In Great Britain, it is mainly restricted to the ancient pinewoods of Inverness and Strathspey in Scotland, and rarely strays far from its haunts. A few vagrant crested tits have been seen in England. It is resident, and most individuals do not migrate.
+
+
+== Taxonomy ==
+The crested tit was formally described in 1758 by the Swedish naturalist Carl Linnaeus in the tenth edition of his Systema Naturae under the binomial name Parus cristatus. Linnaeus specified the type locality as Europe, but this was restricted to Sweden by German naturalist Johann Jakob Kaup in 1905. The crested tit is now placed together with grey-crested tit in the genus Lophophanes that was introduced in 1829 by the German naturalist Johann Jakob Kaup. The current genus name, Lophophanes, is from the Ancient Greek lophos, "crest", and 
+phaino, "to show". The specific cristatus is Latin for "crested".
+This species was formerly placed in Parus, but the distinctness of Lophophanes is well supported,  and it is now recognised by the American Ornithologists'' Union and the British Ornithologists'' Union as a distinct genus.
+Seven subspecies are recognised:
+
+L. c. scoticus Pražák, 1897 – central north Scotland
+L. c. abadiei (Jouard, 1929) – west France
+L. c. weigoldi (Tratz, 1914) – west, south Iberian Peninsula
+L. c. cristatus (Linnaeus, 1758) – north, east Europe to the Carpathian Mts.
+L. c. baschkirikus Snigirewski, 1931 – southwest, central Ural Mountains
+L. c. mitratus (Brehm, CL, 1831) – central Europe to northeast Spain, the Alps and north Balkans
+L. c. bureschi (von Jordans, 1940) – Albania to Bulgaria and Greece
+
+
+== Behaviour and ecology ==
+It is an easy tit to recognise, for besides its erectile crest, the tip of which is often recurved, its gorget and collar are distinctive. It is, like other tits, talkative, and birds keep up a constant zee, zee, zee , similar to that of the coal tit.
+It makes a nest in a hole in rotting stumps. This bird often feeds low down in trees, but although not shy, it is not always easily approached. It will join winter tit flocks with other species.
+Like other tits, it is found in pairs and it feeds on insects (including caterpillars) and seeds.
+
+
+== Gallery ==
+
+
+== References ==
+
+
+== External links ==
+Crested tit videos, photos & sounds on the Internet Bird Collection
+Song of the crested tit (Real Audio soundfile from Sveriges Radio P2)
+Ageing and sexing (PDF; 2.3 MB) by Javier Blasco-Zumeta & Gerd-Michael Heinze','["crested tit", "European tit", "tree squirrel"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:42.792635+00:00','wikidata_living');
+INSERT INTO "species" VALUES(555,'Q214835','Vulpes bengalensis','Bengal fox','Bengal fox',0,68,9399,3.97312785359969877e+00,1.0,'The Bengal fox (Vulpes bengalensis), also known as the Indian fox, is a fox endemic to the Indian subcontinent from the Himalayan foothills and Terai of Nepal through southern India, and from southern and eastern Pakistan to eastern India and southeastern Bangladesh.
+
+== Description ==
+The Bengal fox is a relatively small fox with an elongated muzzle, long, pointed ears, and a long, bushy tail. The pelage ranges in color from buff to silver-gray with an overall grizzled effect; it is mostly grayish dorsally and paler ventrally. The legs tend to be brownish or rufous, and the underparts light, a pale sand or ginger shade.
+Extensive variation in coat colour exists across populations and seasonally within populations, but generally the coat is reddish grey above with paler sides and rufous limbs.
+It has a bushy, black-tipped tail, which is around 50–60% of the length of the head and body.
+The backs of the ears are dark brown with a black margin; the ears are white inside. The ears have the same colour as the nape or maybe darker. Its rhinarium is naked, and its lips are black. The muzzle is pointy, and there may be a dark smudged marking along the upper part of muzzle in
+
+== Distribution and habitat ==
+The Bengal fox is endemic to the Indian subcontinent, ranging from the Himalayan foothills and Terai of Nepal through Southern India, and from southern and eastern Pakistan to eastern India and southeastern Bangladesh.
+Its range is bounded by the Himalayas and the Indus River valley. It favors semiarid, flat to undulating land, bush and short grassland habitats. It avoids dense forests, steep terrain, tall grasslands and true deserts.
+Historical records indicate that the Bengal fox was spotted in the southeastern regions of Cumilla and Chattogram during the 1980s; however, over time, no further sightings have been reported in these areas, suggesting its possible local extinction.
+It is relatively widespread in low rainfall areas where the vegetation is usually scrub, thorn or dry deciduous forests, or short grasslands. In the Indian peninsula, the species is confined to plains and open s
+
+== Behaviour and ecology ==
+Bengal foxes are predominantly crepuscular and nocturnal; while individuals may sometimes become active during cool periods of daytime, they typically spend warmer daylight hours under vegetation or in subterranean dens. They use three distinct types of den: basic, compact dens with two openings used for short rest periods, complex dens with multiple openings, and dens under rocks or rock crevices. The basic social unit of the Bengal fox is the breeding pair, formed by a pair of bonds that can last for many years. Larger aggregations may occur while grown pups linger longer than average in the natal community. Other findings indicate that Bengal foxes can sometimes be more social. Female Bengal foxes were reported to share dens during lactation and four adult foxes were seen emerging from the same den.
+Bengal foxes are not especially suspicious of humans and can be found near human habit
+
+=== Diet ===
+Bengal foxes are omnivorous and opportunistic feeders, feeding primarily on insects, small mammals, reptiles, small birds, and fruits.
+Its diet consists mainly of orthopterans, termites, ants, beetles, spiders, soft-furred rat (Millardia meltada), little Indian field mouse (Mus booduga), Indian gerbil (Tatera indica), Indian mynah (Acridotheres tristis), grey partridge (Francolinus ponticerianus) and ashy-crowned finch lark (Eremopterix griseus). Less common prey items include ground lizards, oriental rat snake (Ptyas mucosa), Madras hedgehog (Paraechinus nudiventris) and Indian hare (Lepus nigricollis). They feed on fruits of ber (Ziziphus mauritiana), neem (Azadirachta indica), mango (Mangifera indica), jambu (Syzygium cumini) and banyan (Ficus benghalensis). The Bengal fox is also considered to be a predator of eggs and possibly bustard chicks. Scats of young pups indicated that they
+
+=== Communication ===
+Bengal foxes make a wide range of vocalizations. A common vocalization is a "chattering cry" that seems to have a significant role in establishing territoriality and may also be used as a warning call. They also growl, whimper, whine and make a sound which could be called a growl-bark. In reaction to humans, yapping or baying has also been observed. The Bengal fox does not appear to have latrine behaviour, a feature seen in some social canids, in which all members defecate at specific spots. They can be heard howling in the night in groups.
+
+=== Reproduction ===
+During the breeding season, males vocalize intensely during the night and at dusk and dawn. Throughout most of its range, the mating season occurs in December to January and after a gestation period of around 50–53 days, two to four pups are born in a den. Both parents participate in pup-rearing and protection. Aggregations of grown foxes at den sites have been recorded when the dispersal has been delayed, although the presence of helpers has not been observed. Pups may sometimes be nursed by multiple females, but the relationship between them is uncertain.
+During the day, they tend to rest under shrubs and bushes, except in summer when they rest in dens. Play between pups is typical during the first 3 months and consists of vertical jumps, back arching, foreleg stabs, submissive displays, and play solicitation; the adult male sometimes plays with the young. In northwestern India, young','["Bengal fox", "Indian fox"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:43.151485+00:00','wikidata_living');
+INSERT INTO "species" VALUES(556,'Q220328','Psittacus erithacus','Grey parrot','Grey parrot',0,68,42224,4.62556965824304633e+00,1.0,'The grey parrot (Psittacus erithacus), also known as the Congo grey parrot, is an African parrot in the family  Psittacidae. Psittacus erithacus was previously also known as the African grey parrot until the Timneh parrot (Psittacus timneh), previously treated as a subspecies, was elevated to a full species. The grey parrot is known for its intelligence, being considered one of the smartest bird species and is regarded for its speaking abilities.
+
+== Distribution and habitat ==
+The grey parrot is native to equatorial Africa, including Angola, Cameroon, the Congo, Gabon, Ivory Coast, Ghana, Kenya, and Uganda. The species is found inside a range from Kenya to the eastern part of Ivory Coast. Current estimates for the global population are uncertain and range from 630,000 to 13 million birds. Populations are decreasing worldwide. The species seems to favour dense forests, but can also be found at forest edges and in more open vegetation types, such as gallery and savanna forests.
+A population study published in 2015 found that the species had been "virtually eliminated" from Ghana with numbers declining 90 to 99% since 1992. They were found in only 10 of 42 forested areas, and three roosts that once held 700–1200 birds each, now had only 18 in total. Local people mainly blamed the pet trade and the felling of timber for the decline. Populations are thought to be s
+
+== Description ==
+The grey parrot is medium to large sized, predominantly grey and black-billed. Its typical weight is 400 g (14 oz), with an approximate length of 33 cm (13 in), and a wingspan of 46–52 cm (18–20+1⁄2 in). The head and wings are generally darker than the body. The head and body feathers have slight white edges; the tail feathers are red with occasional black touches.
+Both sexes appear similar. Juvenile colouration is similar to that of adults, but typically their eyes are dark grey to black, compared to the adults'' yellow irises around dark pupils, and their undertail coverts are tinged with grey. Adults weigh 418–526 g (14+3⁄4–18+1⁄2 oz).
+
+Grey parrots may live for 40–60 years in captivity, although their mean lifespan in the wild appears to be shorter — approximately 23 years. They start breeding at an age of 3–5 years and lay 3–5 eggs per brood.
+
+== Behaviour and ecology in the wild ==
+Little is known about the behaviour and activities of these birds in the wild. In addition to a lack of research funding, it can be particularly difficult to study these birds in wild situations due to their status as prey animals, which leads them to have rather secretive personalities. It has been shown that wild grey parrots may also imitate a wide variety of sounds they hear, much like their captive relatives. In the Democratic Republic of the Congo, two greys sound-recorded while roosting reportedly had a repertoire of over 200 different calls, including nine imitations of other wild bird songs and one of a bat.
+
+=== Feeding ===
+Grey parrots are mainly frugivorous, with most of their diet consisting of fruit, nuts, and seeds, including oil palm fruit. They sometimes also eat flowers and tree bark, as well as insects and snails. In the wild, the grey parrot is partly a ground feeder.
+
+=== Breeding ===
+Grey parrots are monogamous breeders who nest in tree cavities. Each mated pair of parrots needs their own tree for their nest. The hen lays three to five eggs, which she incubates for 30 days while being fed by her mate. The adults defend their nesting sites.
+Grey parrot chicks require feeding and care from their parents in the nest. The parents take care of them until 4–5 weeks after they are fledged. Young leave the nest at the age of 12 weeks. Little is known about the courtship behaviour of this species in the wild. They weigh 12–14 g (7⁄16–1⁄2 oz) at hatching and 372–526 g (13+1⁄8–18+1⁄2 oz) when they leave their parents.
+
+=== Diet ===
+In captivity, grey parrots may be fed bird pellets, a variety of fruits such as pear, orange, pomegranate, apple, and banana, and vegetables such as carrot, cooked sweet potato, celery, fresh kale, green beans and peas. The birds also need a source of calcium.
+
+=== Intelligence and cognition ===
+Grey parrots are considered one of the most intelligent psittacine species and among the most intelligent bird species. Many individuals have been shown to perform some tasks at the cognitive level of a four- to six-year-old human child. Several studies have been conducted indicating a suite of higher-level cognitive abilities. Experiments have shown grey parrots can learn number sequences and can learn to associate human voices with the faces of the humans who create them. It has been reported that grey parrots are capable of using existing English words to create new labels for objects when the bird does not know the name of the object, for example "banerry" ("banana" + "cherry") for "apple", "banana crackers" for "dried banana chips" or "yummy bread" for "cake".
+American scientist Irene Pepperberg''s research with Alex the parrot pioneered studies of bird intelligence and demonstrated','["grey parrot", "African grey parrot", "parrot intelligence"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:43.508355+00:00','wikidata_living');
+INSERT INTO "species" VALUES(557,'Q232523','Clanga pomarina','Lesser spotted eagle','Lesser spotted eagle',0,68,3159,3.49968708261840388e+00,1.0,'The lesser spotted eagle (Clanga pomarina) is a large Eastern European bird of prey. Like all typical eagles, it belongs to the family Accipitridae. The typical eagles are often united with the buteos, sea eagles, and other more heavy-set Accipitridae, but more recently it appears as if they are less distinct from the more slender accipitrine hawks than believed.
+
+== Description ==
+This is a medium-sized eagle, about 60 cm (24 in) in length and with a wingspan of 150 cm (59 in). Its head and wing coverts are pale brown and contrast with the generally dark plumage. The head and bill are small for an eagle. Usually, a white patch occurs on the upper wings, and even adults retain a clearly marked white "V" on the rump; the wing markings are absent and the white "V" is not well-defined in the greater spotted eagle.
+The juvenile has less contrast in the wings, but the remiges bear prominent white spots. It differs from greater spotted eagle juveniles by a lack of wing covert spotting and the presence of a cream-colored neck patch.
+The call is a dog-like yip.
+
+== Distribution and habitat ==
+The lesser spotted eagle breeds in Central and Eastern Europe and southeastward to Turkey and Armenia;  and winters in Africa. This is a very wary species of open or lightly wooded country, in which it hunts small mammals (especially voles, ground squirrels, rats, and mice) and similar terrestrial prey, such as small birds, amphibians, reptiles, and occasionally insects (including termites). It is known to occasionally feed on carrion. Almost a fifth of the global lesser spotted eagle population nests in Latvia, with an estimated amount of 4000 pairs.
+
+== Behaviour and ecology ==
+The lesser spotted eagle uses regularly spaced territories consistently between years in the north-western part of its distribution. The distances between territories vary across the region, although this was not found to be related to breeding success. Synchronous variation in breeding success across the region indicates that the eagles are instead influenced by large-scale factors such as fluctuations in climate or prey availability.
+The lesser spotted eagle lays one to three white, buff-spotted eggs in a tree nest. As usual for eagles, only in breeding seasons with very abundant prey does more than one young fledge, but the female starts incubating when the first egg has been laid,  thus the first young to hatch usually outgrows its clutch mate(s) and will kill and even eat them sooner or later.','["lesser spotted eagle", "european raptor"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:43.909450+00:00','wikidata_living');
+INSERT INTO "species" VALUES(558,'Q2396858','Clupea harengus','Atlantic herring','Atlantic herring',0,68,11552,4.06269477334239326e+00,1.0,'Atlantic herring (Clupea harengus) is a herring in the family Clupeidae. It is one of the most abundant fish species in the world. Atlantic herrings can be found on both sides of the northern Atlantic Ocean, congregating in large schools. They can grow up to 45 centimetres (18 in) in length and weigh up to 1.1 kilograms (2.4 lb). They feed on copepods, krill and small fish, while their natural predators are seals, whales, cod and other larger fish.
+The Atlantic herring fishery has long been an important part of the economy of New England and the Atlantic provinces of Canada. This is because the fish congregate relatively near to the coast in massive schools, notably in the cold waters of the semi-enclosed Gulf of Maine and Gulf of St. Lawrence. North Atlantic herring schools have been measured up to 4 cubic kilometres (0.96 cu mi) in size, containing an estimated four billion fish.
+
+== Description ==
+Atlantic herring have a fusiform body. Gill rakers in their mouths filter incoming water, trapping any zooplankton and phytoplankton.
+Atlantic herring are in general fragile. They have large and delicate gill surfaces, and contact with foreign matter can strip away their large scales.
+They have retreated from many estuaries worldwide due to excess water pollution although in some estuaries that have been cleaned up, herring have returned. The presence of their larvae indicates cleaner and more–oxygenated waters.
+
+== Range and habitat ==
+Atlantic herring can be found on both sides of the Atlantic Ocean. They range, shoaling and schooling, across North Atlantic waters such as the Gulf of Maine, the Gulf of St Lawrence, the Bay of Fundy, the Labrador Sea, the Davis Straits, the Beaufort Sea, the Denmark Strait, the Norwegian Sea, the North Sea, the Skagerrak, the English Channel, the Celtic Sea, the Irish Sea, the Bay of Biscay and Sea of the Hebrides. Although Atlantic herring are found in the northern waters surrounding the Arctic, they are not considered to be an Arctic species .
+
+== Life cycle ==
+Herrings reach sexual maturity when they are 3 to 5 years old. The life expectancy once mature is 12 to 16 years. Atlantic herring may have different spawning components within a single stock which spawn during different seasons. They spawn in estuaries, coastal waters or in offshore banks. Fertilization is external, as in most other fish: the female releases between 20,000 and 40,000 eggs and the males simultaneously release masses of milt so that they mix freely in the sea. Once fertilized the 1 to 1.4 mm diameter eggs sink to the sea bed where their sticky surface adheres to gravel or weed.  They mature in 1–3 weeks; in 14–19 °C (57–66 °F) water it takes 6–8 days, in 7.5 °C (45.5 °F) it takes 17 days. They will mature only if the water temperature stays below 19 °C (66 °F).  The hatched larvae are 3 to 4 mm long and transparent except for the eyes which have some pigmentation.
+
+== Ecology ==
+Herring-like fish are the most important fish group on the planet. They are also the most populous fish. They are the dominant converter of zooplankton into fish, consuming copepods, arrow worms chaetognatha, pelagic amphipods hyperiidae, mysids and krill in the pelagic zone. Conversely, they are a central prey item or forage fish for higher trophic levels. The reasons for this success are still enigmatic; one speculation attributes their dominance to the huge, extremely fast cruising schools they inhabit.
+Orca, cod, dolphins, porpoises, sharks, rockfish, seabirds, whales, squid, sea lions, seals, tuna, salmon, and fishermen are among the predators of these fishes.
+Herring''s pelagic–prey includes copepods (e.g. Centropagidae, Calanus spp., Acartia spp., Temora spp.), amphipods like Hyperia spp., larval snails, diatoms by larvae below 20 millimetres (0.79 in), peridinians, molluscan larva','["Atlantic herring", "herring school", "Gulf of Maine"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:44.295935+00:00','wikidata_living');
+INSERT INTO "species" VALUES(559,'Q244350','Netta rufina','Red-crested pochard','Red-crested pochard',0,68,3282,3.51627088272934029e+00,1.0,'The red-crested pochard (Netta rufina) is a large diving duck. The scientific name is derived from Greek Netta "duck", and Latin rufina, "golden-red" (from rufus, "ruddy"). Its breeding habitat is lowland marshes and lakes in southern Europe and it extends from the steppe and semi-desert areas on the Black Sea to Central Asia and Mongolia, wintering in the Indian subcontinent and Africa. It is somewhat migratory, and northern birds winter further south into north Africa.
+The adult male is unmistakable. It has a rounded orange head, red bill and black breast. The flanks are white, the back brown, and the tail black. The female is mainly a pale brown, with a darker back and crown and a whitish face. Eclipse males are like females but with red bills. They are gregarious birds, forming large flocks in winter, often mixed with other diving ducks, such as common pochards. They feed mainly by diving or dabbling. They eat aquatic plants, and typically upend for food more than most diving ducks.
+A wheezing veht call can be given by the male. Series of hoarse vrah-vrah-vrah calls can also be heard from females.
+Red-crested pochards build nests by the lakeside among vegetation and lay 8–12 pale green eggs. The birds'' status in the British Isles is much confused because there have been many escapes and deliberate releases over the years, as well as natural visitors from the continent. However, the majority of individuals in the British Isles are the result of accidental and deliberate introductions. They are most numerous around areas of England including Gloucestershire, Oxfordshire, Northamptonshire and also spotted in Leicestershire.
+The red-crested pochard is one of the species to which the Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA) applies.
+
+
+== References ==
+
+
+== External links ==
+
+RSPB Birds by Name
+"Species factsheet: Netta rufina". BirdLife DataZone. BirdLife International.
+"Netta rufina". Avibase. 
+"Red-crested pochard media". Internet Bird Collection.
+Red-crested pochard photo gallery at VIREO (Drexel University)
+Interactive range map of Netta rufina at IUCN Red List
+Audio recordings of Red-crested pochard on Xeno-canto.','["red-crested pochard", "duck"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:44.695377+00:00','wikidata_living');
 INSERT INTO "species" VALUES(56,'Q105784','Homo heidelbergensis','heidelberg man','Homo heidelbergensis',1,70,66605,4.8235133530369918e+00,1.0,'Homo heidelbergensis () is a controversial and somewhat poorly defined species of archaic human from the Middle Pleistocene of Europe and Africa, as well as potentially Asia depending on the taxonomic convention used. The species-level classification of Homo during the Middle Pleistocene is controversial, called the "muddle in the middle," owing to the wide anatomical range of variation that populations exhibited during this time. H. heidelbergensis has been regarded as either the last common ancestor of modern humans, Neanderthals, and Denisovans; or as a completely separate lineage.
 H. heidelbergensis was described by German anthropologist Otto Schoetensack in 1908 based on a jawbone, Mauer 1, from a sand pit near the village of Mauer — 10 km (6.2 mi) southeast of Heidelberg. It was the oldest identified human fossil in Europe, and Schoetensack described it as an ancestor race of livin
 
@@ -9018,6 +9394,190 @@ A large and posterior mental foramen (hole for blood vessels); a low mandibular 
 
 === Diet ===
 Middle Pleistocene communities in general seem to have eaten big game at a higher frequency than predecessors with meat becoming an essential dietary component. In Europe, H. heidelbergensis was often butchering some of the largest megafaunal species in the region such as the straight-tusked elephant, the aurochs, and rhinoceroses of the genus Stephanorhinus. Though carcasses may have simply been scavenged, some Afro-European sites show specific targeting of a single species which more likely indicates active hunting. For example, Olorgesailie, Kenya, which has yielded over 50 to 60 butchered baboons (Theropithecus oswaldi); and the Spanish Torralba and Ambrona sites which feature elephants'' graveyards. Subsistence on large prey items could indicate group hunting strategies. For instance, at Torralba and Ambrona, the animals may have been encircled and run into swamplands by a coordinate','["human ancestor fossil", "archaeological excavation", "museum skeletal display"]',NULL,'done',2,'disabled','human_lineage',0,NULL,'2026-11-01T08:35:22.076908+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(560,'Q245305','Equus quagga','Plains zebra','Plains zebra',0,68,34791,4.54147939465727912e+00,1.0,'The plains zebra (Equus quagga, formerly Equus burchellii) is the most common and geographically widespread species of zebra. Its range is fragmented, but spans much of southern and eastern Africa south of the Sahara. Six or seven subspecies have been recognised, including the quagga which was thought to be a separate species. More recent research supports variations in zebra populations being clines rather than subspecies.
+Plains zebras are intermediate in size between the larger Grévy''s zebra and the smaller mountain zebra and tend to have broader stripes than both. Great variation in coat patterns exists between clines and individuals. The plains zebra''s habitat is generally, but not exclusively, treeless grasslands and savanna woodlands, both tropical and temperate. They generally avoid desert, dense rainforest and permanent wetlands. Zebras are preyed upon by lions and spotted hyena
+
+== Physical description ==
+The plains zebra stands at a height of 127–140 cm (50–55 in) with a head-body length of 217–246 cm (85–97 in) and a tail length of 47–56.5 cm (18.5–22.2 in). Males weigh 220–322 kg (485–710 lb) while females weigh 175–250 kg (386–551 lb). The species is intermediate in size between the larger Grévy''s zebra and the smaller mountain zebra. It is stocky with relatively short legs and a skull with a convex forehead and a somewhat concave nose profile. The neck is thicker in males than in females. The ears are upright and have rounded tips. They are shorter than in the mountain zebra and narrower than in Grévy''s zebra. As with all wild equids, the plains zebra has an erect mane along the neck and a tuft of hair at the end of the tail. The body hair of a zebra is 9.4 ± 4 mm (0.37 ± 0.16 in), shorter than in other African ungulates.
+
+Like all zebras, they are boldly striped in black and white a
+
+== Ecology ==
+
+=== Range and habitat ===
+The plains zebra''s range stops short of the Sahara from South Sudan and southern Ethiopia extending south along eastern Africa, as far as Zambia, Mozambique, and Malawi, before spreading into most southern African countries. They may have lived in Algeria in the Neolithic era. Plains zebras generally live in treeless grasslands and savanna woodlands, but can be found in a variety of habitats, both tropical and temperate. However, they are generally absent from deserts, dense rainforests, and permanent wetlands. They generally prefer Acacieae woodlands over Commiphora. They are water-dependent and live in more mesic environments than other African equids. They seldom wander 10–12 km (6.2–7.5 mi) from a water source. Zebras also live in elevations from sea level to 4,300 feet (1,300 m) on Mount Kenya.
+Depending on the population, zebra herds may be sedentary, being highly dense with small
+
+=== Diet and predation ===
+Plains zebras primarily feed on grass; preferred species being Themeda triandra, Cynodon dactylon, Eragrostis superba and Cenchrus ciliaris. Zebra sometimes browse on herbs, leaves and twigs or dig for corms and rhizomes during the dry season. They appear to partial to eating scorched Colophospermum mopane and Pterocarpus rotundifolius, consuming both the leaves and twigs.
+Plains zebras are adapted for grazing on both long, tough grass stems and newly emerging short grass (stems and sheaths). In some areas, it rarely feeds below 100–150 mm (3.9–5.9 in) to ground level. It ranges more widely than many other species, even into woodlands, and it is often the first grazing species to appear in a well-vegetated area. The flexible upper lip allows them to push plant material between the incisors to cut. Zebras have a less efficient digestive system than ruminants but food passage is twice as f
+
+== Behaviour ==
+Plains zebras are nomadic and non-territorial, home ranges vary from 30 km2 (12 sq mi) to 600 km2 (230 sq mi), depending on the area and if the population is migratory. They are more active during the day and spend most of their time feeding. Other activities include dust bathing, rubbing, drinking and intermittent resting which is very brief. At night, zebra activity is subdued except when threatened by predators. They may rest or sleep laying down, while one individual keeps guard.
+
+=== Social structure ===
+The plains zebra is highly social and usually forms small family groups called harems, which consist of a single stallion, several mares and their recent offspring. The adult membership of a harem is highly stable, typically remaining together for months to years. Groups of all-male "bachelors" also exist. These are stable groups of up to 15 males with an age-based hierarchy, led by a young male. These males stay in their groups until they are ready to start a harem. The bachelors prepare for their adult roles with play fights and greeting/challenge rituals, which take up most of their activities.
+Multiple harems and bachelor groups come together to form larger herds of hundreds of animals, especially during migrations. Plains zebras are unusual among harem-holding species in forming these groups. In addition, pairs of harems may create temporarily stable subgroups within a herd, allowin','["plains zebra", "African savanna", "lion pride"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:45.056873+00:00','wikidata_living');
+INSERT INTO "species" VALUES(561,'Q26671','Lanius collurio','Red-backed shrike','Red-backed shrike',0,68,5169,3.71349054309394244e+00,1.0,'The red-backed shrike (Lanius collurio) is a carnivorous passerine bird and member of the shrike family, Laniidae. Its breeding range stretches from Western Europe east to central Russia. It is migratory and winters in the eastern areas of tropical Africa and southern Africa.
+
+
+== Taxonomy ==
+The red-backed shrike was formally described by the Swedish naturalist Carl Linnaeus in 1758 in the tenth edition of his Systema Naturae under its current binomial name Lanius collurio.  The genus name, Lanius, is derived from the Latin word for "butcher", and some shrikes are also known as "butcher birds" because of their feeding habits. The specific collurio is from  Ancient Greek kollurion, a bird mentioned by Aristotle. The common English name "shrike" is from Middle English *schrike, *schryke, from Old English sċrīc, "shriek", from the same root as shriek and screech, referring to the bird''s shrill cry or call.
+
+
+== Description ==
+This 16–18 cm-long (6.3–7.1 in) migratory bird eats large insects, small birds, frogs, rodents and lizards. Like other shrikes it hunts from prominent perches, and impales corpses on thorns or barbed wire as a "larder." This practice has earned it the nickname of "butcher bird."
+The general colour of the male''s upper parts is reddish. It has a grey head and a typical shrike black stripe through the eye. Underparts are tinged pink, and the tail has a black and white pattern similar to that of a wheatear. In the female and young birds the upperparts are brown and vermiculated. Underparts are buff and also vermiculated.
+
+
+== Distribution and habitat ==
+This bird breeds in most of Europe and western Asia and winters in tropical Africa. The bird is listed as a "least concern" (LC) species on a global scale, but some parts of its range have seen a steep decline in numbers, so locally its status can be less secure.
+
+
+=== Great Britain ===
+Once a common migratory visitor to Great Britain, numbers declined sharply during the 20th century, and it is now classified as a UK ''Red List'' species.  The bird''s last stronghold was in Breckland but by 1988 just a single pair remained, successfully raising young at Santon Downham. The following year for the first time no nests were recorded in the UK. But since then sporadic breeding has taken place, mostly in Scotland and Wales.  In September 2010 the RSPB announced that a pair had raised chicks at a secret location on Dartmoor where the bird last bred in 1970. 3 Further pairs also bred on that location in Dartmoor. In 2011, two pairs nested in the same locality, fledging seven young. In 2012 there was another breeding attempt, this time unsuccessful, probably due to a prolonged spell of wet weather. In 2013 breeding was again confirmed in Devon, with two young fledged at a new site. The return to south-western England was an unexpected development, raising speculation that a warming climate might assist the bird in re-colonising some of its former haunts. However, since then breeding has been confirmed on only two occasions, both in Shetland, in 2015 and 2020.
+
+
+== Gallery ==
+
+
+== References ==
+
+
+== Further reading ==
+Worfolk, Tim (2000) Identification of red-backed, isabelline and brown shrikes Dutch Birding 22 (6): 323–362.
+Metzmacher, M. & Van Nieuwenhuyse, D. (2012). Dynamique de population de la Pie-grièche écorcheur (Lanius collurio) dans le sud-est de la Belgique : modélisation de l''influence du climat. Terre et Vie, 67 : 353-374.
+
+
+== External links ==
+
+Red-backed shrike - Species text in The Atlas of Southern African Birds.
+Oiseaux pictures
+The Internet Bird Collection videos
+Ageing and sexing (PDF; 2.3 MB) by Javier Blasco-Zumeta & Gerd-Michael Heinze
+Feathers of red-backed shrike (Lanius collurio) Archived 2015-04-21 at the Wayback Machine','["red-backed shrike", "shrike", "bird"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:45.459689+00:00','wikidata_living');
+INSERT INTO "species" VALUES(562,'Q26675','Morus bassanus','Northern gannet','Northern gannet',0,68,18450,4.26601990885349824e+00,1.0,'The northern gannet (Morus bassanus) is a seabird, the largest species of the gannet family, Sulidae. It is native to the coasts of the North Atlantic Ocean, breeding in Western Europe and Northeastern North America. It is the largest seabird in the northern Atlantic. The sexes are similar in appearance. The adult northern gannet has a mainly white streamlined body with a long neck, and long and slender wings. It is 87–100 cm (34+1⁄2–39+1⁄2 in) long with a 170–180 cm (67–71 in) wingspan. The head and nape have a buff tinge that is more prominent in breeding season, and the wings are edged with dark brown-black feathers. The long, pointed bill is blue-grey, contrasting with black, bare skin around the mouth and eyes. Juveniles are mostly grey-brown, becoming increasingly white in the five years it takes them to reach maturity.
+Nesting takes place in colonies on both sides of the North Atl
+
+== Description ==
+An adult northern gannet has a 170–180 cm (67–71 in) wingspan, and is 87–100 cm (34+1⁄2–39+1⁄2 in) long and weighs 2.3–3.6 kg (5–8 lb), making it the largest gannet and the largest seabird native to the western Palearctic. The two sexes are generally of a similar size and appearance. The plumage is white with dark brown to black wing tips; the primary flight feathers, primary coverts and alulae are dark. The head and neck are tinged buff-yellow, becoming much more prominent in the breeding season. Males are more deeply coloured than females. The eyes are surrounded by black bare skin and have a cobalt blue orbital ring; the iris is light blue-grey with a fine dark outer ring. Some northern gannets that recovered from highly pathogenic avian influenza H5N1 infection had black irises rather than the usual pale blue; this may provide a visible indicator of previous infection.
+The beak is lo
+
+=== Adaptations for diving ===
+Northern gannets have streamlined bodies adapted for plunge-diving at high speed, including powerful neck muscles, and a spongy bone plate at the base of the bill. The nostrils are inside the bill and can be closed to prevent water entry; the eyes are protected by strong nictitating membranes. There are subcutaneous air sacs in the lower body and along the sides. Other air sacs are located between the sternum and the pectoral muscles and between the ribs and the intercostal muscles. These sacs are connected to the lungs and are filled with air when the bird breathes in. The air can be returned to the lungs by muscle contractions.
+The feathers are waterproof, which allows the birds to spend long periods in water. A water-impermeable secretion produced by a sebaceous gland covers the feathers, and the birds spread it across their body using their beak or head. Individuals have a subcutaneo
+
+== Distribution and habitat ==
+The northern gannet''s breeding range is on both sides of the North Atlantic on coasts influenced by the Gulf Stream, There are colonies in the Gulf of Saint Lawrence and on the islands off the east coast of Canada. They normally nest in large colonies, on cliffs overlooking the ocean or on small rocky islands. The water needs to be cool enough for Atlantic mackerel and herring, which are the main food source for the northern gannet. These areas also overlie the continental shelf. Northern gannet colonies can be found in the far north in regions that are very cold and stormy, and Nelson has suggested that they can survive in these regions for several reasons, including the combination of body weight and a powerful beak that allows them to capture strong muscular fish, and the ability to dive to great depths and capture prey far from the cliffs. Their fat reserves act as weight when diving
+
+=== Breeding colonies ===
+Some northern gannet breeding colonies have been recorded as being located in the same place for hundreds of years. The cliffs containing the colonies appear white when seen from a distance, due to the number of nesting birds present on them. There is a written record of a colony on the island of Lundy from 1274. There were only 70 nests by 1871, and the colony finally disappeared by 1909 at the latest. More than two-thirds of the world population breeds around the coasts of the British Isles. Colonies include:
+
+Scotland
+Bass Rock, in the Firth of Forth, first recorded in 1493. In 2004, it contained more than 48,000 nests. By 2014 this had increased to over 75,000, making it the largest colony in the world.
+Northern gannets began a colony at Troup Head in Aberdeenshire in 1988, and by 2014 it held an estimated 6,456 pairs.
+Saint Kilda and Sula Sgeir, in the Hebrides, Scotland. The former','["northern gannet", "seabird colony", "gannet breeding"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:45.848885+00:00','wikidata_living');
+INSERT INTO "species" VALUES(563,'Q26680','Branta leucopsis','Barnacle goose','Barnacle goose',0,68,21957,4.34159278074529275e+00,1.0,'The barnacle goose (Branta leucopsis) is a species of goose that belongs to the genus Branta of black geese, which contains species with extensive black in the plumage, distinguishing them from the grey Anser species. Despite its superficial similarity to the brant goose, genetic analysis has shown its closest relative is the cackling goose.
+
+== Description ==
+The barnacle goose is a medium-sized goose, 55–70 cm (22–28 in) long, with a wingspan of 120–145 cm (47–57 in) and a weight of 1.21–2.23 kg (2.7–4.9 lb), with black legs and a small, stubby black bill.
+It has a white face and black head, neck, and upper breast. Its belly is white. The wings and its back are silver-grey with black-and-white bars that look like they are shining when the light reflects on it. During flight, a V-shaped white rump patch and the silver-grey underwing linings are visible. They look similar to cackling geese but have grey and white instead of brown bodies, and more extensive white on the head; from Canada geese they are additionally distinguished by being smaller, and having smaller beaks. The juveniles are similar to the adults, but like with all geese, can be distinguished by the rounded rather than square-ended mantle and flank feathers.
+A rare leucistic form
+
+== Ecology, behaviour, and life history ==
+Barnacle geese nest either on small islands, or high on mountain cliffs at heights of up to 200–300 m above the surrounding terrain, where they are safer from predators (primarily Arctic foxes and polar bears), but also up to a kilometre away from their feeding areas in lakes and rivers. Like all geese, the goslings are not fed by the adults; instead of bringing food to the newly hatched goslings, the goslings follow the parents in their first day of life to good feeding areas. Unable to fly, the goslings jump off the cliff and fall; their small size, feathery down, and very light weight normally protects them from injury when they hit the rocks below, but some may die from the impact. Arctic foxes are attracted by the noise made by the parent geese during this time, so capture any dead or injured goslings. The foxes also stalk the young as they are led by the parents to wetland feeding','["barnacle goose", "cackling goose"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:46.243307+00:00','wikidata_living');
+INSERT INTO "species" VALUES(564,'Q26961','Emberiza schoeniclus','Common reed bunting','Common reed bunting',0,68,2198,3.34222522936079036e+00,1.0,'The common reed bunting (Schoeniclus schoeniclus), or simply reed bunting, is a passerine bird in the family Emberizidae. This species breeds throughout Europe and much of the Palearctic region. While most individuals migrate south in winter, those in the milder south and west of the range are resident. It is a common sight in reedbeds, but also breeds in drier open areas such as moorland and arable land. For example, it inhabits purple moor grass and rush pastures, which are designated as a Biodiversity Action Plan habitat in the UK. It occurs on poorly drained neutral and acid soils of the lowlands and upland fringe.
+
+== Description ==
+The common reed bunting is a medium-sized bird, 13.5–15.5 cm (5.3–6.1 in) long and weighing 10–28 g,  with a small but powerful seed-eating bill. The male has a black head and throat, white neck collar and underparts, and a heavily barred brown back. The female is much duller, with a streaked brown head, and more barring underneath.
+The male''s song is a repetitive srip.
+
+== Behaviour ==
+Its natural diet consists of insects when feeding its young, and seeds at other times.
+
+=== Breeding ===
+Breeding usually begins in early April and ends in late August, depending on the location and altitude. The species is monogamous. The nest, which is made of twigs, grass and reeds, is lined with finer materials such as hair, moss and rootlets, and is located in a bush or reed tussock. Four to five olive-grey eggs are laid, displaying the distinctive hair-like markings characteristic of those of buntings. The incubation period is 12–15 days, during which both parents feed the chicks.','["common reed bunting", "bird in reeds"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:46.645863+00:00','wikidata_living');
+INSERT INTO "species" VALUES(565,'Q28103','Tringa erythropus','Spotted redshank','Spotted redshank',0,68,1546,3.18949031369936752e+00,1.0,'The spotted redshank (Tringa erythropus) is a wader (shorebird) in the large bird family Scolopacidae. It breeds across northern Scandinavia and the northern Palearctic and migrates south to the Mediterranean, the southern British Isles, France, tropical Africa, and tropical Asia for the winter. It is an occasional vagrant to Australia and North America.
+
+== Description ==
+This is a large wader (shorebird), measuring 29–31 cm (11–12 in) long, with a wingspan of 61–67 cm (24–26 in) and a weight ranging from 121 to 205 g (4.3 to 7.2 oz). It is black in breeding plumage, and very pale in winter. It has a red legs and bill, and shows a white oval on the back in flight. Juveniles are grey-brown finely speckled white above, and have pale, finely barred underparts. 
+Adults moult completely between July and October. In spring, the body plumage is moulted between March and May. Juveniles have a partial moult between August and February. 
+The call is a creaking whistle teu-it (somewhat similar to the call of a roseate tern), the alarm call a kyip-kyip-kyip.
+
+== Habitat and range ==
+The spotted redshank breeds in the Arctic across much of the Palearctic, from Lapland in the west to Chukotskaya in the east.
+
+== Behaviour ==
+
+=== Food and feeding ===
+Like most waders, it feeds on small invertebrates.
+
+=== Breeding ===
+It nests on open boggy taiga, laying four eggs in a ground scrape. For breeding the bird moults to a black to dark grey with white spots. During breeding plumage the legs also turn a dark grey. See image alongside.','["spotted redshank", "shorebird", "migratory wader"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:47.036419+00:00','wikidata_living');
+INSERT INTO "species" VALUES(566,'Q46143','Carpodacus erythrinus','Common rosefinch','Common rosefinch',0,68,2086,3.31952244906545423e+00,1.0,'The common rosefinch (Carpodacus erythrinus) or scarlet rosefinch is the most widespread and common rosefinch of Asia and Europe.
+
+== Description ==
+The common rosefinch is 13–15 cm (5.1–5.9 in) in length. It has a stout and conical bill. The mature male has brilliant rosy-carmine head, breast and rump; heavy bill; dark brown wings with two indistinct bars, and a white belly. Females and young males are dull-colored with yellowish-brown above, brighter on the rump and greyer on head; buff below.
+Adults moult in their winter quarters, between September and November. After moulting the red of male is subdued, and becomes brighter during the winter due to wear of the feathers.
+A rare form exists, in which the red colouring of males is replaced by yellow. The cause is environmental, rather than genetic, being affected by diet and the presence of parasites.
+
+== Distribution and habitat ==
+It has spread westward through Europe; in recent decades, it has been observed in Portugal, and has occurred in the British Isles as a rare visitor, with some breeding records in recent years. Common rosefinches breed from the Danube valley, Sweden, and Siberia to the Bering Sea; the Caucasus, northern Iran and Afghanistan, the western Himalayas, Tibet and China; to Japan between latitudes 25° and 68°. In winter they are found from southern Iran to south-east China, India, Burma, and Indochina. It occurs as a vagrant in Sri Lanka.  
+They are found in summer in thickets, woodland and forest edges near rivers and in winter in gardens and orchards, wetlands and locally in dry oak woods.
+
+== Behaviour ==
+The nest is placed low in a bush. The eggs are dark blue with coarse dark brown spots, and a typical clutch contains five eggs.','["common rosefinch", "rosefinch"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:47.413701+00:00','wikidata_living');
+INSERT INTO "species" VALUES(567,'Q58921','Calidris temminckii','Temminck''s stint','Temminck''s stint',0,68,1385,3.14176323027578785e+00,1.0,'Temminck''s stint (Calidris temminckii) is a small wader native to the Old World. This bird''s common name and Latin binomial commemorate the Dutch naturalist Coenraad Jacob Temminck. The genus name is from Ancient Greek kalidris or skalidris, a term used by Aristotle for some grey-coloured waterside birds.
+Within the genus Calidris, Temminck''s stint is most closely related to the long-toed stint (Calidris subminuta).
+Temminck''s stint is one of the species to which the Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA) applies.
+
+== Description ==
+These birds are very small waders, at 13.5–15 cm (5.3–5.9 in) length. They are similar in size to the little stint (Calidris minuta) but shorter legged and longer winged. The legs are dull yellowish or brown, and the outer tail feathers white, in contrast to little stint''s black legs and grey outer tail feathers.
+This is a rather drab wader, with mainly plain brown upperparts and head, and underparts white apart from a darker breast. The breeding adult has some brighter rufous and/or blackish mantle feathers to relieve the generally undistinguished appearance. In winter plumage, the general appearance recalls a tiny version of common sandpiper, dull grey to greenish-grey or brownish-grey above and on the upper breast, and white below.
+The call is a loud trill.
+
+== Breeding ==
+This stint''s breeding habitat is bogs and marshes in the taiga of Arctic northern Europe and Asia. It breeds from southern Scandinavia and occasionally Scotland, east right across northern Russia to the Chukotski Peninsula. It has a distinctive hovering display flight. It nests in a scrape on the ground, laying 3–4 eggs. Temminck''s stint is strongly migratory, wintering at freshwater sites in tropical Africa, the Indian subcontinent and parts of Southeast Asia.
+Temminck''s stints have an intriguing breeding and parental care system in which males and female parents incubate separate clutches, typically in different locations. Males establish small territories and mate with a female who lays a first clutch of eggs. She then moves to a second territory and mate, and lays a second clutch that she incubates herself. Concurrently, her first male may mate with an incoming second female, who lay
+
+== Feeding ==
+These birds forage in soft mud with some vegetation, mainly picking up food by sight. They have a distinctive feeding behaviour, creeping steadily along the edges of pools. They mostly eat insects and other small invertebrates. They are not as gregarious as many other Calidris waders, and rarely form large flocks.','["Temminck''s stint", "little stint", "long-toed stint"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:47.805186+00:00','wikidata_living');
+INSERT INTO "species" VALUES(568,'Q13408062','Bos grunniens','Yak','Yak',0,67,70129,4.84590383889878228e+00,1.0,'The yak (Bos grunniens) is a species of long-haired domesticated Asian cattle found throughout the Himalayan region, the Tibetan Plateau, Tajikistan, the Pamir Mountains, and as far north as Mongolia and Siberia. It is descended from the wild yak (Bos mutus).
+
+=== Physiology ===
+Yak physiology is well adapted to high altitudes, having larger lungs and heart than cattle found at lower altitudes, as well as greater capacity for transporting oxygen through their blood, due to the persistence of foetal haemoglobin throughout life. Conversely, yaks have trouble thriving at lower altitudes, and are prone to suffering from heat exhaustion above about 15 °C (59 °F). Further adaptations to the cold include a thick layer of subcutaneous fat and an almost complete lack of functional sweat glands.
+Compared with domestic cattle, the rumen of yaks is unusually large, relative to the omasum. This likely allows them to consume greater quantities of low-quality food at a time, and to ferment it longer to extract more nutrients. Yak consume the equivalent of 1% of their body weight daily while cattle require 3% to maintain condition. They are grazing herbivores, with their wild a
+
+== Reproduction and life history ==
+Yaks mate in the summer, typically between July and September, depending on the local environment. For the remainder of the year, many bulls wander in small bachelor groups away from the large herds. Still, as the rut approaches, they become aggressive and regularly fight with each other to establish dominance. In addition to non-violent threat displays, bellowing, and scraping the ground with their horns, bull yaks compete more directly, repeatedly charging at each other with heads lowered or sparring with their horns. Like bison, but unlike cattle, males wallow in dry soil during the rut, often while scent-marking with urine or dung. Females enter oestrus up to four times a year, and females are receptive only for a few hours in each cycle.
+Gestation lasts between 257 and 270 days, so that the young are born between May and June, and results in the birth of a single calf. The cow finds
+
+=== Breeding and hybridization ===
+In Nepal, Tibet, and Mongolia, domestic cattle are crossbred with yaks. This gives rise to the infertile male dzo མཛོ། as well as fertile females known as dzomo or zhom མཛོ་མོ།, which may be crossed again with cattle. The Dwarf Lulu breed, "the only Bos primigenius taurus type of cattle in Nepal" has been tested for DNA markers and found to be a mixture of both taurine and zebu types of cattle (B. p. taurus and B. p. indicus) with yak. According to the International Veterinary Information Service, the low productivity of second-generation cattle–yak crosses makes them suitable only as meat animals.
+Crosses between yaks and domestic cattle (Bos primigenius taurus) have been recorded in Chinese literature for at least 2,000 years. Successful crosses have also been recorded between yak and American bison, gaur, and banteng, generally with similar results to those produced with domestic catt','["yak", "domestic yak", "Himalayan plateau"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:48.209349+00:00','wikidata_living');
+INSERT INTO "species" VALUES(569,'Q180835','Acrocephalus arundinaceus','Great reed warbler','Great reed warbler',0,67,1492,3.17405980772502527e+00,1.0,'The great reed warbler (Acrocephalus arundinaceus) is an insectivorous bird in the family Acrocephalidae. It is a medium-sized passerine bird and the largest of the warblers. It breeds throughout mainland Europe and the Western Palearctic and migrates to sub-Saharan Africa in the winter. It favours reed beds during the breeding season, while living in reed beds, bush thickets, rice fields, and forest clearings during the winter. It exhibits relatively low sexual dimorphism, and the sexes are similar in appearance. This species mates both polygynously and monogamously.
+
+== Description ==
+The thrush-sized warbler is one of the largest species in both its current the family Acrocephalidae, and its former family, the "Sylviidae". It measures 16–21 cm (6.3–8.3 in) in length, 25 to 30 cm (9.8 to 11.8 in) in wingspan and weighs 22 to 38 g (0.78 to 1.34 oz). The adult has unstreaked brown upperparts and dull buffish-white chin and underparts. The forehead is flattened, and the bill is strong and pointed. It looks very much like a giant common reed warbler (Acrocephalus scirpaceus), but with a stronger supercilium. The sexes are identical, as with most old world warblers, but young birds are richer buff below.
+The warbler''s song is very loud and far-carrying. The song''s main phrase is a chattering and croaking carr-carr-cree-cree-cree-jet-jet, to which the whistles and vocal mimicry typical of marsh warblers are added.
+
+== Distribution and habitat ==
+The great reed warbler breeds in Europe and the west Palearctic. It does not breed in Great Britain, where only the closely related, smaller common reed warbler Acrocephalus scirpaceus occurs, but is an irregular visitor. Its population has in recent decades increased around the eastern Baltic Sea, while it has become rarer at the western end of its range. It is a migratory bird, wintering in tropical Africa. It migrates north at a rather late date, and some birds remain in their winter quarters until the end of April.
+The mtDNA haplotype data indicate that during the last glacial period there were two allopatric populations of great reed warbler. The great reed warblers in southwestern and southeastern Europe were at that time apparently separated by the Vistulian-Würm ice sheets and the surrounding barren lands. Though the data are insufficient to infer a date for this separation robus
+
+== Behaviour ==
+
+=== Diet ===
+The great reed warbler has a primarily carnivorous diet. Observation of prey collection specifically during breeding season has shown the retrieval of insect larvae, moths, dragonflies, damselflies, beetles, spiders, small fish, and frogs. It has also been reported to eat fruit during non-breeding seasons. Nestlings typically feed on diptera and arachnids, though this may not be their preferred food.
+
+=== Communication and courtship ===
+Male great reed warblers have been observed to communicate via two basic song types: short songs about one second in length with few syllables, and long songs of about four seconds that have more syllables and are louder than the short variety. It has been observed that long songs are primarily used by males to attract females; long songs are only given spontaneously by unpaired males, and cease with the arrival of a female. Short songs, however, are primarily used in territorial encounters with rival males.
+During experimental observation, male great reed warblers showed reluctance to approach recordings of short songs, and when lured in by long songs, would retreat when playback was switched to short songs.
+Traditionally, monogamous species of genus Acrocephalus use long, variable, and complex songs to attract mates, whereas polygynous varieties use short, simple, stereotypical songs f
+
+=== Mating system and sexual behaviour ===
+Great reed warbler females lay 3–6 eggs in an open cup-nest in reeds. Some pairs of warblers are monogamous, but others are not, and unpaired, so-called "satellite" males still father some young. Great reed warblers defend their nests using graded alarm calls, directed towards a wide range of enemies, although these alarm calls might reveal the whereabouts of the nest to brood parasites.
+A long-term study of the factors that contribute to male fitness examined the characteristics of males and territories in relation to annual and lifetime breeding success. It showed that the arrival order of the male was the most significant factor for predicting pairing success, fledgling success, and number of offspring that survive. It also found that arrival order was closely correlated with territory attractiveness rank. Females seem to prefer early arriving males that occupy more attractive territo','["great reed warbler", "reed beds", "bird migration"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:48.576546+00:00','wikidata_living');
 INSERT INTO "species" VALUES(57,'Q188717','Smilodon','sabre-toothed cat','Smilodon',1,69,121522,5.08465848227806471e+00,1.0,'Smilodon is a genus of extinct felids. It is one of the best-known saber-toothed predators and prehistoric mammals. Although commonly known as the saber-toothed tiger, it was not closely related to the tiger or other modern cats, belonging to the extinct subfamily Machairodontinae, with an estimated date of divergence from the ancestor of living cats around 20 million years ago. Smilodon was one of the last surviving machairodonts alongside Homotherium. Smilodon lived in the Americas during the Pleistocene to early Holocene epoch (2.5 mya – at latest 8,200 years ago). The genus was named in 1842 based on fossils from Brazil; the generic name means ''scalpel'' or ''two-edged knife'' combined with ''tooth''. Three species are recognized today: S. gracilis, S. fatalis, and S. populator. The two latter species were probably descended from S. gracilis, which itself probably evolved from Megantereon
 
 == Description ==
@@ -9032,6 +9592,209 @@ Scientists debate whether Smilodon was social. One study of African predators fo
 
 == Distribution and habitat ==
 Smilodon lived during the Pleistocene epoch (2.5 mya–10,000 years ago), and was perhaps the most recent of the saber-toothed cats. S. fatalis lived in a variety of habitats, being able to inhabit open grassland and parkland, marginal woodland-grassland settings, and closed forests. Fossils of the genus have been found throughout the Americas. The northernmost remains of the genus are S. fatalis fossils from Alberta, Canada, with the southernmost remains of S. populator being known from the far south of Patagonia, near the Strait of Magellan. The habitat of North America varied from subtropical forests and savannah in the south, to treeless mammoth steppes in the north. The mosaic vegetation of woods, shrubs, and grasses in southwestern North America supported large herbivores such as horses, bison, antelope, deer, camels, mammoths, mastodons, and ground sloths. North America also support','["lion", "tiger", "big cat"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-01T08:35:22.474156+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(570,'Q184508','Lanius excubitor','Great grey shrike','Great grey shrike',0,67,6348,3.80270532707435204e+00,1.0,'The great grey shrike (Lanius excubitor) is a large and predatory songbird species in the shrike family (Laniidae). It forms a superspecies with a number of large, similar-looking parapatric relatives. Males and females are similar in plumage, pearly grey above with a black eye-mask and white underparts.
+Breeding takes place generally north of 50° northern latitude in northern Europe and Asia. Most populations migrate south in winter to temperate regions. The great grey shrike is carnivorous, with rodents making up over half its diet.
+
+== Description ==
+An adult great grey shrike is a medium-sized passerine about as large as a big thrush, measuring from 22 to 26 cm (8.7 to 10.2 in) long. It typically weighs around 60 to 70 g (2.1 to 2.5 oz), although some subspecies are noticeably smaller or larger, and even in the nominate subspecies adult weights between 48 and 81 g (1.7 and 2.9 oz) are recorded. The wings are around 11.4 cm (4.5 in) and the tail around 10.9 cm (4.3 in) long in the nominate subspecies, its bill measures about 23 mm (0.91 in) from tip to skull, and the tarsometatarsus part of its "legs" (actually feet) is around 27.4 mm (1.08 in) long. Wingspan can range from 30 to 36 cm (12 to 14 in).
+The general colour of the upperparts is pearl grey, tinged brownish towards the east of its Eurasian range. The cheeks and chin as well as a thin and often hard-to-see stripe above the eye are white, and a deep black mask extends from th
+
+== Distribution and habitat ==
+Generally, its breeding range is found in Eurasia and northern Africa. In the high mountains of the Altai-Tian Shan region, it ranges south perhaps as far as 42° northern latitude. Its northern limit is generally 70° northern latitude. It is only found as a vagrant in Iceland, the British Isles, the Mediterranean region (excluding the Iberian Peninsula and perhaps Romania but including Cyprus), and Korea. There do not appear to be breeding records from the entire Kamchatka Peninsula; in Switzerland, the present day Netherlands and southern Germany small populations were found in the mid-20th century but have declined or even disappeared since then.
+Except for the subspecies bianchii which is largely all-year resident, and subspecies excubitor in the temperate European parts of its range with their mild maritime climate, the species is a short-distance migrant. The migrations are triggere
+
+== Behaviour ==
+This species is territorial, but likes to breed in dispersed groups of a good half-dozen adults. It is not known to what extent the birds in such groups are related. In the temperate parts of its range, groups are perhaps 5 km (3.1 mi) apart, while individual territories within each group may be as small as 20 ha (49 acres) but more typically are about twice that size. In less hospitable climes, territories may be more than 350 ha (1.4 sq mi). Throughout the breeding season, in prime habitat, territories are held by mated pairs and single males looking for a partner. In less productive habitat, "floaters" hold territories more ephemerally. This leads to shifts in population density between regions, as "floaters" move between groups of territorial birds in search of a bountiful unclaimed territory to settle down and/or a partner to mate with. On the wintering grounds, pairs separate to ac
+
+=== Food and feeding ===
+The great grey shrike eats small vertebrates and large invertebrates. To hunt, this bird perches on the topmost branch of a tree, utility pole or similar elevated spot in a characteristic upright stance some metres/yards (at least one and up to 18 m/20 yd) above ground. Alternatively, it may scan the grassland below from flight, essentially staying in one place during prolonged bouts of mainly hovering flight that may last up to 20 minutes. It will drop down in a light glide for terrestrial prey or swoop hawk-like on a flying insect. Small birds are sometimes caught in flight too, usually by approaching them from below and behind and seizing their feet with the beak. If no prey ventures out in the open, great grey shrikes will rummage through the undergrowth or sit near hiding places and flash their white wing and tail markings to scare small animals into coming out. As noted above, it w
+
+=== Breeding and life history ===
+Great grey shrikes breed during the summer, typically once per year. In exceptionally good conditions, they raise two broods a year, and if the first clutch is destroyed before hatching they are usually able to produce a second one. Their monogamous pair bond is strong during the breeding season and loosens over winter; birds often choose a different mate than the year before. To seek out potential mates, males will venture outside their breeding territories. If a female thus encountered finds a male to her liking, she will visit to see whether they get along well and inspect the nesting sites he can offer. The courtship period is generally longer than in the Iberian grey shrike (L. meridionalis), usually starting about March and lasting to April/May. At first, the female rebuffs the male, only allowing him to feed her. Males give increasingly vocal displays and show off the white markin','["great grey shrike", "shrike", "bird"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:48.972868+00:00','wikidata_living');
+INSERT INTO "species" VALUES(571,'Q188212','Galeocerdo cuvier','Tiger shark','Tiger shark',0,67,72609,4.86099643675719583e+00,1.0,'The tiger shark (Galeocerdo cuvier) is a species of ground shark, and the only extant member of the genus Galeocerdo and family Galeocerdonidae. It is a large predator, with females capable of attaining a length of over 5 m (16 ft 5 in). Populations are found in many tropical and temperate waters, especially around central Pacific islands. Its name derives from the dark stripes down its body, which resemble a tiger''s pattern and fade as the shark matures.
+The tiger shark is a solitary, mostly nocturnal hunter. It is notable for having the widest food spectrum of all sharks, with a range of prey that includes crustaceans, fish, seals, birds, squid, octopuses, sea turtles, sea snakes, dolphins, and even smaller sharks. It also has a reputation as a "garbage eater", consuming a variety of inedible, man-made objects that linger in its stomach. Tiger sharks have only one recorded natural pred
+
+== Description ==
+The tiger shark commonly attains an adult length of 3.5 to 4.7 m (11 ft 6 in – 15 ft 5 in) and weighs between 300 and 900 kg (700 and 2,000 lb). The International Game Fish Association''s all-tackle record is 810 kg (1,790 lb). It is sexually dimorphic, with females being the larger sex. Mature females are often over 3.7 m (12 ft 2 in) while mature males rarely get that large. Exceptionally large females reportedly can measure over 5 m (16 ft 5 in), and the largest males 4 m (13 ft 1 in). Weights of particularly large female tiger sharks can exceed 1,300 kg (2,900 lb). One pregnant female caught off Australia reportedly measured 5.5 m (18 ft 1 in) long and weighed 1,524 kg (3,360 lb). Even larger unconfirmed catches have been claimed. Some papers have accepted a record of an exceptional 7.4-metre (24 ft 3 in), 3,110-kilogram (6,860 lb) tiger shark, but since this is far larger than any sc
+
+== Distribution and habitat ==
+The tiger shark is often found close to the coast, mainly in tropical and subtropical waters throughout the world. Its behavior is primarily nomadic, but is guided by warmer currents, and it stays closer to the equator throughout the colder months. It tends to stay in deep waters that line reefs, but it does move into channels to pursue prey in shallower waters. In the western Pacific Ocean, the shark has been found as far north as Japan and as far south as New Zealand. It has also been recorded in the Mediterranean Sea, but rarely, off Malaga (Spain), Sicily (Italy) and Libya.
+Fuvahmulah, an island in the Maldives, has been identified as home to the world''s largest known aggregation of tiger sharks (Galeocerdo cuvier).
+The finding is based on a long-term scientific study using non-invasive methods such as photo identification and laser photogrammetry, which recorded at least 239 individ
+
+== Feeding ==
+The tiger shark is an apex predator and has a reputation for eating almost anything. These predators swim close inland to eat at night, and during the day swim out into deeper waters. Young tiger sharks are found to feed largely on small fish, as well as various small jellyfish, and mollusks including cephalopods. Around the time they attain 2.3 m (7.5 ft), or near sexual maturity, their selection expands considerably, and much larger animals become regular prey. Numerous fish, mollusks (including gastropods and cephalopods),  crustaceans, sea birds, sea snakes, marine mammals (e.g. bottlenose dolphins (Tursiops), common dolphins (Delphinus), spotted dolphins (Stenella), dugongs (Dugong dugon), seals, and sea lions), and sea turtles (including the three largest species: the leatherback (Dermochelys coriacea), the loggerhead (Caretta caretta) and the green sea turtles (Chelonia mydas)), a
+
+=== Predation by orcas ===
+Tiger sharks are preyed on by orcas. Orcas have been recorded hunting and killing tiger sharks by holding them upside down to induce tonic immobility in order to drown the shark. The orcas bite off the shark''s fins before disemboweling and devouring it.
+
+== Reproduction ==
+Males reach sexual maturity at 2.3 to 2.9 m (7.5 to 9.5 ft) and females at 2.5 to 3.5 m (8.2 to 11.5 ft). Typical weight of relatively young sexually mature specimens, which often locally comprise the majority of tiger sharks encountered per game-fishing and scientific studies, is around 80 to 130 kg (180 to 290 lb). Females mate once every three years.','["tiger shark", "shark"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:49.373550+00:00','wikidata_living');
+INSERT INTO "species" VALUES(572,'Q189868','Mandrillus sphinx','Mandrill','Mandrill',0,67,60331,4.78054772237536074e+00,1.0,'The mandrill (Mandrillus sphinx) is a large Old World monkey native to west central Africa. It is one of the most colorful mammals in the world, with red and blue skin on its face and posterior. The species is sexually dimorphic, as males have a larger body, longer canine teeth and brighter coloring. Its closest living relative is the drill, with which it shares the genus Mandrillus. Both species were traditionally thought to be baboons, but further evidence has shown that they are more closely related to white-eyelid mangabeys.
+Mandrills mainly live in tropical rainforests but will also travel across savannas. They are active during the day and spend most of their time on the ground. Their preferred foods are fruit and seeds, but mandrills will consume leaves, piths, mushrooms, and animals from insects to juvenile bay duiker. Mandrills live in large, stable groups known as "hordes" whic
+
+== Ecology ==
+The mandrill lives in west-central Africa, including southern Cameroon, mainland Equatorial Guinea (Río Muni), Gabon and parts of the Republic of the Congo. Its range is bounded by the Sanaga River to the north and the Ogooué and Ivindo Rivers to the east. It does not appear to share habitat with the drill, as the two species are separated by the Sanaga River. Mandrills live in tropical rainforests, generally preferring primary forests over secondary forests. They also live in patchy gallery forests surrounded by savanna and travel across grass areas within their forest habitats. They have also been recorded in mountainous areas, near rivers and in cultivated fields.
+Mandrills prefer thick bush dominated by perennial plants like gingers and plants of the genera Brillantaisia and Phaulopsis. They mainly dwell on the ground, but feed as high as the canopy. Both mandrills and drills are mor
+
+=== Diet ===
+The mandrill is an omnivore. The core of its diet consists of plants, of which it eats over a hundred species. In Lopé National Park, the mandrill''s diet was composed of fruit (50.7%), seeds (26.0%), leaves (8.2%), pith (6.8%), flowers (2.7%), and animal matter (4.1%), with other foods making up the remaining 1.4%. During the wet season, mandrills forage in continuous forest, when fruit is most available, while during the dry season they feed in gallery forests and at the borders of savannas and forests.
+The mandrill''s preferred fruits include those of the cashew species Pseudospondias microcarpa, the coffee species Nauclea diderrichii and the wort species Psorospermum febrifugum. Mandrills consume more seeds than many other primate species. Adult male mandrills are one of the few primates capable of biting through the hard shell of Detarium microcarpum seeds. For vegetation, they mostly
+
+== Behavior and life history ==
+Mandrills are mostly diurnal and are awake around 10 hours per day from morning to dusk. They often pick a new tree to sleep in every night. Mandrills have been observed using tools; in captivity, they use sticks to clean themselves. In the wild, mandrills appear to live 12–14 years, but captive individuals can live 30–40 years.
+
+=== Social structure ===
+Mandrills live in large "supergroups" or "hordes" that can contain hundreds of individuals. These large groups are fairly stable and do not appear to be gatherings of smaller ones. At Lopé National Park, Gabon, mandrill hordes were found to have an average of 620 individuals, and some groups were as large as 845, making them possibly the largest cohesive groups of wild primates. Another study in Lopé found that a horde of 625 mandrills consisted of 21 dominant males, 71 less dominant and subadult males, 247 adult and adolescent females, 200 juveniles, and 86 dependent infants. A mandrill horde of around 700 individuals in northern Lopé had a total home range of 182 km2 (70 sq mi), 89 km2 (34 sq mi) of which was suitable habitat. The supergroup would occasionally diverge into two to four subgroups before reuniting. Another 15-month long study of a 120-member group found a home range of 8.
+
+=== Reproduction and development ===
+Dominant or alpha male mandrills have the most mating success. Upon gaining alpha status, males develop larger testicles, redder faces and posteriors, more secretion from the chest glands and fatter sides and rumps. When a male loses dominance, these physiological changes are at least partially reversed. The blue facial skin is more consistent in brightness. Higher ranking males tend to have more contrast between red and blue facial coloring. Due to their distribution of fat, dominant males are also known as "fatted" males while subordinate males are known as "non-fatted" males. Canine length also correlates with dominance, and males are less likely to sire offspring when their canines are under 30 mm (1.2 in). In some individuals, the development of secondary sexual characteristics is suppressed in response to competition from other males. Male mandrills tend to establish dominance with','["mandrill", "baboon", "African monkey"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:49.767278+00:00','wikidata_living');
+INSERT INTO "species" VALUES(573,'Q190154','Addax nasomaculatus','Addax','Addax',0,67,14449,4.15986784709256696e+00,1.0,'The addax (Addax nasomaculatus), also known as the white antelope and the screwhorn antelope, is an antelope native to the Sahara. The only member of the genus Addax, it was first described scientifically by Henri de Blainville in 1816. As suggested by its alternative name, the addax has spiral horns that are 55 to 80 cm (22 to 31 in) long in females and 70 to 85 cm (28 to 33 in) in males. In the winter, its coat is greyish-brown with white hindquarters and legs, and long, brown hair on the head, neck, and shoulders; in the summer, the coat turns almost completely white or sandy blonde. Males stand from 105 to 115 cm (41 to 45 in) at the shoulder, with females at 95 to 110 cm (37 to 43 in). They are sexually dimorphic, as the females are generally smaller than the males.
+The addax lives in arid regions, semideserts, and sandy and stony deserts in North Africa. It mainly eats grasses and 
+
+== Description ==
+The addax is greyish-brown in winter and almost completely white or sandy blonde in summer; it has white hindquarters and legs, and long, brown hair on the head, neck, and shoulders. Its head-to-body length is 120 to 130 cm (47 to 51 in), and its tail is 25 to 35 cm (9.8 to 13.8 in) long. It is sexually dimorphic in size, as males stand from 105 to 115 cm (41 to 45 in) at the shoulder with a weight of 100 to 125 kg (220 to 276 lb), whereas females are 95 to 110 cm (37 to 43 in) tall with a weight of 60 to 90 kg (130 to 200 lb). Their heads are marked with brown or black patches that form an X over their noses. They have scraggly beards and prominent red nostrils. Long, black hairs stick out between their curved and spiraling horns, ending in a short mane on the neck.
+The horns have two to three twists and are typically 55 to 80 cm (22 to 31 in) in females and 70 to 85 cm (28 to 33 in) in
+
+== Distribution and habitat ==
+The addax inhabits arid regions, semideserts, and sandy and stony deserts. It can live in extremely arid areas, with less than 100 mm (3.9 in) annual rainfall. It also inhabits deserts with tussock grasses (Stipagrostis species) and succulent thorn scrub Cornulaca. Formerly, the addax was widespread in the Sahelo-Saharan region of Africa, west of the Nile Valley, and all countries sharing the Sahara, but today the only known self-sustaining population is present in the Termit Massif Reserve in Niger. Reports of sightings have been made from the eastern Air Mountains in Niger and Bodélé  in Chad. Rare nomads may be seen in northern Niger, southern Algeria, and Libya; it is rumoured to be present along the Mali/Mauritania border, though no sightings have been confirmed. The addax was once abundant in North Africa, native to Chad, Mauritania, and Niger. It is extinct in Algeria, Egypt, Liby
+
+== Behavior and ecology ==
+Addax herds contain both males and females, and have from five to 20 members. They generally stay in one place and only wander widely in search of food. The herd is usually formed around one dominant male. In captivity, males show signs of territoriality and mate guarding, while captive females establish dominance hierarchies, with the oldest females holding highest rank.  Herds are more likely to be found along the northern edge of the tropical rain system during the summer and move north as winter falls. They are able to track rainfall and head for these areas where vegetation is more plentiful. Males are territorial and guard females, while the females establish their own dominance hierarchies.
+Due to its slow movements, the addax is an easy target for predators, such as humans, lions, leopards, cheetahs, and African wild dogs. Caracals, servals, and hyenas attack calves. The addax is
+
+=== Adaptations ===
+The addax is amply suited to live in the deep desert under extreme conditions. It can survive without free water almost indefinitely, because it gets moisture from its food and dew that condenses on plants. The addax has a special lining in its stomach that stores water in pouches to use in times of dehydration. It also produces highly concentrated urine to conserve water. The pale colour of the coat reflects radiant heat, and the length and density of the coat helps in thermoregulation. In the day, the addax huddles together in shaded areas, and on cool nights, rests in sand hollows. These practices help in dissipation of body heat and saving water by cooling the body through evaporation.
+In a study, eight addax on a diet of grass hay (Chloris gayana) were studied to determine the retention time of food from the digestive tract. Food retention time was long, possibly as an adaptation to
+
+=== Diet ===
+The addax lives in desert terrain where it eats grasses and leaves of what shrubs, leguminous herbs, and bushes are available. Primarily a grazer, its staple foods include Aristida, Panicum, and Stipagrostis, and it only consumes browse, such as leaves of Acacia trees, in the absence of these grasses. It also eats perennials, which turn green and sprout at the slightest bit of humidity or rain. The addax eats only certain parts of the plant and tends to crop the Aristida grasses neatly to the same height. By contrast, when feeding on Panicum grasses, the drier outer leaves are left alone while it eats the tender inner shoots and seeds. These seeds are important part of the addax''s diet, being its main source of protein.','["addax", "white antelope", "Sahara desert"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:50.131776+00:00','wikidata_living');
+INSERT INTO "species" VALUES(574,'Q191394','Ardeola ralloides','Squacco heron','Squacco heron',0,67,2667,3.4261858252445112e+00,1.0,'The squacco heron (Ardeola ralloides) is a small heron, 44–47 cm (17+1⁄2–18+1⁄2 in) long, of which the body is 20–23 cm (8–9 in), with 80–92 cm (31+1⁄2–36 in) wingspan. It is of Old World origins, breeding in southern Europe and the Greater Middle East.
+
+
+== Behaviour ==
+The squacco heron is a migrant, wintering in Africa. It is rare north of its breeding range. The species has been recorded in Fernando de Noronha islands, and more rarely in mainland South America, as a vagrant.
+This is a stocky species with a short neck, short thick bill and buff-brown back. In summer, adults have long neck feathers. Its appearance is transformed in flight, when it looks very white due to the colour of the wings.
+The squacco heron''s breeding habitat is marshy wetlands in warm countries. The birds nest in small colonies, often with other wading birds, usually on platforms of sticks in trees or shrubs. Three to four eggs are laid. They feed on fish, frogs and insects. The squacco heron is a host of the Acanthocephalan intestinal parasite Ardeirhynchus spiralis.
+
+
+== Etymology ==
+The English common name squacco comes via Francis Willughby (c. 1672) quoting a local Italian name sguacco. The current spelling comes from John Hill in 1752.
+The scientific name comes from Latin ardeola, a small heron (ardea), and ralloides, from the Latin rallus, meaning a rail and the Greek -oides, "resembling".
+
+
+== Breeding ==
+The squacco heron uses freshwater localities throughout Europe and the Middle East as breeding grounds to later migrate south to the Sub-Saharan African region. Non-breeding squacco herons share similar traits with other heron species like the Indian pond heron and Malagasy pond heron which show tawny color plumage, lighter streaking, smaller bill, and narrower wing tips.
+
+
+== References ==
+
+
+== External links ==
+
+Blasco-Zumeta, Javier; Heinze, Gerd-Michael. "Squacco heron" (PDF). Identification Atlas of Aragon''s Birds.
+Squacco Heron - The Atlas of Southern African Birds
+Ardeola ralloides in Field Guide: Birds of the World on Flickr
+"Ardeola ralloides". Avibase. 
+Squacco Heron at oiseaux.net
+"Species factsheet: Ardeola ralloides". BirdLife DataZone. BirdLife International.
+"Squacco heron media". Internet Bird Collection.
+Squacco heron photo gallery at VIREO (Drexel University)
+Audio recordings of Squacco heron on Xeno-canto.','["squacco heron", "heron", "marsh"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:50.493022+00:00','wikidata_living');
+INSERT INTO "species" VALUES(575,'Q192029','Nasalis larvatus','Proboscis monkey','Proboscis monkey',0,67,49061,4.690745248135749e+00,1.0,'The proboscis monkey or long-nosed monkey (Nasalis larvatus) is an arboreal Old World monkey with an unusually large nose (or proboscis), a reddish-brown skin color and a long tail. It is endemic to the Southeast Asian island of Borneo and is found mostly in mangrove forests and on the coastal areas of the island.
+This species co-exists with the Bornean orangutan and monkeys such as the silvery lutung. It belongs in the monotypic genus Nasalis.
+
+== Description ==
+The proboscis monkey is a large species, being one of the largest monkey species native to Asia. Only the Tibetan macaque and a few of the gray langurs can rival its size.
+Sexual dimorphism is pronounced in the species. Males have a head-body length of 66 to 76.2 cm (26.0 to 30.0 in) and typically weigh 16 to 22.5 kg (35 to 50 lb), with a maximum known weight of 30 kg (66 lb). Females measure 53.3 to 62 cm (21.0 to 24.4 in) in head-and-body length and weigh 7 to 12 kg (15 to 26 lb), with a maximum known mass of 15 kg (33 lb). The male has a red penis with a black scrotum.
+The proboscis monkey has a long coat; the fur on the back is bright orange, reddish brown, yellowish brown or brick-red. The underfur is light-grey, yellowish, or greyish to light-orange. Infants are born with a blue coloured face that at 2.5 months darkens to grey.  By 8.5 months of age, the face has become cream colou
+
+== Distribution and habitat ==
+The proboscis monkey is endemic to the island of Borneo and can be found in all three nations that divide the island: Brunei, Indonesia and Malaysia. It is most common in coastal areas and along rivers. This species is restricted to lowland habitats that may experience tides. It favors dipterocarp, mangrove and riverine forests. It can also be found in swamp forests, stunted swamp forests, rubber forests, rubber plantations, limestone hill forests, nypa swamps, nibong swamps, tall swamp forests, tropical heath forests and steep cliffs. This species usually stays within at least a kilometer from a water source. It is perhaps the most aquatic of the primates and is a fairly good swimmer, capable of swimming up to 20 m (66 ft) underwater. It is known to swim across rivers. Aside from this, the proboscis monkey is largely arboreal and moves quadrupedally and by leaps. It is known to jump off
+
+== Behavior and ecology ==
+
+=== Social behavior ===
+Proboscis monkeys generally live in groups composed of one adult male, some adult females and their offspring. All-male groups may also exist. Some individuals are solitary, mostly males. Monkey groups live in overlapping home ranges, with little territoriality, in a fission-fusion society, with groups gathering at sleeping sites as night falls. There exist bands which arise when groups come together and slip apart yet sometimes groups may join to mate and groom. Groups gather during the day and travel together, but individuals only groom and play with those in their own group. One-male groups consist of 3 to 19 individuals, while bands can consist of as many as 60 individuals. Serious aggression is uncommon among the monkeys but minor aggression does occur. Overall, members of the same bands are fairly tolerant of each other. A linear dominance hierarchy exists between females. Males of
+
+=== Reproduction ===
+Females become sexually mature at the age of five years. They experience sexual swelling, which involves the genitals becoming pink or reddened.  At one site, matings largely take place between February and November, while births occur between March and May. Copulations tend to last for half a minute.  The male will grab the female by the ankles or torso and mount her from behind. Both sexes will encourage mating, but they are not always successful.  When soliciting, both sexes will make pouted faces. In addition, males will sometimes vocalize and females will present their backsides and shake their head from side to side. Mating pairs are sometimes harassed by subadults. Proboscis monkeys may also engage in mounting with no reproductive purpose, such as playful and same-sex mounting, and females will attempt to initiate copulation even after they have conceived. Gestation usually last 1
+
+=== Communication ===
+Proboscis monkeys are known to make various vocalizations. When communicating the status of group, males will emit honks. They have a special honk emitted towards infants, which is also used for reassurance. Males will also produce alarm calls to signal danger. Both sexes give threat calls, but each are different. In addition, females and immature individuals will emit so-called "female calls" when angry. Honks, roars and snarls are made during low-intensity agonistic encounters. Nonvocal displays include leaping-branch shaking, bare-teeth open mouth threats and erection in males, made in the same situations.','["proboscis monkey", "Borneo mangrove"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:50.897918+00:00','wikidata_living');
+INSERT INTO "species" VALUES(576,'Q192817','Panurus biarmicus','Bearded reedling','Bearded reedling',0,67,17686,4.24765417581902404e+00,1.0,'The bearded reedling (Panurus biarmicus) is a small, long-tailed passerine bird found in reed beds near water in the temperate zone of Eurasia. It is frequently known as the bearded tit or occasionally as bearded parrotbill, as historically it was believed to be closely related to either the tits or parrotbills. Today it is known to lack close relatives and it is the only species in the family Panuridae.
+Bearded reedlings are strongly sexually dimorphic and form life-long pairs. They are highly productive and can breed several times in a season. They mainly feed on small invertebrates in summer and reed (Phragmites australis) seeds in winter.
+
+== Distribution and habitat ==
+The bearded reedling is native to temperate Europe and Asia, ranging from Spain, France and the British Isles to the Manchurian region, but its distribution tends to be quite spotty because of its habitat preference. Maps often show most of its Asian range as a single large continuous section (instead of more spotty), but this is due to limited details in monitoring data from this area relative to the western part of its range. In Europe, it used to be limited to mid and low latitudes, also including Great Britain, but in the second half of the 20th century it has expanded north into Scandinavia, Finland and the northern Baltics.
+It is an occasional non-breeding visitor to Cyprus and Iran, and it has rarely been recorded as a vagrant to the west, south and east of its normal distribution in Portugal, North Africa, Israel, Kuwait, Pakistan, Japan and Korea. The species generally is reside
+
+== Behaviour ==
+
+=== Life cycle ===
+The bearded reedling is social and during the non-breeding season it is usually seen in groups of up to a few tens of birds, exceptionally up to two hundred. During the breeding season, it is most commonly seen in pairs, family groups or groups of independent young.
+Young birds already form pairs when still juvenile, only a few weeks after having fledged. Once formed, a pairing is generally life-long and they stay together throughout the year, also sleeping closely together. If one part of a pair dies, the surviving bird may join groups of young to find a new partner to pair up with. A pair is monogamous, although mating with another partner (infidelity) is not uncommon for either sex. The length of a male''s black "moustaches" is an honest signal indicating his dominance (in competitions for food between males the one with the longest "moustaches" usually wins) and females prefer males w
+
+=== Feeding ===
+In the summer, the bearded reedling mostly eats adult insects, their larvae and pupae, and other small invertebrates (springtails, spiders, snails, etc), typically taking rather slow-moving species. This is also the food a pair provides to their nestlings and fledglings. It is common for a nest site to be several hundred metres from the main feeding sites.
+In the late autumn and winter, bearded reedlings mostly feed on seeds of common reed, rushes, common nettle, great willowherb and other grassy or sedge-like plants, occasionally forming mixed flocks with other small seed-eating birds like redpolls. Seeds are taken directly from the plant or from the ground, scratching the surface, turning over leaves or even probing into snow. However, during hard or wet winters, access to this important food source can be greatly reduced due to extensive snow cover, ice cover or floods, causing starva','["bearded reedling", "reed bed"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:51.299867+00:00','wikidata_living');
+INSERT INTO "species" VALUES(577,'Q193192','Surnia ulula','Northern hawk-owl','Northern hawk-owl',0,67,8606,3.93485180296566072e+00,1.0,'The northern hawk-owl or northern hawk owl (Surnia ulula), is a medium-sized true owl of the northern latitudes.  It is non-migratory and usually stays within its breeding range, though it sometimes irrupts southward. It is one of the few owls that is not strictly nocturnal nor crepuscular, often being active during the day. This is the only living species in the genus Surnia of the family Strigidae, the "typical" owls (as opposed to barn owls, Tytonidae). The species is sometimes called simply the hawk owl; however, many species of owls in the genus Ninox are also called "hawk owls".
+
+== Description ==
+Male northern hawk-owls are generally 35–42.5 cm (13.8–16.7 in) long, and weigh about 300 g (11 oz). Females are slightly bigger with a length of 37.2–44.7 cm (14.6–17.6 in) and a weight of about 340 g (12 oz). Both male and female have similar wingspans of about 69–82 cm (27–32 in). The plumage is relatively dark brown with an off-white spotting pattern on all dorsal parts of the body with the exception of the back of the neck which boasts a black v-shaped pattern. The underbelly is generally white or off-white which continues to the toes with brown bands on the breast and stomach. It also has a long tail with brown banding; the tail feather tips are rounded in adults, and pointed in first-year birds. The northern hawk-owl has a white face with a black border, a rounded head, yellow eyes and a curved yellow beak.
+The subspecies vary in size and plumage tone; S. u. ulula has paler underp
+
+== Distribution and habitat ==
+Three subspecies exist across the northern Holarctic. The North American subspecies S. u. caparoch spans from eastern Alaska through Canada to Newfoundland and in some areas extends south into northern United States. The other two subspecies are found in northeastern Europe and Siberia: S. u. tianschanica breeds in Central Asia reaching Xinjiang (China); and S. u. ulula resides across Siberia reaching its most eastern range.
+Occasionally, S. u. caparoch can extend its territory as far south as northern Minnesota and many other states in the northern United States including more central states such as West Virginia, New York, and South Dakota. These southern forays into the northern United States are rare and generally occur during winter, or following an explosion in a population of prey. S. u. ulula can occasionally be found in more southern areas such as Great Britain, southern Russia
+
+== Behaviour and ecology ==
+
+=== Breeding ===
+The northern hawk-owl generally starts its mating rituals at the beginning of March. After calling and pairing is complete the northern hawk-owl will build a nest and start to lay eggs. On average the northern hawk-owl will lay 3–11 eggs per brood. The nest sites are usually the tops of hollow stumps of old dead spruce trees, but they have also been known to nest on cliffsides. These nesting sites are usually 2–10 m (6.6–32.8 ft) above ground for the North American S. u. caparoch and approximately 4–5 m (13–16 ft) above ground for the Eurasian S. u. ulula. The specific dates of egg appearance can be quite variable depending on locality. In central Canada eggs are usually laid from 30 March to 5 June. On Newfoundland the appearance of eggs occurs later, between 9 May and 11 June. In Finland, however, eggs can be found anywhere between 30 March to 23 June.
+For the most part, the female nor
+
+== Food and feeding ==
+The northern hawk-owl feeds on a variety of prey, which can include small rodents to mammals more robust in size, and a variety of birds — a typical diet for many boreal owls. In Eurasia the northern hawk-owl is known to feed primarily on voles from the Microtus family. These voles usually follow a 3–4 year cycle of abundance. Therefore, S. u. ulula numbers are affected negatively when the numbers of voles are lowest. In North America the subspecies S. u. caparoch also feeds upon microtine voles, but its population is primarily based on the ten-year cycling of the snowshoe hare (Lepus americanus). In Eurasia the northern hawk-owl''s biomass consists of about 94% microtine voles, whereas in North America the percentage of biomass contributed by voles can be as low as 20%. Juvenile hares are considerably more important at 40–50%.
+Other animals that are important prey items for the northern','["northern hawk-owl", "barn owl"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:51.697641+00:00','wikidata_living');
+INSERT INTO "species" VALUES(578,'Q199962','Macaca sylvanus','Barbary macaque','Barbary macaque',0,67,27468,4.43884284935915,1.0,'The Barbary macaque (Macaca sylvanus)  is a macaque species native to the Atlas Mountains of Morocco, Algeria and Tunisia, along with a small introduced population in Gibraltar. It is the type species of the genus Macaca. From the Early Pliocene to the Late Pleistocene, until around 85–40,000 years ago, it was widely distributed in Europe. Today, the Barbary macaques in Gibraltar are the only Old World monkeys in Europe. About 300 individuals live on the Rock of Gibraltar. This population appears to be stable or increasing, while the North African population is declining.
+The diet of the Barbary macaque consists primarily of plants and insects. Males play an atypical role in rearing young. Because of uncertain paternity, males are integral to raising all infants. Generally, both sexes and all ages contribute in alloparental care of the young. Males live to around 25 years old while femal
+
+== Description ==
+The Barbary macaque has a dark pink face with a pale buff to golden brown to grey pelage and a lighter underside. The colour of mature adults changes with ages. In adults and subadults the fur on the back is variegated pale and dark which is due to banding on individual hairs. In spring to early summer, as the temperatures rise, the adult macaques moult their thick winter fur. The species shows sexual dimorphism with males larger than females. The mean head-body length is 55.7 cm (21.9 in) in females and 63.4 cm (25.0 in) in males. The boneless vestigial tail is greatly reduced compared with other macaque species and, if not absent, measures 4–22 mm (0.16–0.87 in). Males may have a more prominent tail, though data is scarce. The average body weight is 9.9–11 kg (22–24 lb) in females and 14.5–16 kg (32–35 lb) in males.
+Like all Old World monkeys, the Barbary macaque has well-developed sit
+
+== Distribution and habitat ==
+Historically, the Barbary macaque occurred across North Africa from Libya to Morocco. It is the only monkey in Africa that survives north of the Sahara. It lives mainly in fragmented areas of the Rif and the Middle and High Atlas mountain ranges in Morocco and the Grande and Petite Kabylie mountain region in Algeria. It has been recorded at elevations of 400–2,300 m (1,300–7,500 ft), though it seems to prefer higher elevations. The Moroccan and Algerian populations are around 700 km (430 mi) apart, although the gap was smaller during the Holocene.
+The Barbary macaque also occurs in the British Overseas Territory of Gibraltar at the southern tip of Europe''s Iberian Peninsula. Gibraltar historian Alonso Hernández del Portillo noted in the early 17th century that the macaques had been present "from time immemorial". Most likely, the Moors introduced macaques from North Africa to Gibraltar d
+
+== Behaviour and ecology ==
+The Barbary macaque is gregarious, forming mixed groups of several females and males. Troops can have 10 to 100 individuals and are matriarchal, with their hierarchy determined by lineage to the lead female. Unlike other macaques, the males participate in rearing the young. Males may spend a considerable amount of time playing with and grooming infants. In this way, a strong social bond is formed between males and juveniles, both the male''s own offspring and those of others in the troop. This may be a result of selectivity on the part of the females, who may prefer highly parental males.
+The mating season runs from November through March. The gestation period is 147 to 192 days, and females usually have only one offspring per pregnancy. Females rear twins in rare instances. Offspring reach maturity at three to four years of age, and may live for 20 years or more.
+Grooming other Barbary m
+
+=== Diet ===
+The diet of the Barbary macaque consists of a mixture of plants and insect prey. It consumes a large variety of gymnosperms and angiosperms. Almost every part of the plant is eaten, including flowers, fruits, seeds, seedlings, leaves, buds, bark, gum, stems, roots, bulbs, and corms. Common prey caught and consumed by Barbary macaques are snails, earthworms, scorpions, spiders, centipedes, millipedes, grasshoppers, termites, water striders, scale insects, beetles, butterflies, moths, ants, and even tadpoles.
+Barbary macaques can cause major damage to the trees in their prime habitat, the Atlas cedar forests in Morocco. Since deforestation in Morocco has become a major environmental problem in recent years, research has been conducted to determine the cause of the bark stripping behaviour demonstrated by these macaques. Cedar trees are also vital to this population of Barbary macaques as a','["Barbary macaque", "Gibraltar", "monkey"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:52.092100+00:00','wikidata_living');
+INSERT INTO "species" VALUES(579,'Q201106','Picus canus','Grey-headed woodpecker','Grey-headed woodpecker',0,67,2124,3.32735893438633034e+00,1.0,'The grey-headed woodpecker (Picus canus), also known as the grey-faced woodpecker, is a Eurasian member of the woodpecker family, Picidae. Along with the more commonly found European green woodpecker and the Iberian green woodpecker, it is one of three closely related species found in Europe. Its distribution also stretches across large parts of the central and Eastern Palaearctic, all the way to the Pacific Ocean and south to the Himalaya and the Malay Peninsula.
+The grey-headed woodpecker is more demanding than the European green woodpecker in terms of its habitat. It prefers deciduous forest with a high proportion of dead trees, feeding primarily on ants, although not being as exclusively dependent on this group as the green woodpecker. The grey-headed woodpecker''s nest is typically excavated into dead or severely damaged trees.
+In the majority of areas for which population numbers ar
+
+== Description ==
+The grey-headed woodpecker is 25–26 cm (9.8–10.2 in) in length, has a wingspan of 38–40 cm (15–16 in) and weighs around 125 g (4.4 oz). The male of the nominate subspecies has a grey head with a red forecrown. There is a black line across the lores and a narrow black moustache stripe. The back, scapulars and wing coverts are green. The breast and underbody are pale grey. The folded primaries are barred brown-black on grey-white. The female lacks the red forecrown but has fine black streaks on the crown. The widely distributed Picus canus jessoensis is very similar to the nominate subspecies but is slightly greyer and less green. The Chinese subspecies Picus canus guerini has a black nape patch and a greenish underbody. The subspecies Picus canus hessei is similar to P. c. guerini but is more golden green above and a deeper green below. Specimens of the more widespread of the two Eastern
+
+== Distribution and habitat ==
+The grey-headed woodpecker is found in wide parts of central, northern and eastern Europe, as well as a wide belt south of the boreal coniferous forests across Asia all the way to the Pacific coast, Sakhalin and Hokkaidō. Its northern limit is at the border between closed coniferous and mixed forest; the southern limit is where tree steppe transitions to treeless shrubby steppe. In East Asia, the species is most differentiated, and south of Manchuria covers the Korean Peninsula, as well as large parts of eastern China, the Himalaya, and the mountain forests of the Malay Peninsula.
+In Europe, the nominate subspecies breeds within a wide belt from western France to the Urals. It has settled medium latitudes of Scandinavia as well as central, eastern and southern Europe. In Italy, it is confined to the northernmost areas. There is contradictory information regarding its occurrence in Turkey
+
+== Behaviour and ecology ==
+
+=== Breeding ===
+Grey-headed woodpeckers breed in May and lay five to ten eggs which are brought up by both parents. The young hatch after 15–17 days, and fledge in 24–25 days.
+
+=== Food and feeding ===
+The grey-headed woodpecker is a somewhat less specialised ant hunter than the European green woodpecker. In its foraging strategy it is intermediate between many Dendrocopos species on the one hand, and the often ant-specific members of the genus Picus. This reduced ant specialisation of the grey-headed woodpecker allows it to be sympatric with European green woodpeckers and even to breed at about 100 metres from them.
+Nonetheless, ants and their immatures make up the great bulk of the grey-headed woodpecker''s diet, particularly in spring and summer. Wood ants of the genus Formica as well as members of Lasius and Myrmicinae such as Myrmica spp. predominate, and with termites, may make up 90% of the diet. Besides those, caterpillars, crickets, bark and wood beetle larvae, flies, spiders and lice are part of the diet. In late autumn and early winter, grey-headed woodpeckers switch to inclu','["grey-headed woodpecker", "woodpecker", "forest"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:52.509608+00:00','wikidata_living');
 INSERT INTO "species" VALUES(58,'Q189193','Pinguinus impennis','Great auk','Great auk',1,67,75391,4.87732526443497,1.0,'The great auk (Pinguinus impennis), also known as the penguin or garefowl, is an extinct species of flightless alcid that first appeared around 400,000 years ago and was driven to extinction by human exploitation in the mid-19th century.  It was the only modern species in the genus Pinguinus. It was not closely related to the penguins of the Southern Hemisphere, which were named for their resemblance to this species.
 It bred on rocky, remote islands with easy access to the ocean and a plentiful food supply, a rarity in nature that provided only a few breeding sites for the great auks. During the non-breeding season, the auk foraged in the waters of the North Atlantic, ranging as far south as northern Spain and along the coastlines of Canada, Greenland, Iceland, the Faroe Islands, Norway, Ireland, and Great Britain.
 The bird was about 75 centimetres (29.5 inches) tall and weighed about 5 
@@ -9054,6 +9817,193 @@ This alcid typically fed in shoaling waters that were shallower than those frequ
 Historical descriptions of the great auk breeding behaviour are somewhat unreliable. Great Auks began pairing in early and mid-May. They are believed to have mated for life (although some theorize that great auks could have mated outside their pair, a trait seen in the razorbill). Once paired, they nested at the base of cliffs in colonies, likely where they copulated. Mated pairs had a social display in which they bobbed their heads and displayed their white eye patch, bill markings, and yellow mouth. These colonies were extremely crowded and dense, with some estimates stating that there was a nesting great auk for every 1 square metre (11 sq ft) of land. These colonies were very social. When the colonies included other species of alcid, the great auks were dominant due to their size.
 
 Female great auks would lay only one egg each year, between late May and early June, although they coul','["Atlantic puffin", "auk colony", "seabird cliff"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-01T08:35:22.827957+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(580,'Q205930','Lagopus muta','Rock ptarmigan','Rock ptarmigan',0,67,36214,4.55888848953673431e+00,1.0,'The rock ptarmigan (Lagopus muta) is a medium-sized game bird in the grouse tribe. It is known simply as the ptarmigan in Europe. It is the official bird for the Canadian territory of Nunavut, where it is known as the aqiggiq (ᐊᕿᒡᒋᖅ), and the official game bird for the province of Newfoundland and Labrador. In Japan, it is known as the raichō (雷鳥), which means "thunder bird"; it is the official bird of Gifu, Nagano, and Toyama Prefectures and is a protected species nationwide.
+
+== Description ==
+The rock ptarmigan is 34–36 cm (13–14 in) long with an 8 cm (3.1 in) tail and with a wingspan of 54–60 cm (21–24 in) and a weight of 440–640 g (15.5–22.6 oz). It is about ten percent smaller than the willow ptarmigan.
+The rock ptarmigan is camouflaged to match the seasons; its feathers moult from white in winter to grey and brown in spring or summer. The breeding male has greyish upper parts with white wings and underparts. In winter, its plumage becomes completely white except for the black outer tail feathers and eye line. It can be distinguished from the winter willow ptarmigan by habitat; the rock ptarmigan prefers higher elevations and more barren habitats. It also differs in its slender bill; males additionally have black lores, absent in the willow ptarmigan, though they are also absent in female rock ptarmigan.
+
+== Distribution and habitat ==
+The rock ptarmigan is a sedentary species which breeds across Arctic and Subarctic Eurasia and North America (including Greenland) on rocky mountainsides and tundra. It is widespread in the Arctic Cordillera and across the Eurasian Arctic from Norway, Sweden east to the Siberian Far East. It is also found in isolated populations in the mountains of Scotland, the Pyrenees, the Alps, Bulgaria, the Urals, the Pamir Mountains, the Altay Mountains, and Japan, where it occurs only in the Japanese Alps and on Mount Haku. Because of the remote habitat in which it lives, it has only a few predators, notably gyrfalcon, golden eagle, and arctic fox, and it can be surprisingly approachable.
+The small population living on Franz Josef Land in the Russian High Arctic overwinters during the polar night and survives by feeding on rich vegetation on and underneath high cliffs where seabird colonies are lo
+
+== Ecology ==
+
+=== Feeding ===
+Food sources can vary tremendously depending on the region of their distribution. In Alaska, rock ptarmigans consume aspen buds, dwarf birch and willow buds and catkins as a staple winter diet. They transition their diets over to Empetrum nigrum (crowberries) and Vaccinium vitis-idaea (cowberry or lingonberry) shrubs during the spring. The greatest variety in its diet occurs during early summer, when it feeds on willow leaves, as well as the leaves and flowers of Dryas and locoweed. It also feeds on berries, bistort seeds, and birch buds from late summer to autumn. Insects, larvae and snails are eaten by chicks.
+
+=== Breeding ===
+Apart from the red eye combs, male rock ptarmigans have no ''distinct'' plumage (other than the black eye stripe) that are more typical for other grouse in temperate regions. Studies on other grouses have shown that much variation in comb size and colour exists between the species, and that the comb is used in courtship display and aggressive interactions between males. Many studies have shown that there is a strong correlation between the comb size and the level of testosterone in males; one report from 1981 showed that the amount of testosterone is correlated to aggressiveness against other males.
+
+The male''s comb has been the focus of studies regarding sexual selection. Studies of a population of male rock ptarmigans in Scarpa Lake, Nunavut, have shown that during the first year, mating success among males was influenced by comb size and condition, and bigamous males had larger combs th
+
+== Ecophysiology ==','["rock ptarmigan", "grouse", "snowy landscape"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:52.892882+00:00','wikidata_living');
+INSERT INTO "species" VALUES(581,'Q21148','Pluvialis apricaria','European golden plover','European golden plover',0,67,4391,3.64266233144203566e+00,1.0,'The European golden plover (Pluvialis apricaria), also known as the Eurasian golden plover, greater golden plover, or just the golden plover within Europe, is a relatively large species of plover. This species is similar to two other golden plovers, the American golden plover, Pluvialis dominica, and Pacific golden plover, Pluvialis fulva, which are both slightly smaller, slimmer and longer-legged than European golden plover, and both have grey rather than white axillary (armpit) feathers (visible in flight, and when the bird stretches its wings on the ground).
+
+== Description ==
+The European golden plover is quite thickset, with its wings only being slightly longer than its tail. Its most distinct feature is a white "s"-shaped band stretching from its forehead to its flanks.
+
+== Distribution and habitat ==
+The European golden plover tends to breed in the Arctic tundra and other moorland areas, ranging as far west as Iceland, where they are called Heiðlóa, and as far east as central Siberia; the southernmost breed in Wales and Belarus, after a small breeding population on Dartmoor in southwest England became extinct in about 2010.
+In winter, it migrates southwest to milder regions of Europe, northwest Africa, and southwest Asia, from Ireland east to Denmark, and south to the Mediterranean region as far as Algeria, northern Egypt, and the Caspian Sea coast of Iran. It tends to gather in large flocks in open areas such as agricultural plains, ploughed land, and short meadows, ranging from lowland plains to subarctic plateaus, typically in flat terrain with moderate vegetation near wetlands. Vagrants have been recorded west to the east coast of Canada (Newfoundland, Nova Scotia), south to Gamb
+
+== Behaviour and ecology ==
+The European golden plover''s call is a monosyllabic, slightly descending, melancholic "tuu".
+Its flight action is rapid and powerful, with regular wingbeats.
+In the United Kingdom, golden plover chicks rely on craneflies for feeding, while in Sweden march flies are more important.','["European golden plover", "golden plover", "plover"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:53.297581+00:00','wikidata_living');
+INSERT INTO "species" VALUES(582,'Q215376','Iguana loca','Green iguana','Green iguana',0,67,23580,4.3725622182855,1.0,'The green iguana (Iguana iguana), also known as the American iguana or the common green iguana, is a large, arboreal, mostly herbivorous species of lizard of the genus Iguana.  Usually, this animal is simply called the iguana. The green iguana ranges over a large geographic area; it is native from southern Brazil and Paraguay as far north as Mexico. It is highly invasive in many subtropical and tropical environments throughout the world.
+A herbivore, it has adapted significantly with regard to locomotion and osmoregulation as a result of its diet. It grows to 1.7 m (5.6 ft) in length from head to tail, although a few specimens have grown more than 2 m (6.6 ft) with bodyweights upward of 9 kg (20 lb).
+Although this species is commonly kept as a pet because of its disposition and coloration, it can be challenging to care for properly. Its requirements for adequate space, lighting, and heat
+
+== Description ==
+The green iguana is a large lizard and is probably the largest species in the iguana family, though a few in the genus Cyclura may match or exceed it in weight. Adults typically grow to 1.2 to 1.7 m (3.9 to 5.6 ft) in length from head to tail. As in all iguanas, the tail comprises much of this length, and the snout-to-vent length of most green iguanas is 30 to 42 cm (12 to 17 in). A typical adult male weighs around 4 kg (8.8 lb) while the smaller adult female typically weighs 1.2 to 3 kg (2.6 to 6.6 lb). A few large males can reach or exceed 8 kg (18 lb) in weight and 2 m (6.6 ft) long. Some specimens have even reportedly been measured at a body weight of greater than 8 kg (18 lb).
+Green iguanas possess a row of spines along their backs and tails, which helps to protect them from predators. Their whip-like tails can be used to deliver painful strikes, and like many other lizards, when gr
+
+=== Senses ===
+Green iguanas have excellent vision, enabling them to detect shapes and motions at long distances. As green iguanas have only a few rod cells, they have poor vision in low-light conditions. At the same time, they have cells called double-cone cells that give them sharp color vision and enable them to see ultraviolet wavelengths. This ability is highly useful when basking so they can ensure they absorb enough sunlight to produce vitamin D.
+Green iguanas have a white photosensory organ on the top of their heads called the parietal eye (also called the third eye, pineal eye, or pineal gland), in contrast to most other lizards that have lost this primitive feature. This "eye" has only a rudimentary retina and lens and cannot form images, but is sensitive to changes in light and dark and can detect movement. This helps the iguana detect predators stalking it from above.
+
+== Ecology ==
+
+=== Behavior ===
+Green iguanas are diurnal, arboreal, and are often found near water. Agile climbers, Iguana iguana can fall up to 15 metres (50 ft) and land unhurt (iguanas use their hind leg claws to clasp leaves and branches to break a fall). During cold, wet weather, green iguanas prefer to stay on the ground for greater warmth. When swimming, iguanas remain submerged, letting their legs hang limply against their sides. They propel through the water with powerful tail strokes.
+While they may often be found in trees, these animals are well-known burrowers. The size of their burrow can range from 0.3 to 2.4 metres (1 ft 0 in to 7 ft 10 in) deep, with a diameter of 10 to 20 centimetres (4 to 7+3⁄4 in). They have been observed burrowing in canals, levees, and dikes and along seawalls in southern Florida. If individuals do not dig their own, they may even use gopher tortoise burrows or usurp those of the
+
+=== Diet ===
+Green iguanas are primarily herbivores, with captives feeding on leaves such as turnip, mustard, and dandelion greens, flowers, fruit, and growing shoots of upwards of 100 different species of plant. In Panama, one of the green iguana''s favorite foods is the wild plum (Spondias mombin). Green iguanas harbor Salmonella as a commensal gut bacterium
+Although they consume a wide variety of foods if offered, green iguanas are naturally herbivorous and require a precise ratio of minerals (two to one calcium to phosphorus) in their diet. Captive iguanas must have a variety of leafy greens along with fruits and vegetables such as turnip greens, collard greens, butternut squash, acorn squash, mango, and parsnip. A 1997 study sowed that iguanas in captivity need to be fed a diet of less than 27% neutral detergent fiber in order to maintain maximum rapid growth. Juvenile iguanas often eat feces fro','["green iguana", "iguana"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:53.657852+00:00','wikidata_living');
+INSERT INTO "species" VALUES(583,'Q232054','Axis axis','Chital','Chital',0,67,33426,4.52409740136345,1.0,'The chital (Axis axis; ), also called spotted deer and axis deer, is a deer species native to the Indian subcontinent. It was first described by Johann Christian Polycarp Erxleben in 1777. A moderate-sized deer, male chital reach 90 cm (35 in) and females 70 cm (28 in) at the shoulder. While males weigh 70–90 kg (150–200 lb), females weigh around 40–60 kg (88–132 lb). It is sexually dimorphic; males are larger than females, and antlers are present only on males. The upper parts are golden to rufous, completely covered in white spots. The abdomen, rump, throat, insides of legs, ears, and tail are all white. The antlers, three-pronged, are nearly 1 m (3 ft 3 in) long.
+
+== Description ==
+The chital is a moderately sized deer. Males reach up to 90–100 cm (35–39 in) and females 65–75 cm (26–30 in) at the shoulder; the head-and-body length is around 1.7 m (5 ft 7 in). While immature males weigh 30–75 kg (66–165 lb), the lighter females weigh 25–45 kg (55–99 lb). Mature stags can weigh up to 98–110 kg (216–243 lb). The tail, 20 cm (7.9 in) long, is marked by a dark stripe that stretches along its length. The species is sexually dimorphic; males are larger than females, and antlers are present only on males.The dorsal (upper) parts are golden to rufous, completely covered in white spots. The abdomen, rump, throat, insides of legs, ears, and tail are all white. A conspicuous black stripe runs along the spine (back bone). The chital has well-developed preorbital glands (near the eyes) with stiff hairs. It also has well-developed metatarsal glands and pedal glands located in its
+
+== Distribution and habitat ==
+The chital ranges over 8–30°N in India, Nepal, Bhutan, Bangladesh and Sri Lanka. The western limit of its range is eastern Rajasthan and Gujarat; its northern limit is the Terai and northern West Bengal, Sikkim to western Assam and forested valleys in Bhutan below an elevation of 1,100 m (3,600 ft). It also occurs in the Sundarbans and some eco parks around the Bay of Bengal, but is locally extinct in central and north-eastern Bangladesh. The Andaman and Nicobar Islands and Sri Lanka are the southern limits of its distribution. It inhabits deciduous and semi-evergreen forests and open grasslands throughout the Indian peninsula.
+
+== Behaviour and ecology ==
+Chital are active throughout the day. In the summer, time is spent in rest under shade, and the sun''s glare is avoided if the temperature reaches 80 °F (27 °C); activity peaks as dusk approaches. As days grow cooler, foraging begins before sunrise and peaks by early morning. Activity slows down during midday, when the animals rest or loiter about slowly. Foraging recommences by late afternoon and continues till midnight. They fall asleep a few hours before sunrise, typically in the forest which is cooler than the glades. These deer typically move in a single file on specific tracks, with a distance of two to three times their width between them, when on a journey, typically in search of food and water sources. In Gir National Park, chital travel the most in summer of all seasons.
+When cautiously inspecting its vicinity, the chital stands motionless and listens with rapt attention, facing
+
+=== Diet ===
+Grazers as well as browsers, the chital mainly feed on grasses throughout the year. They prefer young shoots, in the absence of which, tall and coarse grasses are nibbled off at the tips. Browse forms a major portion of the diet only in the winter-October to January-when the grasses are no longer palatable. Browse includes herbs, shrubs, foliage, fruits, and forbs; Moghania species are often preferred. Fruits eaten by chital in Kanha National Park include those of Ficus species from January to May, Cordia myxa from May to June, and Syzygium cumini from June to July. Individuals tend to group together and forage while moving slowly. Chital are generally silent when grazing together. Males often stand on their hindlegs to reach tall branches. Water holes are visited nearly twice daily, with great caution. In the Kanha National Park, mineral licks rich in calcium and phosphorus pentoxide we
+
+=== Reproduction ===
+Breeding takes place throughout the year, with peaks that vary geographically. Sperm is produced year-round, though testosterone levels register a fall during the development of the antlers. Females have regular oestrus cycles, each lasting three weeks. The female can conceive again 2 to 16 weeks after the birth. Males sporting hard antlers are dominant over those in velvet or those without antlers, irrespective of their size. Courtship is based on tending bonds. A rutting male fasts during the mating season while following and guarding a female in heat. The pair engage in several bouts of chasing and mutual grooming before copulation.
+The newborn is hidden for a week after birth, a period much shorter than most other deer. The mother-fawn bond is not very strong, as the two get separated often, though they can reunite easily as the herds are cohesive. If the fawn dies, the mother can br','["chital", "spotted deer", "Axis deer"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:54.064126+00:00','wikidata_living');
+INSERT INTO "species" VALUES(584,'Q241499','Ficedula parva','Red-breasted flycatcher','Red-breasted flycatcher',0,67,1511,3.1795517911651876e+00,1.0,'The red-breasted flycatcher (Ficedula parva) is a small passerine bird in the Old World flycatcher family. It breeds in eastern Europe and across Central Asia and is migratory, wintering in south Asia. The breeding male is mainly muted brown above and white below, with a grey head and an orange throat. Females and immatures are similarly colored but lack the orange throat patch. The red-breasted flycatcher is a regular passage migrant in western Europe, whereas the collared flycatcher, which has a different migration route (wintering in Sub-Saharan Africa), is scarce. It forms a superspecies with the closely related taiga flycatcher and Kashmir flycatcher and can be distinguished from the former by its different song, warmer-toned plumage and the more extensive orange throat patch.
+
+== Description ==
+At 11–12 cm long, this is a relatively small flycatcher, only slightly larger than the Eurasian wren. Adult breeding males are mainly muted brown above and white below, with a grey head and orange throat. The bill is black and has a pale pinkish base along with the broad but pointed shape typical of aerial insectivores. The wheatear-like tail is distinctive in all plumages; the tail is entirely black except for the white base on the outer tail feathers. All plumages have a noticeable white eyering, and the overall smaller size (compared to other flycatchers) can be distinctive in some parts of its range. It can be distinguished from the closely related and very similar taiga flycatcher by its overall warmer coloration and the more extensive orange patch on the throat. The bill is also brighter and the pale pinkish base is more extensive on the red-breasted flycatcher.
+
+== Behavior ==
+Characteristic behaviors of red-breasted flycatchers include flicking and fanning their tail. They are a diurnal species which stay active into dusk and early night during the breeding season, at the height of which they will start singing about an hour before sunrise, with some even singing into the night. They are highly territorial during the breeding season, but are otherwise solitary or in small groups, sometimes mixed with other species. Rival males will defend their territories with loud singing and display postures, occasionally making short, non-violent rushes at each other. They are usually wary of predators, sometimes briefly abandoning their clutches once disturbed. The males will make alarm calls even at distant threats once the eggs have hatched. Eurasian jays will raid the nests of red-breasted flycatchers, and both parents may mob potential intruders.
+
+=== Breeding ===
+Red-breasted flycatchers nest from the middle of May to late June in Central and Eastern Europe. In the former Soviet Union, they start nesting in late May, nearly a month earlier than the taiga flycatcher. Between four and seven eggs are laid, though a typical clutch will include five or six. Nests are built using moss, leaves, dry grass stalks, root fibres and hair, sometimes with lichen woven into the exterior. The nests are usually placed in holes in trees or walls, on branches near the trunk, among the side shoots of a tree or even in tree forks. During a study in Hungary, nest boxes were seldom accepted, and breeding success was limited unless predation pressure was reduced through means such as chicken wire.
+A study on their nesting habits in Białowieża National Park in Poland found that the native red-breasted flycatchers often built their nests in hornbeam (Carpinus betulus) or
+
+=== Feeding ===
+Red-breasted flycatchers mainly feed on insects and small spiders, which are caught on the wing and sometimes from the ground. Ants, small beetles, hoverflies, true flies, and small moths (including larvae and pupae) form the bulk of the diet for both adults and nestlings. While perched on the lookout for insects, the tail is often flicked upwards while the wingtips are held down. The bird will inspect leaves and tree trunks in a manner similar to leaf warblers, and will take insects in short hovering flights. Foraging mostly occurs in or near the canopy, but also in shrubs and occasionally on the ground, where small snails will sometimes be taken. Caterpillars may also be taken amongst the oak foliage. In autumn, red-breasted flycatchers will supplement their diets with berries, especially elderberries, currants, and blackberries.
+
+=== Habitat ===
+The red-breasted flycatcher breeds in mature old-growth forest, specifically temperate broadleaf and mixed forests, with a range that extends from Germany to the Caucasus and the Ural Mountains. The northernmost part of its breeding range lies in the Arctic Circle, while the southernmost populations breed in the central Balkans and east Carpathians. The easternmost part of its range overlaps with that of the taiga flycatcher, which has a range that extends east to the Pacific. The red-breasted flycatcher is scarcer in the westernmost part of its breeding range, being found only in scattered patches of suitable habitat in countries like Germany, Sweden and Austria. The preferred type of forest is usually beech, followed by oak, and northern populations are also present in spruce forest. Red-breasted flycatchers prefer to nest in tall trees with a lot of undergrowth and an open layer with','["red-breasted flycatcher", "Old World flycatcher", "passerine bird"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:54.426286+00:00','wikidata_living');
+INSERT INTO "species" VALUES(585,'Q26612','Rissa tridactyla','Black-legged kittiwake','Black-legged kittiwake',0,67,6146,3.78866321312085752e+00,1.0,'The black-legged kittiwake (Rissa tridactyla) is a seabird species in the gull family Laridae. This species was first described by Carl Linnaeus in his landmark 1758 10th edition of Systema Naturae as Larus tridactylus. The English name is derived from its call, a shrill ''kittee-wa-aaake, kitte-wa-aaake''. In North America, this species is known as the black-legged kittiwake to differentiate it from the red-legged kittiwake, but in Europe, where it is the only member of the genus, it is often known just as kittiwake.
+
+== Distribution and habitat ==
+The black-legged kittiwake is a coastal bird of the arctic to subarctic regions of the world. It can be found all across the northern coasts of the Atlantic, from Canada to Greenland as well as on the Pacific side from Alaska to the coast of Siberia. Black-legged kittiwakes'' wintering range extends further south from the St-Lawrence to the southern coast of New Jersey as well as in China, the Sargasso sea and off the coast of west Africa. There are two subspecies of black-legged kittiwake: R. t. tridactyla can be found on the Atlantic coast whereas R. t. pollicaris is found on the Pacific coast.
+
+Out of all the gulls, the kittiwakes are the most pelagic ones, except for perhaps Sabine''s gull. Kittiwakes are almost exclusively found at sea with the exception of the breeding period, from May to September, where they can be found nesting on the sheerest sea cliffs. They are rarely found inl
+
+== Description ==
+
+== Behaviour and ecology ==
+
+=== Breeding ===
+It is a coastal breeding bird around the north Pacific and north Atlantic oceans, found most commonly in North America and Europe. Kittiwakes are colonial nesters that form monogamous pairs and exhibit biparental care, meaning that both take part in nest building, incubation and chick rearing. They tend to nest in large numbers on cliffs by the sea side. It breeds in large colonies on cliffs and is very noisy on the breeding ground. Cliff nesting for gulls occurs only in the Rissa species, and the kittiwake is capable of utilizing the very sheerest of vertical cliffs, as is evident in their nesting sites on Staple Island in the outer Farne Islands.
+Black-legged kittiwake gulls traditionally preferred nesting on natural cliffs and ledges, and there are historically few instances of kittiwakes nesting on man-made structures. The first nesting on buildings on the River Tyne in Northumberlan
+
+=== Food and feeding ===
+Kittiwakes are primarily pelagic piscivorous birds. Their main food source consists of fish, though it is not unlikely to find invertebrates such as copepods, polychete and squids in their diet, especially when fish is harder to find. Due to their wide range, kittiwake diet is quite variable. In the Gulf of Alaska, their diet is usually composed of Pacific capelin, Pacific herring, Pacific sand land and much more. Kittiwakes of the coast of the United Kingdom, in Europe, rely mostly on sandeels. In 2004, the kittiwake population in the Shetland islands, along with the murre (guillemot) and tern population, completely failed to reproduce successfully due to a collapse in sandeel stock. Like most gulls, kittiwake forage at the surface of the water where they tend to catch their prey while in flight or sitting on the water. Throughout winter, kittiwakes spend all of their time at sea where','["black-legged kittiwake", "kittiwake", "gull"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:54.823896+00:00','wikidata_living');
+INSERT INTO "species" VALUES(586,'Q26696','Somateria mollissima','Common eider','Common eider',0,67,12367,4.09229947657425,1.0,'The common eider (pronounced ) (Somateria mollissima), also called St. Cuthbert''s duck or Cuddy''s duck, is a large (50–71 cm (20–28 in) in body length) sea-duck that is distributed over the northern coasts of Europe, North America and eastern Siberia. It breeds in Arctic and some northern temperate regions, but winters somewhat farther south in temperate zones, when it can form large flocks on coastal waters. It can fly at speeds up to 113 km/h (70 mph).
+The eider''s nest is built close to the sea and is lined with eiderdown, plucked from the female''s breast. This soft and warm lining has long been harvested for filling pillows and quilts, but in more recent years has been largely replaced by down from domestic farm-geese and synthetic alternatives. Although eiderdown pillows or quilts are now a rarity, typically being marketed as luxury goods, eiderdown harvesting continues and is sustai
+
+== Description ==
+The common eider is the largest of the four eider species, measuring 50 to 71 cm (19+1⁄2 to 28 in) in length, weighs 0.81 to 3.04 kg (1 lb 12+1⁄2 oz to 6 lb 11 oz) and spans 80–110 cm (31–43 in) across the wings. The average weight of 22 males in the North Atlantic was 2.21 kg (4 lb 14 oz) while 32 females weighed an average of 1.92 kg (4 lb 3+1⁄2 oz). It is distinguished by its bulky shape and large, wedge-shaped bill. The male is distinct, with its black and white plumage and green nape. The female is a brown bird, but can still be readily distinguished from all ducks, except other eider species, on the basis of size and head shape. The drake''s display call is a strange almost human-like "ah-ooo", while the duck utters hoarse quacks. The species is often readily approachable.
+Drakes of the European, Asian, and eastern and western North American subspecies can be distinguished by small
+
+== Ecology ==
+This species dives for crustaceans and molluscs, with mussels being a favoured food. The eider will eat mussels by swallowing them whole; the shells are then crushed in their gizzard and excreted. When eating a crab, the eider will remove all of its claws and legs, and then eat the body in a similar fashion.
+It is abundant, with populations of about 1.5–2 million birds in both North America and Europe, and also large but unknown numbers in eastern Siberia (HBW). Some populations are small and declining, notably the isolated Crimean population in the Black Sea is declining and of conservation concern, with only around 700–1,100 pairs.
+A particularly famous colony of eiders lives on the Farne Islands in Northumberland, England. About 1,000 pairs still nest there every year. It has been claimed that these birds were the subject of one of the first-ever bird protection laws, and that the fir
+
+== Social behaviour ==
+Eiders are colonial breeders. They nest on coastal islands in colonies ranging in size of less than 100 to upwards of 15,000 individuals. Female eiders frequently exhibit a high degree of natal philopatry, where they return to breed on the same island where they were hatched. This can lead to a high degree of relatedness between individuals nesting on the same island, as well as the development of kin-based female social structures. This relatedness has likely played a role in the evolution of co-operative breeding behaviours amongst eiders. Examples of these behaviours include laying eggs in the nests of related individuals and crèching, where female eiders team up and share the work of rearing ducklings.','["common eider", "sea duck", "eiderdown"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:55.222844+00:00','wikidata_living');
+INSERT INTO "species" VALUES(587,'Q27102','Alca torda','Razorbill','Razorbill',0,67,25937,4.41393648591729537e+00,1.0,'The razorbill (Alca torda) is a North Atlantic colonial seabird and the only extant member of the genus Alca of the family Alcidae, the auks. It is the closest living relative of the extinct great auk (Pinguinus impennis). Historically, it has also been known as "auk", "razor-billed auk" and "lesser auk".
+Razorbills are primarily black with a white underside. The male and female are identical in plumage; however, males are generally larger than females. This agile bird, which is capable of both flight and diving, has a predominantly aquatic lifestyle and only comes to land in order to breed. It is monogamous, choosing one partner for life. Females lay one egg per year. Razorbills nest along coastal cliffs in enclosed or slightly exposed crevices. The parents spend equal amounts of time incubating, and once the chick has hatched, they take turns foraging for their young.
+Presently, this s
+
+== Description ==
+The razorbill has a white belly and a black head, neck, back, and feet during the breeding season. A thin white line also extends from the eyes to the end of the bill. Its head is darker than that of a common murre. During the non-breeding season, the throat and face behind the eye become white, and the white line on the face and bill becomes less prominent. The bill is black, deep and laterally compressed, with a blunt end. It has several vertical grooves or furrows near the curved tip, one of them adorned with a white, broken vertical line. The bill is thinner and the grooves are less marked during the non-breeding season. It is a large and thick-set bird for an alcid, and its mean weight ranges from 505 to 890 g (17+3⁄4 to 31+1⁄2 oz). The female and male adults are very similar, having only small differences such as wing length. It is 37–39 cm in body length, the wing length of adult
+
+== Distribution and habitat ==
+Razorbills are distributed across the North Atlantic; the world population of razorbills is estimated to be at less than 1,000,000 breeding pairs. Approximately half of the breeding pairs occur in Iceland. Razorbills thrive at water surface temperatures below 15 °C (59 °F).  They are often seen with the two  larger auks, thick-billed murre and common murre.  However, unlike other auks, they commonly move into larger estuaries with lower salinity levels to feed.  These birds are distributed across sub-arctic and boreal waters of the Atlantic.  Their breeding habitat is islands, rocky shores, and cliffs on northern Atlantic coasts, in eastern North America as far south as Maine, and in western Europe from northwestern Russia to northern France.  North American birds migrate offshore and south, ranging from the Labrador Sea south to the Grand Banks of Newfoundland to New England.  Eurasian
+
+== Behavior ==
+The life-history traits of the razorbill are similar to that of the common murre. However, razorbills are slightly more agile. In North America it is a largely migratory seabird, as during the colder months, it leaves land and spends the entire winter in the waters of the Atlantic Ocean, though western European birds often remain close to their breeding sites.
+During breeding, both males and females protect the nest. Females select their mate and will often encourage competition between males before choosing a partner. Once a male is chosen, the pair will stay together for life.
+
+=== Reproduction ===
+Their mating system is female-enforced monogamy; the razorbill pairs for life. It nests in open or hidden crevices among cliffs and boulders. It is a colonial breeder and only comes to land to breed. The annual survival rate of the razorbill is between 89 and 95%. 
+Individuals only breed at 3–5 years old. As pairs grow older they will occasionally skip a year of breeding. A mating pair will court several times during breeding periods to strengthen their bond. Courtship displays include touching bills and following one another in elaborate flight patterns. Once the pre-laying period begins, males will constantly guard their mates by knocking other males away with their bills. The pair will mate up to 80 times in a 30-day period to ensure fertilisation. Females will sometimes encourage other males to engage in copulation to guarantee successful fecundity.
+Throughout the pre-laying period,
+
+=== Feeding ===
+Razorbills dive deep into the sea using their semi-folded wings and their streamlined bodies to propel themselves toward their prey. They keep their feet spread. While diving, they rarely stay in groups but rather spread out to feed. The majority of their feeding occurs at a depth of 25 m (80 ft) but they have the ability to dive up to 120 m (395 ft) below the surface. During a single dive, an individual can capture and swallow many schooling fish, depending on their size. Razorbills spend approximately 44% of their time foraging at sea.
+When feeding their young, they generally deliver small loads. Adults will mainly feed only one fish to their chick with high feeding deliveries at dawn and decreased feeding 4 hours before dark. Females will generally feed their chicks more frequently than males. They may fly more than 100 km (60 mi) out to sea to feed when during egg incubation, but whe','["razorbill", "auk", "sea cliff nesting"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:55.586705+00:00','wikidata_living');
+INSERT INTO "species" VALUES(588,'Q28355','Tringa stagnatilis','Marsh sandpiper','Marsh sandpiper',0,67,1082,3.03462845662532032e+00,1.0,'The marsh sandpiper (Tringa stagnatilis) is a small wader. It is a rather small shank, and breeds in open grassy steppe and taiga wetlands from easternmost Europe to the Russian Far East. The genus name Tringa is the Neo-Latin name given to the green sandpiper by Aldrovandus in 1599 based on Ancient Greek trungas, a thrush-sized, white-rumped, tail-bobbing wading bird mentioned by Aristotle. The specific stagnatilis is from Latin stagnum, "swamp".
+
+
+== Description ==
+The marsh sandpiper resembles a small elegant greenshank, with a long fine bill and very long yellowish legs. Like the greenshank, it is greyish brown in breeding plumage, paler in winter, and has a white wedge up its back that is visible in flight. However, it is more closely related to the common redshank and the wood sandpiper. Together, they form a group of smallish shanks which tend to have red or reddish legs, and in breeding plumage are generally a subdued, light brown above with some darker mottling, with a pattern of somewhat diffuse small brownish spots on the breast and neck. The length is 22–26 cm (8.7–10.2 in), wingspan is 55–59 cm (22–23 in) and weight is 45–120 g (1.6–4.2 oz).
+
+
+== Distribution ==
+The marsh sandpiper breeds in the Palearctic. It is a migratory species, with a majority of birds wintering in Africa and India, and some migrating to Southeast Asia and Australia. They prefer to winter on fresh water wetlands such as swamps and lakes and are usually seen singly or in small groups.
+Marsh sandpipers are rare vagrants to North America, with most records in Alaska and California. The first marsh sandpiper recorded in Canada was found on 30 April 2022 in Thedford, Lambton County, Ontario by James Holdsworth, and attracted over a thousand birders from Ontario and Michigan, as well as birders from as far away as Texas and Washington State.. A sighting was recorded in Baja California, Mexico in October 2011.
+
+The marsh sandpiper is one of the species to which the Agreement on the Conservation of African-Eurasian Migratory Waterbirds (AEWA) applies.
+
+
+== References ==
+
+
+== External links ==
+
+Marsh sandpiper species text in The Atlas of Southern African Birds
+"Species factsheet: Tringa stagnatilis". BirdLife DataZone. BirdLife International.
+"Tringa stagnatilis". Avibase. 
+"Marsh sandpiper media". Internet Bird Collection.
+Marsh sandpiper photo gallery at VIREO (Drexel University)
+Interactive range map of Tringa stagnatilis at IUCN Red List
+Audio recordings of Marsh sandpiper on Xeno-canto.
+Tringa stagnatilis in Field Guide: Birds of the World on Flickr','["marsh sandpiper", "greenshank", "redshank"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:57:55.942910+00:00','wikidata_living');
+INSERT INTO "species" VALUES(589,'Q134742','Nakalipithecus nakayamai','Nakalipithecus','Nakalipithecus',1,27,8315,3.91991448065943171e+00,1.0,'Nakalipithecus nakayamai, sometimes referred to as the Nakali ape, is an extinct species of great ape from Nakali, Kenya from about 9.9–9.8 million years ago during the Late Miocene. It is known from a right jawbone with 3 molars and from 11 isolated teeth. The jawbone specimen is presumed female as the teeth are similar in size to those of female gorillas and orangutans. Compared to other great apes, the canines are short, the enamel is thin, and the molars are flatter. Nakalipithecus seems to have inhabited a sclerophyllous woodland environment.
+
+
+== Taxonomy ==
+
+Nakalipithecus was first described from a right jawbone, the holotype KNM-NA46400, and eleven isolated teeth excavated in 2005 by a team of Japanese and Kenyan researchers in mud flow deposits in the Nakali area of northern Kenya''s former Rift Valley Province, hence the genus name Nakalipithecus ("Nakali ape"). The species name is in honour of the late Japanese geologist Katsuhiro Nakayama who worked on the expedition. The specimen dates to about 9.9–9.8 million years ago in the Late Miocene. The specimens are housed by the National Museums of Kenya. The holotype preserves all 3 lower molars, and the isolated teeth are: a left first incisor, a right first incisor, a right canine, a right third upper premolar, a left third upper premolar, a right left fourth upper premolar, a left fourth upper premolar, a right first upper molar, a right third upper molar, a left third upper molar, and a left fourth lower premolar.
+It is debated if great apes evolved in Africa or Eurasia given the abundance of early fossil apes species in the latter and the paucity in the former, despite all modern great apes except the orangutan being known from Africa. The first Miocene African ape, Samburupithecus, was discovered in 1982. It is unclear how Nakalipithecus is related to other apes. It is possible these Late Miocene African apes were stem great apes closely related to the last common ancestor of all modern African apes, which existed about 9–8 million years ago.
+Nakalipithecus and the 9 million year old Greek Ouranopithecus macedoniensis exhibit many similarities with each other, but Nakalipithecus has more basal (primitive) traits, which could indicate that it was the ancestor or closely related to the ancestor of Ouranopithecus. Ouranopithecus, in turn, is postulated to be closely related to australopithecines and the human line. This would show that apes evolved in Africa. However, evidence of common ancestry can also be interpreted as convergent evolution, with similar dental adaptations caused by inhabiting a similar environment, though Ouranopithecus seems to have consumed more hard objects than Nakalipithecus. A 2017 study on deciduous fourth premolars—deciduous teeth are less affected by environmental factors as they soon fall out and are replaced by permanent teeth—found that Nakalipithecus and later African apes (including australopithecines) shared more similarities with each other than to Eurasian apes, though drew no clear conclusion on the Nakalipithecus–Ouranopithecus relationship.
+Nakalipithecus has also been proposed to have been the ancestor to the 8 million year old Chororapithecus, which possibly represents an early member of the gorilla line; if both of these are correct, then Nakalipithecus could potentially represent an early gorilla.
+
+
+== Anatomy ==
+Nakalipithecus has an overall large size, with teeth similar in size to those of female gorillas and orangutans. The specimen is thus presumed female. The Samburupithecus specimen was also about the same size. Unlike other apes, the canines are short, and as long as they are wide—about 10.7 mm × 10.5 mm (0.42 in × 0.41 in) in height and width respectively. For comparison, the left first incisor is 10.8 mm × 8.6 mm (0.43 in × 0.34 in). The premolars are elongated, and the protoconid (the cusp on the tongue side) of the third premolar is oriented more cheekwards, which is a distinguishing characteristic of Miocene African apes from Miocene Eurasian apes. Compared to African apes contemporary with Nakalipithecus, the tooth enamel on the molars is thinner, and the cusps (which project outward from the tooth) are less inflated, creating a wider basin. In the holotype, the first, second, and third molars are 15.6 mm × 14 mm (0.61 in × 0.55 in), 16.2 mm × 15.8 mm (0.64 in × 0.62 in), and 19.5 mm × 15.1 mm (0.77 in × 0.59 in), respectively. Like modern and some contemporary apes, but unlike earlier East African apes, the first molar is relatively large, with a first molar to second molar ratio of 85%. Like Ouranopithecus and early Sivapithecus (Sivapithecus is known from the Indian subcontinent), but unlike most contemporary and future apes, the third molar was much larger than the second, with a third molar to second molar ratio of 115%, though this ratio is smaller than that of the later Southeast Asian Khoratpithecus. The mandible is less robust (heavily built) than those of contemporary Eurasian Miocene apes, except for Ouranopithecus.
+
+
+== Palaeobiology ==
+During the Late Miocene, East Africa, the Sahara, the Middle East, and Southern Europe all appear to have been predominantly seasonal sclerophyllous evergreen woodland environments. Nakali appears to have been dominated by C3 (forest) plants. Nakalipithecus is known from the Upper Beds, which comprise lakeside or riverine deposits. Climate change caused the expansion of grasslands in Africa from 10–7 million years ago, likely fragmentin','["gorilla skeleton", "great ape fossil"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:08.562061+00:00','wikidata_extinct');
 INSERT INTO "species" VALUES(59,'Q151055','Homo longi','Denisovan','Denisovan',1,66,166073,5.22030164605539415e+00,1.0,'The Denisovans or Denisova hominins ( də-NIS-ə-və(nz)) are an extinct species or subspecies of archaic human that ranged across Asia during the Middle to Late Pleistocene, approximately 200,000–32,000 years ago. Most of what is known about Denisovans comes from DNA evidence. While many recent fossils have been found and tentatively identified as Denisovan, the first Denisovans discovered were known from few physical remains. Consequently, no formal species name has been established. However, an analysis of the mitochondrial DNA and endogenous proteins from the Harbin cranium, which had been given the name Homo longi, showed that this skull represents a Denisovan. Analysis of protein sequences from the Xujiayao hominin fossils, which had been given the name Homo juluensis, indicated that these remains also likely represent Denisovans.
 The first identification of a Denisovan individual occ
 
@@ -9063,6 +10013,151 @@ The Denisovan Harbin cranium, Homo longi is characterized by a low and long skul
 
 == Interbreeding ==
 Analyses of the modern human genomes indicate past interbreeding with at least two groups of archaic humans—Neanderthals and Denisovans—and that interbreeding events occurred multiple times. Comparisons of the Denisovan, Neanderthal, and modern human genomes have revealed evidence of a complex web of interbreeding among these lineages.','["human", "archaeology dig", "ancient DNA laboratory"]',NULL,'done',2,'disabled','human_lineage',0,NULL,'2026-11-01T08:35:23.176695+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(590,'Q135300','Rapetosaurus','Rapetosaurus ("mischievious giant lizard")','Rapetosaurus',1,27,4358,3.63938686901768404e+00,1.0,'Rapetosaurus ( rə-PAY-too-SOR-əs) is a genus of titanosaurian sauropod dinosaur that lived in Madagascar from 70 to 66 million years ago, at the end of the Cretaceous Period. Only one species, Rapetosaurus krausei, has been identified. Like other sauropods, Rapetosaurus was a quadrupedal herbivore. It is calculated to have reached lengths of 15 m (49 ft) in adulthood.
+
+== Description ==
+Rapetosaurus was a fairly typical sauropod, with a short and slender tail, a very long neck and a huge, elephant-like body. Its head resembles the head of a diplodocid, with a long, narrow snout and nostrils on the top of its skull. It was a herbivore and its small, pencil-like teeth were good for ripping the leaves off trees but not for chewing.
+
+It was fairly modest in size for a titanosaur. The juvenile specimen measured 8 metres (26 ft) from head to tail and "probably weighed about as much as an elephant". An adult would have been about twice as long (15 metres (49 ft) in length), which is still less than half the length of its gigantic kin, like Argentinosaurus and Paralititan. In 2020, Molina-Perez and Larramendi estimated the size of the probable adult specimen (MAD 93-18), which is known from a femur, at 16.5 meters (54 ft) and 10.3 tonnes (11.35 short tons).
+
+== Paleoecology ==
+During the Maastrichtian, like it is now, Madagascar was an island, having separated from the Indian subcontinent less than 20 million years earlier. It was drifting northwards but still 10–15° more southerly in latitude than it is today. The prevailing climate of the time was semi-arid, with pronounced seasonality in temperature and rainfall. Many prehistoric animals inhabited a coastal flood plain cut by many sandy river channels. Strong geological evidence suggests the occurrence of periodic debris flows through these channels at the beginning of the wet season, burying the carcasses of organisms killed during the preceding dry season and providing for their exceptional preservation as fossils. Sea levels in the area were rising throughout the Maastrichtian, and would continue to do so into the Paleocene Epoch, so Rapetosaurus may have roamed coastal environments like tidal flats as w','["dinosaur skeleton", "fossil", "Madagascar landscape"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:08.964346+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(591,'Q1377999','Palaeoloxodon antiquus','Straight-tusked elephant','Straight-tusked elephant',1,27,14403,4.15848311269924764e+00,1.0,'The straight-tusked elephant (Palaeoloxodon antiquus) is an extinct species of elephant that inhabited Europe and Western Asia during the Middle and Late Pleistocene. One of the largest known elephant species, mature fully grown bulls on average had a shoulder height of 4 metres (13 ft) and a weight of 13 tonnes (29,000 lb), placing them among the largest land mammals ever. Straight-tusked elephants likely lived very similarly to modern elephants, with herds of adult females and juveniles and solitary adult males. The species was primarily associated with temperate and Mediterranean woodland and forest habitats, flourishing during interglacial periods, when its range would extend across Europe as far north as Great Britain and Denmark and eastwards into Russia, while persisting in southern Europe during glacial periods, when northern Europe was occupied by steppe mammoths and later wooll
+
+== Description ==
+
+=== Anatomy ===
+The body, including the pelvis, of P. antiquus was broad relative to extant elephants. The forelimbs, particularly the humerus, and the scapula are proportionally longer than those of living elephants, resulting in a high position of the shoulder. The head represents the highest point of the animal, with the back being somewhat sloped though irregular in shape. The spines of the back vertebrae are noticeably elongate. The tail was relatively long. Although not preserved, the body was probably only sparsely covered in hair, similar to extant elephants, and probably had relatively large ears.
+The skull is proportionally both very wide and tall. Like many other members of the genus Palaeoloxodon, P. antiquus possesses a well-developed growth of bone at the top of the cranium above the nasal opening called the parieto-occipital crest, originating from the occipital bone of the skull roof whi
+
+== Distribution and habitat ==
+Palaeoloxodon antiquus is known from abundant finds across Europe, reaching its widest distribution on the continent during warm interglacial periods. Fossils are also known from Israel, western Iran and probably Turkey in West Asia. Some remains of the species have also been reported from Central Asia in northeastern Kazakhstan and Tajikistan, as well as rare records from adjacent areas of southwest Siberia. Outside of Eastern Europe, the northernmost records of the species are known from Great Britain, Denmark and Poland, around the 55th parallel north. Some of the northernmost reported fossils of the species are from the banks of the Kolva river in the Russian Urals at around the 60th parallel north. During glacial periods P. antiquus permanently resided in the Mediterranean region. Many of the West Asian remains have been assigned to the species primarily on the basis of geography, a
+
+== Behaviour and paleoecology ==
+As with modern elephants, female and juvenile straight-tusked elephants are thought to have lived in matriarchal (female-led) herds of related individuals, with males leaving these groups to live solitarily upon reaching adolescence around 14–15 years of age. Adult males likely sometimes engaged in combat with each other during musth similar to living elephants. Some straight-tusked elephant specimens appear to document injuries obtained in fights with conspecifics; particularly notable specimens include a large male specimen from Neumark Nord that has a deep puncture hole wound in its forehead with surrounding bone growth indicating that it had healed, as well as another large male from the same locality with a healed puncture hole wound in its scapula.
+Like modern elephants, the herds would have been restricted to areas with available fresh water due to the greater hydration needs and','["African elephant", "African elephant herd", "museum skeleton"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:09.349404+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(592,'Q139169','Zapornia palmeri','Laysan rail','Laysan rail',1,27,2167,3.33605927786634914e+00,1.0,'The Laysan rail or Laysan crake (Zapornia palmeri) is an extinct species of flightless rail endemic to the Northwest Hawaiian Island of Laysan. In Hawaiian, the common name for this species is moho, which it shares with the extinct Hawaiian Rail. This small island was and still is an important seabird colony, and sustained a number of endemic species, including the rail. It went extinct due to habitat loss caused by domestic rabbits and predation by rats, both of which were introduced to Midway during the Second World War.
+
+== Description ==
+It was a small bird (15-centimetre (5.9 in) from beaktip to "tail" tip, fully stretched out), a flightless member of the rail family. Tail and wings had been reduced in the course of its evolution to lengths of merely 2.5 centimetres (0.98 in) and 5.4 centimetres (2.1 in), respectively, and it only had 8 primaries as opposed to 10 in volant rails. The bill, measuring 1.8 centimetres (0.71 in), was strong and straight, and the legs were also well-developed; in its overall proportions it was similar to the small rails of the genus Laterallus, such as the black rail.
+Its coloration was essentially a lighter, more subdued version of that of the Baillon''s crake, a closely related species from which it possibly had evolved. The face, throat, breast and supercilium were dull medium gray, and the back, wings and top of the head were pale brown with strongly contrasting feather shafts except on t
+
+== Distribution and habitat ==
+It was endemic to Laysan (although an introduced population was present on Midway Atoll for some decades early in the 20th century); some authors have noted that there were tales of flightless rails on other Hawaiian islands, but they refer to local forms extinct before Western contact. A supposed early record from Lisianski Island might more likely refer to migrant rails, or alternatively to a distinct species that evolved in parallel to the Laysan rail; however, given the barrenness of Lisianski and the lack of material evidence, this is quite unlikely.
+
+== Behavior and ecology ==
+The Laysan rail was an opportunist that fed mainly on invertebrates such as moths, Neoscatella sexnotata (brine flies), blowflies, and their larvae; plant leaves, seeds, and eggs and carcasses of seabirds were eaten when they were available. It was an aggressive bird that would fight off other species, particularly the Laysan finch: the latter is very adept at breaking open seabird''s eggs to consume the contents, while the rail was much less so. Consequently, rails would linger around in the seabird colony, be on the lookout for finches which had just cracked open an egg, chase these away, and consume the egg''s contents. On Midway, the rails were seen to steal food from domestic chicken. There exists no permanent source of freshwater on Laysan, and while the rails must have been able to cover their needs from the body fluids of prey and the content of eggs, they would eagerly drink from
+
+=== Reproduction ===
+On Laysan, courtship and the start of nest-building was in April, with eggs being laid from May to June and the height of the nesting season taking place in June and July; there is a report of recently hatched young birds from Midway in March, but this seems to be unusually early. On Laysan, nests were built in tussocks of endemic Cyperus pennatiformis subsp. bryanii, kāwelu (Eragrostis variabilis) and introduced Bermuda grass (Cynodon dactylon) around the lagoon, while on Midway, it nested in any shelter that seemed convenient, such as naupaka kahakai (Scaevola taccada ) thickets and pōhuehue (Ipomoea pes-caprae subsp. brasiliensis) stands. The nests were placed on the ground or inside the base of a tussock; in the latter case the birds would rearrange the dried dead leaves to form a roofed cavity reached through a small tunnel some 15 centimetres (5.9 in) long. Nests were lined with so','["rufous-collared rail", "rail bird"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:09.738799+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(593,'Q27075742','Carpodacus ferreorostris','Bonin grosbeak','Bonin grosbeak',1,27,778,2.89153745767256431e+00,1.0,'The Bonin grosbeak or Bonin Islands grosbeak (Carpodacus ferreorostris) is an extinct finch. It is one of the diverse bird taxa that are vernacularly called "grosbeaks", but it is not closely related to the grosbeaks sensu stricto. Many authorities place the species in the genus Carpodacus, but some place it in its own genus, Chaunoproctus. A 2013 genetic analysis found it to be a relatively basal member of the group, more derived than the common rosefinch, but with no close relatives, with an estimated divergence time from other members of the group around 12.5 million years ago.
+
+== Behaviour ==
+It was a retiring although not shy bird, and was usually found singly or in pairs. It fed on fruits and buds which were primarily picked up from the ground or low shrubs; it rarely was observed to perch in trees, being apparently rather phlegmatic and somewhat reluctant to fly. Only one kind of vocalization has been described: a soft, pure and high note, sometimes short, sometimes drawn out; sometimes given singly, sometimes in a short series.
+
+== Habitat ==
+It was found only on Chichi-jima in the Ogasawara Islands. While reports that it was also found on islands of the Haha-jima group (母島列島, known as "Baily Islands" to early Western explorers) are almost certainly erroneous, it might have occurred on Anijima and Otōtojima of the Chichi-jima group (父島列島, formerly "Beechey Islands"). Chichi-jima proper is the only place, however, where the bird was observed. Several specimens were taken; some 10 remain at present. Contemporary illustrations show considerable differences, especially in males. Whether these are due to seasonal variation or whether several subspecies or even species existed could only be determined by a thorough review of the available material.','["rosefinch", "bird skeleton"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:10.097240+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(594,'Q550316','Melamprosops phaeosoma','poʻo-uli','Poʻouli',1,27,3839,3.58433122436753093e+00,1.0,'The poʻo-uli (Melamprosops phaeosoma) or  Hawaiian black-faced honeycreeper is an extinct species of passerine bird that was endemic to the island of Maui in Hawaiʻi. It is considered to be a member of the Hawaiian honeycreepers, and is the only member of its genus Melamprosops. It had a black head, brown upper parts and pale gray underparts. This bird inhabited only the wetter, easternmost side of Maui, where it had rapidly decreased in numbers. With extinction threatening, efforts were made to capture birds to enable them to breed in captivity. These efforts were unsuccessful; in 2004, only two known birds remained, and since then, no further birds have been sighted. A 2018 study recommended declaring the species extinct, citing bird population decline patterns and the lack of any confirmed sightings since 2004, and in 2019, the species was declared extinct.
+
+== Description ==
+The poʻo-uli was brown above and grayish-white below, with a broad black mask extending behind the eye. Adults were silvery-gray above the mask, shading into brown at the crown, with a bold, pale patch just behind the mask. Juveniles were similar but buffier below with a smaller mask and without gray above. Most published images of the poʻouli are of the juvenile plumage.
+
+== Diet ==
+Its diet consisted mostly of snails, insects, and spiders and it nested in native ʻōhiʻa lehua (Metrosideros polymorpha) forests. Poʻouli relied more on an insectivorous diet because the snails'' diets required more foraging.','["Hawaiian \u02bbamakihi", "museum skeleton"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:10.481016+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(595,'Q958901','Gallirallus pacificus','Tahiti rail','Tahiti rail',1,27,616,2.79028516403324156e+00,1.0,'The Tahiti rail, Tahitian red-billed rail, or Pacific red-billed rail (Gallirallus pacificus) is an extinct species of rail that lived on Tahiti. It was first recorded during James Cook''s second voyage around the world (1772–1775), on which it was illustrated by Georg Forster and described by Johann Reinhold Forster. No specimens have been preserved. As well as the documentation by the Forsters, there have been claims that the bird also existed on the nearby island of Mehetia. The Tahiti rail appears to have been closely related to, and perhaps derived from, the buff-banded rail, and has also been historically confused with the Tongan subspecies of that bird.
+The Tahiti rail was 9 inches (23 centimetres) long, and its colouration was unusual for a rail. The underparts, throat, and eyebrow-like supercilium were white, and the upper parts were black with white dots and bands. The nape (or 
+
+== Description ==
+J. R. Forster stated the Tahiti rail was 9 inches (23 cm) long, which is small for a member of its genus. Its colouration was also striking and unusual for a rail and it was described as being an attractive bird. The upper parts were black with white dots and bands (also referred to as spots and bars), and the underparts, throat, and eyebrow-like supercilium were white. The nape (or hind neck) was ferruginous (rust-coloured), the breast was grey, and it had a black band across the lower throat. The bill and iris were red, and the legs were fleshy pink. The sexes were presumably similar, and the immature and juvenile were not described.
+
+Forster''s original description of the bird follows below, in a translation from Latin published by the English naturalist Walter Rothschild in 1907:
+
+Black with white spots or bars; abdomen, throat, and eyebrow white; hind neck ferruginous; breast grey; b
+
+== Behaviour and ecology ==
+The Tahiti rail was supposedly flightless, and nested on the ground. Its social behaviour is unknown. Bruner claimed to have gained information about the behaviour of the species from "the few people who still remember the bird". According to Bruner, the call of the bird was described as similar to that of other rails, though it differed in ending in a high-pitched whistle. It was said to have been seen in open areas, sometimes with other rails in marshes, and in coconut plantations. Its diet appears to have consisted mainly of insects found in grass, and it occasionally fed on copra (coconut meat). Its broken colour pattern was said to make it blend well with its surroundings, and it lacked "shyness".','["buff-banded rail", "rail skeleton"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:10.849606+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(596,'Q970384','Rattus nativitatis','Bulldog rat','Bulldog rat',1,27,2574,3.41077723337721,1.0,'The bulldog rat (Rattus nativitatis) is an extinct species of rat formerly endemic to Christmas Island in the Indian Ocean. It was one of two rats endemic to Christmas Island, alongside Maclear''s rat.
+
+
+== Description ==
+The head and body length was about 25 to 27 centimetres (9.8 to 10.6 in), considerably larger than black rats, and their backs were covered in a two-centimetre thick layer of fat. They have been estimated to weigh 250 to 300 grams (8.8 to 10.6 oz). They had short, thick tails estimated to be around 17.5 centimetres (6.9 in) long. Their hair was described as being thick, coarse and dark reddish-brown in colour, with a slightly lighter underside. Despite being traditionally thought to be a part of the genus Rattus, the bulldog rat is now thought to be nested within Bunomys, a genus otherwise endemic to Sulawesi and the surrounding islands.
+
+
+== Life history ==
+The rats lived on the higher hills and denser forests of the island. They lived in small colonies, in burrows among the roots of trees or under hollow logs of sago palms in primary forest. They were sluggish and never climbed. Bulldog rats have been suggested to have been half-dazed in daylight and were strictly nocturnal.
+
+
+== Extinction ==
+The last record dates from 1903. They are suggested to have succumbed to a disease brought by black rats that had been inadvertently introduced by sailors, as mass die-offs are noted around 1902–1903, after which they were never seen again. Other abundant species on the island, such as the Maclear''s rat, also went extinct. 
+
+
+== References ==
+
+
+== Further reading ==
+Flannery, Tim & Schouten, Peter (2001). A Gap in Nature: Discovering the World''s Extinct Animals. Atlantic Monthly Press, New York. ISBN 978-0-87113-797-5.
+Aussie Animals. Bulldog rat (Rattus nativitatis). Summary profile of the extinct Christmas Island bulldog rat, including habitat, lifestyle, and causes of extinction.','["museum skeleton of a Sulawesi rat", "fossil rodent skull"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:11.201231+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(597,'Q990174','Drepanis pacifica','Hawaiʻi mamo','Hawaii mamo',1,27,1307,3.11660774398824846e+00,1.0,'The Hawaiʻi mamo (Drepanis pacifica) is an extinct species of Hawaiian honeycreeper. It was endemic to Hawaiʻi Island. It became extinct due to habitat loss, mosquitoes, introduced predators such as the small Indian mongoose, and excessive plume hunting.
+
+
+== Description ==
+
+The bird''s natural habitat was limited to the Big Island (Hawaiʻi Island). This bird averaged 9 inches (22.86 cm) in length. It was mostly black with bright yellow feathers on its rump, undertail coverts, shoulders, and legs. There was a white patch on the primaries. It had small, black eyes and was the centerpiece of portraits. It had a slightly decurved blackish bill, some three inches long. Juveniles may have been brown. 
+This shy species lived in the forest canopy and fed particularly on nectar of lobelioids from the tree-plant''s curved, tubular flowers. The mamo was said to favor feed on the hāhā plant, encompassing Cyanea and Clermontia spp. of lobelioids, but these are also commonly called ʻōhā and other authorities refer to the mamo''s feeding plant as ʻōhā, synonymous with ʻōhāhā.  There is anecdotal evidence they may have been partly insectivorous. According to Henry C. Palmer, the bird was also fond of the berries of the hāhā, and ironically the berry juice could be made into birdlime.
+Its call was a long, plaintive whistle.
+
+
+== In Hawaiian culture ==
+The mamo was one of the most honored birds in pre-European Hawaiian society. Its yellow feathers were used to create capes and hats (featherwork) for royalty. Feather collecting contributed to the bird''s decline. The famous yellow cloak of Kamehameha I is estimated to have taken the reigns of eight monarchs and the golden feathers of 80,000 birds to complete.
+The natives caught the bird by noose or by birdlime, and would lure it by imitating its call. The call is said to be "a single rather long and plaintive note" so this may have been a song rather than a call. The Hawaiian recipe for their sticky birdlime consisted of sap from breadfruit (Hawaiian: ʻulu) and lobelioids (ʻōhā).
+The native feather-hunters (poe kawili) had developed (at the behest of King Kamehameha) the practice of sparing and releasing any birdlime-caught birds with only a few (yellow) feathers to be harvested, namely the ʻōʻō and the mamo.  However by the 19th century, the kapu against killing mamo and ʻōʻō was not being strictly observed and these birds were being eaten by natives, as ornithologist Henry W. Henshaw suspected, and native historian David Malo has confirmed. Henshaw attributes the acceleration towards extinction to adoption of shotgun-hunting over traditional birdliming.
+
+
+== Settler impact and extinction ==
+ 
+Due to their bright colors, the birds were also popular with European collectors.
+European settlers changed the mamo''s habitat to support agriculture and cattle ranching, which damaged the bird''s food source. Cattle roamed loose in the forests, destroying the understory ecosystem. Small Indian mongooses were introduced to control rats, but they also preyed on native birds. Even though this was discovered early and was well known to the Hawaiians, the mamo quickly disappeared.
+Introduced disease may have killed any birds that survived habitat destruction. There are many specimens of this bird in American and European museums. The bird had not been particularly scarce until the 1880s. The last live specimen was obtained by Henry C. Palmer in 1892. This bird has been reported as tame and unafraid when captured; Palmer''s specimen fed on "sugar and water eagerly", and would stay perched on a twig in the tent. The last confirmed sighting dates to July 1898 near Kaumana on the Island of Hawaiʻi, as reported by a collector, Henry W. Henshaw, Henshaw in correspondence to Rothschild revealed that when he spotted and he stalked a family of them, he actually shot and wounded one of them, though it escaped.
+
+
+== Explanatory notes ==
+
+
+== References ==
+Citations
+
+Bibliography
+
+
+== External links ==
+Naturalis.nl: 3D view of Drepanis pacifica specimen (RMNH 110.030) — (requires QuickTime browser plugin).','["Hawaiian honeycreeper", "forest canopy"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:11.568388+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(598,'Q1128681','Erythromachus leguati','Rodrigues rail','Rodrigues rail',1,26,762,2.88252453795488028e+00,1.0,'The Rodrigues rail (Erythromachus leguati), also known as Leguat''s gelinote or Leguat''s rail, is an extinct species of the rail family that was endemic to the Mascarene island of Rodrigues. The bird was first documented from life by two accounts from 1691–93 and 1725–26. Subfossil remains were later discovered and correlated with the old accounts in 1874, and the species was named E. leguati in Leguat''s honour. It is generally kept in its own genus, Erythromachus, but has sometimes been assigned to the genus Aphanapteryx along with its close relative the red rail (A. bonasia) of Mauritius; their relationship with other rails is unclear.
+The Rodrigues rail was about 35 cm (14 in) long and weighed at least 500 g (18 oz). It was described as having grey plumage, a red beak, red legs, and a naked red patch around the eye. The beak was long and curved downwards. It was flightless and fed on t
+
+== Description ==
+The Rodrigues rail was about 35 cm (14 in) long, smaller than the red rail, but with proportionally longer wings. It may have weighed at least 500 g (18 oz). Subfossil remains exhibit a large variation in size, which may reflect sexual dimorphism. It had bright grey plumage, perhaps flecked with white. Its beak and legs were red, and it had a red, naked area (or wattle) around its eyes. The cranium of the Rodrigues rail was slightly elongated, convex in every direction, and compressed from top to bottom in side-view. The cranium was medium-sized among Mascarene rails, 38 mm (1.5 in) long and 20 mm (0.79 in) wide. It had a narrow, long frontal region, 6.5 mm (0.26 in) at its least width.
+The beak was long and curved downwards as in the red rail, but the narial openings were longer. The premaxilla that comprised most of the upper bill was long, shallow in side-view, with a narrow nasal bon
+
+== Behaviour and ecology ==
+According to Tafforet''s account, the Rodrigues rail fed on the eggs of the now extinct Cylindraspis tortoises, three species of which lived on Rodrigues. As it took advantage of their breeding season, Hume considered it an opportunistic predator, which perhaps also fed on hatchling tortoises. A former tortoise breeding area in the Plaine Corail shows that such sites were concentrated into a small area containing large numbers of eggs; the phalanx bone of a Rodrigues rail has been found among the egg remains. The rails would have fattened themselves seasonally, but at other times of the year, they probably fed on snails and other invertebrates, as well as scavenging sea bird colonies. The Rodrigues rail probably fed on worms, such as Kontikia whartoni and the now extinct Geonemertes rodericana, by probing leaf-litter or rotting wood. Sexual dimorphism may have reflected differences in die','["common moorhen", "bird skeleton"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:11.918188+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(599,'Q131399','Atlascopcosaurus','Atlascopcosaurus ("Atlas Copco lizard")','Atlascopcosaurus',1,26,1522,3.1826999033360428e+00,1.0,'Atlascopcosaurus () is a genus of herbivorous basal iguanodont dinosaur from the Early Cretaceous Eumeralla Formation of Australia.
+
+
+== Discovery and naming ==
+The type specimen, NMV P166409, was found in 1984 at the Dinosaur Cove East site on the coast of Victoria, in layers of the Eumeralla Formation dating from the early Cretaceous, Aptian-Albian. The holotype consists of a piece of the upper jaw, a partial maxilla with teeth, and referred specimens include teeth, another maxilla, and dentaries. Although the rest of the skeleton is unknown it can be inferred from closely related species that the genus represents a small bipedal herbivore. 
+The type species, Atlascopcosaurus loadsi, was named and described by Tom Rich and Patricia Vickers-Rich in 1989. The generic name refers to the Atlas Copco Company which had provided equipment for the dig that discovered this dinosaur in 1984. The project revealed 85 fossil bone fragments of various species. This opened the door for more excavation and, along with other companies, Atlas Copco helped over ten years excavate about sixty metres of tunnel in a cliff wall at the sea shore. The specific name, loadsi, honours William Loads, the state manager for Atlas Copco at the time, who assisted during the dig.
+
+
+== Description ==
+
+By extrapolation it has been estimated that Atlascopcosaurus loadsi was about two to three metres (6.5–10 ft) long and weighed approximately 125 kg.
+
+
+== Classification ==
+Despite being assigned to Hypsilophodontidae by its describers, the original classification of Atlascoposaurus was considered untenable given that Hypsilophodontidae has been recovered as paraphyletic in subsequent cladistic studies and Atlascopcosaurus was tabulated as a basal member of Ornithopoda in the second edition of the Dinosauria. Because the teeth are not species-specific and the maxilla fragment is little informative, Agnolin et al. (2010) treated it as a nomen dubium, even though they noted similarities with the elasmarians Anabisetia and Gasparinisaura from Patagonia. However, Boyd (2015) considered the genus valid and recovered it at the base of Iguanodontia in a clade with Anabisetia, Gasparinisaura, and Qantassaurus.
+
+
+== References ==','["museum skeleton of iguanodont dinosaur", "fossil iguanodont", "herbivorous dinosaur skeleton"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:12.320475+00:00','wikidata_extinct');
 INSERT INTO "species" VALUES(6,'Q33609','Ursus maritimus','Polar bear','Polar bear',0,159,214091,5.3306004392665649e+00,1.0,'The polar bear (Ursus maritimus) is a large bear native to the Arctic and nearby areas. It is closely related to the brown bear, and the two species can interbreed. The polar bear is the largest extant species of bear and land carnivore by body mass, with adult males weighing 300–800 kg (660–1,760 lb). The species is sexually dimorphic, as adult females are much smaller. The polar bear is white or yellowish-furred with black skin and a thick layer of fat. It is more slender than the brown bear, with a narrower skull, longer neck and lower shoulder hump. Its teeth are sharper and more adapted to cutting meat. The paws are large and allow the bear to walk on ice and paddle in the water.
 Polar bears are both terrestrial and pagophilic (ice-living) and are considered marine mammals because of their dependence on marine ecosystems. They prefer the annual sea ice but live on land when the ice 
 
@@ -9099,6 +10194,15 @@ The passenger pigeon drank at least once
 The passenger pigeon was nomadic, constantly migrating in search of food, shelter, or nesting grounds. In his 1831 Ornithological Biography, American naturalist and artist John James Audubon described a migration he observed in 1813 as follows:
 
 I dismounted, seated myself on an eminence, and began to mark with my pencil, making a dot for every flock that passed. In a short time finding the task which I had undertaken impracticable, as the birds poured in in countless multitudes, I rose and, counting the dots then put down, found that 163 had been made in twenty-one minutes. I traveled on, and still met more the farther I proceeded. The air was literally filled with Pigeons; the light of noon-day was obscured as by an eclipse; the dung fell in spots, not unlike melting flakes of snow, and the continued buzz of wings had a tendency to lull my senses to repose ... I cannot describe to you','["mourning dove", "rock pigeon", "bird flock"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-01T08:35:23.525294+00:00','wikidata_extinct');
+INSERT INTO "species" VALUES(600,'Q1877099','Dasycercus cristicauda','Crest-tailed mulgara','Crest-tailed mulgara',1,26,1638,3.21457895357049894e+00,1.0,'The crest-tailed mulgara (Dasycercus cristicauda) was a small Australian carnivorous marsupial. It was previously recognised as a senior synonym of the ampurta (D. hillieri), also commonly known as the crest-tailed mulgara, but is now believed to be a separate extinct taxon. The same investigation also described the southern mulgara (D. archeri), and the northern mulgara (D. wolleyae), which were split from D. cristicauda. As a result of the taxonomic changes to this taxon, it is believed that D. cristicauda is now only known from subfossil specimens and the single live caught holotype specimen.
+Kreft, 1867, first described the species as ''Chaetocercus cristicauda'' in 1877 based on a single specimen collected from southern Australia.
+
+
+== References ==
+
+
+== External links ==
+ Media related to Dasycercus cristicauda at Wikimedia Commons','["mulgara", "marsupial", "Australian desert"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-15T23:58:12.716335+00:00','wikidata_extinct');
 INSERT INTO "species" VALUES(61,'Q42196','Balaenoptera musculus','Blue whale','Blue whale',0,111,199941,5.30090403199861448e+00,1.0,'The blue whale (Balaenoptera musculus) is a species of baleen whale and the largest marine mammal in the rorqual family Balaenopteridae. Reaching a maximum confirmed length of 29.9–30.5 m (98–100 ft) and weighing up to 190–200 t (190–200 long tons; 210–220 short tons), it is the largest animal known to have ever existed. The blue whale''s long and slender body can be of various shades of greyish-blue on its upper surface and somewhat lighter underneath. Four subspecies are recognized: B. m. musculus in the North Atlantic and North Pacific, B. m. intermedia in the Southern Ocean, B. m. brevicauda (the pygmy blue whale) in the Indian Ocean and South Pacific Ocean, and B. m. indica in the Northern Indian Ocean. There is a population in the waters off Chile that may constitute a fifth subspecies.
 In general, blue whale populations migrate between their summer feeding areas near the poles and 
 
@@ -11552,22 +12656,222 @@ INSERT INTO "species_groups" VALUES(54,18);
 INSERT INTO "species_groups" VALUES(540,1);
 INSERT INTO "species_groups" VALUES(540,15);
 INSERT INTO "species_groups" VALUES(540,18);
+INSERT INTO "species_groups" VALUES(541,15);
+INSERT INTO "species_groups" VALUES(541,16);
+INSERT INTO "species_groups" VALUES(541,17);
+INSERT INTO "species_groups" VALUES(541,2);
+INSERT INTO "species_groups" VALUES(542,16);
+INSERT INTO "species_groups" VALUES(542,17);
+INSERT INTO "species_groups" VALUES(542,2);
+INSERT INTO "species_groups" VALUES(543,1);
+INSERT INTO "species_groups" VALUES(543,14);
+INSERT INTO "species_groups" VALUES(543,17);
+INSERT INTO "species_groups" VALUES(544,15);
+INSERT INTO "species_groups" VALUES(544,17);
+INSERT INTO "species_groups" VALUES(544,2);
+INSERT INTO "species_groups" VALUES(545,1);
+INSERT INTO "species_groups" VALUES(545,15);
+INSERT INTO "species_groups" VALUES(545,17);
+INSERT INTO "species_groups" VALUES(546,1);
+INSERT INTO "species_groups" VALUES(546,15);
+INSERT INTO "species_groups" VALUES(546,17);
+INSERT INTO "species_groups" VALUES(547,1);
+INSERT INTO "species_groups" VALUES(547,15);
+INSERT INTO "species_groups" VALUES(547,17);
+INSERT INTO "species_groups" VALUES(548,1);
+INSERT INTO "species_groups" VALUES(548,15);
+INSERT INTO "species_groups" VALUES(548,17);
+INSERT INTO "species_groups" VALUES(549,14);
+INSERT INTO "species_groups" VALUES(549,15);
+INSERT INTO "species_groups" VALUES(549,17);
+INSERT INTO "species_groups" VALUES(549,2);
 INSERT INTO "species_groups" VALUES(55,14);
 INSERT INTO "species_groups" VALUES(55,18);
 INSERT INTO "species_groups" VALUES(55,5);
+INSERT INTO "species_groups" VALUES(550,15);
+INSERT INTO "species_groups" VALUES(550,16);
+INSERT INTO "species_groups" VALUES(550,17);
+INSERT INTO "species_groups" VALUES(550,2);
+INSERT INTO "species_groups" VALUES(551,1);
+INSERT INTO "species_groups" VALUES(551,15);
+INSERT INTO "species_groups" VALUES(551,17);
+INSERT INTO "species_groups" VALUES(552,15);
+INSERT INTO "species_groups" VALUES(552,16);
+INSERT INTO "species_groups" VALUES(552,17);
+INSERT INTO "species_groups" VALUES(552,2);
+INSERT INTO "species_groups" VALUES(553,14);
+INSERT INTO "species_groups" VALUES(553,15);
+INSERT INTO "species_groups" VALUES(553,17);
+INSERT INTO "species_groups" VALUES(553,3);
+INSERT INTO "species_groups" VALUES(554,15);
+INSERT INTO "species_groups" VALUES(554,16);
+INSERT INTO "species_groups" VALUES(554,17);
+INSERT INTO "species_groups" VALUES(554,2);
+INSERT INTO "species_groups" VALUES(555,1);
+INSERT INTO "species_groups" VALUES(555,15);
+INSERT INTO "species_groups" VALUES(555,17);
+INSERT INTO "species_groups" VALUES(556,15);
+INSERT INTO "species_groups" VALUES(556,16);
+INSERT INTO "species_groups" VALUES(556,17);
+INSERT INTO "species_groups" VALUES(556,2);
+INSERT INTO "species_groups" VALUES(557,15);
+INSERT INTO "species_groups" VALUES(557,16);
+INSERT INTO "species_groups" VALUES(557,17);
+INSERT INTO "species_groups" VALUES(557,2);
+INSERT INTO "species_groups" VALUES(558,14);
+INSERT INTO "species_groups" VALUES(558,17);
+INSERT INTO "species_groups" VALUES(558,5);
+INSERT INTO "species_groups" VALUES(559,14);
+INSERT INTO "species_groups" VALUES(559,17);
+INSERT INTO "species_groups" VALUES(559,2);
 INSERT INTO "species_groups" VALUES(56,1);
 INSERT INTO "species_groups" VALUES(56,15);
 INSERT INTO "species_groups" VALUES(56,18);
+INSERT INTO "species_groups" VALUES(560,1);
+INSERT INTO "species_groups" VALUES(560,15);
+INSERT INTO "species_groups" VALUES(560,17);
+INSERT INTO "species_groups" VALUES(561,16);
+INSERT INTO "species_groups" VALUES(561,17);
+INSERT INTO "species_groups" VALUES(561,2);
+INSERT INTO "species_groups" VALUES(562,14);
+INSERT INTO "species_groups" VALUES(562,16);
+INSERT INTO "species_groups" VALUES(562,17);
+INSERT INTO "species_groups" VALUES(562,2);
+INSERT INTO "species_groups" VALUES(563,15);
+INSERT INTO "species_groups" VALUES(563,16);
+INSERT INTO "species_groups" VALUES(563,17);
+INSERT INTO "species_groups" VALUES(563,2);
+INSERT INTO "species_groups" VALUES(564,15);
+INSERT INTO "species_groups" VALUES(564,16);
+INSERT INTO "species_groups" VALUES(564,17);
+INSERT INTO "species_groups" VALUES(564,2);
+INSERT INTO "species_groups" VALUES(565,15);
+INSERT INTO "species_groups" VALUES(565,16);
+INSERT INTO "species_groups" VALUES(565,17);
+INSERT INTO "species_groups" VALUES(565,2);
+INSERT INTO "species_groups" VALUES(566,15);
+INSERT INTO "species_groups" VALUES(566,16);
+INSERT INTO "species_groups" VALUES(566,17);
+INSERT INTO "species_groups" VALUES(566,2);
+INSERT INTO "species_groups" VALUES(567,15);
+INSERT INTO "species_groups" VALUES(567,16);
+INSERT INTO "species_groups" VALUES(567,17);
+INSERT INTO "species_groups" VALUES(567,2);
+INSERT INTO "species_groups" VALUES(568,1);
+INSERT INTO "species_groups" VALUES(568,15);
+INSERT INTO "species_groups" VALUES(568,17);
+INSERT INTO "species_groups" VALUES(569,15);
+INSERT INTO "species_groups" VALUES(569,17);
+INSERT INTO "species_groups" VALUES(569,2);
 INSERT INTO "species_groups" VALUES(57,1);
 INSERT INTO "species_groups" VALUES(57,15);
 INSERT INTO "species_groups" VALUES(57,18);
+INSERT INTO "species_groups" VALUES(570,15);
+INSERT INTO "species_groups" VALUES(570,16);
+INSERT INTO "species_groups" VALUES(570,17);
+INSERT INTO "species_groups" VALUES(570,2);
+INSERT INTO "species_groups" VALUES(571,14);
+INSERT INTO "species_groups" VALUES(571,17);
+INSERT INTO "species_groups" VALUES(571,5);
+INSERT INTO "species_groups" VALUES(572,1);
+INSERT INTO "species_groups" VALUES(572,15);
+INSERT INTO "species_groups" VALUES(572,17);
+INSERT INTO "species_groups" VALUES(573,1);
+INSERT INTO "species_groups" VALUES(573,15);
+INSERT INTO "species_groups" VALUES(573,17);
+INSERT INTO "species_groups" VALUES(574,14);
+INSERT INTO "species_groups" VALUES(574,15);
+INSERT INTO "species_groups" VALUES(574,17);
+INSERT INTO "species_groups" VALUES(574,2);
+INSERT INTO "species_groups" VALUES(575,1);
+INSERT INTO "species_groups" VALUES(575,15);
+INSERT INTO "species_groups" VALUES(575,17);
+INSERT INTO "species_groups" VALUES(576,15);
+INSERT INTO "species_groups" VALUES(576,17);
+INSERT INTO "species_groups" VALUES(576,2);
+INSERT INTO "species_groups" VALUES(577,16);
+INSERT INTO "species_groups" VALUES(577,17);
+INSERT INTO "species_groups" VALUES(577,2);
+INSERT INTO "species_groups" VALUES(578,1);
+INSERT INTO "species_groups" VALUES(578,15);
+INSERT INTO "species_groups" VALUES(578,17);
+INSERT INTO "species_groups" VALUES(579,15);
+INSERT INTO "species_groups" VALUES(579,17);
+INSERT INTO "species_groups" VALUES(579,2);
 INSERT INTO "species_groups" VALUES(58,14);
 INSERT INTO "species_groups" VALUES(58,15);
 INSERT INTO "species_groups" VALUES(58,18);
 INSERT INTO "species_groups" VALUES(58,2);
+INSERT INTO "species_groups" VALUES(580,15);
+INSERT INTO "species_groups" VALUES(580,16);
+INSERT INTO "species_groups" VALUES(580,17);
+INSERT INTO "species_groups" VALUES(580,2);
+INSERT INTO "species_groups" VALUES(581,15);
+INSERT INTO "species_groups" VALUES(581,16);
+INSERT INTO "species_groups" VALUES(581,17);
+INSERT INTO "species_groups" VALUES(581,2);
+INSERT INTO "species_groups" VALUES(582,15);
+INSERT INTO "species_groups" VALUES(582,17);
+INSERT INTO "species_groups" VALUES(582,3);
+INSERT INTO "species_groups" VALUES(583,1);
+INSERT INTO "species_groups" VALUES(583,15);
+INSERT INTO "species_groups" VALUES(583,17);
+INSERT INTO "species_groups" VALUES(584,16);
+INSERT INTO "species_groups" VALUES(584,17);
+INSERT INTO "species_groups" VALUES(584,2);
+INSERT INTO "species_groups" VALUES(585,14);
+INSERT INTO "species_groups" VALUES(585,16);
+INSERT INTO "species_groups" VALUES(585,17);
+INSERT INTO "species_groups" VALUES(585,2);
+INSERT INTO "species_groups" VALUES(586,14);
+INSERT INTO "species_groups" VALUES(586,17);
+INSERT INTO "species_groups" VALUES(586,2);
+INSERT INTO "species_groups" VALUES(587,14);
+INSERT INTO "species_groups" VALUES(587,16);
+INSERT INTO "species_groups" VALUES(587,17);
+INSERT INTO "species_groups" VALUES(587,2);
+INSERT INTO "species_groups" VALUES(588,14);
+INSERT INTO "species_groups" VALUES(588,15);
+INSERT INTO "species_groups" VALUES(588,17);
+INSERT INTO "species_groups" VALUES(588,2);
+INSERT INTO "species_groups" VALUES(589,1);
+INSERT INTO "species_groups" VALUES(589,15);
+INSERT INTO "species_groups" VALUES(589,18);
 INSERT INTO "species_groups" VALUES(59,1);
 INSERT INTO "species_groups" VALUES(59,15);
 INSERT INTO "species_groups" VALUES(59,18);
+INSERT INTO "species_groups" VALUES(590,12);
+INSERT INTO "species_groups" VALUES(590,15);
+INSERT INTO "species_groups" VALUES(590,18);
+INSERT INTO "species_groups" VALUES(591,1);
+INSERT INTO "species_groups" VALUES(591,15);
+INSERT INTO "species_groups" VALUES(591,18);
+INSERT INTO "species_groups" VALUES(592,15);
+INSERT INTO "species_groups" VALUES(592,18);
+INSERT INTO "species_groups" VALUES(592,2);
+INSERT INTO "species_groups" VALUES(593,15);
+INSERT INTO "species_groups" VALUES(593,18);
+INSERT INTO "species_groups" VALUES(593,2);
+INSERT INTO "species_groups" VALUES(594,15);
+INSERT INTO "species_groups" VALUES(594,16);
+INSERT INTO "species_groups" VALUES(594,18);
+INSERT INTO "species_groups" VALUES(594,2);
+INSERT INTO "species_groups" VALUES(595,15);
+INSERT INTO "species_groups" VALUES(595,18);
+INSERT INTO "species_groups" VALUES(595,2);
+INSERT INTO "species_groups" VALUES(596,1);
+INSERT INTO "species_groups" VALUES(596,15);
+INSERT INTO "species_groups" VALUES(596,18);
+INSERT INTO "species_groups" VALUES(597,15);
+INSERT INTO "species_groups" VALUES(597,16);
+INSERT INTO "species_groups" VALUES(597,18);
+INSERT INTO "species_groups" VALUES(597,2);
+INSERT INTO "species_groups" VALUES(598,15);
+INSERT INTO "species_groups" VALUES(598,18);
+INSERT INTO "species_groups" VALUES(598,2);
+INSERT INTO "species_groups" VALUES(599,12);
+INSERT INTO "species_groups" VALUES(599,15);
+INSERT INTO "species_groups" VALUES(599,18);
 INSERT INTO "species_groups" VALUES(6,1);
 INSERT INTO "species_groups" VALUES(6,14);
 INSERT INTO "species_groups" VALUES(6,15);
@@ -11576,6 +12880,9 @@ INSERT INTO "species_groups" VALUES(60,15);
 INSERT INTO "species_groups" VALUES(60,16);
 INSERT INTO "species_groups" VALUES(60,18);
 INSERT INTO "species_groups" VALUES(60,2);
+INSERT INTO "species_groups" VALUES(600,1);
+INSERT INTO "species_groups" VALUES(600,15);
+INSERT INTO "species_groups" VALUES(600,18);
 INSERT INTO "species_groups" VALUES(61,1);
 INSERT INTO "species_groups" VALUES(61,14);
 INSERT INTO "species_groups" VALUES(61,17);
@@ -11884,5 +13191,5 @@ INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Sl
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
 INSERT INTO "sqlite_sequence" VALUES('facts',15);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
-INSERT INTO "sqlite_sequence" VALUES('species',540);
+INSERT INTO "sqlite_sequence" VALUES('species',600);
 INSERT INTO "sqlite_sequence" VALUES('topics',146);
