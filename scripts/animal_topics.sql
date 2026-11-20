@@ -4362,7 +4362,7 @@ On 20 December 2013, the Cypriot newspapers Fileleftheros and Politis, as well a
 This species is omnivorous, taking seeds, insects, rodents and reptiles.
 
 === Breeding ===
-Like other bustards, the male little bustard has a flamboyant display with foot stamping and leaping in the air. Females lay 3 to 5 eggs on the ground.','["little bustard", "bustard", "pheasant"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-11T00:39:11.190976+00:00','wikidata_living');
+Like other bustards, the male little bustard has a flamboyant display with foot stamping and leaping in the air. Females lay 3 to 5 eggs on the ground.','["little bustard", "bustard", "pheasant"]',NULL,'done',1,'active',NULL,1,'2026-11-20T07:42:39.117612+00:00','2026-11-11T00:39:11.190976+00:00','wikidata_living');
 INSERT INTO "species" VALUES(317,'Q25777','Turdus pilaris','Fieldfare','Fieldfare',0,79,7884,3.89680169766492179e+00,1.0,'The fieldfare (Turdus pilaris) is a member of the thrush family Turdidae. It breeds in woodland and scrub in northern Europe and across the Palearctic. It is strongly migratory, with many northern birds moving south during the winter. It is a very rare breeder in the British Isles, but winters in large numbers in the United Kingdom, Southern Europe, North Africa and the Middle East. It is omnivorous, eating a wide range of molluscs, insects and earthworms in the summer, and berries, grain and seeds in the winter.
 Fieldfares often nest in small colonies, possibly for protection from predators. The nest is built in a tree where five or six eggs are laid. The chicks are fed by both parents and leave the nest after a fortnight (a period of two weeks). There may be two broods in southern parts of the range but only one further north. Migrating birds and wintering birds often form large flocks
 
@@ -18116,6 +18116,7 @@ INSERT INTO "facts" VALUES(17,468,'The fire salamander’s bright yellow and bla
 INSERT INTO "facts" VALUES(18,619,'Mantis religiosa displays a deimatic wing‑spreading display that reveals two black eyespots to startle predators.','deimatic wing eyespots','2026-11-18T07:54:20.905150+00:00');
 INSERT INTO "facts" VALUES(19,547,'The species can distinguish animal species, sex, and familiar versus unfamiliar individuals by the odor of perineal gland secretions.','odor-based individual recognition','2026-11-19T07:52:23.948617+00:00');
 INSERT INTO "facts" VALUES(2,266,'When foraging near Bewick''s and whooper swans, common pochards can double their food intake rate by collecting items disturbed by the swans'' trampling.','swans increase feeding','2026-11-10T14:29:26.445225+00:00');
+INSERT INTO "facts" VALUES(20,316,'During courtship, male little bustards perform flamboyant displays that include foot stamping and leaping into the air.','courtship display leaping','2026-11-20T07:42:39.117612+00:00');
 INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "facts" VALUES(4,173,'During heavy rains from March to June, golden toads bred explosively, with males clasping any nearby individual before identifying its sex.','explosive rain breeding','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "facts" VALUES(5,104,'A male nightingale’s song can include an average of 190 distinct song types, with a maximum of about 250.','average song types count','2026-11-11T18:02:02.418491+00:00');
@@ -18181,6 +18182,7 @@ INSERT INTO "topics" VALUES(148,468,17,'Why the Fire Salamander Uses Bright Colo
 INSERT INTO "topics" VALUES(149,619,18,'Why the European Mantis Shows Scary Black Eyespots','why the european mantis shows scary black eyespots','reserved',0,0,'44262436471','2026-11-18T07:54:20.905150+00:00','2026-11-18T07:54:20.905150+00:00');
 INSERT INTO "topics" VALUES(15,NULL,NULL,'Why a group of flamingos is called a flamboyance','why a group of flamingos is called a flamboyance','published',0,1,NULL,'2026-09-22T04:00:16.620295+00:00','2026-09-22T04:00:16.620295+00:00');
 INSERT INTO "topics" VALUES(150,547,19,'The Asian Palm Civet''s Amazing Smell-Based Identity System','the asian palm civet s amazing smell based identity system','reserved',0,0,'44482880649','2026-11-19T07:52:23.948617+00:00','2026-11-19T07:52:23.948617+00:00');
+INSERT INTO "topics" VALUES(151,316,20,'The Little Bustard''s Flamboyant Courtship Leaps','the little bustard s flamboyant courtship leaps','reserved',0,0,'44696873262','2026-11-20T07:42:39.117612+00:00','2026-11-20T07:42:39.117612+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
 INSERT INTO "topics" VALUES(17,NULL,NULL,'The bird that flies nonstop for 11 days straight','the bird that flies nonstop for 11 days straight','published',0,1,NULL,'2026-09-22T11:10:24.052387+00:00','2026-09-22T11:10:24.052387+00:00');
 INSERT INTO "topics" VALUES(18,NULL,NULL,'The fish that survives crushing deep-sea pressure','the fish that survives crushing deep sea pressure','published',0,1,NULL,'2026-09-22T16:34:45.830416+00:00','2026-09-22T16:34:45.830416+00:00');
@@ -18273,7 +18275,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',19);
+INSERT INTO "sqlite_sequence" VALUES('facts',20);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',840);
-INSERT INTO "sqlite_sequence" VALUES('topics',150);
+INSERT INTO "sqlite_sequence" VALUES('topics',151);
