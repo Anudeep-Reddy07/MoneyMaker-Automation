@@ -6947,7 +6947,7 @@ On the coast of Northwest Florida and Alabama, this mullet, called the striped o
 
 
 == External links ==
-Photos of Flathead grey mullet in the Sealife Collection','["flathead grey mullet", "mullet", "coastal fish"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-13T01:03:05.021264+00:00','wikidata_living');
+Photos of Flathead grey mullet in the Sealife Collection','["flathead grey mullet", "mullet", "coastal fish"]',NULL,'done',1,'active',NULL,1,'2026-11-21T07:39:46.370800+00:00','2026-11-13T01:03:05.021264+00:00','wikidata_living');
 INSERT INTO "species" VALUES(446,'Q25587867','Botaurus minutus','Little bittern','Little bittern',0,73,3125,3.49498897368316807e+00,1.0,'The little bittern (Botaurus minutus) is a wading bird in the heron family, Ardeidae.  This species was formerly placed in the genus Ixobrychus.
 
 == Description ==
@@ -19344,6 +19344,7 @@ INSERT INTO "facts" VALUES(18,619,'Mantis religiosa displays a deimatic wing‑s
 INSERT INTO "facts" VALUES(19,547,'The species can distinguish animal species, sex, and familiar versus unfamiliar individuals by the odor of perineal gland secretions.','odor-based individual recognition','2026-11-19T07:52:23.948617+00:00');
 INSERT INTO "facts" VALUES(2,266,'When foraging near Bewick''s and whooper swans, common pochards can double their food intake rate by collecting items disturbed by the swans'' trampling.','swans increase feeding','2026-11-10T14:29:26.445225+00:00');
 INSERT INTO "facts" VALUES(20,316,'During courtship, male little bustards perform flamboyant displays that include foot stamping and leaping into the air.','courtship display leaping','2026-11-20T07:42:39.117612+00:00');
+INSERT INTO "facts" VALUES(21,445,'The species is euryhaline, meaning it can acclimate to a wide range of salinity levels.','euryhaline salinity tolerance','2026-11-21T07:39:46.370800+00:00');
 INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "facts" VALUES(4,173,'During heavy rains from March to June, golden toads bred explosively, with males clasping any nearby individual before identifying its sex.','explosive rain breeding','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "facts" VALUES(5,104,'A male nightingale’s song can include an average of 190 distinct song types, with a maximum of about 250.','average song types count','2026-11-11T18:02:02.418491+00:00');
@@ -19410,6 +19411,7 @@ INSERT INTO "topics" VALUES(149,619,18,'Why the European Mantis Shows Scary Blac
 INSERT INTO "topics" VALUES(15,NULL,NULL,'Why a group of flamingos is called a flamboyance','why a group of flamingos is called a flamboyance','published',0,1,NULL,'2026-09-22T04:00:16.620295+00:00','2026-09-22T04:00:16.620295+00:00');
 INSERT INTO "topics" VALUES(150,547,19,'The Asian Palm Civet''s Amazing Smell-Based Identity System','the asian palm civet s amazing smell based identity system','reserved',0,0,'44482880649','2026-11-19T07:52:23.948617+00:00','2026-11-19T07:52:23.948617+00:00');
 INSERT INTO "topics" VALUES(151,316,20,'The Little Bustard''s Flamboyant Courtship Leaps','the little bustard s flamboyant courtship leaps','reserved',0,0,'44696873262','2026-11-20T07:42:39.117612+00:00','2026-11-20T07:42:39.117612+00:00');
+INSERT INTO "topics" VALUES(152,445,21,'How the Flathead Grey Mullet Thrives in Any Salinity','how the flathead grey mullet thrives in any salinity','reserved',0,0,'44881233510','2026-11-21T07:39:46.370800+00:00','2026-11-21T07:39:46.370800+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
 INSERT INTO "topics" VALUES(17,NULL,NULL,'The bird that flies nonstop for 11 days straight','the bird that flies nonstop for 11 days straight','published',0,1,NULL,'2026-09-22T11:10:24.052387+00:00','2026-09-22T11:10:24.052387+00:00');
 INSERT INTO "topics" VALUES(18,NULL,NULL,'The fish that survives crushing deep-sea pressure','the fish that survives crushing deep sea pressure','published',0,1,NULL,'2026-09-22T16:34:45.830416+00:00','2026-09-22T16:34:45.830416+00:00');
@@ -19502,7 +19504,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',20);
+INSERT INTO "sqlite_sequence" VALUES('facts',21);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',900);
-INSERT INTO "sqlite_sequence" VALUES('topics',151);
+INSERT INTO "sqlite_sequence" VALUES('topics',152);
