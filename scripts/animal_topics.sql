@@ -13467,7 +13467,7 @@ Kinkajous range from east and south of the Sierra Madre in Mexico, throughout Ce
 
 === Feeding ===
 Although the kinkajou is classified in the order Carnivora and has sharp teeth, its omnivorous diet consists mainly of fruit, particularly figs. Some 90% of their diet consists of (primarily ripe) fruit. To eat softer fruits, they hold it with their forepaws, then scoop out the succulent pulp with their tongue. They may play an important role in seed dispersal. Leaves, flowers, nectar, and various herbs make up much of the other 10% of their diet. They sometimes eat insects, particularly ants. They may occasionally eat bird eggs and small vertebrates. Their frugivorous habits are convergent with those of diurnal spider monkeys, with the two species filling similar ecological roles where they overlap, but at different times of the day.
-The kinkajou''s slender 5-inch (13 cm) extrudable tongue helps the animal to obtain fruit and to lick nectar from flowers, so it may act as a pollinator. (N','["kinkajou", "honey bear", "tree-dwelling raccoon"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-19T01:52:16.047947+00:00','wikidata_living');
+The kinkajou''s slender 5-inch (13 cm) extrudable tongue helps the animal to obtain fruit and to lick nectar from flowers, so it may act as a pollinator. (N','["kinkajou", "honey bear", "tree-dwelling raccoon"]',NULL,'done',1,'active',NULL,1,'2026-11-22T18:00:46.776603+00:00','2026-11-19T01:52:16.047947+00:00','wikidata_living');
 INSERT INTO "species" VALUES(764,'Q254636','Pavo muticus','Green peafowl','Green peafowl',0,60,13373,4.12626131886388147e+00,1.0,'The green peafowl (Pavo muticus)  is a peafowl species native to the tropical forests of Southeast Asia and Southern China. It is the national bird of Myanmar. Formerly common throughout Southeast Asia, only a few isolated populations survive in Cambodia and adjacent areas of Vietnam. It has been listed as endangered on the IUCN Red List since 2009. This is primarily due to widespread deforestation, agriculture and loss of suitable habitat, severely fragmenting populations and contributing to an overall decline in numbers. The green peafowl is in demand for private and home aviculture and threatened by the pet trade, feather collectors and hunters for meat and targeted.
 
 == Description ==
@@ -20527,6 +20527,7 @@ INSERT INTO "facts" VALUES(20,316,'During courtship, male little bustards perfor
 INSERT INTO "facts" VALUES(21,445,'The species is euryhaline, meaning it can acclimate to a wide range of salinity levels.','euryhaline salinity tolerance','2026-11-21T07:39:46.370800+00:00');
 INSERT INTO "facts" VALUES(22,601,'Alpine swifts can stay aloft for more than 200 days without landing.','200 day nonstop flight','2026-11-21T17:46:01.922985+00:00');
 INSERT INTO "facts" VALUES(23,701,'Hawksbills feed on sea sponges, which make up 70–95% of their diet.','sponges dominate diet','2026-11-22T07:26:00.840319+00:00');
+INSERT INTO "facts" VALUES(24,763,'A kinkajou’s 5‑inch extrudable tongue lets it scoop pulp and lick nectar, acting as a pollinator.','long extrudable tongue','2026-11-22T18:00:46.776603+00:00');
 INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "facts" VALUES(4,173,'During heavy rains from March to June, golden toads bred explosively, with males clasping any nearby individual before identifying its sex.','explosive rain breeding','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "facts" VALUES(5,104,'A male nightingale’s song can include an average of 190 distinct song types, with a maximum of about 250.','average song types count','2026-11-11T18:02:02.418491+00:00');
@@ -20596,6 +20597,7 @@ INSERT INTO "topics" VALUES(151,316,20,'The Little Bustard''s Flamboyant Courtsh
 INSERT INTO "topics" VALUES(152,445,21,'How the Flathead Grey Mullet Thrives in Any Salinity','how the flathead grey mullet thrives in any salinity','reserved',0,0,'44881233510','2026-11-21T07:39:46.370800+00:00','2026-11-21T07:39:46.370800+00:00');
 INSERT INTO "topics" VALUES(153,601,22,'How the Alpine Swift Stays Airborne for Over 200 Days','how the alpine swift stays airborne for over 200 days','reserved',0,0,'44931782726','2026-11-21T17:46:01.922985+00:00','2026-11-21T17:46:01.922985+00:00');
 INSERT INTO "topics" VALUES(154,701,23,'How the Hawksbill Sea Turtle Lives on Sponges','how the hawksbill sea turtle lives on sponges','reserved',0,0,'44998031745','2026-11-22T07:26:00.840319+00:00','2026-11-22T07:26:00.840319+00:00');
+INSERT INTO "topics" VALUES(155,763,24,'The Kinkajou''s 5-Inch Tongue Turns It Into a Nighttime Pollinator','the kinkajou s 5 inch tongue turns it into a nighttime pollinator','reserved',0,0,'45052556783','2026-11-22T18:00:46.776603+00:00','2026-11-22T18:00:46.776603+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
 INSERT INTO "topics" VALUES(17,NULL,NULL,'The bird that flies nonstop for 11 days straight','the bird that flies nonstop for 11 days straight','published',0,1,NULL,'2026-09-22T11:10:24.052387+00:00','2026-09-22T11:10:24.052387+00:00');
 INSERT INTO "topics" VALUES(18,NULL,NULL,'The fish that survives crushing deep-sea pressure','the fish that survives crushing deep sea pressure','published',0,1,NULL,'2026-09-22T16:34:45.830416+00:00','2026-09-22T16:34:45.830416+00:00');
@@ -20688,7 +20690,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',23);
+INSERT INTO "sqlite_sequence" VALUES('facts',24);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',960);
-INSERT INTO "sqlite_sequence" VALUES('topics',154);
+INSERT INTO "sqlite_sequence" VALUES('topics',155);
