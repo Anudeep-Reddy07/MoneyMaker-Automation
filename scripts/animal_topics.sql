@@ -12215,7 +12215,7 @@ Aside from sponges, hawksbills feed on algae, marine plants (seagrasses), woody 
 
 === Breeding ===
 Hawksbills mate biannually in secluded lagoons off their nesting beaches in remote islands throughout their range. The most significant nesting beaches are in Mexico, the Seychelles, Indonesia, Sri Lanka, and Australia. The mating season for Atlantic hawksbills usually spans April to November. Indian Ocean populations, such as the Seychelles hawksbill population, mate from September to February. After mating, females drag their heavy bodies high onto the beach during the night. They clear an area of debris and dig a nesting hole using their rear flippers, then lay clutches of eggs and cover them with sand. Caribbean and Florida nests of E. imbricata typically contain around 140 eggs, which hatch after about 60 days. After the hours-long process, the female returns to the sea. Their nests can be found throughout beaches in about 60 countries.
-Hatchlings, usually weighing less than 24 g (0','["hawksbill sea turtle", "sea turtle", "coral reef"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-18T02:25:04.532205+00:00','wikidata_living');
+Hatchlings, usually weighing less than 24 g (0','["hawksbill sea turtle", "sea turtle", "coral reef"]',NULL,'done',1,'active',NULL,1,'2026-11-22T07:26:00.840319+00:00','2026-11-18T02:25:04.532205+00:00','wikidata_living');
 INSERT INTO "species" VALUES(702,'Q204322','Felis bieti','Chinese mountain cat','Chinese mountain cat',0,62,22988,4.36152008027634874e+00,1.0,'The Chinese mountain cat (Felis bieti), also known as Chinese desert cat and Chinese steppe cat, is a small wild Felis species with sand-coloured fur, faint dark stripes on the face and legs and black tipped ears. It is endemic to the Tibetan Plateau of western China, where it lives in grassland above elevations of 2,500 m (8,200 ft). It has been listed as vulnerable on the IUCN Red List since 2002.
 
 == Distribution and habitat ==
@@ -20526,6 +20526,7 @@ INSERT INTO "facts" VALUES(2,266,'When foraging near Bewick''s and whooper swans
 INSERT INTO "facts" VALUES(20,316,'During courtship, male little bustards perform flamboyant displays that include foot stamping and leaping into the air.','courtship display leaping','2026-11-20T07:42:39.117612+00:00');
 INSERT INTO "facts" VALUES(21,445,'The species is euryhaline, meaning it can acclimate to a wide range of salinity levels.','euryhaline salinity tolerance','2026-11-21T07:39:46.370800+00:00');
 INSERT INTO "facts" VALUES(22,601,'Alpine swifts can stay aloft for more than 200 days without landing.','200 day nonstop flight','2026-11-21T17:46:01.922985+00:00');
+INSERT INTO "facts" VALUES(23,701,'Hawksbills feed on sea sponges, which make up 70–95% of their diet.','sponges dominate diet','2026-11-22T07:26:00.840319+00:00');
 INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "facts" VALUES(4,173,'During heavy rains from March to June, golden toads bred explosively, with males clasping any nearby individual before identifying its sex.','explosive rain breeding','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "facts" VALUES(5,104,'A male nightingale’s song can include an average of 190 distinct song types, with a maximum of about 250.','average song types count','2026-11-11T18:02:02.418491+00:00');
@@ -20594,6 +20595,7 @@ INSERT INTO "topics" VALUES(150,547,19,'The Asian Palm Civet''s Amazing Smell-Ba
 INSERT INTO "topics" VALUES(151,316,20,'The Little Bustard''s Flamboyant Courtship Leaps','the little bustard s flamboyant courtship leaps','reserved',0,0,'44696873262','2026-11-20T07:42:39.117612+00:00','2026-11-20T07:42:39.117612+00:00');
 INSERT INTO "topics" VALUES(152,445,21,'How the Flathead Grey Mullet Thrives in Any Salinity','how the flathead grey mullet thrives in any salinity','reserved',0,0,'44881233510','2026-11-21T07:39:46.370800+00:00','2026-11-21T07:39:46.370800+00:00');
 INSERT INTO "topics" VALUES(153,601,22,'How the Alpine Swift Stays Airborne for Over 200 Days','how the alpine swift stays airborne for over 200 days','reserved',0,0,'44931782726','2026-11-21T17:46:01.922985+00:00','2026-11-21T17:46:01.922985+00:00');
+INSERT INTO "topics" VALUES(154,701,23,'How the Hawksbill Sea Turtle Lives on Sponges','how the hawksbill sea turtle lives on sponges','reserved',0,0,'44998031745','2026-11-22T07:26:00.840319+00:00','2026-11-22T07:26:00.840319+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
 INSERT INTO "topics" VALUES(17,NULL,NULL,'The bird that flies nonstop for 11 days straight','the bird that flies nonstop for 11 days straight','published',0,1,NULL,'2026-09-22T11:10:24.052387+00:00','2026-09-22T11:10:24.052387+00:00');
 INSERT INTO "topics" VALUES(18,NULL,NULL,'The fish that survives crushing deep-sea pressure','the fish that survives crushing deep sea pressure','published',0,1,NULL,'2026-09-22T16:34:45.830416+00:00','2026-09-22T16:34:45.830416+00:00');
@@ -20686,7 +20688,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',22);
+INSERT INTO "sqlite_sequence" VALUES('facts',23);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',960);
-INSERT INTO "sqlite_sequence" VALUES('topics',153);
+INSERT INTO "sqlite_sequence" VALUES('topics',154);
