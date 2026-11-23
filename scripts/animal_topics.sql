@@ -6150,7 +6150,7 @@ These birds nest on the ground, with 3–6 eggs being the normal clutch size. Th
 "Hazel grouse media". Internet Bird Collection.
 Hazel grouse photo gallery at VIREO (Drexel University)
 Interactive range map of Bonasa bonasia at IUCN Red List
-Audio recordings of Hazel grouse on Xeno-canto.','["hazel grouse", "grouse", "forest"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-12T01:53:56.879613+00:00','wikidata_living');
+Audio recordings of Hazel grouse on Xeno-canto.','["hazel grouse", "grouse", "forest"]',NULL,'done',1,'active',NULL,1,'2026-11-23T08:09:15.031803+00:00','2026-11-12T01:53:56.879613+00:00','wikidata_living');
 INSERT INTO "species" VALUES(388,'Q182971','Hieraaetus pennatus','Booted eagle','Booted eagle',0,75,6550,3.81630759943193975e+00,1.0,'The booted eagle (Hieraaetus pennatus) is a medium-sized mostly migratory bird of prey with a wide distribution in the Palearctic and southern Asia, wintering in the tropics of Africa and Asia, with a small, disjunct breeding population in south-western Africa. Like all eagles, it belongs to the family Accipitridae.
 
 == Description ==
@@ -21761,6 +21761,7 @@ INSERT INTO "facts" VALUES(21,445,'The species is euryhaline, meaning it can acc
 INSERT INTO "facts" VALUES(22,601,'Alpine swifts can stay aloft for more than 200 days without landing.','200 day nonstop flight','2026-11-21T17:46:01.922985+00:00');
 INSERT INTO "facts" VALUES(23,701,'Hawksbills feed on sea sponges, which make up 70–95% of their diet.','sponges dominate diet','2026-11-22T07:26:00.840319+00:00');
 INSERT INTO "facts" VALUES(24,763,'A kinkajou’s 5‑inch extrudable tongue lets it scoop pulp and lick nectar, acting as a pollinator.','long extrudable tongue','2026-11-22T18:00:46.776603+00:00');
+INSERT INTO "facts" VALUES(25,387,'The male hazel grouse produces a high‑pitched ti‑ti‑ti‑ti‑ti call that can be heard echoing through dense woodlands.','male high pitched call','2026-11-23T08:09:15.031803+00:00');
 INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "facts" VALUES(4,173,'During heavy rains from March to June, golden toads bred explosively, with males clasping any nearby individual before identifying its sex.','explosive rain breeding','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "facts" VALUES(5,104,'A male nightingale’s song can include an average of 190 distinct song types, with a maximum of about 250.','average song types count','2026-11-11T18:02:02.418491+00:00');
@@ -21831,6 +21832,7 @@ INSERT INTO "topics" VALUES(152,445,21,'How the Flathead Grey Mullet Thrives in 
 INSERT INTO "topics" VALUES(153,601,22,'How the Alpine Swift Stays Airborne for Over 200 Days','how the alpine swift stays airborne for over 200 days','reserved',0,0,'44931782726','2026-11-21T17:46:01.922985+00:00','2026-11-21T17:46:01.922985+00:00');
 INSERT INTO "topics" VALUES(154,701,23,'How the Hawksbill Sea Turtle Lives on Sponges','how the hawksbill sea turtle lives on sponges','reserved',0,0,'44998031745','2026-11-22T07:26:00.840319+00:00','2026-11-22T07:26:00.840319+00:00');
 INSERT INTO "topics" VALUES(155,763,24,'The Kinkajou''s 5-Inch Tongue Turns It Into a Nighttime Pollinator','the kinkajou s 5 inch tongue turns it into a nighttime pollinator','reserved',0,0,'45052556783','2026-11-22T18:00:46.776603+00:00','2026-11-22T18:00:46.776603+00:00');
+INSERT INTO "topics" VALUES(156,387,25,'Why the Hazel Grouse''s Call Pierces Silent Forests','why the hazel grouse s call pierces silent forests','reserved',0,0,'45136170856','2026-11-23T08:09:15.031803+00:00','2026-11-23T08:09:15.031803+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
 INSERT INTO "topics" VALUES(17,NULL,NULL,'The bird that flies nonstop for 11 days straight','the bird that flies nonstop for 11 days straight','published',0,1,NULL,'2026-09-22T11:10:24.052387+00:00','2026-09-22T11:10:24.052387+00:00');
 INSERT INTO "topics" VALUES(18,NULL,NULL,'The fish that survives crushing deep-sea pressure','the fish that survives crushing deep sea pressure','published',0,1,NULL,'2026-09-22T16:34:45.830416+00:00','2026-09-22T16:34:45.830416+00:00');
@@ -21923,7 +21925,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',24);
+INSERT INTO "sqlite_sequence" VALUES('facts',25);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',1020);
-INSERT INTO "sqlite_sequence" VALUES('topics',155);
+INSERT INTO "sqlite_sequence" VALUES('topics',156);
