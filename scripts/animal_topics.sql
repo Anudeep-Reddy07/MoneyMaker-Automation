@@ -18471,7 +18471,7 @@ The main nest predators of wood warblers breeding in the primeval habitat of Bia
 == Description ==
 The wood warbler is 11–12.5 cm long, and a typical leaf warbler in appearance, green above and white below with a lemon-yellow breast. It can be distinguished from similar species, like the chiffchaff P. collybita and the willow warbler, P. trochilus by its yellow supercilium, throat and upper breast, pale tertial edges, longer primary projection, and by its shorter but broader tail.
 It is a summer visitor to the United Kingdom, seen from April until August. It has declined there in recent years. It  is  rare in Ireland, where there is a very small  but apparently stable breeding population in County Wicklow.
-Various factors associated with forest structure, including slope, forest cover, proportion of broad-leaf forest, canopy height and forest edge length, all influence the occupancy rates of this declining forest species. Conservation measures are therefore required that provide and m','["wood warbler", "leaf warbler", "European warbler"]',NULL,'done',1,'active',NULL,0,NULL,'2026-11-21T01:29:02.142873+00:00','wikidata_living');
+Various factors associated with forest structure, including slope, forest cover, proportion of broad-leaf forest, canopy height and forest edge length, all influence the occupancy rates of this declining forest species. Conservation measures are therefore required that provide and m','["wood warbler", "leaf warbler", "European warbler"]',NULL,'done',1,'active',NULL,1,'2026-11-26T08:58:03.503528+00:00','2026-11-21T01:29:02.142873+00:00','wikidata_living');
 INSERT INTO "species" VALUES(843,'Q271459','Mustela sibirica','Siberian weasel','Siberian weasel',0,58,8121,3.90966298515401788e+00,1.0,'The Siberian weasel or kolonok (Mustela sibirica) is a medium-sized weasel native to Asia, where it is widely distributed and inhabits various forest habitats and open areas. It is therefore listed as least concern on the IUCN Red List.
 
 == Description ==
@@ -25416,6 +25416,7 @@ INSERT INTO "facts" VALUES(24,763,'A kinkajou’s 5‑inch extrudable tongue let
 INSERT INTO "facts" VALUES(25,387,'The male hazel grouse produces a high‑pitched ti‑ti‑ti‑ti‑ti call that can be heard echoing through dense woodlands.','male high pitched call','2026-11-23T08:09:15.031803+00:00');
 INSERT INTO "facts" VALUES(26,1066,'When common minnows detect alarm substances, they move toward the center of the group and form tighter shoals.','alarm induced tighter shoals','2026-11-24T10:23:47.467191+00:00');
 INSERT INTO "facts" VALUES(27,1058,'After mating, male sand lizards guard the female for hours or even several days.','male guards female post‑mating','2026-11-25T09:05:45.658960+00:00');
+INSERT INTO "facts" VALUES(28,842,'Medium‑sized carnivorous mammals are the main predators of wood warbler nests, hunting mainly at night using sound or smell.','mammal nest predators','2026-11-26T08:58:03.503528+00:00');
 INSERT INTO "facts" VALUES(3,181,'In the 1970s, Asian black bears were reported to kill and eat Hanuman langurs in Nepal.','predate langurs','2026-11-10T18:12:24.851127+00:00');
 INSERT INTO "facts" VALUES(4,173,'During heavy rains from March to June, golden toads bred explosively, with males clasping any nearby individual before identifying its sex.','explosive rain breeding','2026-11-11T07:02:51.754409+00:00');
 INSERT INTO "facts" VALUES(5,104,'A male nightingale’s song can include an average of 190 distinct song types, with a maximum of about 250.','average song types count','2026-11-11T18:02:02.418491+00:00');
@@ -25489,6 +25490,7 @@ INSERT INTO "topics" VALUES(155,763,24,'The Kinkajou''s 5-Inch Tongue Turns It I
 INSERT INTO "topics" VALUES(156,387,25,'Why the Hazel Grouse''s Call Pierces Silent Forests','why the hazel grouse s call pierces silent forests','reserved',0,0,'45136170856','2026-11-23T08:09:15.031803+00:00','2026-11-23T08:09:15.031803+00:00');
 INSERT INTO "topics" VALUES(157,1066,26,'Why the Eurasian Minnow Tightens Its Shoal When Threatened','why the eurasian minnow tightens its shoal when threatened','reserved',0,0,'45374159423','2026-11-24T10:23:47.467191+00:00','2026-11-24T10:23:47.467191+00:00');
 INSERT INTO "topics" VALUES(158,1058,27,'How Sand Lizards Guard Their Mates After Mating','how sand lizards guard their mates after mating','reserved',0,0,'45581839598','2026-11-25T09:05:45.658960+00:00','2026-11-25T09:05:45.658960+00:00');
+INSERT INTO "topics" VALUES(159,842,28,'Why Mammals Are the Wood Warbler''s Biggest Nest Threat','why mammals are the wood warbler s biggest nest threat','reserved',0,0,'45786656080','2026-11-26T08:58:03.503528+00:00','2026-11-26T08:58:03.503528+00:00');
 INSERT INTO "topics" VALUES(16,NULL,NULL,'The fish that lives in boiling hot springs','the fish that lives in boiling hot springs','published',0,1,NULL,'2026-09-22T11:08:36.080738+00:00','2026-09-22T11:08:36.080738+00:00');
 INSERT INTO "topics" VALUES(17,NULL,NULL,'The bird that flies nonstop for 11 days straight','the bird that flies nonstop for 11 days straight','published',0,1,NULL,'2026-09-22T11:10:24.052387+00:00','2026-09-22T11:10:24.052387+00:00');
 INSERT INTO "topics" VALUES(18,NULL,NULL,'The fish that survives crushing deep-sea pressure','the fish that survives crushing deep sea pressure','published',0,1,NULL,'2026-09-22T16:34:45.830416+00:00','2026-09-22T16:34:45.830416+00:00');
@@ -25581,7 +25583,7 @@ INSERT INTO "topics" VALUES(96,NULL,NULL,'Glowing Dragonfish: How Its Light Lure
 INSERT INTO "topics" VALUES(97,NULL,NULL,'Mossy Frog''s Toxic Skin: Nature''s Deadliest Defense','mossy frog s toxic skin nature s deadliest defense','published',0,1,NULL,'2026-10-18T09:51:26.748306+00:00','2026-10-18T09:51:26.748306+00:00');
 INSERT INTO "topics" VALUES(98,NULL,NULL,'How Gharial''s Needle‑Sharp Snout Slices Fish Instantly','how gharial s needle sharp snout slices fish instantly','published',0,1,NULL,'2026-10-18T14:07:52.138398+00:00','2026-10-18T14:07:52.138398+00:00');
 INSERT INTO "topics" VALUES(99,NULL,NULL,'Cheetah''s Secret Sprint Boost: How It Hits 70 MPH','cheetah s secret sprint boost how it hits 70 mph','published',0,1,NULL,'2026-10-18T18:16:00.393218+00:00','2026-10-18T18:16:00.393218+00:00');
-INSERT INTO "sqlite_sequence" VALUES('facts',27);
+INSERT INTO "sqlite_sequence" VALUES('facts',28);
 INSERT INTO "sqlite_sequence" VALUES('groups',18);
 INSERT INTO "sqlite_sequence" VALUES('species',1200);
-INSERT INTO "sqlite_sequence" VALUES('topics',158);
+INSERT INTO "sqlite_sequence" VALUES('topics',159);
